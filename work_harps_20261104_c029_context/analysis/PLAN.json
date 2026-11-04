@@ -1,0 +1,1091 @@
+{
+  "c_km_s": 299792.458,
+  "frames": {
+    "barycentric": "Query barycentric wavelength cb+x. Native topocentric-air wavelength first multiplied by(1+BERVepoch/c) once.",
+    "topocentric": "First-queue April27 discovery fixes one common anchor3866.0505825991236air Angstrom. Query(anchor+x)*(1+BERVepoch/c), without fitted recentering. All three own discovery references remain; May products use their own epoch BERV.",
+    "native_polynomial": "Ascending coefficient polynomial at zero-based native pixel0..4095, inherited topocentric air convention; no wavelength unit/air-vacuum conversion."
+  },
+  "grid": {
+    "construction": "arange(-300,301)/100",
+    "samples": 601,
+    "step_angstrom": 0.01,
+    "window_angstrom": [
+      -3,
+      3
+    ],
+    "core": "51 fixed centers, abs(x)<=0.25. All three exact original cores are identical:[3865.875,3866.375]air Angstrom; no midpoint/member-core edge difference.",
+    "broad_pattern": "550 surrounding centers,0.25<abs(x)<=3; context[3863.125,3869.125]air Angstrom.",
+    "interpolation": "Linear without extrapolation; mask brackets >1.51 times the median full-source barycentric wavelength step. Save selected source points plus one bracket on each side and the exact full-source spacing."
+  },
+  "normalization": {
+    "rule": "Per profile and frame, pooled signed median of native samples with 1.5<=abs(frame offset)<=3, requiring at least 20 finite samples separately in each flank and a positive pooled median. No fitted background, continuum or line model.",
+    "missing": "Zero native left/right coverage is MISSING_LEFT/RIGHT_FLANK_COVERAGE; insufficient finite counts are separate. Invalid or nonpositive references keep raw-only arrays and block normalized RMS. No moved flanks, sign flip, shrink or extrapolation.",
+    "context": "Separate left/right native and finite counts, medians and nonpositive fractions; available median distinct from valid reference; signed-window nonpositive fraction and positive finite ERR coverage. Native BUNIT unspecified; merged ADU verified.",
+    "noise": "First-difference 1.4826 MAD / sqrt(2) of finite adjacent source samples with both endpoints in the same fixed flank and spacing <=1.51 times median step. Never bridge flanks or gaps. Descriptive low-reference flag median<=3*proxy only if reference valid; no formal SNR.",
+    "structured_neighbor": "Signed samples in fixed1.5\u20133Angstrom flanks remain unmasked and are not established line-free continua. C028 windows/flanks share source pixels; audit exact source-index intersections without opening old arrays. Next C030 member cores are inside current broad context, outside the current positive flank; do not transfer the previous reciprocal flank-intersection geometry."
+  },
+  "comparisons": {
+    "merged": "6epochs \u00d73own references \u00d72frames \u00d72regions=72rows, including12labelled identical-product self rows. Each reference keeps five other observations.",
+    "native": "6native product/order pairs \u00d72frames \u00d72regions=24same-exposure native-to-own-merged rows. These extraction comparisons are dependent.",
+    "statistics": "Unshifted raw Pearson requires at least ceil(.8*Nregion) common finite raw samples and nonzero exact range. Normalized RMS requires that support in common finite normalized samples. Raw-only profiles block normalized RMS but retain adequately covered raw Pearson. Counts and reasons remain explicit.",
+    "minimum_common_core": 41,
+    "minimum_common_broad": 440,
+    "self_and_dependency_flags": "Per frame/region,15directed nonself comparisons correspond to12distinct unordered observation pairs, including3reciprocal discovery pairs. Only six observations exist; references and repeated/reciprocal pairs are not independent confirmations."
+  },
+  "release_contract": {
+    "schema": "HARPS_C029_GROUP_RELEASE_V1",
+    "file": "ROOT_RELEASE.json",
+    "required_fields": [
+      "publication_commit",
+      "publication_readback_verified",
+      "plan_sha256",
+      "script_sha256",
+      "inventory_path",
+      "inventory_sha256"
+    ],
+    "policy": "Exact public method freeze and input hashes before new observed values; no network; one-shot output refuses overwrite; all source and release hashes rechecked after execution."
+  },
+  "schema": "HARPS_C029_JOINT_PROFILE_CONTEXT_V1",
+  "created_utc": "2026-11-04T19:18:19.968080+00:00",
+  "status": "METHOD_FROZEN_BEFORE_ARRAY_VALUES",
+  "target": "HD126093",
+  "scope": "Original C029/R030 group, rows63/68/74, all three records0261/0266/0272 with identical catalog centers and three own discovery references. Six existing April\u2013July2025 observations, six native product/order pairs and six original raw containers. Preserve0261 off-trace deposit/blend caution separately from broad centered structure.",
+  "events": {
+    "V2E2-0261": "ADP.2025-04-28T01:01:15.579",
+    "V2E2-0266": "ADP.2025-05-30T01:00:44.357",
+    "V2E2-0272": "ADP.2025-05-31T01:00:40.760"
+  },
+  "merged_dp_ids": [
+    "ADP.2025-04-28T01:01:15.579",
+    "ADP.2025-05-30T01:00:44.357",
+    "ADP.2025-05-31T01:00:40.760",
+    "ADP.2025-06-26T01:01:08.565",
+    "ADP.2025-06-28T01:01:54.505",
+    "ADP.2025-07-17T01:03:21.039"
+  ],
+  "discovery_dp_ids": [
+    "ADP.2025-04-28T01:01:15.579",
+    "ADP.2025-05-30T01:00:44.357",
+    "ADP.2025-05-31T01:00:40.760"
+  ],
+  "inventory_path": "work_harps_20261104_c029_context/inputs/INPUT_INVENTORY.json",
+  "group_center_bary_air_angstrom": 3866.125,
+  "accepted_event_centers_bary_air_angstrom": [
+    3866.125,
+    3866.125,
+    3866.125
+  ],
+  "anchor_dp_id": "ADP.2025-04-28T01:01:15.579",
+  "anchor_berv_km_s": 5.77068898867443,
+  "slots": {
+    "merged_profiles": 12,
+    "native_profiles": 12,
+    "all_profiles": 24,
+    "merged_comparisons": 72,
+    "native_comparisons": 24,
+    "all_comparisons": 96,
+    "identical_product_self_comparisons": 12,
+    "saved_raw_order_panels": 6,
+    "structurally_excluded_native_order_pairs": 0,
+    "expected_bounded_input_windows": 12,
+    "distinct_discovery_products": 3,
+    "discovery_records": 3
+  },
+  "historical_review_records": {
+    "adopted": [
+      {
+        "candidate_id": "V2E2-0261",
+        "review_id": "V2E2-0261",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "code": "U",
+        "evidence": "Broad trace-centered emission remains in order 3 and weakly in order 2. Order 2 additionally contains a bright compact off-trace deposit near column +7 at the candidate row; possible contamination/blending is explicit and does not dispose of the broader centered component.",
+        "all_covering_orders_mapping_verified": "True",
+        "primary_code": "U",
+        "secondary_code": "U",
+        "reviewers_agree": "True",
+        "primary_review_agrees": "True",
+        "second_review_agrees": "True",
+        "root_adoption_note": "Separate reviews agree; provisionally adopted after root evidence checks.",
+        "figure": "figures/REVIEW_05.png",
+        "figure_row": "3",
+        "topocentric_air_angstrom": "3866.0505825991236",
+        "nearest_OI_air_angstrom": "5577.338",
+        "nearest_OI_offset_angstrom": "-1711.2874174008762",
+        "final_physical_origin_confirmed": "False"
+      },
+      {
+        "candidate_id": "V2E2-0266",
+        "review_id": "V2E2-0266",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "code": "U",
+        "evidence": "Orders 2 and 3 show a broad centered feature with diffuse raw excess, weaker and noisier in order 2; no clear track accounts for the shared component.",
+        "all_covering_orders_mapping_verified": "True",
+        "primary_code": "U",
+        "secondary_code": "U",
+        "reviewers_agree": "True",
+        "primary_review_agrees": "True",
+        "second_review_agrees": "True",
+        "root_adoption_note": "Separate reviews agree; provisionally adopted after root evidence checks.",
+        "figure": "figures/REVIEW_06.png",
+        "figure_row": "4",
+        "topocentric_air_angstrom": "3866.232276473914",
+        "nearest_OI_air_angstrom": "5577.338",
+        "nearest_OI_offset_angstrom": "-1711.1057235260855",
+        "final_physical_origin_confirmed": "False"
+      },
+      {
+        "candidate_id": "V2E2-0272",
+        "review_id": "V2E2-0272",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "code": "U",
+        "evidence": "Orders 2 and 3 both show broad trace-centered morphology, with lower contrast and more noise in order 2; no clear isolated charge component explains the feature.",
+        "all_covering_orders_mapping_verified": "True",
+        "primary_code": "U",
+        "secondary_code": "U",
+        "reviewers_agree": "True",
+        "primary_review_agrees": "True",
+        "second_review_agrees": "True",
+        "root_adoption_note": "Separate reviews agree; provisionally adopted after root evidence checks.",
+        "figure": "figures/REVIEW_08.png",
+        "figure_row": "2",
+        "topocentric_air_angstrom": "3866.237955405663",
+        "nearest_OI_air_angstrom": "5577.338",
+        "nearest_OI_offset_angstrom": "-1711.1000445943369",
+        "final_physical_origin_confirmed": "False"
+      }
+    ],
+    "primary": [
+      {
+        "review_id": "V2E2-0261",
+        "candidate_id": "V2E2-0261",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "code": "U",
+        "evidence": "Broad trace-centered emission remains in order 3 and weakly in order 2. Order 2 additionally contains a bright compact off-trace deposit near column +7 at the candidate row; possible contamination/blending is explicit and does not dispose of the broader centered component.",
+        "provisional": true,
+        "all_covering_orders_mapping_verified": true,
+        "covering_orders": [
+          2,
+          3
+        ],
+        "orders_seen": [
+          2,
+          3
+        ],
+        "extracted_order_cutouts_inspected": 2,
+        "missing_full_cutout_orders": [],
+        "unsupported_orders": [],
+        "atlas_pages_inspected": [
+          5
+        ],
+        "figure": "figures/REVIEW_05.png",
+        "enlarged_figures": [
+          "primary_enlarged/CENTRAL_04.png"
+        ],
+        "topocentric_air_angstrom": 3866.0505825991236
+      },
+      {
+        "review_id": "V2E2-0266",
+        "candidate_id": "V2E2-0266",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "code": "U",
+        "evidence": "Orders 2 and 3 show a broad centered feature with diffuse raw excess, weaker and noisier in order 2; no clear track accounts for the shared component.",
+        "provisional": true,
+        "all_covering_orders_mapping_verified": true,
+        "covering_orders": [
+          2,
+          3
+        ],
+        "orders_seen": [
+          2,
+          3
+        ],
+        "extracted_order_cutouts_inspected": 2,
+        "missing_full_cutout_orders": [],
+        "unsupported_orders": [],
+        "atlas_pages_inspected": [
+          6
+        ],
+        "figure": "figures/REVIEW_06.png",
+        "enlarged_figures": [
+          "primary_enlarged/CENTRAL_06.png"
+        ],
+        "topocentric_air_angstrom": 3866.232276473914
+      },
+      {
+        "review_id": "V2E2-0272",
+        "candidate_id": "V2E2-0272",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "code": "U",
+        "evidence": "Orders 2 and 3 both show broad trace-centered morphology, with lower contrast and more noise in order 2; no clear isolated charge component explains the feature.",
+        "provisional": true,
+        "all_covering_orders_mapping_verified": true,
+        "covering_orders": [
+          2,
+          3
+        ],
+        "orders_seen": [
+          2,
+          3
+        ],
+        "extracted_order_cutouts_inspected": 2,
+        "missing_full_cutout_orders": [],
+        "unsupported_orders": [],
+        "atlas_pages_inspected": [
+          8
+        ],
+        "figure": "figures/REVIEW_08.png",
+        "enlarged_figures": [
+          "primary_enlarged/CENTRAL_08.png"
+        ],
+        "topocentric_air_angstrom": 3866.237955405663
+      }
+    ],
+    "secondary": [
+      {
+        "review_id": "V2E2-0261",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "code": "U",
+        "evidence": "Both native orders o2/o3 contain broad structure. o2 also has a bright compact off-trace charge-like deposit to the right, while o3 retains a clear broad trace-centered patch. The off-trace deposit does not explain away the broad two-order feature; possible contamination/blend remains explicit.",
+        "covering_orders": [
+          2,
+          3
+        ],
+        "all_covering_orders_mapping_verified": true,
+        "native_mapping_status": "NATIVE_CONTEXT_EXTRACTED",
+        "unsupported_orders": [],
+        "edge_truncated_orders": [],
+        "atlas_pages_inspected": [
+          5
+        ],
+        "atlas_figure": "figures/REVIEW_05.png",
+        "atlas_row": 3,
+        "extracted_orders_reviewed": [
+          2,
+          3
+        ],
+        "missing_full_cutout_orders": [],
+        "central_enlargements": [
+          {
+            "figure": "secondary_enlarged/CENTRAL_03.png",
+            "row": 6,
+            "order": 2
+          },
+          {
+            "figure": "secondary_enlarged/CENTRAL_04.png",
+            "row": 1,
+            "order": 3
+          }
+        ],
+        "contamination_or_blend_caution": true,
+        "additional_uncertainty": false
+      },
+      {
+        "review_id": "V2E2-0266",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "code": "U",
+        "evidence": "o2/o3 have broad rounded native peaks and centered raw patches spanning several dispersion rows; both orders support unresolved broad structure.",
+        "covering_orders": [
+          2,
+          3
+        ],
+        "all_covering_orders_mapping_verified": true,
+        "native_mapping_status": "NATIVE_CONTEXT_EXTRACTED",
+        "unsupported_orders": [],
+        "edge_truncated_orders": [],
+        "atlas_pages_inspected": [
+          6
+        ],
+        "atlas_figure": "figures/REVIEW_06.png",
+        "atlas_row": 4,
+        "extracted_orders_reviewed": [
+          2,
+          3
+        ],
+        "missing_full_cutout_orders": [],
+        "central_enlargements": [],
+        "contamination_or_blend_caution": false,
+        "additional_uncertainty": false
+      },
+      {
+        "review_id": "V2E2-0272",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "code": "U",
+        "evidence": "o2/o3 contain broad structure. o2 has noisier sharper substructure, but both raw panels show broad centered patches; isolated charge morphology is not established.",
+        "covering_orders": [
+          2,
+          3
+        ],
+        "all_covering_orders_mapping_verified": true,
+        "native_mapping_status": "NATIVE_CONTEXT_EXTRACTED",
+        "unsupported_orders": [],
+        "edge_truncated_orders": [],
+        "atlas_pages_inspected": [
+          8
+        ],
+        "atlas_figure": "figures/REVIEW_08.png",
+        "atlas_row": 2,
+        "extracted_orders_reviewed": [
+          2,
+          3
+        ],
+        "missing_full_cutout_orders": [],
+        "central_enlargements": [],
+        "contamination_or_blend_caution": false,
+        "additional_uncertainty": false
+      }
+    ],
+    "comparison": [
+      {
+        "review_id": "V2E2-0261",
+        "primary": "U",
+        "secondary": "U",
+        "adopted": "U",
+        "root_note": "Separate reviews agree; provisionally adopted after root evidence checks."
+      },
+      {
+        "review_id": "V2E2-0266",
+        "primary": "U",
+        "secondary": "U",
+        "adopted": "U",
+        "root_note": "Separate reviews agree; provisionally adopted after root evidence checks."
+      },
+      {
+        "review_id": "V2E2-0272",
+        "primary": "U",
+        "secondary": "U",
+        "adopted": "U",
+        "root_note": "Separate reviews agree; provisionally adopted after root evidence checks."
+      }
+    ]
+  },
+  "historical_review_disagreement": {
+    "all_three_original_primary_secondary_adopted_U": true,
+    "0261_contamination_or_blend_caution": true,
+    "other_two_contamination_cautions": false,
+    "qualification": "Original broad centered morphology and compact off-trace0261 deposit are separate. An off-trace deposit does not explain away the broader two-order feature; no new classification."
+  },
+  "historical_mapping_stages": [
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2,
+      "native_pixel": 3654,
+      "raw_row": 441,
+      "raw_column": 75.36840683429486,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3,
+      "native_pixel": 1258,
+      "raw_row": 2837,
+      "raw_column": 123.00354394164032,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2,
+      "native_pixel": 3674,
+      "raw_row": 421,
+      "raw_column": 74.99849909437047,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3,
+      "native_pixel": 1274,
+      "raw_row": 2821,
+      "raw_column": 123.12269797298313,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": false,
+      "original_baseline_mapping_verified": false,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2,
+      "native_pixel": 3674,
+      "raw_row": 421,
+      "raw_column": 74.9973810341257,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": true,
+      "original_baseline_mapping_verified": true,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3,
+      "native_pixel": 1275,
+      "raw_row": 2820,
+      "raw_column": 123.13045562270156,
+      "original_grid_mapping_usable": true,
+      "original_local_mapping_usable": true,
+      "original_baseline_mapping_verified": true,
+      "final_reference_mapping_supported": true,
+      "registration_changed": false
+    }
+  ],
+  "skipped_completed_routes": {
+    "completed_original_routes": [
+      "C001",
+      "C002",
+      "C003",
+      "C004",
+      "C005",
+      "C006",
+      "C007",
+      "C008",
+      "C009",
+      "C010",
+      "C011",
+      "C012",
+      "C013",
+      "C014",
+      "C015",
+      "C016",
+      "C017",
+      "C018",
+      "C019",
+      "C020",
+      "C021",
+      "C022",
+      "C023",
+      "C028"
+    ],
+    "exact_baseline_event_ids": [
+      "V2E2-0229",
+      "V2E2-0231",
+      "V2E2-0234",
+      "V2E2-0235",
+      "V2E2-0236",
+      "V2E2-0237",
+      "V2E2-0303",
+      "V2E2-0305",
+      "V2E2-0308",
+      "V2E2-0309"
+    ],
+    "proof_path": "work_harps_20261104_c020_context/scientific_review/COMPLETED_ROUTE_SKIP_PROOF.json",
+    "qualification": "All exact prior diagnoses remain closed with physical U unchanged."
+  },
+  "completed_normalization_context": {
+    "directory": "work_harps_20261101/v2/extension02/normalization_context_20261102",
+    "status": "COMPLETE_DESCRIPTIVE_NORMALIZATION_CONTEXT",
+    "event_ids": [
+      "V2E2-0092",
+      "V2E2-0104"
+    ],
+    "archived_profiles": 28,
+    "focused_windows": 8,
+    "native_raw_contexts": 12,
+    "no_replay": true,
+    "source_summary_sha256": "b212e22bf47760c1400734ac6482fb945419affdcc4e4c1c550e13462804f7ee",
+    "qualification": "The completed 0092/0104 normalization diagnostic used HD114386 observations, a different target from C018/C019. It completes those original normalization routes while leaving their U labels unresolved. It supplies no independent observing evidence for HD114783 and must not be replayed."
+  },
+  "included_native_order_pairs": [
+    {
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2
+    },
+    {
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2
+    },
+    {
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3
+    },
+    {
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2
+    },
+    {
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3
+    }
+  ],
+  "excluded_native_order_pairs": [],
+  "excluded_native_order_evidence": [],
+  "native_order_coverage": [
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3827.04713435864,
+        3869.9999606730926
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.0505825991236,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-04-27T06_05_34.318_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "de27cb69f8ae628489d688e2ecc30886b7c313c84f2b427e546cae3fad5e9030"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.26170911029,
+        3894.490142186809
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.0505825991236,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-04-27T06_05_34.318_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "de27cb69f8ae628489d688e2ecc30886b7c313c84f2b427e546cae3fad5e9030"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3827.04692918367,
+        3870.000087245678
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.232276473914,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-29T05_56_08.084_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "6062e1b209193104ac834d540b64a4b10fe25aade1df17e5f07a784bc47af699"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.26109023221,
+        3894.4910716260893
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.232276473914,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-29T05_56_08.084_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "6062e1b209193104ac834d540b64a4b10fe25aade1df17e5f07a784bc47af699"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3827.04760252781,
+        3869.9998973596375
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.237955405663,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-30T06_16_14.909_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "5e4120821058cff73df8c8b9384ed5a51444f1aa5316c9d9bd760e4edf546e91"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3,
+      "status": "COVERING_LINE",
+      "header_endpoint_topocentric_air_angstrom": [
+        3851.2616492988,
+        3894.490668839398
+      ],
+      "original_topocentric_feature_center_air_angstrom": 3866.237955405663,
+      "source_file": {
+        "path": "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-30T06_16_14.909_e2ds_A.fits",
+        "bytes": 1428480,
+        "sha256": "5e4120821058cff73df8c8b9384ed5a51444f1aa5316c9d9bd760e4edf546e91"
+      },
+      "selected_for_profile": true,
+      "saved_raw_panel_exists": true
+    }
+  ],
+  "native_fixed_frame_header_geometry": [
+    {
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3827.1208009842276,
+            3870.0744540953365
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.00419901577243,
+            3.9494540953364776
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3827.04713435864,
+            3869.9999606730926
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.00344824048352,
+            3.949378073969001
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    },
+    {
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3851.335841840932,
+            3894.5651070192466
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.789158159067938,
+            28.440107019246625
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3851.26170911029,
+            3894.490142186809
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.78887348883336,
+            28.43955958768538
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    },
+    {
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3826.9407399868733,
+            3869.8927062261946
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.18426001312673,
+            3.767706226194605
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3827.04692918367,
+            3870.000087245678
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.003653415453755,
+            3.9495046465544874
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    },
+    {
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3851.154229164292,
+            3894.383011054458
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.970770835708208,
+            28.258011054458166
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3851.26109023221,
+            3894.4910716260893
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.789492366913692,
+            28.44048902696568
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    },
+    {
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3826.93579210139,
+            3869.8868320456645
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.18920789861022,
+            3.761832045664505
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3827.04760252781,
+            3869.9998973596375
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -39.00298007131369,
+            3.949314760513971
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    },
+    {
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3,
+      "fixed_frame_header_geometry": {
+        "barycentric": {
+          "header_endpoint_air_angstrom": [
+            3851.1491314385626,
+            3894.376888006862
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.975868561437437,
+            28.25188800686192
+          ],
+          "context_air_angstrom": [
+            3863.125,
+            3869.125
+          ],
+          "core_air_angstrom": [
+            3865.875,
+            3866.375
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        },
+        "topocentric": {
+          "header_endpoint_air_angstrom": [
+            3851.2616492988,
+            3894.490668839398
+          ],
+          "offset_endpoints_from_frame_center_angstrom": [
+            -14.788933300323606,
+            28.440086240274468
+          ],
+          "context_air_angstrom": [
+            3863.0505825991236,
+            3869.0505825991236
+          ],
+          "core_air_angstrom": [
+            3865.8005825991236,
+            3866.3005825991236
+          ],
+          "full_context_geometrically_covered": true,
+          "full_core_geometrically_covered": true,
+          "negative_reference_flank_geometrically_covered": true,
+          "positive_reference_flank_geometrically_covered": true
+        }
+      }
+    }
+  ],
+  "preserved_event_raw_pairs": [
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2
+    },
+    {
+      "event": "V2E2-0261",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2
+    },
+    {
+      "event": "V2E2-0266",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2
+    },
+    {
+      "event": "V2E2-0272",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3
+    }
+  ],
+  "event_markers": [
+    {
+      "event": "V2E2-0261",
+      "resolution_group": "R030",
+      "center_bary_air_angstrom": 3866.125,
+      "barycentric_offset_angstrom": 0.0,
+      "discovery_topocentric_offset_angstrom": 0.0,
+      "color": "#b8292f"
+    },
+    {
+      "event": "V2E2-0266",
+      "resolution_group": "R030",
+      "center_bary_air_angstrom": 3866.125,
+      "barycentric_offset_angstrom": 0.0,
+      "discovery_topocentric_offset_angstrom": 0.18169387479065335,
+      "color": "#d99800"
+    },
+    {
+      "event": "V2E2-0272",
+      "resolution_group": "R030",
+      "center_bary_air_angstrom": 3866.125,
+      "barycentric_offset_angstrom": 0.0,
+      "discovery_topocentric_offset_angstrom": 0.1873728065393152,
+      "color": "#6c3c9c"
+    }
+  ],
+  "plot_script_sha256": "992577aa22249fcdcffdf1032b75e1791911ba5855f42ba13122e30e9baae7ab",
+  "plot_pagination": {
+    "native_pairs": 6,
+    "native_rows_per_page": 4,
+    "native_pages": 2,
+    "raw_pairs": 6,
+    "raw_rows_per_page": 4,
+    "raw_pages": 2,
+    "total_figures": 6
+  },
+  "plot_rules": "Six fixed PNGs: merged core/broad both frames, two native pages and two preserved-raw pages in fixed input order. All three original markers/references remain. Same-quantity merged y scales match across frames, all finite values plus5percent; native raw scales match per order across frames; raw pairs retain separate full scales. No fitted variant,smoothing,mask,contrast variant,crop,background or registration.",
+  "bounded_arrays": "12pre-interpolation source windows retain original indices,signed flux,ERR,both wavelength representations and full-source spacing. Save24profiles and6byte-exact original raw containers; no old pipeline replay.",
+  "headers": "Verify all six merged products and all three own native discovery products. Fresh all72headers per native product=216 scans; preserve six selected product/order pairs. Header geometry is distinct from finite flux,reference validity and common support.",
+  "limitations": [
+    "Three current U records, six reused observations and previously exposed epoch/raw evidence. All three identical catalog centers and own discovery references remain; no new observing time, blind validation, physical origin, qualified laser or calibrated survey null.",
+    "Exact common/original3866.125air-Angstrom center,\u00b10.25core and\u00b13context; one April common anchor but three retained references. No fitted center,width,lag,stellarRV,drift,continuum,background or mask.",
+    "216fresh native header scans select six own product/order pairs. Geometry does not establish finite flux,positive references or adequate common support. Preserve every partial,invalid,nonpositive,low,missing and blocked slot.",
+    "0261/0266 original local/baseline mapping fails in both orders;0272 original stages are supported. Global and later support is true for all. Preserve stage distinctions and0261 off-trace contamination caution without assigning origin.",
+    "Six observations span29.26984563734743km/s in BERV. Fixed topocentric windows can sample neighboring structure. Per frame/region15directed nonself rows are12unordered relationships with3reciprocal discovery pairs, not15observations or independent confirmations.",
+    "C028 shares source products, broad windows and portions of core/flank regions. Audit exact original-index sharing against frozen C028 metadata without reading its arrays. Additional May native products are not additional observations or untouched validation.",
+    "Signed structured flanks remain without line-free assumptions or masks. Merged ADU is uncalibrated,native BUNIT unspecified; separate divisors are not physical flux ratios. ERR/proxies/low flags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+    "Next C030 has eight original member centers across two resolution groups; do not transfer current identical-core geometry,reference scope,coverage or quality. Its own common-center method must explicitly retain member-core differences.",
+    "All prior exact diagnoses stay closed,physical codes unchanged. Rubin remains limited feasibility with minimum50unmet. Separate formulas and fresh processes are run by the same assistant; no separate-agent or human review."
+  ],
+  "wavelength_dependency": {
+    "same_six_existing_observations_reused": true,
+    "original_C029_epoch_raw_values_already_exposed": true,
+    "prior_C028_bounded_input_index_path": "work_harps_20261104_c028_context/analysis/results/BOUNDED_INPUT_INDEX.json",
+    "prior_C028_array_values_to_read": 0,
+    "actual_source_index_sharing_audit_required": true,
+    "nominal_barycentric_window_overlap_angstrom": 4.430000000000291,
+    "source_pixel_independence_claim": false
+  },
+  "source_hashes": {
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/NATIVE_MAPPING.json": "5717425255033a58c02363fcd4b37fc0119b48d47c4f1ffaf64608035de23ca3",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/PRIMARY_VISUAL_REVIEW.json": "30ba72932d11ea3731ea451977804699146a7709ad6cdf514ab8034bc75ddb6f",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/SECONDARY_VISUAL_REVIEW.json": "f132647b5f2685dd8be6b7f79865243efd537cf80a17fe09449c3495c068d940",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/REVIEW_COMPARISON.json": "c082ac892b69855fb2b98f60d417204afe169b00682fa529b128bdece62b4d0c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/ADOPTED_DISPOSITIONS.csv": "0bf6b71c2887c7d26924533604c29d2c4c8f4cb30473ff70dfbb0e8de756f5ed",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261104_c029_context/analysis/prepare_plan.py": "e9ad955c13c4ea65015da0de6dec2f6e45c43c34d01f84eaf4b64ae6a47d8c0a",
+    "work_harps_20261104_c029_context/analysis/compare_group.py": "15ac12cdbc0c3c0529862c24a20500a251732e77472270eab4ecf4e745f0ace0",
+    "work_harps_20261104_c029_context/analysis/plot_group.py": "992577aa22249fcdcffdf1032b75e1791911ba5855f42ba13122e30e9baae7ab",
+    "work_harps_20261104_c029_context/analysis/synthetic_preflight.py": "de9cd10177be111db9c551c1c4ee37598291d92cb55c1325ca6ee81e2715dd15",
+    "work_harps_20261104_c029_context/BASELINE_VERIFICATION.json": "73cdc10c31b5cd7e6929ec446e8045a3abebfabdadca123ebddccefb95c58732",
+    "work_harps_20261104_c029_context/inputs/restore_inputs.py": "bccad90286b09fd64e066c1fe34ba32ce7fd89eaf6c50fcb918c92b1bbd2fa8a",
+    "work_harps_20261104_c029_context/inputs/INPUT_INVENTORY.json": "db92485a4321f54bf33c9512759ce7e0c7b2152c71124a0318a6a34bccc460f6",
+    "work_harps_20261104_c029_context/inputs/RESTORE_RECEIPT.json": "70a877512fd9620b0c103dc864172780f4db8414b7388f2b0c3f4ccdff496040",
+    "work_harps_20261104_c029_context/input_audit/audit_inputs.py": "a47d59f1fcb4df668c378d89601bc26a824d3ed30f7253aa3f3197e434c76283",
+    "work_harps_20261104_c029_context/input_audit/INPUT_AUDIT.json": "4333dc4a52f9ad14de9243bb9a8f42810dd09ed62d96e77fcd1a6bac7678cbe9",
+    "work_harps_20261104_c029_context/independent_audit/independent_math.py": "421e684a31d991ba52f40ed3062578457e5729d92b54b95caf89a4eaf2177ba1",
+    "work_harps_20261104_c029_context/independent_audit/audit_prospective.py": "a5df031448485d080a6f9fe861c97a5bd212c07da15dc4454519d1f0e1aac58c",
+    "work_harps_20261104_c029_context/independent_audit/audit_actual.py": "2a0eee973571bedc01908f21e662bc6ef8f8a34c8c04ad024cddd1e8d468b7c3",
+    "work_harps_20261104_c029_context/scientific_review/NEXT_GROUP_METADATA.json": "e094bd785e1af7185d31d3e76f87981f7ae330242a1325ac05646736a8a1e54a",
+    "work_harps_20261104_c028_context/CONTINUATION_STATE.json": "f38e596ccff54104678de788e232ddf9c7bf935a64f0297cd8063964f6bb77f2",
+    "work_harps_20261104_c028_context/NEXT_ACTION.json": "4868dc52a594383e3e14f85d95f7dbd344fb2a2e686e103f196aa43a0de5884e",
+    "work_harps_20261104_c028_context/GROUP_CLOSURE.json": "bc8548962ebf302823fd4d1bd043a33f1d8927db2a213d14faebb5befabfe463",
+    "work_harps_20261104_c028_context/analysis/PLAN.json": "3e6d557e4a34c1cbc5b46f9ca59ac1a4ed08bf52577405d26e6f714b8b7dfb6e",
+    "work_harps_20261104_c028_context/analysis/compare_group.py": "32ffa04c47ad656084e2dae78a7905a43bbea1435139e20c2d545cf8b645a3cf",
+    "work_harps_20261104_c028_context/analysis/results/OUTPUT_HASHES.json": "590499948fe596aed1f92f3637401e26e55be567f98916064fe41065e9c1c2fb",
+    "work_harps_20261104_c028_context/analysis/results/BOUNDED_INPUT_INDEX.json": "dda19ea0afdb6aa8e49b0065988e43fd327951bf493a7c7fa46ede6e6815fcbc",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/checkpoints/INPUT_ARCHIVES.json": "dff8bd609320ca2a93f82860dac6b552b7a4e17705ec3d4eff0dc748426f3379",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/EVIDENCE_ARCHIVE.json": "dde3ee7748146f9b70f000ea2dcef9b1495da4a72ee269800a2a92e5843be78b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/EVIDENCE_PARTS.json": "1e0443662798116aa65b345f4bc8956d98e62ab3ae44b39bf5e4b2f80326d002",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-04-28T01_01_15.579.fits": "df48335869c1cf198fa7bb737e49917dc6c15d01f4c9a0c3d12ad935d1cfd6f4",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-05-30T01_00_44.357.fits": "5da8b50551b5d9c68fbcd89d3151b2feac0febf5a8df601c77ddddb0a0a889e6",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-05-31T01_00_40.760.fits": "ca43725e6fd50292f6804349c36d1f56bf9030ea1b866aaa480dc0dd36b4367e",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-06-26T01_01_08.565.fits": "6736333765b454959fc4fd1e8ae3b623a09b4e85eaa36f62cdd099d4d3cd3890",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-06-28T01_01_54.505.fits": "b466533f8368bd6195308732f70ccb0531209c6f7e782f9bd7462867f85c2dd8",
+    "work_harps_20261104_c029_context/inputs/merged/ADP.2025-07-17T01_03_21.039.fits": "a54aa77f1b17c7485cbd3aa53cac9ee3e98791c770d32f31d8c018fb04aba664",
+    "work_harps_20261104_c029_context/inputs/source_products/ADP.2025-04-28T01_01_15.580.tar": "fe472fa880cabf81bb66a3921a8a92093b362fb1df25200f3c6d880a16fffecb",
+    "work_harps_20261104_c029_context/inputs/native/HARPS.2025-04-27T06_05_34.318_e2ds_A.fits": "de27cb69f8ae628489d688e2ecc30886b7c313c84f2b427e546cae3fad5e9030",
+    "work_harps_20261104_c029_context/inputs/source_products/ADP.2025-05-30T01_00_44.358.tar": "e6d2c7635a5b47ee3602434116d983e5b1af8237139f4e4f11427bbc94cc8bb1",
+    "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-29T05_56_08.084_e2ds_A.fits": "6062e1b209193104ac834d540b64a4b10fe25aade1df17e5f07a784bc47af699",
+    "work_harps_20261104_c029_context/inputs/source_products/ADP.2025-05-31T01_00_40.761.tar": "5e14442e6526edd0e93985f922d421b9af357d65297b1b62875021b3309a1001",
+    "work_harps_20261104_c029_context/inputs/native/HARPS.2025-05-30T06_16_14.909_e2ds_A.fits": "5e4120821058cff73df8c8b9384ed5a51444f1aa5316c9d9bd760e4edf546e91",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0261_o02.npz": "829ff9502e8c97e6e22b522d0dfaec126376ee9292dfc970bc65443492c9e16a",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0261_o03.npz": "80367a4fef1c5c82f7699e4ea416a9878d4825fd11b5532b9b819f4e9c5a82fd",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0266_o02.npz": "d86e55f12417fff918dd3adc4c35057b4c3a7fa0deaddcd757a3acb0bc49fc6d",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0266_o03.npz": "ca13ab68cfd08b42c5437272296925f6aecf5e66d4e95c1a73a3ab1f0c55047f",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0272_o02.npz": "f12f928539f8eda5a52298195930dac8e451d6e8d24cad78e1c50ab207b0b7c1",
+    "work_harps_20261104_c029_context/inputs/evidence/V2E2-0272_o03.npz": "b794a5a86758a57a956d745fcc6b032add67c33176fea98c3d41bb6295135a33"
+  }
+}
