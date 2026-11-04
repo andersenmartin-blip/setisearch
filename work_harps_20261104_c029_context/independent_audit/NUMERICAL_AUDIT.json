@@ -1,0 +1,262 @@
+{
+  "status": "PASS_INDEPENDENT_C029_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-04T19:21:37.545500+00:00",
+  "checks_passed": 675,
+  "scalar_values_compared": 95862,
+  "profiles_reconstructed": 24,
+  "comparisons_reconstructed": 96,
+  "bounded_input_records_reconstructed": 12,
+  "preserved_raw_context_files_verified": 6,
+  "identical_product_self_comparisons": 12,
+  "metadata_excluded_native_orders": 0,
+  "source_hashes_verified": 55,
+  "raw_only_slots": [],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": null,
+      "samples": 620
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": null,
+      "samples": 621
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-26T01:01:08.565",
+      "order": null,
+      "samples": 633
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-06-28T01:01:54.505",
+      "order": null,
+      "samples": 634
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2025-07-17T01:03:21.039",
+      "order": null,
+      "samples": 640
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 2,
+      "samples": 659
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-04-28T01:01:15.579",
+      "order": 3,
+      "samples": 536
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 2,
+      "samples": 679
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-30T01:00:44.357",
+      "order": 3,
+      "samples": 553
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 2,
+      "samples": 680
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2025-05-31T01:00:40.760",
+      "order": 3,
+      "samples": 553
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 2.3314683517128287e-13,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 2.3106849766918458e-11,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 2.831086476362543e-09
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261104_c029_context/analysis/PLAN.json": "6ca513c5955ea825af5806e72c0632850925389d0b404c706ba741439ad7bb83",
+    "work_harps_20261104_c029_context/analysis/ROOT_RELEASE.json": "da16f2b6f8c7fc2e5e74f112765c2e5358289d99f1bd13b44f7ead776036adfb",
+    "work_harps_20261104_c029_context/analysis/results/OUTPUT_HASHES.json": "424188d97e317d180923a0b4a22c146aeb5c590c81d61e2ad901c3453a23fc47",
+    "work_harps_20261104_c029_context/independent_audit/independent_math.py": "421e684a31d991ba52f40ed3062578457e5729d92b54b95caf89a4eaf2177ba1",
+    "work_harps_20261104_c029_context/independent_audit/audit_prospective.py": "a5df031448485d080a6f9fe861c97a5bd212c07da15dc4454519d1f0e1aac58c",
+    "work_harps_20261104_c029_context/independent_audit/audit_actual.py": "2a0eee973571bedc01908f21e662bc6ef8f8a34c8c04ad024cddd1e8d468b7c3",
+    "work_harps_20261104_c029_context/independent_audit/PROSPECTIVE_AUDIT.json": "0e6dd4268ecc0fd69c85edb5c8551d8361b5e0f7f2cde0b9f964eab42b869395"
+  },
+  "audit_script_sha256": "2a0eee973571bedc01908f21e662bc6ef8f8a34c8c04ad024cddd1e8d468b7c3",
+  "limitations": [
+    "Three current U records, six reused observations and previously exposed epoch/raw evidence. All three identical catalog centers and own discovery references remain; no new observing time, blind validation, physical origin, qualified laser or calibrated survey null.",
+    "Exact common/original3866.125air-Angstrom center,\u00b10.25core and\u00b13context; one April common anchor but three retained references. No fitted center,width,lag,stellarRV,drift,continuum,background or mask.",
+    "216fresh native header scans select six own product/order pairs. Geometry does not establish finite flux,positive references or adequate common support. Preserve every partial,invalid,nonpositive,low,missing and blocked slot.",
+    "0261/0266 original local/baseline mapping fails in both orders;0272 original stages are supported. Global and later support is true for all. Preserve stage distinctions and0261 off-trace contamination caution without assigning origin.",
+    "Six observations span29.26984563734743km/s in BERV. Fixed topocentric windows can sample neighboring structure. Per frame/region15directed nonself rows are12unordered relationships with3reciprocal discovery pairs, not15observations or independent confirmations.",
+    "C028 shares source products, broad windows and portions of core/flank regions. Audit exact original-index sharing against frozen C028 metadata without reading its arrays. Additional May native products are not additional observations or untouched validation.",
+    "Signed structured flanks remain without line-free assumptions or masks. Merged ADU is uncalibrated,native BUNIT unspecified; separate divisors are not physical flux ratios. ERR/proxies/low flags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+    "Next C030 has eight original member centers across two resolution groups; do not transfer current identical-core geometry,reference scope,coverage or quality. Its own common-center method must explicitly retain member-core differences.",
+    "All prior exact diagnoses stay closed,physical codes unchanged. Rubin remains limited feasibility with minimum50unmet. Separate formulas and fresh processes are run by the same assistant; no separate-agent or human review."
+  ],
+  "source_pixel_dependencies": {
+    "status": "PASS_C029_C028_SOURCE_INDEX_DEPENDENCY_AUDIT",
+    "prior_index_path": "work_harps_20261104_c028_context/analysis/results/BOUNDED_INPUT_INDEX.json",
+    "prior_index_sha256": "dda19ea0afdb6aa8e49b0065988e43fd327951bf493a7c7fa46ede6e6815fcbc",
+    "shared_sources": [
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "order": null,
+        "current_start": 7991,
+        "current_stop": 8593,
+        "previous_start": 7834,
+        "previous_stop": 8436,
+        "shared_start": 7991,
+        "shared_stop": 8436,
+        "shared_original_source_indices": 445,
+        "full_source_sha256": "df48335869c1cf198fa7bb737e49917dc6c15d01f4c9a0c3d12ad935d1cfd6f4"
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": null,
+        "current_start": 7994,
+        "current_stop": 8614,
+        "previous_start": 7837,
+        "previous_stop": 8457,
+        "shared_start": 7994,
+        "shared_stop": 8457,
+        "shared_original_source_indices": 463,
+        "full_source_sha256": "5da8b50551b5d9c68fbcd89d3151b2feac0febf5a8df601c77ddddb0a0a889e6"
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "order": null,
+        "current_start": 7993,
+        "current_stop": 8614,
+        "previous_start": 7836,
+        "previous_stop": 8457,
+        "shared_start": 7993,
+        "shared_stop": 8457,
+        "shared_original_source_indices": 464,
+        "full_source_sha256": "ca43725e6fd50292f6804349c36d1f56bf9030ea1b866aaa480dc0dd36b4367e"
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "order": null,
+        "current_start": 7993,
+        "current_stop": 8626,
+        "previous_start": 7836,
+        "previous_stop": 8469,
+        "shared_start": 7993,
+        "shared_stop": 8469,
+        "shared_original_source_indices": 476,
+        "full_source_sha256": "6736333765b454959fc4fd1e8ae3b623a09b4e85eaa36f62cdd099d4d3cd3890"
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": null,
+        "current_start": 7990,
+        "current_stop": 8624,
+        "previous_start": 7833,
+        "previous_stop": 8467,
+        "shared_start": 7990,
+        "shared_stop": 8467,
+        "shared_original_source_indices": 477,
+        "full_source_sha256": "b466533f8368bd6195308732f70ccb0531209c6f7e782f9bd7462867f85c2dd8"
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": null,
+        "current_start": 7990,
+        "current_stop": 8630,
+        "previous_start": 7833,
+        "previous_stop": 8473,
+        "shared_start": 7990,
+        "shared_stop": 8473,
+        "shared_original_source_indices": 483,
+        "full_source_sha256": "a54aa77f1b17c7485cbd3aa53cac9ee3e98791c770d32f31d8c018fb04aba664"
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "order": 2,
+        "current_start": 3330,
+        "current_stop": 3989,
+        "previous_start": 3164,
+        "previous_stop": 3813,
+        "shared_start": 3330,
+        "shared_stop": 3813,
+        "shared_original_source_indices": 483,
+        "full_source_sha256": "de27cb69f8ae628489d688e2ecc30886b7c313c84f2b427e546cae3fad5e9030"
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-04-28T01:01:15.579",
+        "order": 3,
+        "current_start": 993,
+        "current_stop": 1529,
+        "previous_start": 856,
+        "previous_stop": 1387,
+        "shared_start": 993,
+        "shared_stop": 1387,
+        "shared_original_source_indices": 394,
+        "full_source_sha256": "de27cb69f8ae628489d688e2ecc30886b7c313c84f2b427e546cae3fad5e9030"
+      }
+    ],
+    "additional_native_sources": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 2
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 3
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "order": 2
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "order": 3
+      }
+    ],
+    "prior_C028_array_values_read": 0,
+    "source_pixel_independence_claim": false
+  }
+}

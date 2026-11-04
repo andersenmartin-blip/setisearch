@@ -1,0 +1,13 @@
+# C029 interpretation
+
+All fifteen directed nonself observation/reference pairs favor barycentric raw correlation and normalized RMS in both core and surroundings. The central broad crest and structured neighboring pattern recur with amplitude/noise differences. Three references and reciprocal comparisons reuse only six observations:15directed pairs are12unordered relationships with3reciprocal discovery pairs per frame/region. Twelve self rows are labelled.
+
+All24 profiles retain full finite601-point raw/scaled support,positive references and false low flags. Eight frame-profile rows from four observing products retain nonpositive original samples, including the two May order-2 native products and June25/July16 merged products. Nothing is clipped or sign-flipped. ERR has no positive finite support. These references and noise proxies do not calibrate SNR,significance,sensitivity or a survey null.
+
+Six native product/order pairs compare only with their own merged extraction. Original local/baseline failures remain for0261/0266, while0272 has original support; global/later support is true throughout. The0261 compact off-trace deposit and possible blend are separate from broader centered structure and remain event-specific. All six exact raw containers are retained with full scales and no new crop,contrast,subtraction,registration or detector statistic. All three U/U/U chains remain; no physical origin or laser qualification follows.
+
+Exact source-index auditing finds eight shared C028 input windows:all six merged products and two April native orders. Four additional May native/order windows are absent from the previous bounded index but use existing already-exposed observations. No previous arrays were opened. Shared pixels,windows,flanks,references and products are not independent confirmations or blind validation.
+
+Separate reconstruction passes675checks over95,862values. Six scientific figures were inspected and fully decoded. All55source bindings and original numerical outputs remain unchanged. Separate scalar formulas and processes were run by the same assistant,without independent human or separate-agent review. One successful observed run closes this fixed diagnostic with all labels unchanged.
+
+Next C030 has eight original members and five own discovery products on the same six observations. Original centers and cores differ; a metadata midpoint proposal3867.13125 Å is not the complete member-core union. Current C029 broad context already contains every next original member core,while none intersects its positive flank. Restore all own products,retain member history and freeze the next support/geometry separately. All earlier exact routes remain closed and Rubin remains limited feasibility with minimum50unmet.

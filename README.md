@@ -1,3 +1,13 @@
+## Aktuel SETI-status — HD126093 ved 3866,125 Å analyseret (4. november 2026)
+
+**C029 er færdig: seks observationer, tre poster og tre referencer, 24 profiler og 96 sammenligninger.** Alle tre poster forbliver uafklarede. Alle 15 sammenligninger mellem forskellige observationer og referencer passer bedst barycentrisk i både kernen og omgivelserne. De repræsenterer 12 forskellige observationspar med tre gensidige gentagelser, ikke 15 uafhængige observationer.
+
+Separat efterregning består med 675 kontroller og 95.862 talværdier. Negative originalpunkter, alle seks råudsnit, forskelle i mappinghistorik og den mulige forurening ved 0261 er bevaret. Otte datavinduer deler kildepunkter med C028; ingen uafhængig bekræftelse eller kvalificeret laserkandidat er etableret.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport og seks figurer](work_harps_20261104_c029_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261104_c029_context/CONTINUATION_STATE.json). Næste ufærdige punkt er C030 med otte poster og fem observationsreferencer på HD126093. Deres forskellige originalcentre og kerner kræver egen geometri; den foreslåede fælles midte er alene metadata. Hovedprøve, klassifikationer og Rubin-forstudiet er uændrede. Alle afsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD126093 ved 3864,555 Å analyseret (4. november 2026)
 
 **C028 er færdig: seks eksisterende observationer, 16 profiler og 32 sammenligninger.** Alle fem øvrige observationer passer bedre barycentrisk i både kernen og omgivelserne, målt med korrelation og normaliseret RMS. V2E2-0260 forbliver uafklaret; ingen kvalificeret laserkandidat er etableret.
