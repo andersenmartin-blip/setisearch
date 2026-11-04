@@ -1,9 +1,13 @@
-# C023 / HD114783 at 5944.965 Å: prospective fixed context
+# C023: HD114783 at 5944.965 Å — completed 4 November 2026
 
-Original queue row 41 selects singleton V2E2-0122 / R024. Its own February 5 discovery supplies one reference over seven existing January 2022–July 2023 observations. All 72 native headers were freshly scanned; only order 57 covers the exact original center. It geometrically covers the full core, context and both reference flanks in both frames. This does not predict finite flux, reference quality or agreement.
+**Seven existing observations, one February 5 discovery reference, sixteen profiles and thirty-two comparisons are complete. V2E2-0122 remains U.** The surrounding spectrum favors barycentric correlation and normalized RMS in all six nonself comparisons. The core favors topocentric raw correlation in five of six and topocentric RMS in four of six. This difference does not assign physical origin or qualify a laser candidate.
 
-The fixed method retains sixteen profiles, thirty-two comparisons and one original full raw container. Its original asymmetric raw excess and flat-topped native ambiguity remain U/U/U, with all four mapping stages supported but no physical origin established. No new observing time, crop, pixel statistic or fitted variant is added.
+The original central appearance differs from the other epochs; order 57 reproduces the same-exposure merged shape closely. Original asymmetric raw/native ambiguity and all four supported mapping stages are retained. Every profile has 601 finite raw/scaled points and a positive fixed reference, with no low flag, raw-only or blocked slot. ERR does not supply positive finite support.
 
-[Fixed plan](analysis/PLAN.json) · [Source-only review](scientific_review/PRE_ARRAY_SCIENTIFIC_REVIEW.json) · [Input audit](input_audit/INPUT_AUDIT.json) · [Separate scalar preflight](independent_audit/PROSPECTIVE_AUDIT.json).
+The separate scalar reconstruction passes 437 checks over 63,569 values. All four PNGs were inspected and fully decoded. Separate formulas were executed by the same assistant; no independent human or separate-agent review is claimed.
 
-Current observed values have not been read at this prospective publication. The next original route, C020 / V2E2-0136 at 4303.13 Å with its own May 15 discovery reference, is selected beforehand in [the metadata handoff](scientific_review/NEXT_GROUP_METADATA.json).
+[Full report and figures](analysis/RESULTS_REPORT.md) · [All comparisons](analysis/results/COMPARISONS.csv) · [Scalar audit](independent_audit/NUMERICAL_AUDIT.json) · [Frozen method](analysis/PLAN.json) · [Public method readback](PROSPECTIVE_PUBLICATION_RECEIPT.json) · [Diagnostic closure](GROUP_CLOSURE.json) · [Current state](CONTINUATION_STATE.json).
+
+Next is C020/R021, V2E2-0136 at 4303.13 Å, original queue row 53, selected before current values. Its own May 15 discovery replaces the February coordinate reference; source-specific native/raw/mapping history must be restored and frozen separately. [Exact next handoff](NEXT_ACTION.json). All observations are reused and Rubin remains limited feasibility with minimum 50 unmet.
+
+The prior [C017 PR #22](https://github.com/andersenmartin-blip/setisearch/pull/22) has been merged, and the existing work branch was synchronized. GitHub updates are authorized; [the integration record](C017_INTEGRATION_RECEIPT.json) supersedes the prior publication-stage approval hold. Scientific freeze records remain immutable.
