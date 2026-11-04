@@ -1,3 +1,31 @@
+# Continue SETI from completed C023 / HD114783
+
+Read [the current machine-readable state](work_harps_20261104_c023_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, and resume the exact queue below. The previous C017 state and all older checkpoints are preserved unchanged.
+
+## Latest completed C023 context — 4 November 2026
+
+Seven existing target epochs, one own February 5 discovery, sixteen profiles and thirty-two comparisons are complete at the exact original 5944.965 Å center. The surrounding spectrum has better barycentric raw correlation and normalized RMS in all six other epochs. In the original core, topocentric raw correlation is higher in five of six and topocentric RMS is lower in four of six. Preserve the distinction and the two metric-disagreement cases; no origin verdict, qualified laser, significance or calibrated survey null follows. V2E2-0122 remains U.
+
+All sixteen profiles have full 601-point finite raw/scaled support, positive fixed references, false low flags and zero positive finite ERR support. Sole native order 57 and the exact original raw container remain; all historical mapping stages are true but the original asymmetric/flat-topped ambiguity remains. A separate reconstruction passes 437 checks and 63,569 scalar comparisons. All four figures were inspected and decoded. The fixed method and 23-file public readback preceded observed values.
+
+[Complete report](work_harps_20261104_c023_context/analysis/RESULTS_REPORT.md) · [Closed diagnostic](work_harps_20261104_c023_context/GROUP_CLOSURE.json). Same-assistant separate arithmetic is not independent human or separate-agent review. These are reused observations and previously exposed 0122 epoch/raw evidence; no extra observing time or blind validation is claimed.
+
+## Next original-queue route
+
+Use [the exact C020 handoff](work_harps_20261104_c023_context/NEXT_ACTION.json): singleton C020/R021, V2E2-0136 on HD114783 at 4303.13 Å, original queue row 53. It was selected before C023 values. Use its own May 15 2023 discovery reference and BERV, not C023's February reference. Restore original raw/native/mapping/review sources, freshly scan all 72 own native headers, then freeze separate fixed frames, normalization, support and figures before new observed arithmetic. No C023 order-57 scope or quality is transferred.
+
+C001–C019 and C021–C023 are complete as their exact routes; C013/C014 are completed normalization routes with physical U unchanged. C020 remains pending. Do not replay completed mapping, normalization, epoch/raw or context pipelines merely because origin remains U. Rubin is still limited feasibility: 190 selected main objects, 2 primary and 4 secondary evaluable objects including the primary 2; minimum 50 unmet. Reopen only a distinct route with adequate public history, provenance and quality.
+
+## Publication and preservation
+
+[C017 PR #22](https://github.com/andersenmartin-blip/setisearch/pull/22) has been merged and the existing work branch synchronized. The user explicitly authorizes GitHub updates, including main and optical-harps-week-20261101. The old pending-approval records below are historical; [the integration receipt](work_harps_20261104_c023_context/C017_INTEGRATION_RECEIPT.json) supersedes them. Preserve scientific method freezes, verify expected branch heads and complete checks before merging further work.
+
+[Preservation instructions](work_harps_20261104_c023_context/preservation/README.md) bind eight source windows, sixteen profiles and one original raw container. Full archived inputs restore without a live ESO query. Reproduce separately and preserve closed one-shot outputs. No unattended science search is configured.
+
+---
+
+All continuation sections below are historical and do not supersede the C020 handoff above.
+
 # Continue SETI from completed C017 / HD114783
 
 The current reviewed work is on **codex/seti-c017-20261104**. Read [the current machine-readable state](work_harps_20261104_c017_context/CONTINUATION_STATE.json) and verify current branch heads before new work. Integration into main and optical-harps-week-20261101 is pending approval; their older C022 entry point must not cause C017 to be replayed.

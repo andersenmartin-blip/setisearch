@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD114783 ved 5944,965 Å analyseret (4. november 2026)
+
+**C023 er færdig: syv eksisterende observationer, 16 profiler og 32 sammenligninger.** Omgivelserne stemmer bedst overens barycentrisk i alle seks sammenligninger. I kernen er formkorrelationen højere topocentrisk i fem af seks, mens normaliseret RMS er lavere topocentrisk i fire af seks. Forskellen fastslår ikke ophavet; V2E2-0122 forbliver uafklaret.
+
+Alle 16 profiler har fuld dækning og positiv normalisering uden lav-referenceflag. Orden 57 og det originale råudsnit er bevaret. Separat efterregning består med 437 kontroller og 63.569 talværdier; fire figurer er inspiceret og afkodet. Ingen kvalificeret laserkandidat eller kalibreret nulresultat er etableret.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport og figurer](work_harps_20261104_c023_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261104_c023_context/CONTINUATION_STATE.json). Næste faste punkt er C020 ved 4303,13 Å, oprindelig kø-række 53, med egen reference fra maj 2023. Hovedprøven og Rubins begrænsede forstudie er uændrede.
+
+C017 er flettet ind via PR #22, og GitHub-opdateringer er godkendt. De ældre afsnits godkendelseshold er historiske. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — HD114783 ved 3868,175 Å analyseret (4. november 2026)
 
 **C017 er færdig: syv eksisterende observationer, 18 profiler og 36 sammenligninger.** Alle seks øvrige observationer stemmer bedst overens i barycentriske koordinater, både i kernen og omgivelserne, målt med korrelation og normaliseret RMS. V2E2-0118 forbliver U; ingen kvalificeret laserkandidat eller ny ophavsbestemmelse er etableret.
