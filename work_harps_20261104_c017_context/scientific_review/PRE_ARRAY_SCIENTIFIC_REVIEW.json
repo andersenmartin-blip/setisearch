@@ -1,0 +1,85 @@
+{
+  "schema": "HARPS_C017_SOURCE_AND_GEOMETRY_REVIEW_V1",
+  "status": "PASS_SOURCE_ONLY_METHOD_REVIEW",
+  "created_utc": "2026-11-04T07:26:42.501497+00:00",
+  "observed_C017_values_read": false,
+  "plan_sha256": "25ce2a0e233851f71cc56f7e174fef9258ac2be3e237a6cb97818766d7d50c73",
+  "input_audit_sha256": "9f15b4ffa689dba749b204bf1ab27c9a140cdc20fd0f38a5a69f48969efd3185",
+  "synthetic_preflight_sha256": "a26231ac1094001b3c0faf14617cd47f548779dcb0c37dc5328712ea0b52d393",
+  "prospective_audit_sha256": "8df6cb096009a7505a4d966ca66a35e33d7a980ea2ca61509865ce709a27cd7e",
+  "judgments": {
+    "exact_singleton_original_center_own_February_anchor": true,
+    "seven_reused_observations_one_reference_not_independent_detections": true,
+    "all72_native_headers_scanned_both_covering_orders_included": true,
+    "original_order2_failed_local_and_baseline_retained": true,
+    "partial_order2_support_retained_without_growing_window": true,
+    "header_geometry_distinct_from_finite_flux_or_reference_quality": true,
+    "signed_flanks_fixed_20_finite_per_side_positive_pooled_median": true,
+    "raw_Pearson_and_normalized_RMS_support_gates_separate": true,
+    "no_fitted_origin_test_or_calibrated_significance": true,
+    "C018_shared_source_pixels_exposed_core_no_blind_claim": true,
+    "next_C023_original_queue_route_selected_before_current_values": true,
+    "independent_scalar_math_used_without_independent_reviewer_claim": true
+  },
+  "native_header_geometry": [
+    {
+      "order": 2,
+      "frame": "barycentric",
+      "offset_endpoints_angstrom": [
+        -40.778476343218244,
+        2.1765020085440483
+      ],
+      "geometric_grid_centers": 518,
+      "full_context_geometrically_covered": false,
+      "full_core_geometrically_covered": true,
+      "negative_reference_flank_geometrically_covered": true,
+      "positive_reference_flank_geometrically_covered": false
+    },
+    {
+      "order": 2,
+      "frame": "topocentric",
+      "offset_endpoints_angstrom": [
+        -40.77484744924914,
+        2.1763083207038108
+      ],
+      "geometric_grid_centers": 518,
+      "full_context_geometrically_covered": false,
+      "full_core_geometrically_covered": true,
+      "negative_reference_flank_geometrically_covered": true,
+      "positive_reference_flank_geometrically_covered": false
+    },
+    {
+      "order": 3,
+      "frame": "barycentric",
+      "offset_endpoints_angstrom": [
+        -16.56089709354137,
+        26.66956087230392
+      ],
+      "geometric_grid_centers": 601,
+      "full_context_geometrically_covered": true,
+      "full_core_geometrically_covered": true,
+      "negative_reference_flank_geometrically_covered": true,
+      "positive_reference_flank_geometrically_covered": true
+    },
+    {
+      "order": 3,
+      "frame": "topocentric",
+      "offset_endpoints_angstrom": [
+        -16.55942333225903,
+        26.66718753672876
+      ],
+      "geometric_grid_centers": 601,
+      "full_context_geometrically_covered": true,
+      "full_core_geometrically_covered": true,
+      "negative_reference_flank_geometrically_covered": true,
+      "positive_reference_flank_geometrically_covered": true
+    }
+  ],
+  "important_support_limit": "Order2 geometric endpoint is about+2.1765 Angstrom, so full positive flank and full\u00b13context are absent. The established method requires20finite source points per flank and41/440common grid points; actual signed flux, reference validity and common finite support are not inferred from geometry. Both rows remain whatever the measured outcome.",
+  "runtime": {
+    "numpy": "2.3.5",
+    "astropy": "8.0.2",
+    "matplotlib": "3.10.8",
+    "Pillow": "13.0.0"
+  }
+}
