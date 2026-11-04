@@ -1,0 +1,11 @@
+# C020 result interpretation
+
+All six other HD114783 observations have higher barycentric raw correlation and lower barycentric normalized RMS in both original core and surroundings. The rounded broad crest, nearby rise and broad spectral pattern recur with amplitude differences. Six comparisons reuse seven observations against one fixed May 2023 reference; four identical-product self rows are labelled. Native order 19 compares with its own merged extraction, so that agreement is dependent evidence.
+
+All sixteen profiles retain full 601-point finite raw/scaled support and valid positive references, false low flags and zero positive finite ERR support. The original signed samples stay positive without clipping. Structured flank medians are descriptive divisors; native units are unspecified and merged ADU is uncalibrated. No physical flux ratio, fitted linewidth, significance, sensitivity or calibrated null follows.
+
+The original primary/secondary/adopted U/U/U remains. Global/local/baseline/later order-19 mapping support is true, but the broad native feature, neighboring structure and faint diffuse raw enhancement remain unresolved. The original full raw/excess arrays retain dominant right-edge structure without a new crop, background, contrast variant or detector statistic.
+
+The source-index audit finds 17 shared original merged samples with C021 in July 2023 and none for the other six products. Nominal barycentric windows are disjoint, but both-frame unions and brackets govern source-pixel dependence. The overlap was anticipated in the public method and all pixels are retained. No source-pixel independence, blind validation or new observing time is claimed.
+
+The separate scalar reconstruction passes 480 checks over 63,829 values. Separate arithmetic and fresh processes were run by the same assistant; this is not independent human or separate-agent review. The current fixed diagnostic is closed, with no physical-origin assignment or qualified laser. All C001–C023 exact routes and ten earlier bounded baseline diagnostics remain closed. Next is C028 on HD126093, six existing April–July 2025 observations with its own April reference and batch04 history. Rubin remains limited feasibility with minimum 50 unmet.
