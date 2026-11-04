@@ -1,0 +1,13 @@
+# C028 interpretation
+
+All five other HD126093 epochs have higher barycentric raw correlation and lower barycentric normalized RMS in both fixed core and surrounding spectrum. A broad crest and neighboring spectral pattern recur with amplitude/noise differences. The June 25 observation is much weaker and noisier, with lower barycentric agreement, and remains included. Six observations are reused against one fixed April discovery reference; four self rows are labelled.
+
+All sixteen profiles retain full finite 601-point raw/scaled support, positive pooled flank references and false low flags. Four frame-profile rows from two exposures retain nonpositive original samples, including fixed-flank samples. No signs are clipped or reversed. ERR has no positive finite support. False flags and proxy noise do not establish significance, sensitivity or a formal SNR.
+
+Native orders 2/3 compare with their own merged extraction. Their central agreement is stronger than their surrounding agreement, with retained amplitude differences. Same-exposure extraction is dependent evidence. Original global support, local/baseline failures and later five-window support stay distinct. Both original raw containers show diffuse central multi-row structure; the broad photon-compatible interpretation remains provisional U/U/U, without assigning physical origin or qualifying a laser.
+
+The next C029 window shares observing products, native lineage and 4.430000000000291 Å of nominal broad context with C028. The next catalog center lies in the current positive flank, but only part of its core does; the reciprocal core/negative-flank overlap is also partial. Selection and dependence were frozen before current values. Do not mask these regions or claim independent pixels or blind validation.
+
+Separate arithmetic passes 439 checks over 63,658 values. The same assistant ran separate formulas and fresh processes; no separate-agent or human-review claim. The original frozen renderer's R021 title was corrected to R029 only in separate copies, preserving all pixels below the title band and all original scientific files. The release-format validation failure preceded all array access and its newline repair is recorded. One successful observed execution completed the fixed diagnostic. No further C028 variant is planned.
+
+Next is C029 with all three records0261/0266/0272 and three own discovery references on the same six observations. Preserve0261's compact off-trace deposit/possible blend separately from its broad centered component and all per-record mapping stages. All prior exact diagnoses remain closed, labels and survey coverage unchanged, and Rubin remains limited feasibility with minimum50unmet.
