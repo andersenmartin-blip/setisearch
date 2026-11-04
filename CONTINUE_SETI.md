@@ -1,3 +1,31 @@
+# Continue SETI from completed C017 / HD114783
+
+The current reviewed work is on **codex/seti-c017-20261104**. Read [the current machine-readable state](work_harps_20261104_c017_context/CONTINUATION_STATE.json) and verify current branch heads before new work. Integration into main and optical-harps-week-20261101 is pending approval; their older C022 entry point must not cause C017 to be replayed.
+
+## Latest completed C017 individual context — 4 November 2026
+
+Seven existing HD114783 epochs,one own February 5 discovery reference,eighteen profiles and thirty-six comparisons are complete at exact original 3868.175 Å center. All six other epochs have higher barycentric raw correlation and lower normalized RMS in both original core and surrounding spectrum. The rounded central crest and neighboring pattern recur,with amplitude differences. V2E2-0118 remains U; no physical origin,qualified laser,significance or calibrated survey null follows.
+
+Order 2 covers 518 of 601 grid points and has 467 surrounding comparison points,above the fixed 440 gate. It retains 163/77 finite negative/positive reference samples,so normalization is valid despite incomplete positive-flank wavelength coverage. Order 3 and all merged frame profiles have full 601-point support. All 18 profiles have valid positive reference levels and false low flags. Both original raw containers and order-2 original local/baseline failures remain. The separate arithmetic reconstruction passes 469 checks and 71,603 scalar comparisons. All four figures were inspected and decoded.
+
+[Complete C017 report](work_harps_20261104_c017_context/analysis/RESULTS_REPORT.md) · [Closure](work_harps_20261104_c017_context/GROUP_CLOSURE.json). Exact method/input/public readback preceded current observed values. Separate implementations were run by the same assistant; no independent human or separate-agent review is claimed.
+
+## Next original-queue route
+
+Use [the exact C023 handoff](work_harps_20261104_c017_context/NEXT_ACTION.json): singleton C023/R024,V2E2-0122 on HD114783 at 5944.965 Å,original queue row 41. This was selected before C017 values and precedes C020 row 53. Use its own February 5 reference and seven existing target epochs. Restore original raw/native/mapping/review sources; freshly scan all 72 native headers and freeze a separate fixed context before observed C023 arithmetic. Do not inherit C017 orders 2/3,partial coverage or reference quality. The next bounded wavelength window is disjoint from recent same-target blue contexts but shares observations and existing epoch/raw history; no new observing time or blind validation.
+
+C001–C019, C021 and C022 are complete as their exact diagnostic routes; C013/C014 normalization is complete. Do not reopen a completed diagnostic merely because physical U remains. All 35 mapping diagnoses and prior epoch/raw pipelines remain closed.
+
+Rubin is still the completed limited feasibility study: 190 selected main objects, 2 numerically evaluable primary objects and 4 secondary objects including those 2. Minimum 50 unmet; no qualified null. Reopen only a distinct prospective route with adequate public stellar history/provenance/quality. No unattended science search is configured.
+
+## Restore and verify C017
+
+[Preservation instructions](work_harps_20261104_c017_context/preservation/README.md) bind9 pre-interpolation source windows,18 derived profiles and2 byte-exact original rawcontainers,all committed with the results. Full inputs restore from the two existing exact archives without a live ESO query. Preserve all closed outputs and run reproduction in a separate copy. The previous C022 state remains unchanged and is linked from the current compact state.
+
+---
+
+The following C022continuation and earlier sections are historical; their next-action labels do not supersede the C023handoff above.
+
 # Continue SETI from the completed C022 / HD114783 joint context
 
 Read [the current machine-readable state](work_harps_20261103_c022_context/CONTINUATION_STATE.json), fetch current GitHub and compare its source hashes before new work. Another session may have advanced the project. The [previous accelerated checkpoint](work_seti_20261102_accelerated/CONTINUATION_STATE.json) is preserved unchanged. Rubin remains explicitly advanced to **2–8 November 2026**. Earlier checkpoints and calendar dates are historical.

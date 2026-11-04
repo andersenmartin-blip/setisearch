@@ -1,0 +1,111 @@
+{
+  "status": "PASS_INDEPENDENT_C017_NUMERICAL_RECONSTRUCTION",
+  "created_utc": "2026-11-04T07:31:29.942382+00:00",
+  "checks_passed": 469,
+  "scalar_values_compared": 71603,
+  "profiles_reconstructed": 18,
+  "comparisons_reconstructed": 36,
+  "bounded_input_records_reconstructed": 9,
+  "preserved_raw_context_files_verified": 2,
+  "identical_product_self_comparisons": 4,
+  "metadata_excluded_native_orders": 0,
+  "source_hashes_verified": 44,
+  "raw_only_slots": [],
+  "native_input_counts": [
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-01-22T01:09:14.958",
+      "order": null,
+      "samples": 606
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": null,
+      "samples": 602
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2022-05-06T01:04:00.123",
+      "order": null,
+      "samples": 653
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-01-17T01:07:48.581",
+      "order": null,
+      "samples": 606
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-03-23T01:02:04.833",
+      "order": null,
+      "samples": 625
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-05-16T01:01:18.574",
+      "order": null,
+      "samples": 659
+    },
+    {
+      "kind": "merged",
+      "dp_id": "ADP.2023-07-02T01:01:43.311",
+      "order": null,
+      "samples": 674
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 2,
+      "samples": 576
+    },
+    {
+      "kind": "native",
+      "dp_id": "ADP.2022-02-06T01:07:28.382",
+      "order": 3,
+      "samples": 543
+    }
+  ],
+  "maximum_absolute_differences_by_kind": {
+    "comparison": 5.846434447676074e-13,
+    "input_barycentric_wavelength": 4.547473508864641e-13,
+    "input_metadata": 0.0,
+    "input_signed_source_flux": 0.0,
+    "input_source_error": 0.0,
+    "input_source_indices": 0.0,
+    "input_source_wavelength": 4.547473508864641e-13,
+    "profile_metric": 0.0,
+    "profile_normalized_flux": 3.181221952530677e-11,
+    "profile_offset": 0.0,
+    "profile_requested_bary_wave": 0.0,
+    "profile_signed_raw_flux": 2.0269865785849106e-09
+  },
+  "production_functions_imported": false,
+  "network_requests": 0,
+  "prior_epoch_pipeline_rerun": false,
+  "classifications_changed": 0,
+  "source_hashes": {
+    "work_harps_20261104_c017_context/analysis/PLAN.json": "25ce2a0e233851f71cc56f7e174fef9258ac2be3e237a6cb97818766d7d50c73",
+    "work_harps_20261104_c017_context/analysis/ROOT_RELEASE.json": "6c79666049212e575a4aeeb091429f79903e8020f1865e7b542b6958a6e27e56",
+    "work_harps_20261104_c017_context/analysis/results/OUTPUT_HASHES.json": "bcb83a4e9f61837edb263c1458ad688284f951399cdf359283632653e38cd42e",
+    "work_harps_20261104_c017_context/independent_audit/independent_math.py": "ea8133ab907331a914fe81bed2b1a1260925eb5c8f61126b8f586a14b7797be3",
+    "work_harps_20261104_c017_context/independent_audit/audit_prospective.py": "9030c302513bf0a8b604c6dfe1bcfe7fd9b43ae4ac555862ebd6593baddc7b41",
+    "work_harps_20261104_c017_context/independent_audit/audit_actual.py": "8b88ae394fc62530efd297bdab6eeed1d70f85cdaf62336e17749d45604b6e69",
+    "work_harps_20261104_c017_context/independent_audit/PROSPECTIVE_AUDIT.json": "8df6cb096009a7505a4d966ca66a35e33d7a980ea2ca61509865ce709a27cd7e"
+  },
+  "audit_script_sha256": "8b88ae394fc62530efd297bdab6eeed1d70f85cdaf62336e17749d45604b6e69",
+  "limitations": [
+    "One unresolved event and seven reused observations; no new observing time, untouched-data validation, calibrated origin discrimination or physical-origin assignment.",
+    "Exact original 3868.175 air-Angstrom center and fixed original core retained; own February5 discovery BERV 26.6810328154809 km/s and anchor3867.830769460069. No peak, width, lag, stellarRV, drift, continuum, background or masks are fitted.",
+    "C017 shares source pixels with C018 over4.8412500000004 Angstrom. Both central cores were already exposed in each other surrounding contexts; neither core intersects the other fixed reference flanks. Other same-target windows C019/C021/C022 are disjoint but share observations.",
+    "Seven January2022\u2013July2023 epochs span59.073251754930496 km/s in BERV. Fixed topocentric windows may include neighboring structure when a predicted coherent center leaves the core; geometry is not a calibrated origin test.",
+    "Order2 retains globaltrue/original-localfalse/original-baselinefalse/latertrue; order3 retains all four true. Later support does not repair original failures; no registration or mapping statistic is newly computed.",
+    "Header geometry does not establish finite flux, valid positive reference, absence of low flags or adequate common support. Preserve every partial, missing, nonpositive, low or blocked slot.",
+    "Original primary/secondary/adopted U/U/U and exact original raw containers remain; no new pixel statistic, subtraction, classification or origin claim.",
+    "Native BUNIT is unspecified; merged spectra are uncalibrated ADU. Same-exposure extraction agreement is dependent, not another observation or a physical flux ratio.",
+    "Signed pooled flanks retain all structure and are not established line-free continua. ERR and first-difference proxies do not establish formal significance, sensitivity, false-alarm probability, linewidth or a qualified survey null.",
+    "All completed groups,35mapping diagnoses and C013/C014 normalization routes remain closed. Rubin stays a limited feasibility study with minimum50 unmet.",
+    "Separate scalar numerical implementations are run by the same assistant; no independent human or separate-agent review is claimed."
+  ]
+}

@@ -1,3 +1,15 @@
+## Aktuel SETI-status — HD114783 ved 3868,175 Å analyseret (4. november 2026)
+
+**C017 er færdig: syv eksisterende observationer, 18 profiler og 36 sammenligninger.** Alle seks øvrige observationer stemmer bedst overens i barycentriske koordinater, både i kernen og omgivelserne, målt med korrelation og normaliseret RMS. V2E2-0118 forbliver U; ingen kvalificeret laserkandidat eller ny ophavsbestemmelse er etableret.
+
+Orden 2 har delvis dækning, 518 af 601 gitterpunkter, men tilstrækkelige faste flankereferencer og 467 fælles omgivelsespunkter. Orden 3 og alle samlede spektralprofiler har fuld dækning. Alle 18 profiler har positiv normalisering; originale mappingbegrænsninger og begge råudsnit er bevaret. Separat efterregning består med 469 kontroller og 71.603 talværdier.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport og figurer](work_harps_20261104_c017_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261104_c017_context/CONTINUATION_STATE.json). Næste faste punkt er C023 på HD114783 ved 5944,965 Å, oprindelig kø-række 41. Hovedprøve, klassifikationer og Rubins begrænsede forstudie er uændrede.
+
+Denne opdatering ligger på den separate gennemgangsgren `codex/seti-c017-20261104`; indfletning i `main` og den tidligere arbejdsgren afventer godkendelse. Alle statusafsnit nedenfor er historiske.
+
+---
+
 ## Aktuel SETI-status — fælles HD114783-kontekst ved 4312,24125 Å analyseret (3. november 2026)
 
 Kernen: 18 af 18 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 18 og topocentrisk i 0. Omgivelserne: 18 af 18 epoke/reference-par har højere barycentrisk korrelation og 0 højere topocentrisk korrelation; normaliseret RMS er lavest barycentrisk i 18 og topocentrisk i 0. Alle tre poster forbliver U. Par med genbrugte og gensidige referencer er afhængige; der er fortsat kun syv observationer. 0 af 20 profilrækker har bevarede ikke-positive originalpunkter. 3 af syv forudsagte fælles centre ligger inden for den faste topocentriske kerne og 4 udenfor; det er forventede centerpositioner, ikke fuld målt profildækning.

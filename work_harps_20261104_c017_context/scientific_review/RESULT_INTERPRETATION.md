@@ -1,0 +1,9 @@
+# C017 interpretation and closed scope
+
+All six other target epochs agree better with the fixed February discovery in barycentric coordinates, in the exact original core and surrounding spectrum, with both unshifted raw Pearson and normalized RMS. The rounded multi-sample crest and structured surroundings recur; amplitudes vary. This describes the saved spectra and does not identify a line or physical origin, qualify a laser candidate or calibrate significance/sensitivity/a survey null. V2E2-0118 remains U.
+
+Order2 has518finite grid points and467surrounding common points, with a truncated positive-flank wavelength interval but163/77finite source flank samples; the unchanged20-per-side and41/440gates still permit normalization/comparison. All eighteen profiles have valid positive references and false low flags. Order2 contains preserved nonpositive source samples and weaker same-exposure extraction agreement; neither reference positivity nor later mapping support repairs its original local/baseline failures. Order3 has full wavelength coverage and closer extraction agreement. Native BUNIT and all positive finite ERR support are absent.
+
+The same seven target observations and overlapping C018 source pixels are dependent,already exposed data. Four predicted coherent centers stay within the fixed topocentric core and three fall outside; fixed-window frame comparisons can include neighboring structure. One reference against six other epochs gives six nonself observation relationships,not thirty-six independent confirmations.
+
+The fixed computation is complete,including the separate469-check/71,603-scalar arithmetic audit and all four inspected figures. No variant or old pipeline is replayed. C023/R024/0122,original queue row41 at5944.965Å,was selected before current values; its original metadata and review stages are retained in NEXT_ACTION.json. Rubin stays limited feasibility,minimum50unmet.
