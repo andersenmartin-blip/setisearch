@@ -1,3 +1,35 @@
+# Continue SETI from completed C028 / HD126093
+
+Read [the current state](work_harps_20261104_c028_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, then resume the exact next route below. Previous states, method freezes and numerical outputs remain preserved.
+
+## Latest completed C028 — 4 November 2026
+
+Six existing April–July 2025 HD126093 epochs, one own April 27 discovery reference, sixteen profiles and thirty-two comparisons are complete at exact catalog center 3864.5550000000003 air Å. All five other epochs favor barycentric raw correlation and normalized RMS in both original core and surrounding spectrum. V2E2-0260 remains U; no physical origin, qualified laser, significance, sensitivity or calibrated survey null is established.
+
+All sixteen profiles retain full 601-point finite raw/scaled support, positive references and false low flags. Four frame-profile rows from two exposures retain nonpositive original samples. ERR has no positive finite support. Both own native orders 2/3 and original raw containers remain. Original global support, local/baseline failures and later five-window support are distinct. The separate reconstruction passes 439 checks over 63,658 values. The method and exact 23-file public readback preceded current values. Separate formulas run by the same assistant are not independent human or separate-agent review.
+
+[Full report](work_harps_20261104_c028_context/analysis/RESULTS_REPORT.md) · [Closure](work_harps_20261104_c028_context/GROUP_CLOSURE.json). The original renderer inherited R021 in two merged-image titles; separate copies correct only that label to R029 while all data pixels, original four PNGs and original method remain unchanged. All six delivered PNGs were inspected and decoded. An initial release JSON-format validation failure read no observed arrays and created no result directory; its newline-only repair is recorded. One successful observed execution completed C028.
+
+## Next unfinished route: C029
+
+Use [the exact handoff](work_harps_20261104_c028_context/NEXT_ACTION.json): C029/R030 on HD126093 at exact 3866.125 air Å, starting at original row 63. Include all three records0261/0266/0272 and their three own discovery references (April 27, May 29 and May 30 2025), against all six existing target epochs. Retain original per-record/order mapping stages. In particular0261 has a compact off-trace deposit/possible blend distinct from its broader centered component; do not transfer that feature to0260 or use it to dispose of the broad component.
+
+Restore the three own native discovery products and all original raw-order containers from batch04 archives. Freshly scan all72headers per product, preserve each original catalog center and discovery reference, then freeze a separate complete joint comparison before current values. No0260 mapping or positive-reference outcome is transferred.
+
+C029 was selected before C028 values. Nominal ±3 Å windows overlap by4.430000000000291 Å. C029's center is inside C028's positive flank, but only part of its core is. C028's core also only partly intersects C029's negative flank. Products and native lineage are shared; preserve source-index dependence, retain structured flank samples and make no independence or blind-validation claim. No masks, fitted-width models or background variants are authorized by this metadata handoff alone; any distinct future analysis needs its own fixed plan and calibration.
+
+## Closed routes, publication and preservation
+
+C001–C023 and C028 exact diagnoses are complete; C013/C014 are completed normalization routes. The ten exact earlier bounded baseline routes stay closed, with physical U unchanged and source-bound proof linked from the state. Four HD135204 zero-selection results are not archive-wide absence. All mapping and separate0235 spatial/background diagnoses remain closed. Never replay an exact finished route solely because origin remains U.
+
+[C020 PR #24](https://github.com/andersenmartin-blip/setisearch/pull/24) was merged and both previous heads synchronized at the C028 baseline; [integration receipt](work_harps_20261104_c028_context/C020_INTEGRATION_RECEIPT.json). GitHub updates to main and optical-harps-week-20261101 remain explicitly authorized. Verify expected heads and passing checks before integration. Older approval holds below are historical.
+
+[Preservation instructions](work_harps_20261104_c028_context/preservation/README.md) bind eight source windows, sixteen profiles and two original raw containers. Restore full archived inputs without a live ESO query and reproduce separately. Survey exposure and provisional labels are unchanged. Rubin remains limited feasibility:190 main objects,2 primary and4 secondary evaluable objects including the primary2; minimum50unmet. Reopen only a distinct qualified public-history route. No unattended science search is configured.
+
+---
+
+All continuation sections below are historical and do not supersede the C029 handoff above.
+
 # Continue SETI from completed C020 / HD114783
 
 Read [the current machine-readable state](work_harps_20261104_c020_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, and resume the exact unfinished route below. All earlier states and method freezes remain unchanged.
