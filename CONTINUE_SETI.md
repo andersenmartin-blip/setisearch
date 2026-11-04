@@ -1,3 +1,33 @@
+# Continue SETI from completed C020 / HD114783
+
+Read [the current machine-readable state](work_harps_20261104_c020_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, and resume the exact unfinished route below. All earlier states and method freezes remain unchanged.
+
+## Latest completed C020 context — 4 November 2026
+
+Seven existing target epochs, one own May 15 2023 discovery reference, sixteen profiles and thirty-two comparisons are complete at the exact original 4303.13 Å center. All six other epochs favor barycentric raw correlation and normalized RMS in both core and surrounding spectrum. V2E2-0136 remains U. No physical-origin assignment, qualified laser, significance or calibrated survey null follows.
+
+All sixteen profiles retain full finite support, positive pooled flank references, false low flags and zero positive finite ERR samples. Native order 19 and the byte-exact original raw container remain. The separate reconstruction passes 480 checks over 63,829 values; four figures were inspected and fully decoded. The public fixed method and exact 24-file readback preceded current values. Separate formulas run by the same assistant are not independent human or separate-agent review.
+
+The source-index audit records 17 shared original samples with C021 in the July 2023 product and none in the other six. Nominal barycentric windows are disjoint, but both-frame source unions govern dependence. Prior epoch/raw values and these seven observations were already exposed. No source-pixel independence, blind validation or added observing time is claimed.
+
+[Full report](work_harps_20261104_c020_context/analysis/RESULTS_REPORT.md) · [Closure](work_harps_20261104_c020_context/GROUP_CLOSURE.json) · [Dependency audit](work_harps_20261104_c020_context/independent_audit/SOURCE_PIXEL_DEPENDENCY_AUDIT.json).
+
+## Next unfinished original-queue route
+
+Use [the exact C028 handoff](work_harps_20261104_c020_context/NEXT_ACTION.json): C028/R029/V2E2-0260 on **HD126093**, original row 62, exact catalog center **3864.5550000000003 Å**. This was selected before C020 values. Use the six existing April–July 2025 observations, its own April 27 discovery ADP.2025-04-28T01:01:15.579, BERV 5.77068898867443 km/s and cohort span 29.26984563734743 km/s. Restore own raw batch04 sources and freshly scan all 72 native headers before freezing separate signed normalization, frames, support, comparisons and figures. Historical orders 2/3 retain original global support, local/baseline failures and later five-window support as separate stages. No HD114783 seven-epoch count, May reference, order-19 scope, 59.073 km/s span or quality outcome is transferred.
+
+All exact C001–C023 routes are complete; C013/C014 are normalization diagnoses with physical U unchanged. Also skip ten exact earlier FRAME_BASELINE_CONTEXT routes, proved in [the source-bound skip record](work_harps_20261104_c020_context/scientific_review/COMPLETED_ROUTE_SKIP_PROOF.json): HD122640 0229/0231/0234/0235/0236/0237 and HD135204 0303/0305/0308/0309. The six HD122640 records already have bounded BERV and separate May-quality comparisons. Four HD135204 records retained no new selected epoch under bounded filters, which is not archive-wide absence. The separate 0235 spatial/background route is also closed. Physical U does not reopen any exact completed route.
+
+## Publication and preservation
+
+[C023 PR #23](https://github.com/andersenmartin-blip/setisearch/pull/23) is merged and the previous work branch was synchronized at the C020 baseline. [Integration receipt](work_harps_20261104_c020_context/C023_INTEGRATION_RECEIPT.json). The user explicitly authorizes GitHub updates, including main and optical-harps-week-20261101; earlier approval holds are historical. Preserve method freezes, verify expected heads and complete checks before integration.
+
+[Preservation instructions](work_harps_20261104_c020_context/preservation/README.md) bind eight bounded source windows, sixteen profiles and one original raw container. Full archived inputs restore without a live ESO query. Reproduce separately and preserve closed outputs. Rubin remains limited feasibility: 190 main objects, 2 primary and 4 secondary evaluable objects including those primary 2; minimum 50 unmet. Reopen only a distinct qualified public-history route. No unattended science search is configured.
+
+---
+
+All continuation sections below are historical and do not supersede the C028 handoff above.
+
 # Continue SETI from completed C023 / HD114783
 
 Read [the current machine-readable state](work_harps_20261104_c023_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, and resume the exact queue below. The previous C017 state and all older checkpoints are preserved unchanged.
