@@ -1,3 +1,11 @@
+# SETI — samlet leverancekontrol 5. november 2026
+
+[Samlerapport og næste udvalg](work_seti_20261105_d001_delivery/README.md): 39 kildefiler er kontrolleret mod den publicerede version. Der er 300 unikke hovedeksponeringer af 20 målnavne med 70,875 timers samlet eksponeringstid. V1 er kørt på 300 eksponeringer, V2 på 200. Alle 669 V2- og 22 V1-træf er medtaget med bevarede foreløbige dispositioner. Den oprindelige diagnosekø på 90 poster er afsluttet; 185 U og 35 M bevares.
+
+Kontrolgenfindingen gælder én stjerne og dækker ikke 3800–4000 Å. Et separat metadataudvalg med 50 eksponeringer af 10 andre stjerner samt fire kontrolspektre fra to yderligere stjerner er fastlagt. Deres signalværdier er endnu ikke hentet eller åbnet. Næste analyse kræver egen offentlig metode og provenienscheck. Rubin forbliver et begrænset forstudie. Budgettet er 0 DKK, og ingen baggrundssøgning kører.
+
+---
+
 ## SETI-status — den oprindelige opfølgningskø er gennemgået (5. november 2026)
 
 **C037 er afsluttet, og alle 90 poster i den afgrænsede kø har en dokumenteret behandling. Ingen oprindelig rute står ufærdig. De fysiske U bevares; ingen kvalificeret laserkandidat er etableret.**

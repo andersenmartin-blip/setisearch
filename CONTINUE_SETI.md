@@ -1,3 +1,17 @@
+# Continue SETI from consolidated delivery audit D001
+
+Read the [D001 report](work_seti_20261105_d001_delivery/README.md), [verified tables](work_seti_20261105_d001_delivery/results/DELIVERY_AUDIT.json), [fresh metadata cohort](work_seti_20261105_d001_delivery/results/FRESH_METADATA_COHORT54.csv) and [handoff](work_seti_20261105_d001_delivery/NEXT_ACTION.json). Check live refs and bound source hashes.
+
+D001 reconciles 39 published sources: 300 unique main exposures, 20 target labels and 255,148.743 seconds. V1 was applied to 300 exposures, V2 to 200. All 22 V1 and 669 V2 triggers are retained; 12 later V1 triggers match same-exposure V2 records. Current provisional V2 codes remain 403 A / 46 O / 185 U / 35 M. The original 90-row context queue is closed; physical U is unresolved. Historical numerical reproduction receipts pass. This audit reads no science arrays and does not rehash all historical FITS files.
+
+Original V1 recovery was 11/48. Fresh paired V2 recovery at 4/8/16/32 times the original local standard deviation is 5/36/48/48 out of 48 each, using one star and 16 unique patches. No V2 validation anchor below 4231.19 Å covers the 188 current trigger rows in 3800–4000 Å. There is no global completeness, false-alarm rate, confirmed laser or calibrated survey null.
+
+The next distinct route is fixed from prior metadata: 50 main exposures of 10 fresh target labels and four control spectra from two other fresh stars. The existing V2 method stays unchanged. The prospective design has 288 paired trials, including two blue anchors. D001 contains no new science files, flux reads or control/main calculations. Verify current selected ADP/raw provenance and prior/upstream exclusions, then publish and read back the complete separate acquisition/header/control/main method before new science values. Keep every failed input without substitution and preserve exact acquired bytes.
+
+Budget: 0 DKK. No paid service, new account or researcher contact. Rubin remains stopped with minimum 50 unmet. No background science is running. Earlier sections below are historical.
+
+---
+
 # Continue SETI after original 90-row follow-up queue completion
 
 Read [the current state](work_harps_20261105_c037_context/CONTINUATION_STATE.json), [the source-bound routing ledger](work_harps_20261105_c037_context/scientific_review/ORIGINAL_QUEUE_CLOSURE.json) and [the next-work handoff](work_harps_20261105_c037_context/NEXT_ACTION.json). Verify live refs and source hashes.
