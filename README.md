@@ -1,3 +1,13 @@
+## SETI-status — den oprindelige opfølgningskø er gennemgået (5. november 2026)
+
+**C037 er afsluttet, og alle 90 poster i den afgrænsede kø har en dokumenteret behandling. Ingen oprindelig rute står ufærdig. De fysiske U bevares; ingen kvalificeret laserkandidat er etableret.**
+
+C037 på HD1397: seks egne arkivobservationer, 14 profiler og 28 sammenligninger. Kerne og omgivelser passer bedst barycentrisk i alle fem sammenligninger ved begge mål. Separat efterregning består 1.188 kontroller over 55.299 talværdier. Køregnskabet fordeler sig på 79 tidligere diagnoser, 10 præcise tidligere baselineforløb og den sidste C037-post.
+
+[Afslutningsrapport for køen](work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) · [C037-rapport og figurer](work_harps_20261105_c037_context/analysis/RESULTS_REPORT.md) · [Fortsæt her](CONTINUE_SETI.md) · [Aktuel tilstand](work_harps_20261105_c037_context/CONTINUATION_STATE.json). Næste arbejde er samlet leverancekontrol mod ugeplanen og derefter et nyt metadataudvalgt datasæt eller en særskilt kalibreret opfølgning. Ældre afsnit nedenfor er historiske. Ingen baggrundssøgning kører.
+
+---
+
 ## SETI-status — C035 på HD128582 afsluttet (5. november 2026)
 
 **Én post, seks egne arkivobservationer, 14 profiler og 28 sammenligninger. Fortsat uafklaret; ingen kvalificeret laserkandidat.**

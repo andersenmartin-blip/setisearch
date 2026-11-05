@@ -1,3 +1,21 @@
+# Continue SETI after original 90-row follow-up queue completion
+
+Read [the current state](work_harps_20261105_c037_context/CONTINUATION_STATE.json), [the source-bound routing ledger](work_harps_20261105_c037_context/scientific_review/ORIGINAL_QUEUE_CLOSURE.json) and [the next-work handoff](work_harps_20261105_c037_context/NEXT_ACTION.json). Verify live refs and source hashes.
+
+C037 is complete: original0319 on HD1397, own July25 2024 reference and positive BERV, six reused 2022/2024 observations, 14 profiles and 28 comparisons. Core and surroundings each favor barycentric raw correlation and normalized RMS in all five nonself pairs. All profiles have full positive-reference support without low flags. Four frame profiles from the one discovery exposure retain nonpositive original source samples. Own native/raw3, supported original mapping stages, false extra-secondary flags and physical U remain.
+
+Public 22-file method readback preceded current arithmetic. Separate reconstruction passes 1,188 checks over 55,299 values. All 22 NPZ containers and four PNGs decode; figure contents were inspected by the same assistant through display copies and every original PNG hash remains exact. No independent agent/human review, new observing time, blind validation, physical origin, qualified laser or calibrated survey null. All 49 frozen source bindings remain exact.
+
+The original90-row routing queue is now covered: 79 previous completed diagnostic rows, ten exact prior-baseline rows and the current0319 row. There are 37 original core groups, 32 completed explicit groups and five baseline-only groups. No unfinished original route remains. Ledger coverage is metadata verification of prior state/proof plus passing C037, not a new re-review of all earlier science or resolution of all U. The four HD135204 bounded zero-selection outcomes do not show archive-wide absence. Completed diagnoses stay closed.
+
+Next: review OPTICAL_AND_RUBIN_WEEK_PLANS_2026-11-01.md and consolidate full-sample hit dispositions, searched coverage, controls/recovery and sensitivity/quality limits. Then select a fresh-data or specifically calibrated follow-up route from metadata with original cohort exclusions, publish its own fixed method and preserve all incomplete outcomes. Current release covers no new-dataset values. Keep 0 DKK, no paid service/account/contact step, and Rubin STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET; its190 original objects remain. Do not invent a next group or replay C037 because U persists.
+
+The user directly approved continued public methods/results and GitHub integration. Verify exact final delivery and final-head CI, merge with expected-head guards and synchronize optical-harps-week-20261101. Creation-time pending fields do not assert later integration; inspect actual refs/PR. No background science job is running.
+
+[Queue completion report](work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) · [C037 report](work_harps_20261105_c037_context/analysis/RESULTS_REPORT.md). Earlier sections below are historical.
+
+---
+
 # Continue SETI from completed C035 / HD128582
 
 Read [the current state](work_harps_20261105_c035_context/CONTINUATION_STATE.json), verify live refs/source hashes and resume [the exact C037 handoff](work_harps_20261105_c035_context/NEXT_ACTION.json).
