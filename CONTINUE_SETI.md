@@ -1,3 +1,27 @@
+# Continue SETI from completed C030 / HD126093
+
+Read [the current state](work_harps_20261104_c030_context/CONTINUATION_STATE.json),verify current GitHub heads and source hashes,and resume the exact next unfinished route. Earlier methods and numerical products remain preserved.
+
+C030 is complete:32profiles,160comparisons,8original records and5discovery references on6existing observations. All8physical U labels remain. The metadata midpoint3867.13125Å common core differs from every original member core;256support records retain all original cores. Barycentric raw Pearson wins24of25directed nonself rows and scaled RMS25of25in each region. These25rows are15unordered relationships with10reciprocal pairs. Preserve the June25/June27correlation exception.
+
+Ten native order2profiles have partial broad-edge coverage but sufficient normalization/common support. July16order2has low reference flags in both frames. All16raw containers and exact per-event mapping/review stages remain. Twelve C029source windows overlap and4additional June/July native windows reuse existing observations. No independence,blind validation,physical origin,qualified laser,measured linewidth or calibrated survey null is claimed.
+
+Validation:3,344byte/header checks with360fresh header-order records;132compact synthetic checks;1,449separate scalar preflight checks over73,014values;930observed reconstruction checks over127,836values. All64NPZ containers and9figures decode; all figures inspected by the same assistant. All70frozen source bindings remain intact. One successful observed production execution.
+
+## Exact next action: C031 at original row66
+
+Use [NEXT_ACTION](work_harps_20261104_c030_context/NEXT_ACTION.json),selected before C030values. Four original members0264/0269/0277/0282 on HD126093 retain four own discovery references across six cohort observations. Proposed metadata midpoint3868.1499999999996Å is not a frozen method. Restore all four own native products and original raw contexts,freshly scan all72orders each,and freeze original/common core differences before current arithmetic. Order2may lose more broad-window and positive-flank support; retain missing,invalid,low and raw-only outcomes. Do not transfer C030coverage,mapping stages or absent blend cautions.
+
+Completed original routesC001–C023,C028,C029,C030 and the ten exact baseline routes remain closed despite physical U. Do not replay normalization,mapping,spatial,registration,raw extraction or epoch pipelines. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET; no background science job is running.
+
+## GitHub authorization and integration
+
+The user already authorizes autonomous continuation and updates to GitHub,including main and optical-harps-week-20261101. Publish exact method before current values,preserve one-shot outputs,verify byte-exact delivery,pass exact-head CI,then merge with expected-head guards and fast-forward the work branch. Verify real current refs/PR state before continuing; receipt/state integration fields describe their creation time. No new permission question is required for this standing scope.
+
+[Full report](work_harps_20261104_c030_context/analysis/RESULTS_REPORT.md) · [Closure](work_harps_20261104_c030_context/GROUP_CLOSURE.json).
+
+---
+
 # Continue SETI from completed C029 / HD126093
 
 Read [the current state](work_harps_20261104_c029_context/CONTINUATION_STATE.json), verify current GitHub heads and source hashes, and resume the exact next unfinished route. All earlier states, methods and numerical outputs remain preserved.

@@ -1,3 +1,15 @@
+## Aktuel SETI-status — C030 på HD126093 afsluttet (4. november 2026)
+
+**Otte poster, fem referencer og seks eksisterende observationer er gennemgået: 32 profiler og 160 sammenligninger.** Alle otte poster forbliver uafklarede; ingen kvalificeret laserkandidat er etableret.
+
+I både fælles kerne og omgivelser er korrelationen højere barycentrisk i24af25rettede sammenligninger og normaliseret RMS lavere i alle 25. De repræsenterer 15 forskellige observationspar med 10 gensidige gentagelser,ikke 25 uafhængige observationer. Den ene undtagelse i korrelationen er dokumenteret. Den fælles kerne erstatter ikke de otte oprindelige kerner.
+
+Separat efterregning består med 930 kontroller og 127.836 talværdier. Delvis dækning i orden 2,lavt flankereferenceflag i juli og negative originalpunkter er bevaret sammen med alle 16 råudsnit. Tolv kildevinduer deler originalpunkter med C029; fire yderligere nativevinduer er kendte observationer. Næste punkt er **C031: fire poster og fire referencer**.
+
+[**Fortsæt her**](CONTINUE_SETI.md) · [Rapport og ni figurer](work_harps_20261104_c030_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261104_c030_context/CONTINUATION_STATE.json)
+
+---
+
 ## Aktuel SETI-status — HD126093 ved 3866,125 Å analyseret (4. november 2026)
 
 **C029 er færdig: seks observationer, tre poster og tre referencer, 24 profiler og 96 sammenligninger.** Alle tre poster forbliver uafklarede. Alle 15 sammenligninger mellem forskellige observationer og referencer passer bedst barycentrisk i både kernen og omgivelserne. De repræsenterer 12 forskellige observationspar med tre gensidige gentagelser, ikke 15 uafhængige observationer.
