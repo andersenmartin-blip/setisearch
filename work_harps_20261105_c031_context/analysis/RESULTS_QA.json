@@ -1,0 +1,2065 @@
+{
+  "schema": "HARPS_C031_RESULTS_QA_V1",
+  "created_utc": "2026-11-05T07:10:48.942604+00:00",
+  "status": "PASS_FIXED_OUTPUT_DESCRIPTION_AND_CONTAINER_DECODE",
+  "summary": {
+    "profile_slots": 28,
+    "comparison_slots": 128,
+    "evaluable_pearson_values": 125,
+    "evaluable_normalized_rms_values": 123,
+    "profiles_with_full601_raw_support": 20,
+    "partial_raw_profile_slots": 8,
+    "partial_raw_sample_counts": [
+      455,
+      461,
+      475,
+      493
+    ],
+    "positive_reference_profiles": 26,
+    "raw_only_slots": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 2,
+        "frame": "barycentric",
+        "reasons": [
+          "INSUFFICIENT_FINITE_RIGHT_FLANK"
+        ]
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "barycentric",
+        "reasons": [
+          "INSUFFICIENT_FINITE_RIGHT_FLANK"
+        ]
+      }
+    ],
+    "low_reference_profiles": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "topocentric",
+        "flank_reference": 30.35882568359375,
+        "first_difference_noise_proxy": 15.018845621629533
+      }
+    ],
+    "profiles_with_nonpositive_original_samples": 10,
+    "positive_finite_ERR_samples": 0,
+    "frame_wins": {
+      "core": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 19,
+          "topocentric": 1
+        },
+        "normalized_rms": {
+          "barycentric": 19,
+          "topocentric": 1
+        }
+      },
+      "broad_pattern": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 19,
+          "topocentric": 1
+        },
+        "normalized_rms": {
+          "barycentric": 19,
+          "topocentric": 1
+        }
+      }
+    },
+    "exceptions": [
+      {
+        "region": "core",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+        "barycentric_value": 0.9589103484377289,
+        "topocentric_value": 0.9607178836301012,
+        "result": "topocentric"
+      },
+      {
+        "region": "core",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+        "barycentric_value": 0.13730009727542097,
+        "topocentric_value": 0.1228561266877378,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.8345108686999093,
+        "topocentric_value": 0.841911761986917,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.38730874928311715,
+        "topocentric_value": 0.3639018103638631,
+        "result": "topocentric"
+      }
+    ],
+    "original_member_support_records": 112,
+    "original_member_nominal_grid_centers": [
+      50
+    ],
+    "all_original_member_core_raw_support_complete": true,
+    "original_member_raw_only_support_records": 8,
+    "native_broad_unevaluable_raw_rows": [
+      {
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 424
+      },
+      {
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 410
+      },
+      {
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 404
+      }
+    ]
+  },
+  "npz_containers": [
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0264_o02.npz",
+      "bytes": 6344,
+      "sha256": "c8b43d6a81587101bf98ca6962f3c8db09a9b3fe3a2dd7b9c09207593e8e5ae4",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0264_o03.npz",
+      "bytes": 6962,
+      "sha256": "d6a818eef583be8ab05223219abf01d1a8c9fcdd1a26c5cb9e7cadba9183a286",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0269_o02.npz",
+      "bytes": 6278,
+      "sha256": "df5cbe55be7dfaa99210cd2b8b8d9219f4098ef225d46180c9191cb0cd4c44ed",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0269_o03.npz",
+      "bytes": 6874,
+      "sha256": "cca10ce32a29e9a970bcdb75e728b21fa21795d8067426699a7ace7214f09716",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0277_o02.npz",
+      "bytes": 6200,
+      "sha256": "71a74d86c7ffac640fd99c66fa4b5ecb36a0b174835f38ab7e9bae2437cfabb9",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0277_o03.npz",
+      "bytes": 6876,
+      "sha256": "5d5986931f649921edd8d72f36ab509d6ef9a62413b25e731884c24f37a58027",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0282_o02.npz",
+      "bytes": 6171,
+      "sha256": "614e8e2fa875686d993f726a802b6cb364646a84b4d075c274a857c559d7b773",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/V2E2-0282_o03.npz",
+      "bytes": 6751,
+      "sha256": "8854553f199a5614b96f25f01efe10a9971dd29044b1398ab276412bc4643076",
+      "arrays": {
+        "raw_cutout": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_background": {
+          "shape": [
+            33
+          ],
+          "dtype": "float64"
+        },
+        "raw_excess": {
+          "shape": [
+            31,
+            33
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_cutout": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_background": {
+          "shape": [
+            25
+          ],
+          "dtype": "float64"
+        },
+        "baseline_raw_excess": {
+          "shape": [
+            21,
+            25
+          ],
+          "dtype": "float64"
+        },
+        "native_wave": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        },
+        "native_flux": {
+          "shape": [
+            41
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-04-28T01_01_15.579.npz",
+      "bytes": 7407,
+      "sha256": "e88d6f37a64406e38ee5e631f90f11a8d79f98b169fcedeaf796906e535cf7a9",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            603
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            603
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            603
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            603
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            603
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-05-30T01_00_44.357.npz",
+      "bytes": 7526,
+      "sha256": "fc8315cdbd9b9ffa861237f188d11f5940a37146395e1e80bb6281c2aefe3dfd",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            620
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-05-31T01_00_40.760.npz",
+      "bytes": 7534,
+      "sha256": "0195126f6a3bcc4802402ebdccc6e6675fe4f6263e48690dffdcd3824d53049b",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            620
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            620
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-06-26T01_01_08.565.npz",
+      "bytes": 7814,
+      "sha256": "f0d3bf37e056cce63ae5134c57457fedb691e812a5659c99f0b15034f85b8306",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            633
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-06-28T01_01_54.505.npz",
+      "bytes": 7722,
+      "sha256": "0241f8b42900be2988be89cb3cd97b3f28be86404b754ff8af378acf27407a47",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            633
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            633
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/merged_ADP.2025-07-17T01_03_21.039.npz",
+      "bytes": 7818,
+      "sha256": "bf3ac7d8cfacd017b1bb14dfdc14c7cad7d67b69abab8ef4533a4787ed3dae31",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            639
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            639
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            639
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            639
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            639
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-04-28T01_01_15.579_o2.npz",
+      "bytes": 10945,
+      "sha256": "7cffa7adf3b7b04cf4a91510c34cc8b23c6dbd47dfb2a821303f1595b4bfc742",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            549
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-04-28T01_01_15.579_o3.npz",
+      "bytes": 10790,
+      "sha256": "4f6a8c0d56c7ff3b7125e52a21c9470d02285d4d4f344897b779ac87eb8d3f17",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            544
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            544
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            544
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            544
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            544
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-05-30T01_00_44.357_o2.npz",
+      "bytes": 10966,
+      "sha256": "b5b9a8c7d9d821946cc81d1b8bba4cf50241a53fcf5c31da45c9129e6f2c5074",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            549
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-05-30T01_00_44.357_o3.npz",
+      "bytes": 11109,
+      "sha256": "afd7fc3ddeb5bc55dd459ceda61a19ee91d48b3085de2f3c02388fbadea8ddbb",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            561
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            561
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            561
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            561
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            561
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-06-28T01_01_54.505_o2.npz",
+      "bytes": 10961,
+      "sha256": "1e0194dc87c99584207fb100be7e88de2297bc6cf15c7ce90b66e21aee260c7b",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            549
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-06-28T01_01_54.505_o3.npz",
+      "bytes": 11307,
+      "sha256": "0a50bc9f1a9398cfd62596fca05f24d217875b413de088fbe9188195b61412c5",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            573
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            573
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            573
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            573
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            573
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-07-17T01_03_21.039_o2.npz",
+      "bytes": 11033,
+      "sha256": "b67edc25ae4255c15fd5f51beed513772d81900be84bcf94f20b4ea4889cddbd",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            549
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            549
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/bounded_inputs/native_ADP.2025-07-17T01_03_21.039_o3.npz",
+      "bytes": 11420,
+      "sha256": "8a7a22a7beff75e3ac02e38f0431cb7cd7bd00295beb26e9a305a94958fa9750",
+      "arrays": {
+        "source_indices": {
+          "shape": [
+            579
+          ],
+          "dtype": "int64"
+        },
+        "source_wavelength": {
+          "shape": [
+            579
+          ],
+          "dtype": "float64"
+        },
+        "barycentric_wavelength": {
+          "shape": [
+            579
+          ],
+          "dtype": "float64"
+        },
+        "signed_source_flux": {
+          "shape": [
+            579
+          ],
+          "dtype": "float64"
+        },
+        "source_error": {
+          "shape": [
+            579
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-04-28T01_01_15.579_barycentric.npz",
+      "bytes": 12321,
+      "sha256": "56ce2c880f3776f149b26d3a316fc07279d5e8091a0d33c015b8bb4afbe01750",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-04-28T01_01_15.579_topocentric.npz",
+      "bytes": 14952,
+      "sha256": "51bba3c7945e7267c28bc5a8cabc5d666e21e2ce188796d884d80b5e08ad7325",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-05-30T01_00_44.357_barycentric.npz",
+      "bytes": 12223,
+      "sha256": "4fc467d2828b6a3c9845a2144f1bde991e7ffd8295b6c1b75ceff1e9a35d0b74",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-05-30T01_00_44.357_topocentric.npz",
+      "bytes": 14957,
+      "sha256": "f46a948da779061b050fcde55026ff20c84af6462a871d4fe5e145bbdda961ee",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-05-31T01_00_40.760_barycentric.npz",
+      "bytes": 12223,
+      "sha256": "50f1faae655cd41124d98d011353c9ebe74afbf373b7212733b762d331e19efc",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-05-31T01_00_40.760_topocentric.npz",
+      "bytes": 14974,
+      "sha256": "ab29ca4238440da9475646f12ca92fbf83d741bb12dabf6c0ec0a10c22dc3ab9",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-06-26T01_01_08.565_barycentric.npz",
+      "bytes": 12581,
+      "sha256": "05164abfb704ca3bbdf425a6110d5db065b4c9036c6f461df1eba5b46bebdabd",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-06-26T01_01_08.565_topocentric.npz",
+      "bytes": 14967,
+      "sha256": "dbb7870f224e259365b61cdf9b9ef69629ff9d3fc2cebb25e530a5da75239319",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-06-28T01_01_54.505_barycentric.npz",
+      "bytes": 12456,
+      "sha256": "e267b3519dc5aa077b78c403d8b601d23afee71bad1c0de3cc91caf909d95b50",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-06-28T01_01_54.505_topocentric.npz",
+      "bytes": 15038,
+      "sha256": "571ee4929cb1bf7f6a4939432d5c53b5b0f3cc002c7ff983c5bb5b9a371962f5",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-07-17T01_03_21.039_barycentric.npz",
+      "bytes": 12483,
+      "sha256": "184ec9ec6c11461908905b594af03c798118d4a94978fda711e6e2b7378a9ba3",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/merged_ADP.2025-07-17T01_03_21.039_topocentric.npz",
+      "bytes": 14986,
+      "sha256": "74173b067ef10381975ec6bcea804a10be0a2a8b41c77b97c75c7620546175d0",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-04-28T01_01_15.579_o2_barycentric.npz",
+      "bytes": 11235,
+      "sha256": "600b5df7e2e9e76a44805b2f741cb94aeb4cc4c91ba0b82a420395882c4c7c09",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-04-28T01_01_15.579_o2_topocentric.npz",
+      "bytes": 13399,
+      "sha256": "9fe02cb51a6ccc2c31a98b2f1076ab969bad0d15179f513a5f01d1f84819d4f8",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-04-28T01_01_15.579_o3_barycentric.npz",
+      "bytes": 12800,
+      "sha256": "834becd22e6efa6663bf043cba22e29b068fb9581f94d676d4d8a2ac866cf2a1",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-04-28T01_01_15.579_o3_topocentric.npz",
+      "bytes": 14955,
+      "sha256": "649e16d4171aa200316e884eec911eeafd528ab60908c63d6b02a7518d626c63",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-05-30T01_00_44.357_o2_barycentric.npz",
+      "bytes": 10948,
+      "sha256": "fffc358a397e87d5e5465d9f49df89ca28feaa7fc51e88e8a94f22565faffa99",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-05-30T01_00_44.357_o2_topocentric.npz",
+      "bytes": 13411,
+      "sha256": "f19b7cae841646dd34219cf87e201aeef1d69ae821277d94c0a94d91e60742ed",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-05-30T01_00_44.357_o3_barycentric.npz",
+      "bytes": 12791,
+      "sha256": "60d667bc49b5ba857e056af5b518e779a7289dbe676286c8cc8ae323bbcb2967",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-05-30T01_00_44.357_o3_topocentric.npz",
+      "bytes": 14958,
+      "sha256": "ca9cc46071757de855e442e586419bfce696f74cd8c1c30453fffc7f8ca2e074",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-06-28T01_01_54.505_o2_barycentric.npz",
+      "bytes": 7220,
+      "sha256": "1bf4fbc26a4c3144f8ed7dea370f4a84aeb5407be88cf4f8e08734cce0b15438",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-06-28T01_01_54.505_o2_topocentric.npz",
+      "bytes": 13462,
+      "sha256": "c13f0a841b3fcfa9d98ba8d4cf6c0bbe2a70950302138b9573a9359d58b90460",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-06-28T01_01_54.505_o3_barycentric.npz",
+      "bytes": 12796,
+      "sha256": "944974c2100eb25e31b060cd67de00ed15b38e3ba230e44ac6af78f37f855eb8",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-06-28T01_01_54.505_o3_topocentric.npz",
+      "bytes": 15018,
+      "sha256": "380379762d91747ae6628e91b2a64df81b1b273e5b8ebcaa9aaf446ff0ece6af",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-07-17T01_03_21.039_o2_barycentric.npz",
+      "bytes": 7199,
+      "sha256": "9b067e71f1fe97808c7afa2980c72880bf5db33baba1588675a41d425274c54a",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-07-17T01_03_21.039_o2_topocentric.npz",
+      "bytes": 13461,
+      "sha256": "2566a8e73f1c01c92defd4c77e984b051e6f508c1fba9af3ff5b257de520f967",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-07-17T01_03_21.039_o3_barycentric.npz",
+      "bytes": 12778,
+      "sha256": "e7f07f3f703f8cee72021593ff75835097333c81079635363e0e47683240ca42",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "analysis/results/profiles/native_ADP.2025-07-17T01_03_21.039_o3_topocentric.npz",
+      "bytes": 14998,
+      "sha256": "e72107bc7a2f496623821baaaf317cad78def03a83b99064b954efa8f802510c",
+      "arrays": {
+        "offset": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "requested_bary_wave": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "signed_raw_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        },
+        "normalized_flux": {
+          "shape": [
+            601
+          ],
+          "dtype": "float64"
+        }
+      }
+    }
+  ],
+  "figures": [
+    {
+      "path": "analysis/results/figures/MERGED_BROAD_CONTEXT.png",
+      "sha256": "0d6a327b432d81b97ab22b0775fbc7dd7e395fac1630c74101087ea74105e55a",
+      "pixels": [
+        1960,
+        1470
+      ]
+    },
+    {
+      "path": "analysis/results/figures/MERGED_CORE_CONTEXT.png",
+      "sha256": "7fed357c0a9056fd7c21bb06d36739e244e26e31d31ce20ed4661084e5d4cc22",
+      "pixels": [
+        1960,
+        1470
+      ]
+    },
+    {
+      "path": "analysis/results/figures/NATIVE_ORDERS_1.png",
+      "sha256": "8816b9e2103c0f6ec18386c6481cc1c56015495e5b898ab220509728306312bf",
+      "pixels": [
+        2380,
+        1680
+      ]
+    },
+    {
+      "path": "analysis/results/figures/NATIVE_ORDERS_2.png",
+      "sha256": "8eef02719aad2d27800d7d641adefa7b45ceaa192f4e7b0523092b4801454f40",
+      "pixels": [
+        2380,
+        1680
+      ]
+    },
+    {
+      "path": "analysis/results/figures/PRESERVED_RAW_ORDER_CONTEXT_1.png",
+      "sha256": "22708de815e076e798fe3abc9246f4d8b261d1d0056ba18dad5c7550083e1a40",
+      "pixels": [
+        1540,
+        1680
+      ]
+    },
+    {
+      "path": "analysis/results/figures/PRESERVED_RAW_ORDER_CONTEXT_2.png",
+      "sha256": "acef1fe59646c031e58f673c41d17de45eb2bf77eac0ab2747e112c496f6ede3",
+      "pixels": [
+        1540,
+        1680
+      ]
+    }
+  ],
+  "original_numeric_hashes_unchanged": true,
+  "labels_changed": 0,
+  "new_fits_or_variants": 0,
+  "public_method_publication_verified": false,
+  "public_preregistration_claim": false
+}

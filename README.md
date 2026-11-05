@@ -1,3 +1,23 @@
+## C031 offentliggjort med godkendelse — 5. november 2026
+
+C031-pakken er offentliggjort på arbejdsgrenen efter brugerens direkte godkendelse. Alle 109 fasefiler og det oprindelige resultattræ er kontrolleret. 28 profiler, 128 sammenligninger og fire fortsat uafklarede poster er uændrede. Ingen kvalificeret laserkandidat er etableret.
+
+[Rapport og figurer](work_harps_20261105_c031_context/analysis/RESULTS_REPORT.md) · [Aktuel offentlig tilstand](work_harps_20261105_c031_context/PUBLIC_CONTINUATION_STATE.json) · [Fortsæt med C033](CONTINUE_SETI.md). Den tidligere publiceringsblokering er ophævet af brugerens direkte godkendelse; ældre lokale noter nedenfor er historiske. Fletning følger bestået CI på den præcise sidste commit.
+
+---
+
+## Lokal SETI-status — C031 afsluttet (5. november 2026)
+
+**Fire poster på HD126093 er gennemgået: 28 profiler og 128 sammenligninger fra seks eksisterende observationer. Alle fire er fortsat uafklarede; ingen kvalificeret laserkandidat.**
+
+Separat efterregning består med 791 kontroller over 109.709 talværdier. Begge mål er bedst barycentrisk i 19 af 20 rettede sammenligninger for både kerne og omgivelser; de repræsenterer 14 forskellige observationspar. Undtagelser, delvis dækning, to rå-profiler uden gyldig normalisering og ét lavt referenceniveau er bevaret.
+
+C030 PR #27 er flettet på GitHub, og den tidligere arbejdsgren er synkroniseret. **C031 er afsluttet lokalt og afventer direkte godkendelse til offentliggørelse**, fordi automatisk godkendelseskontrol afviste upload. Metoden blev låst lokalt før beregningen; der hævdes ingen offentlig forhåndsregistrering.
+
+[Fortsæt her](CONTINUE_SETI.md) · [Lokal rapport og seks figurer](work_harps_20261105_c031_context/analysis/RESULTS_REPORT.md) · [Lokal tilstand](work_harps_20261105_c031_context/CONTINUATION_STATE.json). Næste oprindelige køpunkt er C033 med fire poster. Ingen baggrundssøgning kører.
+
+---
+
 ## Aktuel SETI-status — C030 på HD126093 afsluttet (4. november 2026)
 
 **Otte poster, fem referencer og seks eksisterende observationer er gennemgået: 32 profiler og 160 sammenligninger.** Alle otte poster forbliver uafklarede; ingen kvalificeret laserkandidat er etableret.
