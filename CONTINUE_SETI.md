@@ -1,3 +1,19 @@
+# Continue SETI from completed C034 / HD126093
+
+Read [the current state](work_harps_20261105_c034_context/CONTINUATION_STATE.json), verify live refs and source hashes, and resume [the exact C032 handoff](work_harps_20261105_c034_context/NEXT_ACTION.json).
+
+C034 is complete: singleton 0271, own May 29 reference, six reused observations,14 profiles and 28 comparisons. Core and surroundings each favor barycentric correlation and RMS in all 5 nonself pairs. All 14 profiles have 601 finite raw/normalized samples and positive references; no low-reference or nonpositive-source flags. Own order 19 and raw 19 context and original U/U/U chain remain. No physical cause, qualified laser, blind validation or calibrated survey null.
+
+Public 20-file method readback preceded current arithmetic. Separate scalar reconstruction passes 1184 checks over 55,139 values;22 NPZ containers and 4 fixed figures decode and all figures were inspected by the same assistant. Six physical merged sources recur from C033 with disjoint current source windows; own native 19 is an additional context from an existing observation. Reused exposures remain dependent.
+
+Exact next original route is C032, first queue row 80, records 0278/0283 with own June 27 andJuly 16 references, exact centers 3869.2975/3869.295 air Å. Proposed metadata midpoint 3869.2962500000003Å is not the next frozen method. Restore own native/raw sources, scan all 72 orders per product and freeze own original/common geometry and quality; do not inherit current order 19, support, anchor or morphology.
+
+The user directly approved public release and continued GitHub updates. Publish exact results, verify final-head CI, merge with expected-head guards and synchronize optical-harps-week-20261101. Confirm actual live state: creation-time receipts do not assert later integration. Completed routes stay closed despite U. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM 50_UNMET; no background science job is running.
+
+[Report and four figures](work_harps_20261105_c034_context/analysis/RESULTS_REPORT.md). All prior sections below are historical.
+
+---
+
 # Continue SETI from completed C033 / HD126093
 
 Read [the current state](work_harps_20261105_c033_context/CONTINUATION_STATE.json), verify live GitHub refs and source hashes, and resume the exact next unfinished original route. Earlier method freezes and outputs remain preserved.
