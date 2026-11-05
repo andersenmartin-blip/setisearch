@@ -1,3 +1,13 @@
+## SETI-status — C035 på HD128582 afsluttet (5. november 2026)
+
+**Én post, seks egne arkivobservationer, 14 profiler og 28 sammenligninger. Fortsat uafklaret; ingen kvalificeret laserkandidat.**
+
+Omgivelserne passer bedst barycentrisk i alle fem sammenligninger. Kernen giver blandede resultater: korrelation og normaliseret RMS foretrækker hver den barycentriske ramme i tre af fem, men ikke for de samme observationer. Alle 14 profiler har fuld dækning og positive referencer. Separat efterregning består 1.182 kontroller over 54.774 talværdier.
+
+[Fortsæt her](CONTINUE_SETI.md) · [Rapport og fire figurer](work_harps_20261105_c035_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261105_c035_context/CONTINUATION_STATE.json). C037 på HD1397 er nu den sidste ufærdige rute i den oprindelige opfølgningskø. Ældre afsnit nedenfor er historiske. Ingen baggrundssøgning kører.
+
+---
+
 ## SETI-status — C032 på HD126093 afsluttet (5. november 2026)
 
 **To poster, seks eksisterende observationer, 20 profiler og 64 sammenligningspladser. Begge er fortsat uafklarede; ingen kvalificeret laserkandidat.**
