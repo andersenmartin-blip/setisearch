@@ -1,3 +1,25 @@
+# Continue SETI from completed local C031 / HD126093
+
+Read [the current local state](work_harps_20261105_c031_context/CONTINUATION_STATE.json) and verify real GitHub refs before any publication. Earlier states, methods and outputs remain preserved.
+
+C031 is complete: four original records 0264/0269/0277/0282, four discovery references, six reused observations, 28 profiles and 128 comparisons. All four physical U labels remain. Separate reconstruction passes 791 checks over 109,709 values. All 50 NPZ containers and six fixed scientific PNGs decode; the same assistant inspected all figures. Original raw evidence and mapping stages remain exact.
+
+The core and surrounding pattern each favor barycentric raw correlation and normalized RMS in 19 of 20 directed nonself comparisons. These are 14 unordered relationships and six reciprocal discovery pairs among only six observations. Preserve the distinct May core and June surroundings exceptions. Eight native order-2 profiles are partial; June 27 and July 16 barycentric order-2 profiles are raw-only; July 16 topocentric order 2 has a low reference. All 112 original-member support records remain. No qualified laser, physical origin, blind validation or calibrated null is claimed.
+
+## Public disclosure hold
+
+C030 PR #27 was merged at 48dc62d0b2fb063254f57f3135ce794a560a0000; main and optical-harps-week-20261101 were synchronized there. Automatic approval review blocked C031 push twice, requiring fresh direct authorization for this specific public disclosure despite prior standing permissions. Do not bypass that restriction. C031 has a verified LOCAL method commit before observed arithmetic and makes no public-preregistration claim. Publish only after the requested direct user approval; then run exact-head CI and use guarded integration. Inspect live refs: this local note does not imply C031 was uploaded.
+
+## Next original science route: C033, queue row 67
+
+Use [the exact metadata handoff](work_harps_20261105_c031_context/NEXT_ACTION.json), selected before C031 values. Four original records 0265/0270/0274/0279 retain four own discovery references at proposed metadata midpoint 3880.35 air Å on HD126093. The midpoint is not a new frozen method. Restore own native/raw products, scan all 72 native orders per discovery and freeze original/common geometry and quality handling. Do not transfer C031 partial-coverage, missing-flank or low-reference outcomes. C033 is next by original queue index; C032 remains pending later in that ordering.
+
+Completed exact C001–C023, C028–C031 and the ten earlier bounded baseline diagnoses remain closed despite physical U. Do not replay extraction, mapping, registration, normalization, spatial or epoch pipelines. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET. No background science job is running.
+
+[Full local report](work_harps_20261105_c031_context/analysis/RESULTS_REPORT.md) · [Local closure](work_harps_20261105_c031_context/GROUP_CLOSURE.json).
+
+---
+
 # Continue SETI from completed C030 / HD126093
 
 Read [the current state](work_harps_20261104_c030_context/CONTINUATION_STATE.json),verify current GitHub heads and source hashes,and resume the exact next unfinished route. Earlier methods and numerical products remain preserved.

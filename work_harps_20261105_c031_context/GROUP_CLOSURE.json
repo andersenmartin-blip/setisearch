@@ -1,0 +1,246 @@
+{
+  "schema": "HARPS_C031_LOCAL_DIAGNOSTIC_CLOSURE_V1",
+  "created_utc": "2026-11-05T07:13:24.132559+00:00",
+  "status": "COMPLETE_LOCAL_FIXED_JOINT_CONTEXT_ALL_U_UNCHANGED",
+  "target": "HD126093",
+  "events": [
+    "V2E2-0264",
+    "V2E2-0269",
+    "V2E2-0277",
+    "V2E2-0282"
+  ],
+  "current_codes": {
+    "V2E2-0264": "U",
+    "V2E2-0269": "U",
+    "V2E2-0277": "U",
+    "V2E2-0282": "U"
+  },
+  "summary": {
+    "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+    "completed_utc": "2026-11-05T07:07:57.428921+00:00",
+    "group": "C031",
+    "target": "HD126093",
+    "events": [
+      "V2E2-0264",
+      "V2E2-0269",
+      "V2E2-0277",
+      "V2E2-0282"
+    ],
+    "merged_epochs": 6,
+    "distinct_discovery_products": 4,
+    "discovery_records": 4,
+    "native_discovery_orders": 8,
+    "structurally_excluded_native_orders": 0,
+    "profile_slots": 28,
+    "comparison_slots": 128,
+    "identical_product_self_comparisons": 16,
+    "raw_only_normalization_slots": 2,
+    "blocked_source_profile_slots": 0,
+    "preserved_raw_context_panels": 8,
+    "group_center_bary_air_angstrom": 3868.1499999999996,
+    "topocentric_anchor_air_angstrom": 3868.075543620757,
+    "anchor_berv_km_s": 5.77068898867443,
+    "old_epoch_pipeline_rerun": false,
+    "labels_changed": 0,
+    "origin_assignments": 0,
+    "release_sha256": "7f5c83fca38ba54192da5fb6a87235501ef5a70ef0219c216c7d583d706b9899",
+    "plan_sha256": "e9419cac5a8627563e14dce14e00a962d3260763a7a6076bd0b178805df080cf",
+    "script_sha256": "f9fb9edda1e4d92eed7eb6df122167a321cad48e91eef021335dd07a3d761865",
+    "limitations": [
+      "Four current U records,four discovery references and six reused observations. Prior epoch/raw values and C030 broad context already exposed. No added observing time,blind validation,physical origin,qualified laser or calibrated survey null.",
+      "Common midpoint3868.1499999999996 \u00b10.25 air Angstrom differs slightly from every original member core. Preserve all exact centers,bounds and112 profile/member support records. No full-original-core correlation is claimed.",
+      "One April discovery anchor and own epoch BERVs. No fitted center,width,lag,stellar RV,drift,continuum,background or mask. Topocentric windows can sample neighboring structure.",
+      "288 fresh header scans select8 native/order windows. Broad boundary and positive flank can be partial. Retain every nonfinite,nonpositive,low,raw-only and blocked outcome;do not inherit C030 quality.",
+      "Original local/baseline support is true only for0277/order3 and0282/order3;false for the other6 event/order pairs. Global/later support true throughout. Four U/U/U chains remain,with event-specific noisy morphology and additional uncertainty.",
+      "20 directed nonself rows per frame/region are14 unordered relationships with6 reciprocal discovery pairs among6 observations. No independent confirmation follows from references or same-exposure native extraction.",
+      "Audit exact C030 source-index overlap using metadata only. Reused pixels and exposures preclude source-pixel independence or blind validation.",
+      "Signed structured flanks are not calibrated continua. Uncalibrated merged ADU and unspecified native units use separate divisors. ERR/noise/low flags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+      "Completed exact diagnoses stay closed despite U. Rubin remains limited feasibility,minimum50 unmet. Separate scalar arithmetic is run by the same assistant;no separate-agent or human review."
+    ]
+  },
+  "numerical_audit": {
+    "status": "PASS_INDEPENDENT_C031_NUMERICAL_RECONSTRUCTION",
+    "checks_passed": 791,
+    "scalar_values_compared": 109709,
+    "profiles_reconstructed": 28,
+    "comparisons_reconstructed": 128,
+    "bounded_input_records_reconstructed": 14,
+    "preserved_raw_context_files_verified": 8
+  },
+  "quality_summary": {
+    "profile_slots": 28,
+    "comparison_slots": 128,
+    "evaluable_pearson_values": 125,
+    "evaluable_normalized_rms_values": 123,
+    "profiles_with_full601_raw_support": 20,
+    "partial_raw_profile_slots": 8,
+    "partial_raw_sample_counts": [
+      455,
+      461,
+      475,
+      493
+    ],
+    "positive_reference_profiles": 26,
+    "raw_only_slots": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 2,
+        "frame": "barycentric",
+        "reasons": [
+          "INSUFFICIENT_FINITE_RIGHT_FLANK"
+        ]
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "barycentric",
+        "reasons": [
+          "INSUFFICIENT_FINITE_RIGHT_FLANK"
+        ]
+      }
+    ],
+    "low_reference_profiles": [
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "topocentric",
+        "flank_reference": 30.35882568359375,
+        "first_difference_noise_proxy": 15.018845621629533
+      }
+    ],
+    "profiles_with_nonpositive_original_samples": 10,
+    "positive_finite_ERR_samples": 0,
+    "frame_wins": {
+      "core": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 19,
+          "topocentric": 1
+        },
+        "normalized_rms": {
+          "barycentric": 19,
+          "topocentric": 1
+        }
+      },
+      "broad_pattern": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 19,
+          "topocentric": 1
+        },
+        "normalized_rms": {
+          "barycentric": 19,
+          "topocentric": 1
+        }
+      }
+    },
+    "exceptions": [
+      {
+        "region": "core",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+        "barycentric_value": 0.9589103484377289,
+        "topocentric_value": 0.9607178836301012,
+        "result": "topocentric"
+      },
+      {
+        "region": "core",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+        "barycentric_value": 0.13730009727542097,
+        "topocentric_value": 0.1228561266877378,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "raw_pearson",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.8345108686999093,
+        "topocentric_value": 0.841911761986917,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.38730874928311715,
+        "topocentric_value": 0.3639018103638631,
+        "result": "topocentric"
+      }
+    ],
+    "original_member_support_records": 112,
+    "original_member_nominal_grid_centers": [
+      50
+    ],
+    "all_original_member_core_raw_support_complete": true,
+    "original_member_raw_only_support_records": 8,
+    "native_broad_unevaluable_raw_rows": [
+      {
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 424
+      },
+      {
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 410
+      },
+      {
+        "dp_id": "ADP.2025-07-17T01:03:21.039",
+        "order": 2,
+        "frame": "barycentric",
+        "region": "broad_pattern",
+        "raw_pearson_block_reason": "INSUFFICIENT_COMMON_RAW_COVERAGE",
+        "common_finite_raw_samples": 404
+      }
+    ]
+  },
+  "source_bindings_unchanged": 61,
+  "shared_C030_source_inputs": 14,
+  "additional_native_inputs_not_new_observations": 0,
+  "source_pixel_dependency_audit_sha256": "d84246db23312ec87a3d7dca23d384dc1ced26a678c0813dfb8999ed2d29b621",
+  "original_member_core_support_sha256": "dce80e21f4c36e8c0501fdb2061d8fd9196bd17ce13a4ea939f7083913c6e016",
+  "source_pixel_independence_claim": false,
+  "common_core_covers_original_member_core_union": false,
+  "directed_nonself_pairs_per_frame_region": 20,
+  "distinct_unordered_pairs_per_frame_region": 14,
+  "reciprocal_pairs": 6,
+  "new_observing_time_seconds": 0,
+  "new_archive_queries": 0,
+  "new_origin_assignments": 0,
+  "labels_changed": 0,
+  "new_C031_variants_planned": 0,
+  "successful_observed_executions": 1,
+  "next_original_queue_group": "C033",
+  "next_original_queue_row": 67,
+  "next_target": "HD126093",
+  "next_existing_epoch_count": 6,
+  "next_record_count": 4,
+  "next_discovery_product_count": 4,
+  "next_action_sha256": "c159cc679142370068fbded20d7e2e8116421f7137ca7aaec82c74c5edf7d24f",
+  "fixed_plan_sha256": "e9419cac5a8627563e14dce14e00a962d3260763a7a6076bd0b178805df080cf",
+  "full_result_report_sha256": "5ccefb4849b64f1ba3d9bab5c5c9d862082536f9ac4cc5e3ccc0d1a86b60e8f1",
+  "public_method_publication_verified": false,
+  "public_preregistration_claim": false,
+  "local_method_commit": "9776fa4f927ac954c01524f18d852f4d679498bb",
+  "local_method_readback_files": 25,
+  "GitHub_C031_upload_blocked": true,
+  "GitHub_C030_PR27_merged": true
+}
