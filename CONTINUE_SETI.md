@@ -1,3 +1,13 @@
+# C031 published with direct approval — 5 November 2026
+
+The user explicitly approved publication and requested continuation. The complete C031 result snapshot is public on `codex/seti-c031-20261105`; [publication receipt](work_harps_20261105_c031_context/PUBLICATION_RECEIPT.json) verifies all 109 phase-file blob identities and the report body. The 111 uploaded files match the exact original result tree. All scientific outputs remain unchanged.
+
+Use [the current public continuation state](work_harps_20261105_c031_context/PUBLIC_CONTINUATION_STATE.json) and the [exact C033 handoff](work_harps_20261105_c031_context/NEXT_ACTION.json). Verify actual PR/refs and successful final-head CI before integration. The prior publication hold is resolved by the direct user message recorded in USER_PUBLICATION_APPROVAL.json. Earlier local-only notes below describe their creation time.
+
+C031 was fixed locally before observed arithmetic; its later publication is not public preregistration. The completed diagnostic stays closed. Continue with C033 at queue row67,not a C031 rerun. No background science job is running.
+
+---
+
 # Continue SETI from completed local C031 / HD126093
 
 Read [the current local state](work_harps_20261105_c031_context/CONTINUATION_STATE.json) and verify real GitHub refs before any publication. Earlier states, methods and outputs remain preserved.

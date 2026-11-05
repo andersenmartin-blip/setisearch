@@ -1,3 +1,11 @@
+## C031 offentliggjort med godkendelse — 5. november 2026
+
+C031-pakken er offentliggjort på arbejdsgrenen efter brugerens direkte godkendelse. Alle 109 fasefiler og det oprindelige resultattræ er kontrolleret. 28 profiler, 128 sammenligninger og fire fortsat uafklarede poster er uændrede. Ingen kvalificeret laserkandidat er etableret.
+
+[Rapport og figurer](work_harps_20261105_c031_context/analysis/RESULTS_REPORT.md) · [Aktuel offentlig tilstand](work_harps_20261105_c031_context/PUBLIC_CONTINUATION_STATE.json) · [Fortsæt med C033](CONTINUE_SETI.md). Den tidligere publiceringsblokering er ophævet af brugerens direkte godkendelse; ældre lokale noter nedenfor er historiske. Fletning følger bestået CI på den præcise sidste commit.
+
+---
+
 ## Lokal SETI-status — C031 afsluttet (5. november 2026)
 
 **Fire poster på HD126093 er gennemgået: 28 profiler og 128 sammenligninger fra seks eksisterende observationer. Alle fire er fortsat uafklarede; ingen kvalificeret laserkandidat.**
