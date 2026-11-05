@@ -1,3 +1,15 @@
+## SETI-status — C033 på HD126093 afsluttet (5. november 2026)
+
+**Fire poster, fire referencer og seks eksisterende observationer: 28 profiler og 128 sammenligninger. Alle fire forbliver uafklarede; ingen kvalificeret laserkandidat.**
+
+Råkorrelationen er bedst barycentrisk i alle 20 rettede sammenligninger for både kerne og omgivelser. Normaliseret RMS er bedst barycentrisk i 19/20 og 17/20; undtagelserne er dokumenteret. De 20 rettede rækker repræsenterer 14 forskellige observationspar. Fuld støtte, otte lave referenceniveauer, negative originalpunkter og den særskilte 0274-bemærkning er bevaret.
+
+Separat efterregning består med 791 kontroller over 110.049 talværdier. Alle 25 metodefiler blev offentliggjort og læst tilbage nøjagtigt før beregningen. C031 PR #28 er flettet, og arbejdsgrenen er synkroniseret. Næste køpunkt er **C034: én post ved 4312,2025 Å med sin egen maj-reference**.
+
+[Fortsæt her](CONTINUE_SETI.md) · [Rapport og seks figurer](work_harps_20261105_c033_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261105_c033_context/CONTINUATION_STATE.json). Godkendelsen til offentliggørelse og fortsættelse er registreret. Ingen baggrundssøgning kører.
+
+---
+
 ## C031 offentliggjort med godkendelse — 5. november 2026
 
 C031-pakken er offentliggjort på arbejdsgrenen efter brugerens direkte godkendelse. Alle 109 fasefiler og det oprindelige resultattræ er kontrolleret. 28 profiler, 128 sammenligninger og fire fortsat uafklarede poster er uændrede. Ingen kvalificeret laserkandidat er etableret.

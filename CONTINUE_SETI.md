@@ -1,3 +1,27 @@
+# Continue SETI from completed C033 / HD126093
+
+Read [the current state](work_harps_20261105_c033_context/CONTINUATION_STATE.json), verify live GitHub refs and source hashes, and resume the exact next unfinished original route. Earlier method freezes and outputs remain preserved.
+
+C033 is complete: original records 0265/0270/0274/0279, four own discovery references, six reused observations, 28 profiles and 128 comparisons. All four physical U labels remain. Raw Pearson is higher barycentrically in 20/20 directed nonself rows in both regions; normalized RMS is lower in 19/20 core and 17/20 surrounding rows. These are 14 unordered relationships and 6 reciprocal discovery pairs among six observations. Preserve all metric disagreements, including the reciprocal May surrounding pair.
+
+All 28 profiles have full 601-point finite raw/scaled support and positive references. Eight low-reference flags and 14 profiles with nonpositive original samples remain; ERR has no positive finite support. All eight original mapping chains are true. All eight original raw containers and 112 member-support records remain. The 0274 own order 4 possible off-trace deposit/blend caution is distinct from its broad centered component and is not transferred. Two original cores match the common 3880.35±0.25 core; two differ. No original-core-union fit or origin claim follows.
+
+Nine physical source IDs are shared with C031 but their current original-index windows are disjoint; five native/order IDs are additional reused contexts. Earlier C033 epoch/raw values and six observations were already exposed, so no source-pixel independence or blind validation is claimed. The public 25-file method readback preceded current values. Separate reconstruction passes 791 checks over 110,049 values; 50 NPZ containers and 6 fixed PNGs decode and all figures were inspected by the same assistant. One successful production execution; no calibrated significance, linewidth, sensitivity, qualified laser or survey null.
+
+## Exact next action: C034 at original queue row 73
+
+Use [NEXT_ACTION](work_harps_20261105_c033_context/NEXT_ACTION.json), selected before C033 values. Singleton V2E2-0271 on HD126093 retains exact original 4312.202499999999 air Å center and its own May 29 discovery ADP.2025-05-30T01:00:44.357 with its own negative BERV. Restore its own native/raw inputs, scan all 72 native orders and freeze its separate geometry and reference handling. Do not transfer C033 April anchor, orders 3/4, support, low flags, mapping stages or 0274 caution. C032 remains pending later in original queue order.
+
+Completed exact C001–C023, C028–C031, C033 and ten earlier bounded baseline diagnoses remain closed despite physical U. Do not replay extraction, mapping, registration, normalization, spatial or epoch pipelines. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET. No background science job is running.
+
+## Publication and integration
+
+The current direct user message approves publication and requests continuation. C031 PR #28 passed exact-head CI and merged at 922b78780f690b70d9560956008818152e92f422; main and optical-harps-week-20261101 were synchronized before this method. Earlier C031 publication holds are historical. Publish exact C033 results, verify the public snapshot and passing final-head CI, then merge with expected-head guards and synchronize the work branch. Verify real PR/refs; creation-time state fields do not assert later integration already happened.
+
+[Full report](work_harps_20261105_c033_context/analysis/RESULTS_REPORT.md) · [Closure](work_harps_20261105_c033_context/GROUP_CLOSURE.json).
+
+---
+
 # C031 published with direct approval — 5 November 2026
 
 The user explicitly approved publication and requested continuation. The complete C031 result snapshot is public on `codex/seti-c031-20261105`; [publication receipt](work_harps_20261105_c031_context/PUBLICATION_RECEIPT.json) verifies all 109 phase-file blob identities and the report body. The 111 uploaded files match the exact original result tree. All scientific outputs remain unchanged.

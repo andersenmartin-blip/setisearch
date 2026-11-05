@@ -1,0 +1,252 @@
+{
+  "schema": "HARPS_C033_DIAGNOSTIC_CLOSURE_V1",
+  "created_utc": "2026-11-05T08:52:34.985094+00:00",
+  "status": "COMPLETE_FIXED_JOINT_CONTEXT_ALL_U_UNCHANGED",
+  "target": "HD126093",
+  "events": [
+    "V2E2-0265",
+    "V2E2-0270",
+    "V2E2-0274",
+    "V2E2-0279"
+  ],
+  "current_codes": {
+    "V2E2-0265": "U",
+    "V2E2-0270": "U",
+    "V2E2-0274": "U",
+    "V2E2-0279": "U"
+  },
+  "summary": {
+    "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+    "completed_utc": "2026-11-05T08:46:13.381754+00:00",
+    "group": "C033",
+    "target": "HD126093",
+    "events": [
+      "V2E2-0265",
+      "V2E2-0270",
+      "V2E2-0274",
+      "V2E2-0279"
+    ],
+    "merged_epochs": 6,
+    "distinct_discovery_products": 4,
+    "discovery_records": 4,
+    "native_discovery_orders": 8,
+    "structurally_excluded_native_orders": 0,
+    "profile_slots": 28,
+    "comparison_slots": 128,
+    "identical_product_self_comparisons": 16,
+    "raw_only_normalization_slots": 0,
+    "blocked_source_profile_slots": 0,
+    "preserved_raw_context_panels": 8,
+    "group_center_bary_air_angstrom": 3880.35,
+    "topocentric_anchor_air_angstrom": 3880.2753087881297,
+    "anchor_berv_km_s": 5.77068898867443,
+    "old_epoch_pipeline_rerun": false,
+    "labels_changed": 0,
+    "origin_assignments": 0,
+    "release_sha256": "2061e4cf8a2e12c0e8c62453448dc16aa124f9e7473ac3ad82557241d34f9c83",
+    "plan_sha256": "46e907497a7ad7621cb7fca8adb9613faaf66d017cee21790bf30f704de2d6f0",
+    "script_sha256": "6fbacd051a92723636a194804e4f64bf3998d7cbb71c3dacb2eb0de0e209b651",
+    "limitations": [
+      "Four U records,four own discovery references and six existing observations. Earlier C033 epoch/raw values are exposed. No added observing time,blind validation,physical origin,qualified laser or calibrated survey null.",
+      "Common metadata midpoint3880.35 with fixed \u00b10.25 air Angstrom core matches two original cores and differs from the other two. Preserve all original centers,bounds and112 profile/member support records. No full-original-core-union correlation.",
+      "Own April anchor and own epoch BERVs. No fitted center,width,lag,stellar RV,drift,continuum,background or mask. Topocentric fixed windows can sample neighboring structure.",
+      "Fresh all72-order scan per discovery gives288 header-order records and eight selected product/order windows in orders3/4. Preserve any partial,nonfinite,nonpositive,low,raw-only or blocked outcomes without transferring C031 quality.",
+      "All eight original global/local/baseline/later mapping stages are true. Four U/U/U chains remain.0274 has its own secondary possible compact off-trace deposit/blend caution distinct from the broad trace-centered component; no inter-event transfer or origin assignment.",
+      "Per frame/region20 directed nonself rows are14 unordered relationships with6 reciprocal discovery pairs among six observations. Same-exposure native/merged extraction and references are dependent.",
+      "Nine physical source IDs overlap C031 and five native/order sources are additional reused products/orders. Actual source-index intersection is audited separately including zero intersections; no prior C031 array reads. Reused exposures and earlier C033 evidence preclude blind validation even when windows are disjoint.",
+      "Signed structured flanks are not calibrated continua. Uncalibrated merged ADU and unspecified native units use separate divisors. ERR/noise proxies/low flags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+      "Completed exact diagnoses stay closed despite U. Rubin remains limited feasibility,minimum50 unmet. Separate scalar formulas and visual review are by the same assistant;no independent human or separate-agent review."
+    ]
+  },
+  "numerical_audit": {
+    "status": "PASS_INDEPENDENT_C033_NUMERICAL_RECONSTRUCTION",
+    "checks_passed": 791,
+    "scalar_values_compared": 110049,
+    "profiles_reconstructed": 28,
+    "comparisons_reconstructed": 128,
+    "bounded_input_records_reconstructed": 14,
+    "preserved_raw_context_files_verified": 8
+  },
+  "quality_summary": {
+    "profile_slots": 28,
+    "comparison_slots": 128,
+    "evaluable_pearson_values": 128,
+    "evaluable_normalized_rms_values": 128,
+    "profiles_with_full601_raw_support": 28,
+    "partial_raw_profile_slots": 0,
+    "partial_raw_sample_counts": [],
+    "positive_reference_profiles": 28,
+    "raw_only_slots": [],
+    "low_reference_profiles": [
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "order": null,
+        "frame": "barycentric",
+        "flank_reference": 30.22861671447754,
+        "first_difference_noise_proxy": 16.330462018751696
+      },
+      {
+        "kind": "merged",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "order": null,
+        "frame": "topocentric",
+        "flank_reference": 34.14475440979004,
+        "first_difference_noise_proxy": 15.38652464354527
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 4,
+        "frame": "barycentric",
+        "flank_reference": 39.30532264709473,
+        "first_difference_noise_proxy": 16.124983163254335
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "order": 4,
+        "frame": "topocentric",
+        "flank_reference": 35.208648681640625,
+        "first_difference_noise_proxy": 15.249080419168722
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "order": 4,
+        "frame": "barycentric",
+        "flank_reference": 37.66963195800781,
+        "first_difference_noise_proxy": 14.368717733826164
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "order": 4,
+        "frame": "topocentric",
+        "flank_reference": 32.47489929199219,
+        "first_difference_noise_proxy": 13.993017391271662
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 4,
+        "frame": "barycentric",
+        "flank_reference": 33.32946014404297,
+        "first_difference_noise_proxy": 13.310389307780351
+      },
+      {
+        "kind": "native",
+        "dp_id": "ADP.2025-06-28T01:01:54.505",
+        "order": 4,
+        "frame": "topocentric",
+        "flank_reference": 33.3859748840332,
+        "first_difference_noise_proxy": 13.623236809343124
+      }
+    ],
+    "profiles_with_nonpositive_original_samples": 14,
+    "positive_finite_ERR_samples": 0,
+    "frame_wins": {
+      "core": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 20
+        },
+        "normalized_rms": {
+          "barycentric": 19,
+          "topocentric": 1
+        }
+      },
+      "broad_pattern": {
+        "nonself_directed_pairs": 20,
+        "distinct_unordered_relationships": 14,
+        "reciprocal_discovery_pairs": 6,
+        "raw_r": {
+          "barycentric": 20
+        },
+        "normalized_rms": {
+          "barycentric": 17,
+          "topocentric": 3
+        }
+      }
+    },
+    "exceptions": [
+      {
+        "region": "core",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 0.6280439463591104,
+        "topocentric_value": 0.4607835158729184,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-05-30T01:00:44.357",
+        "reference_dp_id": "ADP.2025-05-31T01:00:40.760",
+        "barycentric_value": 0.23387015781429948,
+        "topocentric_value": 0.2028028081900099,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-05-31T01:00:40.760",
+        "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+        "barycentric_value": 0.23387015781429948,
+        "topocentric_value": 0.2028028081900099,
+        "result": "topocentric"
+      },
+      {
+        "region": "broad_pattern",
+        "quantity": "normalized_rms",
+        "dp_id": "ADP.2025-06-26T01:01:08.565",
+        "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+        "barycentric_value": 1.0690382029131773,
+        "topocentric_value": 0.8676424469333177,
+        "result": "topocentric"
+      }
+    ],
+    "original_member_support_records": 112,
+    "original_member_nominal_grid_centers": [
+      49,
+      50,
+      51
+    ],
+    "all_original_member_core_raw_support_complete": true,
+    "original_member_raw_only_support_records": 0,
+    "native_broad_unevaluable_raw_rows": []
+  },
+  "source_bindings_unchanged": 61,
+  "same_physical_C031_source_ids": 9,
+  "actual_shared_C031_source_index_windows": 0,
+  "additional_native_product_order_sources_not_new_observations": 5,
+  "source_pixel_dependency_audit_sha256": "9fb03e9280b687b3b9dbdfb609f4f23e1b36fc6cde3599c8110a62f1fffc0f95",
+  "original_member_core_support_sha256": "b7c6333f3214e3b76e5a627ce75c368483a2e919cf75688925efca58b04dafd4",
+  "source_pixel_independence_claim": false,
+  "common_core_covers_original_member_core_union": false,
+  "individual_original_cores_matching_common": 2,
+  "directed_nonself_pairs_per_frame_region": 20,
+  "distinct_unordered_pairs_per_frame_region": 14,
+  "reciprocal_pairs": 6,
+  "new_observing_time_seconds": 0,
+  "new_archive_queries": 0,
+  "new_origin_assignments": 0,
+  "labels_changed": 0,
+  "new_C033_variants_planned": 0,
+  "successful_observed_executions": 1,
+  "next_original_queue_group": "C034",
+  "next_original_queue_row": 73,
+  "next_target": "HD126093",
+  "next_record_count": 1,
+  "next_discovery_product_count": 1,
+  "next_action_sha256": "d50178e06d3da47c2f452a56fd1cbc520ab0932495a341a573939058f450c930",
+  "fixed_plan_sha256": "46e907497a7ad7621cb7fca8adb9613faaf66d017cee21790bf30f704de2d6f0",
+  "full_result_report_sha256": "c66a5c966205c3d51001a2d595b9024b661b28b500d92b00b2ca9bf3b18af6bf",
+  "public_method_commit": "8564598c434ecc8f003c4ca4d33f24f56067765e",
+  "public_method_readback_files": 25,
+  "public_method_precedes_current_arithmetic": true,
+  "C031_PR28_merged": true
+}
