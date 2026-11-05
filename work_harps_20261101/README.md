@@ -1,3 +1,5 @@
+**Aktuel samlerapport, 5. november 2026:** [D001](../work_seti_20261105_d001_delivery/README.md) samler 300 unikke eksponeringer og alle 669 V2- og 22 V1-træf med nuværende foreløbige dispositioner. Første rågennemgang og den oprindelige diagnosekø på 90 poster er afsluttet; 185 U og 35 M bevares. Nedenstående tekst beskriver historiske trin og deres daværende status.
+
 # HARPS analyser og status 1. november 2026
 
 **300 unikke eksponeringer af 20 stjerner er nu analyseret, samlet 70,875 timers teleskopeksponering.** De seneste 100 eksponeringer blev udvalgt og analysemetoden publiceret før hentning. Alle 100 bestod identitets- og datakontrollen. V1 har 22 foreløbige emissionshits på 300 eksponeringer; V2 har 669 profiltræf på de seneste 200. Der er ingen identificeret laser eller kvalificeret SETI-kandidat. HARPS-ugen er fortsat delvis.
