@@ -1,3 +1,23 @@
+# Continue SETI from completed C035 / HD128582
+
+Read [the current state](work_harps_20261105_c035_context/CONTINUATION_STATE.json), verify live refs/source hashes and resume [the exact C037 handoff](work_harps_20261105_c035_context/NEXT_ACTION.json).
+
+C035 is complete: original0289, own March30 reference and positive BERV, six reused HD128582 observations, 14 profiles and 28 comparisons. Surroundings favor barycentric raw correlation and RMS in all five nonself pairs. The core favors barycentric coordinates in three of five by each quantity, with different winning observations: March14 and June5 have metric disagreements. Do not replace this mixed-core result with the surrounding-pattern result. Physical U remains; no qualified laser.
+
+All 14 profiles have 601 finite raw/normalized samples and positive references without low flags or nonpositive original window samples. Own native/raw54 and all supported original mapping stages remain. The secondary uncertainty flag is true without a blend caution. Fixed native normalization retains a broad slope differing from merged spectra; no additional continuum/response fit is introduced. Fourteen member-support rows have nominal49/51 centers according to original transformed geometry.
+
+The public 20-file method readback preceded current arithmetic. Separate scalar reconstruction passes 1,182 checks over 54,774 values; 22 NPZ containers and five PNGs decode. Four figure contents and the raw caption correction were inspected by the same assistant. All original frozen figures remain; the corrected raw heading changes only Own0271 to Own0289, with every changed pixel above the data axes. No numerical production rerun, fitted statistic or display-scale change. All 46 frozen source bindings remain exact.
+
+Seven physical source IDs differ from recent C032, but HD128582 epoch/raw values were already exposed. No new observing time, blind validation, independent agent/human review, physical cause or calibrated survey null.
+
+Exact last unfinished route is C037 on HD1397, original queue row90, V2E2-0319 at3872.375 air Å. Use that target’s own six epochs and July25 2024 discovery ADP.2024-07-26T01:01:40.049 with BERV+4.62262137764828 km/s. Restore own native/raw products, scan all72 orders and freeze own geometry and quality. Do not transfer the HD128582 cohort, March anchor, native54 scope or current outcomes.
+
+The user directly approved public release and continued GitHub updates. Publish exact results, verify final-head CI, merge with expected-head guards and synchronize optical-harps-week-20261101. Confirm live state: creation-time pending fields do not assert later integration. Completed diagnoses stay closed despite U. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET; no background science job is running.
+
+[Full report](work_harps_20261105_c035_context/analysis/RESULTS_REPORT.md). Earlier sections below are historical.
+
+---
+
 # Continue SETI from completed C032 / HD126093
 
 Read [the current state](work_harps_20261105_c032_context/CONTINUATION_STATE.json), verify live refs and source hashes, then resume [the exact C035 handoff](work_harps_20261105_c032_context/NEXT_ACTION.json).
