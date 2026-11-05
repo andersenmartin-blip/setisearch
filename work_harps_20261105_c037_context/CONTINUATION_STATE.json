@@ -1,0 +1,570 @@
+{
+  "schema": "HARPS_C037_CONTINUATION_STATE_V1",
+  "created_utc": "2026-11-05T13:08:29.081327+00:00",
+  "entry_point": "CONTINUE_SETI.md",
+  "repository": "andersenmartin-blip/setisearch",
+  "science": {
+    "target": "HD1397",
+    "current_phase": "C037",
+    "physical_labels_unchanged": true,
+    "qualified_laser_candidates": 0,
+    "added_observing_time": 0
+  },
+  "previous_continuation_state": "work_harps_20261105_c035_context/CONTINUATION_STATE.json",
+  "previous_continuation_state_sha256": "62d951b5ac6af6aec72f7800a0836f80996ba16db6d5fe4c761b9548164ae5fe",
+  "completed_harps_c033_context": {
+    "summary": {
+      "status": "COMPLETE_FIXED_GROUP_CONTEXT",
+      "completed_utc": "2026-11-05T08:46:13.381754+00:00",
+      "group": "C033",
+      "target": "HD126093",
+      "events": [
+        "V2E2-0265",
+        "V2E2-0270",
+        "V2E2-0274",
+        "V2E2-0279"
+      ],
+      "merged_epochs": 6,
+      "distinct_discovery_products": 4,
+      "discovery_records": 4,
+      "native_discovery_orders": 8,
+      "structurally_excluded_native_orders": 0,
+      "profile_slots": 28,
+      "comparison_slots": 128,
+      "identical_product_self_comparisons": 16,
+      "raw_only_normalization_slots": 0,
+      "blocked_source_profile_slots": 0,
+      "preserved_raw_context_panels": 8,
+      "group_center_bary_air_angstrom": 3880.35,
+      "topocentric_anchor_air_angstrom": 3880.2753087881297,
+      "anchor_berv_km_s": 5.77068898867443,
+      "old_epoch_pipeline_rerun": false,
+      "labels_changed": 0,
+      "origin_assignments": 0,
+      "release_sha256": "2061e4cf8a2e12c0e8c62453448dc16aa124f9e7473ac3ad82557241d34f9c83",
+      "plan_sha256": "46e907497a7ad7621cb7fca8adb9613faaf66d017cee21790bf30f704de2d6f0",
+      "script_sha256": "6fbacd051a92723636a194804e4f64bf3998d7cbb71c3dacb2eb0de0e209b651",
+      "limitations": [
+        "Four U records,four own discovery references and six existing observations. Earlier C033 epoch/raw values are exposed. No added observing time,blind validation,physical origin,qualified laser or calibrated survey null.",
+        "Common metadata midpoint3880.35 with fixed \u00b10.25 air Angstrom core matches two original cores and differs from the other two. Preserve all original centers,bounds and112 profile/member support records. No full-original-core-union correlation.",
+        "Own April anchor and own epoch BERVs. No fitted center,width,lag,stellar RV,drift,continuum,background or mask. Topocentric fixed windows can sample neighboring structure.",
+        "Fresh all72-order scan per discovery gives288 header-order records and eight selected product/order windows in orders3/4. Preserve any partial,nonfinite,nonpositive,low,raw-only or blocked outcomes without transferring C031 quality.",
+        "All eight original global/local/baseline/later mapping stages are true. Four U/U/U chains remain.0274 has its own secondary possible compact off-trace deposit/blend caution distinct from the broad trace-centered component; no inter-event transfer or origin assignment.",
+        "Per frame/region20 directed nonself rows are14 unordered relationships with6 reciprocal discovery pairs among six observations. Same-exposure native/merged extraction and references are dependent.",
+        "Nine physical source IDs overlap C031 and five native/order sources are additional reused products/orders. Actual source-index intersection is audited separately including zero intersections; no prior C031 array reads. Reused exposures and earlier C033 evidence preclude blind validation even when windows are disjoint.",
+        "Signed structured flanks are not calibrated continua. Uncalibrated merged ADU and unspecified native units use separate divisors. ERR/noise proxies/low flags do not calibrate significance,false-alarm probability,sensitivity or linewidth.",
+        "Completed exact diagnoses stay closed despite U. Rubin remains limited feasibility,minimum50 unmet. Separate scalar formulas and visual review are by the same assistant;no independent human or separate-agent review."
+      ]
+    },
+    "closure_path": "work_harps_20261105_c033_context/GROUP_CLOSURE.json",
+    "report_path": "work_harps_20261105_c033_context/analysis/RESULTS_REPORT.md",
+    "audit_status": "PASS_INDEPENDENT_C033_NUMERICAL_RECONSTRUCTION",
+    "audit_checks": 791,
+    "audit_scalar_values": 110049,
+    "quality": {
+      "profile_slots": 28,
+      "comparison_slots": 128,
+      "evaluable_pearson_values": 128,
+      "evaluable_normalized_rms_values": 128,
+      "profiles_with_full601_raw_support": 28,
+      "partial_raw_profile_slots": 0,
+      "partial_raw_sample_counts": [],
+      "positive_reference_profiles": 28,
+      "raw_only_slots": [],
+      "low_reference_profiles": [
+        {
+          "kind": "merged",
+          "dp_id": "ADP.2025-06-26T01:01:08.565",
+          "order": null,
+          "frame": "barycentric",
+          "flank_reference": 30.22861671447754,
+          "first_difference_noise_proxy": 16.330462018751696
+        },
+        {
+          "kind": "merged",
+          "dp_id": "ADP.2025-06-26T01:01:08.565",
+          "order": null,
+          "frame": "topocentric",
+          "flank_reference": 34.14475440979004,
+          "first_difference_noise_proxy": 15.38652464354527
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-05-30T01:00:44.357",
+          "order": 4,
+          "frame": "barycentric",
+          "flank_reference": 39.30532264709473,
+          "first_difference_noise_proxy": 16.124983163254335
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-05-30T01:00:44.357",
+          "order": 4,
+          "frame": "topocentric",
+          "flank_reference": 35.208648681640625,
+          "first_difference_noise_proxy": 15.249080419168722
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-05-31T01:00:40.760",
+          "order": 4,
+          "frame": "barycentric",
+          "flank_reference": 37.66963195800781,
+          "first_difference_noise_proxy": 14.368717733826164
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-05-31T01:00:40.760",
+          "order": 4,
+          "frame": "topocentric",
+          "flank_reference": 32.47489929199219,
+          "first_difference_noise_proxy": 13.993017391271662
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-06-28T01:01:54.505",
+          "order": 4,
+          "frame": "barycentric",
+          "flank_reference": 33.32946014404297,
+          "first_difference_noise_proxy": 13.310389307780351
+        },
+        {
+          "kind": "native",
+          "dp_id": "ADP.2025-06-28T01:01:54.505",
+          "order": 4,
+          "frame": "topocentric",
+          "flank_reference": 33.3859748840332,
+          "first_difference_noise_proxy": 13.623236809343124
+        }
+      ],
+      "profiles_with_nonpositive_original_samples": 14,
+      "positive_finite_ERR_samples": 0,
+      "frame_wins": {
+        "core": {
+          "nonself_directed_pairs": 20,
+          "distinct_unordered_relationships": 14,
+          "reciprocal_discovery_pairs": 6,
+          "raw_r": {
+            "barycentric": 20
+          },
+          "normalized_rms": {
+            "barycentric": 19,
+            "topocentric": 1
+          }
+        },
+        "broad_pattern": {
+          "nonself_directed_pairs": 20,
+          "distinct_unordered_relationships": 14,
+          "reciprocal_discovery_pairs": 6,
+          "raw_r": {
+            "barycentric": 20
+          },
+          "normalized_rms": {
+            "barycentric": 17,
+            "topocentric": 3
+          }
+        }
+      },
+      "exceptions": [
+        {
+          "region": "core",
+          "quantity": "normalized_rms",
+          "dp_id": "ADP.2025-06-26T01:01:08.565",
+          "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+          "barycentric_value": 0.6280439463591104,
+          "topocentric_value": 0.4607835158729184,
+          "result": "topocentric"
+        },
+        {
+          "region": "broad_pattern",
+          "quantity": "normalized_rms",
+          "dp_id": "ADP.2025-05-30T01:00:44.357",
+          "reference_dp_id": "ADP.2025-05-31T01:00:40.760",
+          "barycentric_value": 0.23387015781429948,
+          "topocentric_value": 0.2028028081900099,
+          "result": "topocentric"
+        },
+        {
+          "region": "broad_pattern",
+          "quantity": "normalized_rms",
+          "dp_id": "ADP.2025-05-31T01:00:40.760",
+          "reference_dp_id": "ADP.2025-05-30T01:00:44.357",
+          "barycentric_value": 0.23387015781429948,
+          "topocentric_value": 0.2028028081900099,
+          "result": "topocentric"
+        },
+        {
+          "region": "broad_pattern",
+          "quantity": "normalized_rms",
+          "dp_id": "ADP.2025-06-26T01:01:08.565",
+          "reference_dp_id": "ADP.2025-06-28T01:01:54.505",
+          "barycentric_value": 1.0690382029131773,
+          "topocentric_value": 0.8676424469333177,
+          "result": "topocentric"
+        }
+      ],
+      "original_member_support_records": 112,
+      "original_member_nominal_grid_centers": [
+        49,
+        50,
+        51
+      ],
+      "all_original_member_core_raw_support_complete": true,
+      "original_member_raw_only_support_records": 0,
+      "native_broad_unevaluable_raw_rows": []
+    },
+    "source_pixel_independence_claim": false,
+    "new_observing_time_seconds": 0,
+    "all_four_current_U_unchanged": true
+  },
+  "completed_original_routes": [
+    "C001",
+    "C002",
+    "C003",
+    "C004",
+    "C005",
+    "C006",
+    "C007",
+    "C008",
+    "C009",
+    "C010",
+    "C011",
+    "C012",
+    "C013",
+    "C014",
+    "C015",
+    "C016",
+    "C017",
+    "C018",
+    "C019",
+    "C020",
+    "C021",
+    "C022",
+    "C023",
+    "C028",
+    "C029",
+    "C030",
+    "C031",
+    "C032",
+    "C033",
+    "C034",
+    "C035",
+    "C037"
+  ],
+  "completed_route_qualification": "Completed exact diagnostics and ten earlier bounded baseline routes stay closed despite U. C034 is next by original queue index; C032 remains pending later.",
+  "completed_exact_baseline_route_ids": [
+    "V2E2-0229",
+    "V2E2-0231",
+    "V2E2-0234",
+    "V2E2-0235",
+    "V2E2-0236",
+    "V2E2-0237",
+    "V2E2-0303",
+    "V2E2-0305",
+    "V2E2-0308",
+    "V2E2-0309"
+  ],
+  "completed_baseline_route_proof_path": "work_harps_20261104_c020_context/scientific_review/COMPLETED_ROUTE_SKIP_PROOF.json",
+  "completed_baseline_route_proof_sha256": "d61392399c2a21ebe8811c439e7ffb43cf5539f43ed10c367af7446264c984c5",
+  "next_action": "work_harps_20261105_c037_context/NEXT_ACTION.json",
+  "rubin": {
+    "status": "STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET",
+    "main_objects": 190,
+    "primary_evaluable_objects": 2,
+    "secondary_evaluable_objects": 4,
+    "primary_contained_in_secondary": true,
+    "reopen_only_distinct_qualified_public_history_route": true,
+    "previous_complete_record": "work_harps_20261103_c022_context/CONTINUATION_STATE.json"
+  },
+  "previous_integration": {
+    "schema": "HARPS_C031_INTEGRATION_RECEIPT_V1",
+    "verified_utc": "2026-11-05T08:43:09.018173+00:00",
+    "pr_number": 28,
+    "pr_head": "cd8d205310c33205b37a00867c8907c3bfbc66f3",
+    "exact_head_CI": "success",
+    "merged": true,
+    "main": "922b78780f690b70d9560956008818152e92f422",
+    "optical_work_branch": "922b78780f690b70d9560956008818152e92f422",
+    "current_direct_user_approval": true,
+    "C031_local_method_and_science_unchanged": true
+  },
+  "integration": {
+    "status": "PENDING_FINAL_HEAD_CI_AND_GUARDED_MERGE",
+    "instruction": "Verify live refs/PR; creation-time pending fields do not assert later integration."
+  },
+  "publication": {
+    "authorization_path": "work_harps_20261105_c037_context/PUBLICATION_AUTHORIZATION.json",
+    "method_commit": "03dafd5cf9a1220ef7df67eab04f79409c99a657",
+    "method_readback_files": 22,
+    "result_publication_status": "PENDING_EXACT_RESULT_TREE_VERIFICATION"
+  },
+  "execution": {
+    "science_background_jobs": 0,
+    "numerical_production_executions": 1
+  },
+  "source_hashes": {
+    "work_harps_20261105_c037_context/NEXT_ACTION.json": "334c6a89bdd90957afed882043f8cb6a9b1007ccc92c0858837be910576fa55d",
+    "work_harps_20261105_c037_context/GROUP_CLOSURE.json": "628c55c0dc542699e57c211bf5cde1dca7964a8f650b1ca593b6c86190c2b99a",
+    "work_harps_20261105_c037_context/analysis/RESULTS_QA.json": "7e9b5e7d15131fbf2f756a80d3c411be8978377cdd412a439ac3a7f75a6e39fa",
+    "work_harps_20261105_c037_context/analysis/RESULTS_REPORT.md": "832517e63883854eacbf8bd43cf156ff306d3a8ac10f896e7d94a649dfd41831",
+    "work_harps_20261105_c037_context/independent_audit/NUMERICAL_AUDIT.json": "95c39b1022e1be7f64ef15a9ce92650ea0c1d523831129d8c9c39d6d357665fb",
+    "work_harps_20261105_c037_context/scientific_review/ORIGINAL_QUEUE_CLOSURE.json": "a924f4c0a4252d8fe8b8db853cc82888792a85ca1460821a6fa8599acdba8041",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/ACTION_QUEUE.csv": "d789d5ad03963cfe68c0e8d70d0e7e7c199599fb36a2ff2760426e8e69f7267b",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/EVENT_CONTEXT.csv": "2d8129e7963e2678035cf4b915c3c3503529b399d61fe6e8233484d0ee2321d7",
+    "work_harps_20261101/v2/extension02/unresolved_context_20261102/CORE_OVERLAP_GROUPS.csv": "39cbcc225161abfb8a986fec91583dd3591806d589c7154171fb80d026b305ab",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/NATIVE_MAPPING.json": "5717425255033a58c02363fcd4b37fc0119b48d47c4f1ffaf64608035de23ca3",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/PRIMARY_VISUAL_REVIEW.json": "30ba72932d11ea3731ea451977804699146a7709ad6cdf514ab8034bc75ddb6f",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/SECONDARY_VISUAL_REVIEW.json": "f132647b5f2685dd8be6b7f79865243efd537cf80a17fe09449c3495c068d940",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/REVIEW_COMPARISON.json": "c082ac892b69855fb2b98f60d417204afe169b00682fa529b128bdece62b4d0c",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/ADOPTED_DISPOSITIONS.csv": "0bf6b71c2887c7d26924533604c29d2c4c8f4cb30473ff70dfbb0e8de756f5ed",
+    "work_harps_20261101/v2/extension02/epoch_followup/INPUT_CHECKS.json": "9ecaf32369f4ada56f5f9a324f1038127c9db4af37728d7c821f2a160a84af0c",
+    "work_harps_20261104_c020_context/scientific_review/COMPLETED_ROUTE_SKIP_PROOF.json": "d61392399c2a21ebe8811c439e7ffb43cf5539f43ed10c367af7446264c984c5",
+    "work_harps_20261105_c037_context/scientific_review/build_queue_closure.py": "acce0f763bef4704f4e8b2bff3911b80a12e3f0615dbe092fc69d9cebcef650f",
+    "work_harps_20261105_c037_context/scientific_review/QUEUE_COVERAGE_PREFLIGHT.json": "446ad15f4c4ba7f6754aeb3e280dbe3fd4145053c41291a4bd0c0779daad52a1",
+    "work_harps_20261105_c035_context/CONTINUATION_STATE.json": "62d951b5ac6af6aec72f7800a0836f80996ba16db6d5fe4c761b9548164ae5fe",
+    "work_harps_20261105_c035_context/NEXT_ACTION.json": "b7c1dd8c2aff70899f70c8c1a0cea5076a32ebaf4be0903187664c7c392b8a9b",
+    "work_harps_20261105_c035_context/GROUP_CLOSURE.json": "5e4af3dcd21c436b709821569285e686a46cf6cf523d8cd7d5244cee65ee7c7e",
+    "work_harps_20261105_c035_context/analysis/PLAN.json": "60ed7c5306b575a736de2971c5d9269cb6321cb8fae45cd5a7cd33399e8588b0",
+    "work_harps_20261105_c035_context/analysis/compare_group.py": "3481fc5d0720fec30a2451a7a87efd224a6dff8cb0c7cd66f980ed15c56d62ce",
+    "work_harps_20261105_c035_context/analysis/results/BOUNDED_INPUT_INDEX.json": "c8c3e2bc8ec71597efed23e6c9c1370e0b7e2fc76fcdc94dda645c4f686b5197",
+    "work_harps_20261105_c037_context/BASELINE_VERIFICATION.json": "1a5d0a890cff5d2caef1656185c2e15fa928fbe6d8edf3c912dee8ceeb96749a",
+    "work_harps_20261105_c037_context/PUBLICATION_AUTHORIZATION.json": "981f38e4a938a1c5e41bd4e1c32ad3f1efeeaf8945c109d28ca7905ff8a457d1",
+    "work_harps_20261105_c037_context/inputs/restore_inputs.py": "74f40ab2461cf4902edefe4734a5a6a19ec3e351a7a2febcf333bf06c606b2e5",
+    "work_harps_20261105_c037_context/inputs/INPUT_INVENTORY.json": "b9c878b398990b56e7796bd328b242bfe7c4943fd7ceeb8b3e8706e0471f792b",
+    "work_harps_20261105_c037_context/inputs/RESTORE_RECEIPT.json": "9f602f83f24c02f1bb5fd09c066988641dec185ca04b78e2771b8473c92e94ee",
+    "work_harps_20261105_c037_context/input_audit/audit_inputs.py": "0fa454d1e92557bf09597ec49ff48f486af749446e023998ec57a63ece46a3a0",
+    "work_harps_20261105_c037_context/input_audit/INPUT_AUDIT.json": "4a1603c9a2278ccb3fd952c354a85aa9747f47c313a94c12587426851bf73743",
+    "work_harps_20261105_c037_context/analysis/prepare_plan.py": "c9baa5ea99e62632b7ebcb38f5699ef9b9090a143adf89ad27efb8e4287875dc",
+    "work_harps_20261105_c037_context/analysis/compare_group.py": "25a078503d20d74c9473b48434a394b828f1daa5351fcf829bc1bf3859f5ce4a",
+    "work_harps_20261105_c037_context/analysis/plot_group.py": "7ea121a2ce32c2ce4856f5dbaf8bc9a17a2a667a948cff98d40e3817cb377230",
+    "work_harps_20261105_c037_context/analysis/synthetic_preflight.py": "00697c7d51a1d83a6dc2c13b5336071eeeaad01eb976b1d8b27dbc02e00b56e3",
+    "work_harps_20261105_c037_context/independent_audit/independent_math.py": "2ec28737f6d937c80e019cb62ae924f94ce15c1ba979203911d8d086a1ffeb9e",
+    "work_harps_20261105_c037_context/independent_audit/audit_prospective.py": "439930a10b8734747494be94f98b0ad06599e8f35b576906c24c0b682e105613",
+    "work_harps_20261105_c037_context/independent_audit/audit_actual.py": "64b58bf033200bbba8d5d4e632246ec69b1fe2f5141be9144ae7bca9b94d0af3",
+    "work_harps_20261105_c037_context/scientific_review/NEXT_GROUP_METADATA.json": "ce718e1c0dc69dad5fe24d6c6a01296b85c9cc2d4e145cf76ac1441321b0170f",
+    "work_harps_20261101/v2/extension02/acquisition/DOWNLOAD_MANIFEST.csv": "f00d662b796b2ef9c8556e695dd03f49f4ad2560afcdda4b21faf833f82c3cef",
+    "work_harps_20261101/v2/extension02/checkpoints/INPUT_CHECKPOINTS.json": "84adbe7ce694136147312707d7719e75c213c5d81df54a425bc88bbd16931a68",
+    "work_harps_20261101/v2/extension02/epoch_followup/EVENT_RESULTS.json": "571c15ca11d358d393fbc2d88a240c573963de924dcee3f591a331403535a3d7",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/checkpoints/INPUT_ARCHIVES.json": "dff8bd609320ca2a93f82860dac6b552b7a4e17705ec3d4eff0dc748426f3379",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/extract_native.py": "fbcfbf843cc4b090644641a3eb8201ae16503b639b993cc1091b88b5361c21bb",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/EVIDENCE_ARCHIVE.json": "dde3ee7748146f9b70f000ea2dcef9b1495da4a72ee269800a2a92e5843be78b",
+    "work_harps_20261101/v2/extension02/raw_followup_batch04/EVIDENCE_PARTS.json": "1e0443662798116aa65b345f4bc8956d98e62ab3ae44b39bf5e4b2f80326d002",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2022-07-07T01_01_02.405.fits": "d8182fcc89561a5eb3f5a290e45e615f36fbc2e0593d1ac14b3455f941fa59f8",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2022-08-24T01_04_10.771.fits": "8f7a544036c0c4ec4ddee2e2ec34efba30e8036345138c1ebfe962e172946eeb",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2024-07-07T01_01_45.063.fits": "6cfea5b26388fddc19cdf0f10cc4345129f774d4b3d7e4c92882706c187017c2",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2024-07-26T01_01_40.049.fits": "33b6e6a820385077d5eae7de30148c102f2c878830ad3cc068897e7aff27454d",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2024-10-15T01_29_58.825.fits": "75b8926c0cb1d61ba107643f7617a60f0ef42a06070b13c1a103919a802977d3",
+    "work_harps_20261105_c037_context/inputs/merged/ADP.2024-10-15T01_29_58.939.fits": "18d194179a8963660f0db848294bcfb11fbe0ab95b34f7deffc1da9796b2efd9",
+    "work_harps_20261105_c037_context/inputs/source_products/ADP.2024-07-26T01_01_40.050.tar": "881033858d08cb77dcb6ec98cc8f3665bb653970aa1d28918ffa61ac9f004fda",
+    "work_harps_20261105_c037_context/inputs/native/HARPS.2024-07-25T06_26_45.833_e2ds_A.fits": "ecae4cc4e1a304964d12ce2b4a94def1da06eb1ecd90f428ae3759c3107eb4ef",
+    "work_harps_20261105_c037_context/inputs/evidence/V2E2-0319_o03.npz": "02cf687ee7e9f65ce0bdf13c2a65849cb1fa9a03886c41b8d4a5dadd565df0de"
+  },
+  "completed_harps_c034_context": {
+    "schema": "HARPS_C034_CLOSURE_V1",
+    "status": "COMPLETE_FIXED_CONTEXT_U_UNCHANGED",
+    "events": [
+      "V2E2-0271"
+    ],
+    "profiles": 14,
+    "comparisons": 28,
+    "observations": 6,
+    "distinct_discovery_products": 1,
+    "counts": {
+      "core": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 5,
+        "lower_barycentric_normalized_rms": 5
+      },
+      "broad_pattern": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 5,
+        "lower_barycentric_normalized_rms": 5
+      }
+    },
+    "qualified_laser_candidate": false,
+    "physical_origin_assigned": false,
+    "source_hashes_unchanged": true,
+    "production_executions": 1,
+    "observed_audit_checks": 1184,
+    "observed_audit_scalar_values": 55139,
+    "figures_inspected": 4,
+    "npz_containers_decoded": 22,
+    "next_group": "C032",
+    "no_background_science_job": true
+  },
+  "previous_checkpoint_integrity": {
+    "phase": "C035",
+    "plan_path": "work_harps_20261105_c035_context/analysis/PLAN.json",
+    "plan_sha256": "60ed7c5306b575a736de2971c5d9269cb6321cb8fae45cd5a7cd33399e8588b0",
+    "output_hashes_path": "work_harps_20261105_c035_context/analysis/results/OUTPUT_HASHES.json",
+    "output_hashes_sha256": "d426dd6f628c2b8dd641f6d2c391a4188062c440fd1e0147458ebb1e25f6b80a"
+  },
+  "checkpoint_integrity": {
+    "phase": "C037",
+    "plan_path": "work_harps_20261105_c037_context/analysis/PLAN.json",
+    "plan_sha256": "3931f8766a9fae2311806489a7b0024594c319ba9d9acd81679a3bd3ee03ff26",
+    "output_hashes_path": "work_harps_20261105_c037_context/analysis/results/OUTPUT_HASHES.json",
+    "output_hashes_sha256": "6fcc1267548dea1e98988cc38074ad416d700b02e12e41f8a42201e820b66cf6"
+  },
+  "completed_harps_c032_context": {
+    "schema": "HARPS_C032_CLOSURE_V1",
+    "status": "COMPLETE_FIXED_CONTEXT_TWO_U_RETAINED",
+    "events": [
+      "V2E2-0278",
+      "V2E2-0283"
+    ],
+    "profiles": 20,
+    "comparison_slots": 64,
+    "observations": 6,
+    "distinct_discovery_products": 2,
+    "raw_only_profiles": 4,
+    "evaluable_raw_correlations": 60,
+    "evaluable_normalized_rms_rows": 56,
+    "counts": {
+      "core": {
+        "directed_nonself_rows": 10,
+        "unordered_observation_relationships": 9,
+        "reciprocal_discovery_pairs": 1,
+        "higher_barycentric_raw_pearson": 10,
+        "lower_barycentric_normalized_rms": 10
+      },
+      "broad_pattern": {
+        "directed_nonself_rows": 10,
+        "unordered_observation_relationships": 9,
+        "reciprocal_discovery_pairs": 1,
+        "higher_barycentric_raw_pearson": 10,
+        "lower_barycentric_normalized_rms": 10
+      }
+    },
+    "qualified_laser_candidate": false,
+    "physical_origin_assigned": false,
+    "source_hashes_unchanged": true,
+    "numerical_production_executions": 1,
+    "observed_audit_checks": 2100,
+    "observed_audit_scalar_values": 76691,
+    "figures_inspected": 4,
+    "npz_containers_decoded": 34,
+    "presentation_recovery": "Exact originally recorded figure hashes restored; failed native bytes retained.",
+    "next_group": "C035",
+    "next_target": "HD128582",
+    "no_background_science_job": true
+  },
+  "remaining_original_routes": [],
+  "completed_harps_c035_context": {
+    "schema": "HARPS_C035_CLOSURE_V1",
+    "status": "COMPLETE_FIXED_CONTEXT_U_RETAINED",
+    "events": [
+      "V2E2-0289"
+    ],
+    "target": "HD128582",
+    "profiles": 14,
+    "comparisons": 28,
+    "observations": 6,
+    "distinct_discovery_products": 1,
+    "counts": {
+      "core": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 3,
+        "higher_topocentric_raw_pearson": 2,
+        "raw_pearson_ties": 0,
+        "lower_barycentric_normalized_rms": 3,
+        "lower_topocentric_normalized_rms": 2,
+        "normalized_rms_ties": 0
+      },
+      "broad_pattern": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 5,
+        "higher_topocentric_raw_pearson": 0,
+        "raw_pearson_ties": 0,
+        "lower_barycentric_normalized_rms": 5,
+        "lower_topocentric_normalized_rms": 0,
+        "normalized_rms_ties": 0
+      }
+    },
+    "metric_disagreements": [
+      {
+        "region": "core",
+        "dp_id": "ADP.2025-03-15T01:01:51.645",
+        "date_obs": "2025-03-14",
+        "reference_dp_id": "ADP.2025-03-31T01:04:04.493",
+        "barycentric_raw_pearson": 0.2703325552298979,
+        "topocentric_raw_pearson": 0.26446942319040223,
+        "barycentric_normalized_rms": 0.008739304028479994,
+        "topocentric_normalized_rms": 0.008055571476801417,
+        "raw_pearson_preferred_frame": "barycentric",
+        "normalized_rms_preferred_frame": "topocentric"
+      },
+      {
+        "region": "core",
+        "dp_id": "ADP.2025-06-06T01:04:15.951",
+        "date_obs": "2025-06-05",
+        "reference_dp_id": "ADP.2025-03-31T01:04:04.493",
+        "barycentric_raw_pearson": -0.06106839786646753,
+        "topocentric_raw_pearson": 0.01004484642712264,
+        "barycentric_normalized_rms": 0.010961605876858705,
+        "topocentric_normalized_rms": 0.014776879637130915,
+        "raw_pearson_preferred_frame": "topocentric",
+        "normalized_rms_preferred_frame": "barycentric"
+      }
+    ],
+    "qualified_laser_candidate": false,
+    "physical_origin_assigned": false,
+    "source_hashes_unchanged": true,
+    "numerical_production_executions": 1,
+    "observed_audit_checks": 1182,
+    "observed_audit_scalar_values": 54774,
+    "logical_figures_inspected": 4,
+    "png_files_decoded": 5,
+    "npz_containers_decoded": 22,
+    "caption_only_correction_recorded": true,
+    "next_group": "C037",
+    "next_target": "HD1397",
+    "no_background_science_job": true
+  },
+  "completed_harps_c037_context": {
+    "schema": "HARPS_C037_CLOSURE_V1",
+    "status": "COMPLETE_FIXED_CONTEXT_U_RETAINED_AND_ORIGINAL_QUEUE_COVERED",
+    "target": "HD1397",
+    "events": [
+      "V2E2-0319"
+    ],
+    "profiles": 14,
+    "comparisons": 28,
+    "observations": 6,
+    "distinct_discovery_products": 1,
+    "counts": {
+      "core": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 5,
+        "lower_barycentric_normalized_rms": 5
+      },
+      "broad_pattern": {
+        "nonself_observation_reference_pairs": 5,
+        "higher_barycentric_raw_pearson": 5,
+        "lower_barycentric_normalized_rms": 5
+      }
+    },
+    "qualified_laser_candidate": false,
+    "physical_origin_assigned": false,
+    "numerical_production_executions": 1,
+    "observed_audit_checks": 1188,
+    "observed_audit_scalar_values": 55299,
+    "figures_inspected": 4,
+    "npz_containers_decoded": 22,
+    "original_queue_rows": 90,
+    "remaining_original_routes": 0,
+    "next_kind": "NEW_DATA_METADATA_AND_CALIBRATION_PLANNING_AFTER_ORIGINAL_QUEUE",
+    "no_background_science_job": true
+  },
+  "original_context_queue": {
+    "status": "COMPLETE_ORIGINAL_BOUNDED_CONTEXT_QUEUE",
+    "rows": 90,
+    "core_groups": 37,
+    "completed_explicit_groups": 32,
+    "exact_prior_baseline_rows": 10,
+    "closure_ledger": "work_harps_20261105_c037_context/scientific_review/ORIGINAL_QUEUE_CLOSURE.json",
+    "closure_ledger_sha256": "a924f4c0a4252d8fe8b8db853cc82888792a85ca1460821a6fa8599acdba8041",
+    "physical_labels_resolved_by_queue_completion": false,
+    "calibrated_null_claim": false
+  }
+}
