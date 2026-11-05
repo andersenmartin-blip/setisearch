@@ -1,3 +1,23 @@
+# Continue SETI from completed C032 / HD126093
+
+Read [the current state](work_harps_20261105_c032_context/CONTINUATION_STATE.json), verify live refs and source hashes, then resume [the exact C035 handoff](work_harps_20261105_c032_context/NEXT_ACTION.json).
+
+C032 is complete: original 0278/0283, two own June/July references, six reused observations, 20 profiles and 64 comparison slots. Core and surroundings each favor barycentric raw correlation and normalized RMS in all 10 directed nonself rows: nine unordered relationships and one reciprocal discovery pair. Both physical U labels remain.
+
+Four order-2 profiles lack the positive reference flank and remain raw-only with 341/347 finite raw grid samples. Their core correlations remain evaluable; surrounding support is below the unchanged 440 gate. Sixteen other profiles have full positive-reference support. All original signed values, original local/baseline mapping failures, two secondary uncertainty flags, four raw contexts and 40 member-support records are retained.
+
+The public 20-file method readback preceded current arithmetic. Separate scalar reconstruction passes 2,100 checks over 76,691 values. All 34 NPZ containers and four final figures decode and were inspected by the same assistant. A native PNG changed/truncated after its recorded render; failed bytes are retained and the same frozen plot script restored all four exact originally recorded hashes without a numerical rerun. All 52 frozen source bindings remain exact.
+
+All 10 current source windows overlap C031 original indices; C034 shared merged windows are disjoint. Reused exposures and previously exposed values remain dependent. No blind validation, independent agent/human review, physical cause, qualified laser or calibrated survey null.
+
+Exact next route: C035, first original queue row 85, V2E2-0289 on HD128582 at 5758.2675 air Å. Use that target’s own six January–July observations and March 30 discovery ADP.2025-03-31T01:04:04.493 with BERV +18.1525360721304 km/s. Restore its own native/raw products, scan all 72 orders and freeze its own geometry and quality. Do not transfer the HD126093 cohort, June anchor, orders 2/3 or current outcomes. C037 on HD1397 follows in original order.
+
+The user directly approved public release and continued GitHub updates. Publish exact results, verify final-head CI, merge with expected-head guards and synchronize optical-harps-week-20261101. Confirm actual live state: creation-time pending fields do not assert later integration. Completed routes stay closed despite U. Rubin remains STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET; no background science job is running.
+
+[Report and four figures](work_harps_20261105_c032_context/analysis/RESULTS_REPORT.md). Prior sections below are historical.
+
+---
+
 # Continue SETI from completed C034 / HD126093
 
 Read [the current state](work_harps_20261105_c034_context/CONTINUATION_STATE.json), verify live refs and source hashes, and resume [the exact C032 handoff](work_harps_20261105_c034_context/NEXT_ACTION.json).

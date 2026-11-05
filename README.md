@@ -1,3 +1,13 @@
+## SETI-status — C032 på HD126093 afsluttet (5. november 2026)
+
+**To poster, seks eksisterende observationer, 20 profiler og 64 sammenligningspladser. Begge er fortsat uafklarede; ingen kvalificeret laserkandidat.**
+
+Kernen og omgivelserne passer bedst barycentrisk i alle 10 rettede sammenligninger med andre observationer, både målt med korrelation og normaliseret RMS. De repræsenterer ni forskellige observationspar med ét gensidigt gentaget par. Fire profiler i orden 2 mangler højre referenceflanke og er bevaret uden normalisering. Separat efterregning består 2.100 kontroller over 76.691 talværdier.
+
+[Fortsæt her](CONTINUE_SETI.md) · [Rapport og fire figurer](work_harps_20261105_c032_context/analysis/RESULTS_REPORT.md) · [Aktuel tilstand](work_harps_20261105_c032_context/CONTINUATION_STATE.json). Næste oprindelige køpunkt er C035 på HD128582 med egne seks observationer og martsreference. C035 og C037 er de to resterende ufærdige ruter. Ældre afsnit nedenfor er historiske. Ingen baggrundssøgning kører.
+
+---
+
 ## SETI-status — C034 på HD126093 afsluttet (5. november 2026)
 
 **Én post, seks eksisterende observationer,14 profiler og 28 sammenligninger. Fortsat uafklaret; ingen kvalificeret laserkandidat.**
