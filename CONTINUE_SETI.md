@@ -1,3 +1,13 @@
+# Latest scientific continuation — D076 completed, 2026-11-13
+
+Read [the D076 report](progress/2026-11-13-feros-d076/REPORT.md) before the historical D075 instructions below. The newer version-guarded checkpoint contains both D075/D076 and 105,681 current state cells; it must not be downgraded to D075-only. The retained D075 recalculation is a replication on the same data.
+
+D076: 1,440 reverse curves / 577,440 grid fits; all supported, all minima internally reproduced. Up to 0.95 km/s forward/reverse log-coordinate residual at 0061; this documents reference-direction dependence, not physical stellar RV. Original candidate values/flags are unchanged. No qualified laser or calibrated FAP.
+
+Next is proposed D077: all 30 declared WLC raw references, metadata/provenance only, not yet frozen or executed. Establish independent calibration/reference context before any new calibration arrays or physical registration claim. Preserve the baseline, all current state and stopped-queue boundaries. Publication here remains bounded text only; historical 663-file delivery is still pending.
+
+---
+
 # Current continuation — D075 completed, 2026-11-13
 
 Read [the current FEROS report](progress/2026-11-13-feros-d075/REPORT.md), its METHOD.json, SUMMARY.json and numerical/state audit receipts before using the older continuation instructions below.
