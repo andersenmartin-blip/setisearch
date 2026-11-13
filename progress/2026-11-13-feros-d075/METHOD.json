@@ -1,0 +1,112 @@
+{
+  "created_utc": "2026-11-13T18:25:25.718156+00:00",
+  "status": "FROZEN_BEFORE_D075_ORDER_REGISTRATION_ARRAY_ACCESS",
+  "prior_visibility": "D068-D074 results and all source profiles have been used in earlier diagnostics. D074 merged minima are known; no D075 per-order registration objectives/minima have been computed or inspected. This is a prospective diagnostic follow-up, not a blind detection test.",
+  "order_profiles": 150,
+  "groups": [
+    {
+      "candidate_id": "D002-0061",
+      "hdu_index": 29
+    },
+    {
+      "candidate_id": "D002-0061",
+      "hdu_index": 30
+    },
+    {
+      "candidate_id": "D002-0063",
+      "hdu_index": 17
+    },
+    {
+      "candidate_id": "D002-0071",
+      "hdu_index": 24
+    },
+    {
+      "candidate_id": "D002-0071",
+      "hdu_index": 25
+    }
+  ],
+  "epoch_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "modes": [
+    1,
+    2,
+    3
+  ],
+  "flat_variants": [
+    true,
+    false
+  ],
+  "masks": [
+    "BOTH",
+    "BLUE",
+    "RED"
+  ],
+  "mask_rule": "Use every matching D074 fixed target mask, map each merged local index to its common SDP index, and require exact same common indices and wavelength values in the order target. No new mask estimation, rounding, clipping or winning-order selection. Missing coverage retained unsupported.",
+  "model": "Exactly D074: normalize by own positive D071 baseline_at_anchor; shift earlier reference template at target_wave/sqrt((1+v/c)/(1-v/c)), linearly interpolate; fit scale+constant+linear term in (wave-fixed_center)/5 by unweighted least squares. Full reference coverage required at all shifts. Candidate +-1 A excluded; sidebands 1-4 A.",
+  "grid": {
+    "min": -10,
+    "max": 10,
+    "points": 401,
+    "step_km_s": 0.05
+  },
+  "c_km_s": 299792.458,
+  "minimum_samples": 30,
+  "retain": "All 900 curves and full coefficients, boundaries, nonpositive scales, unsupported slots, fixed masks and pair/triangle comparisons. Compare with matching D074 merged minimum. No adaptive grid or sub-grid interpolation of minima.",
+  "expected_contexts": 300,
+  "expected_curves": 900,
+  "expected_grid_slots": 360900,
+  "expected_closures": 900,
+  "expected_order_merged_comparisons": 900,
+  "expected_interorder_comparisons": 360,
+  "interpretation": "Descriptive residual SSE and product-coordinate local pattern shifts only. Grid spacing is not physical precision. Order and merged products reuse photons and are not independent trials. Not absolute stellar RV, validated rest-frame persistence, uncertainty, covariance, FAP, physical-cause assignment or a laser test.",
+  "source_arrays_changed": 0,
+  "candidate_statistics_shifted": 0,
+  "new_FITS_arrays": 0,
+  "new_archive_requests": 0,
+  "qualified_lasers": 0,
+  "all3physical_origins_unresolved": true,
+  "method_lock_sha256": "929f74534174d1bc8a58030f2bb1616494f2b8e085b193505ec6dfe802167e62",
+  "analysis_code_sha256": "1ad7efb74f0604e03b79489a9802ef90c232fd62aa49f56c8a1b56b60c66c306",
+  "audit_code_sha256": "6531f48e02d507dd952ccac9f958a528783ce4c23aa0b02723967e00b4e5ae8d",
+  "locked_input_count": 251
+}

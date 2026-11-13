@@ -1,3 +1,15 @@
+# Current continuation — D075 completed, 2026-11-13
+
+Read [the current FEROS report](progress/2026-11-13-feros-d075/REPORT.md), its METHOD.json, SUMMARY.json and numerical/state audit receipts before using the older continuation instructions below.
+
+All 900 individual-order curves / 360,900 fixed-grid fits are complete and internally audited. All 102,833 prior state cells remain exact; 104,257 cells now exist in the retained checkpoint. Up to 1.45 km/s order–merged disagreement at 0061 prevents treating the local fits as one calibrated physical stellar velocity. No candidate statistics were shifted, no physical cause assigned, no FAP calibrated and no laser qualified.
+
+Next proposed scope: D076 calibrated-reference feasibility, not yet frozen or executed. Establish provenance and accuracy limits before physical registration or broader templates. Do not reopen the old 141 raw queue or the stopped 90/Rubin track. No background science job is active.
+
+Publication here contains only text summaries/method/audits/public archive identifiers. The full extraction chain and binary evidence are retained in project checkpoints; the historical 663-file D002/D003 publication remains pending. The older instructions below are historical, not the active scientific pointer.
+
+---
+
 # Continue SETI from consolidated delivery audit D001
 
 Read the [D001 report](work_seti_20261105_d001_delivery/README.md), [verified tables](work_seti_20261105_d001_delivery/results/DELIVERY_AUDIT.json), [fresh metadata cohort](work_seti_20261105_d001_delivery/results/FRESH_METADATA_COHORT54.csv) and [handoff](work_seti_20261105_d001_delivery/NEXT_ACTION.json). Check live refs and bound source hashes.
