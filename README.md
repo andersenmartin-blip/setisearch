@@ -1,3 +1,5 @@
+> **Current SETI progress — 2026-11-13:** FEROS work is complete through **D075**. [Read the current result, fixed method and audit summary](progress/2026-11-13-feros-d075/REPORT.md). All 900 individual-order curves were audited; local order/merged pattern minima differ by up to 1.45 km/s. This does not establish stellar RV or a laser signal. 0 qualified lasers; the three known physical origins remain unresolved. This update is a bounded text summary; the separate historical 663-file delivery remains pending. Earlier material below is preserved as historical documentation.
+
 # SETI — samlet leverancekontrol 5. november 2026
 
 [Samlerapport og næste udvalg](work_seti_20261105_d001_delivery/README.md): 39 kildefiler er kontrolleret mod den publicerede version. Der er 300 unikke hovedeksponeringer af 20 målnavne med 70,875 timers samlet eksponeringstid. V1 er kørt på 300 eksponeringer, V2 på 200. Alle 669 V2- og 22 V1-træf er medtaget med bevarede foreløbige dispositioner. Den oprindelige diagnosekø på 90 poster er afsluttet; 185 U og 35 M bevares.
