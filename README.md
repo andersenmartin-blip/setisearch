@@ -1,3 +1,5 @@
+> **Latest completed SETI phase — D076, 2026-11-13:** [Current FEROS status and next D077 gate](progress/2026-11-13-feros-d076/REPORT.md). The completed forward/reverse control retains 1,440 curves and shows up to 0.95 km/s reciprocity residual at 0061. Current retained state: 105,681 cells. The D075 notice below is historical; its recalculation agrees with the canonical forward result. 0 qualified lasers; no physical stellar RV is established.
+
 > **Current SETI progress — 2026-11-13:** FEROS work is complete through **D075**. [Read the current result, fixed method and audit summary](progress/2026-11-13-feros-d075/REPORT.md). All 900 individual-order curves were audited; local order/merged pattern minima differ by up to 1.45 km/s. This does not establish stellar RV or a laser signal. 0 qualified lasers; the three known physical origins remain unresolved. This update is a bounded text summary; the separate historical 663-file delivery remains pending. Earlier material below is preserved as historical documentation.
 
 # SETI — samlet leverancekontrol 5. november 2026

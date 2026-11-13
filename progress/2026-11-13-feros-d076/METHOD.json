@@ -1,0 +1,108 @@
+{
+  "created_utc": "2026-11-13T17:50:57.685968+00:00",
+  "status": "FROZEN_BEFORE_REVERSE_REFERENCE_REGISTRATION",
+  "prior_visibility": "All D074merged and D075individual-order forward objectives/minima are known. D075finds0061mask/order dependence,including1.45km/s order-minus-merged differences and1.70km/s three-epoch closures. No reverse objective/minima from this experiment inspected before this lock. A motivated directional robustness control,not a blind detection test.",
+  "chronological_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "candidate_ids": [
+    "D002-0061",
+    "D002-0063",
+    "D002-0071"
+  ],
+  "modes": [
+    1,
+    2,
+    3
+  ],
+  "flat_variants": [
+    true,
+    false
+  ],
+  "velocity_grid": {
+    "min_km_s": -10,
+    "max_km_s": 10,
+    "points": 401,
+    "step_km_s": 0.05,
+    "rule": "Use exact stored linspace grid,no fitted sub-grid minimum or adaptive range expansion."
+  },
+  "c_km_s": 299792.458,
+  "selected_HDU_indices": {
+    "D002-0061": [
+      0,
+      29,
+      30
+    ],
+    "D002-0063": [
+      0,
+      17
+    ],
+    "D002-0071": [
+      0,
+      24,
+      25
+    ]
+  },
+  "direction": "For every chronological earlier/later pair,swap the roles:later is reference,earlier is target. Include both merged and every covering individual order,all modes,flat/nonflat and all three masks. Do not select only discrepant fits.",
+  "model": "For each earlier-reference/later-target pair,query reference at target_WAVE / sqrt((1+v/c)/(1-v/c));piecewise-linear interpolation of the stored reference is a temporary MODEL operation. Fit target=a*shifted_reference+b0+b1*(target_WAVE-fixed_center)/5 by unweighted least squares on each fixed side mask. Normalize each profile by its positive own D071primary baseline scalar;free a absorbs this scaling. No clipping or learned exclusions.",
+  "score": "Unweighted residual sum of squares is a descriptive matching objective,not chi-square,noise likelihood,FAP,confidence interval or an uncertainty. Grid spacing is not velocity precision.",
+  "support": "Require both profiles finite,positive baseline normalization,>=30mask samples and reference coverage for every grid shift. Retain all slots. Record full SSE/coeff curves,best grid index,positive-scale status and boundary hits. No alternate mask/mode/window selected based on success.",
+  "mask_rule": "Apply unchanged1<=abs(target_WAVE-fixed_center)<=4Angstrom BLUE/RED/BOTH rule in the new earlier target. Within that target epoch,order and merged fits must use exactly the same common_SDP_indices and wavelengths. Forward and reverse target grids belong to different epochs:the experiment changes reference interpolation,residual assignment,and possibly sample membership. It does not isolate interpolation alone.",
+  "normalization": "Own positive D071primary baseline scalar only;free fit amplitude,offset and slope. No clipping or covariance/error weighting.",
+  "reciprocal_rule": "For each matched forward/reverse fit record c*(atanh(v_forward/c)+atanh(v_reverse/c)) in km/s-like log-shift units. This should vanish for an exactly reciprocal model,without claiming a noise-calibrated tolerance. The 0.05km/s grid step is not precision. Retain all1440pairs and all curves.",
+  "comparisons": "All reverse order-minus-merged and two-order differences,BLUE/RED differences,and all10reverse-oriented three-epoch closures for every site/HDU/mode/flat/mask. Do not average directions or apply a chosen result to candidate statistics. Known0063order/merged identity is an internal numerical control.",
+  "expected_source_profiles": 240,
+  "expected_contexts": 480,
+  "expected_fit_curves": 1440,
+  "expected_grid_fit_slots": 577440,
+  "expected_reciprocal_pairs": 1440,
+  "expected_reverse_triangle_closures": 1440,
+  "physical_limits": "Phenomenological local pattern matching on existing barycentric-air product coordinates only. No absolute stellarRV,physical calibration,velocity precision,validated rest-frame,persistence exclusion,laser response,covariance or FAP.",
+  "candidate_statistics_to_shift": 0,
+  "new_FITS_arrays_to_read": 0,
+  "new_archive_requests": 0,
+  "qualified_lasers": 0,
+  "all3physical_origins_unresolved": true,
+  "calibrated_FAP": false,
+  "full_method_lock_sha256": "eb5de57464efb5e2629e38acf72c2dac02c89e3037950c51bef373fff96815f9",
+  "locked_input_count": 254
+}
