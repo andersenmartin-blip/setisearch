@@ -55,3 +55,9 @@ I faserne **`D002`–`D034`** (bevaret i det lokale hovedarkiv `SETI_D002_D003_C
 | `D078` | `2026-11-14` | [`SETI_D078_FEROS_RESTFRAME_AND_HD43629_SYNTHESIS_2026-11-14.md`](reports_d035_d077/SETI_D078_FEROS_RESTFRAME_AND_HD43629_SYNTHESIS_2026-11-14.md) | Empirisk stellar hvileramme (+33,820 km/s), løsning af 1,45 km/s sidebåndseffekt, 5-epoke coadd og afslutning af HD 43629 |
 
 Maskinlæsbare metodelåse, kilde-ID'er og numeriske audit-kvitteringer for de nyeste FEROS-faser findes tillige under [`progress/2026-11-13-feros-d075/`](../progress/2026-11-13-feros-d075/REPORT.md), [`progress/2026-11-13-feros-d076/`](../progress/2026-11-13-feros-d076/REPORT.md) [`progress/2026-11-14-feros-d077/`](../progress/2026-11-14-feros-d077/REPORT.md) og [`progress/2026-11-14-feros-d078/`](../progress/2026-11-14-feros-d078/REPORT.md).
+
+---
+
+## 3. Fortsættelse i Trin 2 (`D079+` — Kalibreret `HARPS_ECELLE_V3`-survey på friske stjerner)
+
+Efter lukningen af `HD 43629` fortsætter det optiske hovedspor med det prospektivt kalibrerede `HARPS_ECELLE_V3`-survey på helt friske sol-analoge stjerner i [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) og [`SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md`](reports_d035_d077/SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md).

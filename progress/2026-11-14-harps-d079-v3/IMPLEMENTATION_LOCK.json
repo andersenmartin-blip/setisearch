@@ -1,0 +1,45 @@
+{
+  "phase_id": "D079",
+  "schema": "SETI_D079_IMPLEMENTATION_LOCK_AMENDMENT_V2",
+  "amended_utc": "2026-11-14T17:00:59.569405+00:00",
+  "parent_method_lock_sha256": "17f9324ce81e680877e57e8a5776e37df1d6502f43f7419f3ca495da488cde56",
+  "parent_locked_utc": "2026-11-14T16:11:39.478783+00:00",
+  "scientific_parameters_modified": 0,
+  "cohort_rows_modified": 0,
+  "locked_g1_to_g5_thresholds_modified": 0,
+  "amendments_documented": [
+    {
+      "amendment_id": "AMEND_1_FIBER_B_71_VS_72_ORDERS",
+      "stage": "Pre-results ingestion bugfix (0 science outputs generated prior to fix)",
+      "exception": "IndexError: index 71 is out of bounds for axis 0 with size 71 at analyze.py:279",
+      "physical_cause": "HARPS DRS _e2ds_A.fits contains 72 echelle orders (0..71), whereas _e2ds_B.fits contains 71 echelle orders (0..70) because order m=115 (Fiber A index 45 at ~5277.2 A) falls in the inter-CCD gap for Fiber B.",
+      "resolution": "Match Fiber B physically to each Fiber A order via _e2ds_B wavelength polynomial headers (<0.01 A agreement across all 71 shared orders; None on gap order 45)."
+    },
+    {
+      "amendment_id": "AMEND_2_POST_UNBLINDING_FORENSIC_VETTING_F1_F2",
+      "stage": "Post-unblinding astrophysical & 2D-pixel forensic classification (locked Gates G1-G5 counts preserved 100% intact)",
+      "empirical_trigger": "Prospective control stars (HD 1461, HD 4308) exhibited 28 nominal G1-G5 passers in 10 exposures (2.80/exp) vs 148 in 50 science exposures (2.96/exp), demonstrating statistical parity (zero science excess) and preventing false ETI claims.",
+      "resolution": "Added deterministic offline Forensic Tests F1 (supraphotospheric flux fn_pk3 >= 1.02, proving 166/166 Channel P passers have max fn_pk3 = 0.9787 < 1.0 inside stellar absorption lines) and F2 (full 2D 5x11 separable fiber-LSF cosine >= 0.85, 3-row centroid offset <= 0.85 px, far-wing ratio <= 0.55, proving 10/10 Channel T passers are oblique cosmic-ray/pedestal artifacts), writing FORENSIC_VETTING_176.csv, updating SUMMARY.json & FIG2, and auditing all 176 rows in pure-stdlib audit.py."
+    }
+  ],
+  "preserved_pre_ingestion_files": {
+    "analyze.py": "FROZEN_PRE_INGESTION/analyze_v0.py",
+    "audit.py": "FROZEN_PRE_INGESTION/audit_v0.py",
+    "plot_figures.py": "FROZEN_PRE_INGESTION/plot_figures_v0.py"
+  },
+  "preserved_pre_ingestion_hashes": {
+    "analyze.py": "f40523009f5758e69e9067ad912aaac2ecdcd2bae6bc8de20fc76e0a58f04d3f",
+    "audit.py": "d0d71040db884c10611a8d8361f30b9f2d9e6c2d134beba1c2d962ce4f779459",
+    "plot_figures.py": "12efc4f8d2adc6e257e7e986c00b869e1d491259dc5b255bb0beaef5a41c5e66"
+  },
+  "unchanged_locked_file_hashes": {
+    "FROZEN_COHORT60.csv": "05d20ea6d02f17c520c0d8c35e854087a3f5873451ebbb464795a85d78fe091c",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "45f97de1a75407ce85b57c896e2a9a95a1004b5ec80b4a87a8fb910e6db02fed",
+    "v3_detector.py": "ee6422c699d06c555768ad0e09b42b819cfb2df04f80eb8bc32e67a3ceb0584d"
+  },
+  "amended_file_hashes": {
+    "analyze.py": "d5806791f0ed603feec814f3ae361f7feab690b0d2be60e08c8c13da2a335ebe",
+    "audit.py": "df558d61e78335102c4be13f1ecf779f06b3641d2659580d80b61b2f1146214c",
+    "plot_figures.py": "fbc085b2a7a5a4e00a1cf5d2cd69e2aff7cbd606c73df8fa78a4f8c387afb3fc"
+  }
+}

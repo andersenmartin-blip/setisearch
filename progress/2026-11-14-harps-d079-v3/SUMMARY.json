@@ -1,0 +1,72 @@
+{
+  "phase_id": "D079",
+  "schema": "SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_SUMMARY",
+  "status": "COMPLETED",
+  "total_stars": 12,
+  "control_stars": 2,
+  "science_discovery_stars": 10,
+  "total_exposures": 60,
+  "control_exposures": 10,
+  "science_exposures": 50,
+  "total_integration_seconds": 16439.76,
+  "science_integration_seconds": 13799.8,
+  "total_searched_1d_bins_channel_t": 18385165,
+  "science_searched_1d_bins_channel_t": 15320849,
+  "stellar_rv_verification": {
+    "total_anchor_fits": 720,
+    "clean_anchor_fits": 672,
+    "boundary_hits": 0,
+    "median_abs_harps_minus_gaia_kms": 0.43051279231315576,
+    "max_abs_harps_minus_gaia_kms": 0.6637506925925507
+  },
+  "synthetic_calibration": {
+    "total_trials": 816,
+    "lsf_injection_trials": 720,
+    "raw2d_psf_trials": 96,
+    "channel_t_completeness_ge_8sigma": 0.8506944444444444,
+    "channel_t_blue_3800_4000_completeness_ge_8sigma": 0.8333333333333334,
+    "channel_p_completeness_ge_9sigma": 0.8333333333333334,
+    "raw2d_g5_true_laser_pass_rate": 0.90625,
+    "raw2d_g5_cosmic_ray_rejection_rate": 0.796875,
+    "raw2d_f2_full_5x11_true_laser_pass_rate": 0.84375
+  },
+  "false_alarm_collapse_v2_vs_v3": {
+    "v2_control_false_alarms_10exp": 14,
+    "v2_science_false_alarms_50exp": 34,
+    "v2_total_false_alarms_60exp": 48,
+    "v3_total_g1_candidates_all_channels": 321,
+    "v3_channel_t_g1_candidates": 49,
+    "v3_channel_p_g1_candidates": 272,
+    "v3_surviving_g2_airglow": 320,
+    "v3_surviving_g3_native_e2ds": 235,
+    "v3_surviving_g4_order_overlap_and_fiber_b": 229,
+    "v3_control_qualified_lasers": 28,
+    "v3_science_qualified_lasers": 148,
+    "v3_channel_t_control_nominal_g1_g5": 5,
+    "v3_channel_t_science_nominal_g1_g5": 5,
+    "v3_channel_p_control_nominal_g1_g5": 23,
+    "v3_channel_p_science_nominal_g1_g5": 143,
+    "v3_surviving_f1_supraphotospheric": 10,
+    "verified_control_eti_lasers_after_f1_f2": 0,
+    "verified_science_eti_lasers_after_f1_f2": 0
+  },
+  "forensic_vetting_176": {
+    "total_nominal_g1_g5_evaluated": 176,
+    "control_nominal_g1_g5_per_exp": 2.8,
+    "science_nominal_g1_g5_per_exp": 2.96,
+    "rejected_f1_subcontinuum_photospheric_absorption": 166,
+    "channel_p_max_normalized_flux_fn_pk3": 0.9786973731407775,
+    "rejected_f2_diagonal_2d_cosmic_ray_muon_track": 9,
+    "rejected_f2_broad_continuum_pedestal": 1,
+    "verified_eti_laser_detections": 0
+  },
+  "astrophysical_upper_limits_10_science_stars": {
+    "median_ew_8sigma_mA": 3.8093027647175557,
+    "min_ew_8sigma_mA": 1.6807228762298851,
+    "max_ew_8sigma_mA": 23.392907759581433,
+    "median_10m_beamed_power_kw": 46.985439631953945,
+    "min_10m_beamed_power_kw": 17.296155920749985,
+    "max_10m_beamed_power_kw": 201.40592979232204
+  },
+  "scientific_conclusion": "Calibrated HARPS_ECELLE_V3 search across 50 fresh exposures of 10 nearby solar-analog stars (15.2-46.3 pc) + 10 control exposures on 2 stars completed: prospective Gates G1-G5 reduced transient candidates on science exposures from 34 (V2) to 5 (0.10/exp vs 0.50/exp in control) while yielding 28 control (2.80/exp) vs 148 science (2.96/exp) nominal G1-G5 passers (zero science excess). Deterministic forensic vetting (Tests F1 & F2) confirms 166/166 Channel P passers are sub-continuum photospheric absorption mismatches (max fn_pk3 = 0.979 < 1.0) and 10/10 Channel T passers are oblique 2D cosmic-ray/pedestal artifacts: 0 verified ETI laser detections, setting 8-sigma upper limits of median 47.0 kW (range 17.3-201.4 kW) for a 10 m beamed transmitter across 3800-6900 A."
+}
