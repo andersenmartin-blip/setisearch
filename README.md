@@ -1,3 +1,11 @@
+## Latest update — FEROS D077 WLC metadata & provenance gate completed (2026-11-14)
+
+- **Active checkpoint:** `D077` (`107,105` state cells; all `105,681` prior D076 cells preserved exact).
+- **Scope & findings:** Prospectively locked metadata-only verification of all **30 declared FEROS daytime WLC raw references** + 5 science raw anchors (`73/73` HTTP 200 ESO `dbo.raw`, `hdr`, `ObsCore`, and `DataLink` responses; `0` FITS bodies downloaded; `0` pixel arrays read). Confirmed `30/30` public raw identities, `49/49` matching fixed CCD/readout cards, `2x30s + 2x150s + 2x300s` `BOTHFIBS` (`ND=0.0`) calibration ladders `9.18–11.93 h` prior to nighttime `OBJECT,WAVE` science (`SKYFIB`, `ND=1.301`), and `0` public `MASTER_WAVE` (`ThArNe0121..0857`) or line-list tables in `ObsCore`/TARs.
+- **Boundaries:** `0` qualified lasers; all 3 candidate physical origins (`D002-0061`, `D002-0063`, `D002-0071`) remain unresolved; `0` candidate statistics shifted. Read [progress/2026-11-14-feros-d077/REPORT.md](progress/2026-11-14-feros-d077/REPORT.md) and [CONTINUE_SETI.md](CONTINUE_SETI.md).
+
+---
+
 > **Latest completed SETI phase — D076, 2026-11-13:** [Current FEROS status and next D077 gate](progress/2026-11-13-feros-d076/REPORT.md). The completed forward/reverse control retains 1,440 curves and shows up to 0.95 km/s reciprocity residual at 0061. Current retained state: 105,681 cells. The D075 notice below is historical; its recalculation agrees with the canonical forward result. 0 qualified lasers; no physical stellar RV is established.
 
 > **Current SETI progress — 2026-11-13:** FEROS work is complete through **D075**. [Read the current result, fixed method and audit summary](progress/2026-11-13-feros-d075/REPORT.md). All 900 individual-order curves were audited; local order/merged pattern minima differ by up to 1.45 km/s. This does not establish stellar RV or a laser signal. 0 qualified lasers; the three known physical origins remain unresolved. This update is a bounded text summary; the separate historical 663-file delivery remains pending. Earlier material below is preserved as historical documentation.

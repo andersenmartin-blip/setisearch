@@ -1,3 +1,13 @@
+# Latest scientific continuation — D077 completed, 2026-11-14
+
+Read [the D077 report](progress/2026-11-14-feros-d077/REPORT.md), [METHOD.json](progress/2026-11-14-feros-d077/METHOD.json), [SUMMARY.json](progress/2026-11-14-feros-d077/SUMMARY.json), [NUMERICAL_AUDIT.json](progress/2026-11-14-feros-d077/NUMERICAL_AUDIT.json), and [SOURCES.json](progress/2026-11-14-feros-d077/SOURCES.json) before the historical D076/D075 instructions below. All 105,681 prior D076 state cells (and 102,833 D074 cells) remain exact; the checkpoint now holds **107,105 state cells**.
+
+D077 completed the prospectively locked metadata and provenance gate across all **30 declared FEROS daytime WLC raw exposures** (`ESO PRO REC1 WLC RAW1..6 NAME` across the five November 2019 chains `F1`–`F5`) plus the 5 science raw anchors: **73/73 HTTP 200 metadata responses** (`790,968` B; `0` FITS bodies downloaded; `0` pixel arrays read). Every WLC identity (`30/30`) resolves in `dbo.raw`, `hdr`, and `DataLink #this` and is publicly released; all **49 fixed CCD/readout/window cards** match the nighttime science raw headers (`CONAD = GAIN = RON = 0.0`); each chain executes `2x30.04s + 2x150.04s + 2x300.04s` `ThAr+Ne` (`LAMP3`, `BOTHFIBS`, `ND = 0.0`) **9.18–11.93 h before** nighttime `OBJECT,WAVE` science (`SKYFIB`, `ND = 1.301`, unused by automatic `fern/1.0`); and **`0` derived `MASTER_WAVE` (`ThArNe0121..0857`) or atomic line-list files** exist in public `ObsCore` or science TARs. `TIMESYS` (`0/35`), `WLC QC` units, and unobserved lamp slots (`LAMP1, 2, 4`) remain explicitly unestablished/unknown.
+
+Original candidate statistics and flags remain unchanged. **0 qualified lasers; all three candidate physical origins (`D002-0061`, `D002-0063`, `D002-0071`) remain unresolved.** Next is proposed **D078** (bounded empirical wavelength-line / simultaneous fiber-2 / stellar-line gate), not yet frozen or executed. Old 141 raw queue stays closed, 90/Rubin stays stopped, historical 663-file delivery remains deferred, and no background science job is running.
+
+---
+
 # Latest scientific continuation — D076 completed, 2026-11-13
 
 Read [the D076 report](progress/2026-11-13-feros-d076/REPORT.md) before the historical D075 instructions below. The newer version-guarded checkpoint contains both D075/D076 and 105,681 current state cells; it must not be downgraded to D075-only. The retained D075 recalculation is a replication on the same data.
