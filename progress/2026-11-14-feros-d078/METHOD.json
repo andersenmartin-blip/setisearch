@@ -1,0 +1,156 @@
+{
+  "phase_id": "D078",
+  "work_dir": "work_feros_20261114_d078_stellar_restframe_and_hd43629_synthesis",
+  "created_utc": "2026-11-14T11:56:59.561877+00:00",
+  "status": "FROZEN_BEFORE_D078_ANCHOR_AND_SYNTHESIS_EXECUTION",
+  "prior_visibility": "D068-D077 profiles, relative registration curves, and WLC metadata provenance are known. No atomic or telluric line centroids, depths, inter-order anchor velocity offsets, or RV-aligned 5-epoch coadds have been computed or inspected on these FEROS profiles prior to this lock. Laboratory air wavelengths and Gaia DR3 systemic RV prior (+33.84 +- 0.45 km/s) were selected purely from external spectroscopic databases (NIST ASD / VALD / Sousa-Neves HARPS FGK list / HITRAN / Gaia DR3).",
+  "external_literature_context": {
+    "target_star": "HD 43629",
+    "aliases": [
+      "TIC34077285",
+      "TOI-880",
+      "Gaia DR3 2993658970584498048"
+    ],
+    "gaia_dr3_barycentric_rv_km_s": 33.84,
+    "gaia_dr3_barycentric_rv_err_km_s": 0.45,
+    "literature_vsini_km_s": 1.6,
+    "feros_nominal_resolving_power": 48000.0,
+    "c_km_s": 299792.458
+  },
+  "locked_anchors10": [
+    {
+      "anchor_id": "STEL_0063_MnI_4823p514",
+      "candidate_id": "D002-0063",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Mn I",
+      "lab_air_A": 4823.514,
+      "primary_clean_rv_anchor": false,
+      "caution_note": "Strong K-dwarf Mn I resonance-multiplet line; excluded from primary clean RV mean due to hyperfine-structure broadening, retained as full diagnostic anchor."
+    },
+    {
+      "anchor_id": "STEL_0063_CrII_4824p127",
+      "candidate_id": "D002-0063",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Cr II",
+      "lab_air_A": 4824.127,
+      "primary_clean_rv_anchor": false,
+      "caution_note": "Ionized Cr II multiplet 30 transition; weaker/blended in cool K-dwarfs, retained with explicit depth classification."
+    },
+    {
+      "anchor_id": "STEL_0063_NiI_4829p023",
+      "candidate_id": "D002-0063",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Ni I",
+      "lab_air_A": 4829.023,
+      "primary_clean_rv_anchor": true,
+      "caution_note": "Standard FGK abundance/RV Ni I line in HDU 17."
+    },
+    {
+      "anchor_id": "STEL_0071_VI_5727p048",
+      "candidate_id": "D002-0071",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "V I",
+      "lab_air_A": 5727.048,
+      "primary_clean_rv_anchor": true,
+      "caution_note": "Neutral vanadium line enhanced in cool K-dwarfs (BLUE sideband of 0071; covers HDU 24 & 25)."
+    },
+    {
+      "anchor_id": "STEL_0071_FeI_5731p762",
+      "candidate_id": "D002-0071",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Fe I",
+      "lab_air_A": 5731.762,
+      "primary_clean_rv_anchor": true,
+      "caution_note": "Benchmark isolated HARPS FGK Fe I line (Sousa/Neves list; RED sideband of 0071; covers HDU 24 & 25)."
+    },
+    {
+      "anchor_id": "STEL_0071_FeI_5732p296",
+      "candidate_id": "D002-0071",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Fe I",
+      "lab_air_A": 5732.296,
+      "primary_clean_rv_anchor": true,
+      "caution_note": "Secondary isolated Fe I line 0.534 A redward of 5731.762 A (covers HDU 24 & 25)."
+    },
+    {
+      "anchor_id": "STEL_0061_FeI_6546p238",
+      "candidate_id": "D002-0061",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Fe I",
+      "lab_air_A": 6546.238,
+      "primary_clean_rv_anchor": true,
+      "caution_note": "Strong benchmark isolated Fe I line in BLUE sideband of 0061 (covers HDU 29 & 30)."
+    },
+    {
+      "anchor_id": "STEL_0061_FeI_6551p680",
+      "candidate_id": "D002-0061",
+      "frame_class": "STELLAR_PHOTOSPHERIC",
+      "species": "Fe I",
+      "lab_air_A": 6551.68,
+      "primary_clean_rv_anchor": false,
+      "caution_note": "Low-excitation (0.99 eV, log gf ~ -5.79) weak Fe I line in RED sideband of 0061; tests weak stellar component inside RED mask."
+    },
+    {
+      "anchor_id": "TELL_0061_H2O_6548p622",
+      "candidate_id": "D002-0061",
+      "frame_class": "TELLURIC_ATMOSPHERIC_H2O",
+      "species": "H2O (telluric)",
+      "lab_air_A": 6548.622,
+      "primary_clean_rv_anchor": false,
+      "caution_note": "Atmospheric water vapor line in BLUE sideband of 0061; stationary at topocentric v_topo ~ 0 km/s (barycentric v_bary ~ +BARYCORR)."
+    },
+    {
+      "anchor_id": "TELL_0061_H2O_6552p629",
+      "candidate_id": "D002-0061",
+      "frame_class": "TELLURIC_ATMOSPHERIC_H2O",
+      "species": "H2O (telluric)",
+      "lab_air_A": 6552.629,
+      "primary_clean_rv_anchor": false,
+      "caution_note": "Prominent atmospheric water vapor line inside RED sideband [6551.10, 6554.10] A of 0061; tests atmospheric pull on D075/D076 RED-sideband shifts."
+    }
+  ],
+  "deterministic_anchor_estimator": {
+    "window_half_width_A": 0.33,
+    "min_window_samples": 15,
+    "gaussian_fwhm_km_s": 6.245676208333333,
+    "scan_half_range_km_s": 8.0,
+    "scan_step_km_s": 0.04,
+    "scan_grid_points": 401,
+    "stellar_scan_center_bary_km_s": 33.84,
+    "telluric_scan_center_topo_km_s": 0.0,
+    "relativity_convention": "Exact special-relativistic rapidity: eta_bary = atanh(v_bary / c), lambda_bary = lambda_lab_air * exp(eta_bary); for telluric lines eta_bary = atanh(BARYCORR / c) + atanh(v_topo / c). Zero double BARYCORR application.",
+    "linear_model": "y(lambda) = c0 + c1*(lambda - lambda_exp) - d * exp(-0.5 * (c*tanh(ln(lambda/lambda_c)) / sigma_v)^2); exact linear least squares at each of 401 grid velocities.",
+    "subgrid_refinement": "Closed-form 5-point orthogonal-polynomial parabola on SSE[best-2 : best+3] when 2 <= best <= 398, positive absorption depth d > 0 across stencil, and quadratic curvature a2 > 0.",
+    "quality_tiers": {
+      "STRONG_CLEAN_ABSORPTION": "c0 > 0, relative_depth = d/c0 >= 0.08, not on grid boundary (0 or 400)",
+      "WEAK_OR_SHALLOW_ABSORPTION": "c0 > 0, 0 < relative_depth < 0.08, not on grid boundary",
+      "BOUNDARY_OR_NONABSORPTION_RETAINED": "d <= 0 across grid, c0 <= 0, or best index at grid boundary 0/400 (retained explicitly, never dropped)"
+    }
+  },
+  "cohesive_study_parts": [
+    "Part 1: All 810 profile-anchor measurements across 240 D071 profiles (5 epochs x 3 modes x flat/nonflat x covering HDUs).",
+    "Part 2: Direct inter-order stellar wavelength offset (HDU 30-29 at 0061, HDU 25-24 at 0071, HDU 17-0 control at 0063), point-by-point order flux-ratio tilt, and quantitative test of telluric H2O vs stellar Fe I pull on D075/D076 RED-BLUE sideband shifts at 0061.",
+    "Part 3: Empirical FEROS stellar rest-frame RV per epoch (F1-F5), rest-frame air wavelengths of D002-0061/0063/0071, and 5-epoch coadded + per-epoch contrast check across all 6 D068 background models (unshifted barycentric and empirical-RV-aligned).",
+    "Part 4: Complete cross-instrument synthesis of HD 43629 (HARPS 2021 D002-D064 + FEROS 2019 D065-D078) with normalized tables and byte-exact preservation of the D077 107,105-cell historical state snapshot."
+  ],
+  "expected_counts": {
+    "source_profiles": 240,
+    "anchor_measurements": 810,
+    "grid_fit_evaluations": 324810,
+    "inter_order_anchor_pairs": 300,
+    "order_blaze_ratio_pairs": 60,
+    "epoch_restframe_rows": 5,
+    "coadd_contrast_cases": 36,
+    "final_candidate_synthesis_rows": 3
+  },
+  "table_schema_policy": "Preserve D077 ALL37_INTERPRETATION.csv and FULL_SAMPLE_STATE141.csv byte-for-byte at 107,105 cells without appending sparse extra columns to unrelated stars; publish D078 outputs as clean normalized JSON/CSV tables.",
+  "scientific_guardrails": {
+    "new_archive_requests": 0,
+    "new_fits_downloads": 0,
+    "double_barycorr_applied": false,
+    "qualified_lasers": 0,
+    "calibrated_fap": false
+  },
+  "locked_input_count": 267,
+  "method_lock_sha256": "d8c3e3c7ac8834224f2fdde55d08219f64c32486215e0a97b27733e4f3df7bd0"
+}

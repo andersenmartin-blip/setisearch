@@ -1,8 +1,8 @@
-# Optisk SETI-spor (`D001`–`D077`): Fra 50-eksponerings HARPS-udvalg til `HD 43629` og FEROS
+# Optisk SETI-spor (`D001`–`D078`): Fra 50-eksponerings HARPS-udvalg til `HD 43629` og FEROS
 
-Dette dokument samler den fulde sammenhæng mellem konsolideringsrapporten [`D001`](../work_seti_20261105_d001_delivery/README.md) (5. november 2026) og den aktive optiske undersøgelseskæde gennem [`D077`](../progress/2026-11-14-feros-d077/REPORT.md) (14. november 2026).
+Dette dokument samler den fulde sammenhæng mellem konsolideringsrapporten [`D001`](../work_seti_20261105_d001_delivery/README.md) (5. november 2026) og den aktive optiske undersøgelseskæde gennem [`D078`](../progress/2026-11-14-feros-d078/REPORT.md) (14. november 2026).
 
-> **Videnskabelig status:** `0` kvalificerede lasersignaler. De tre dybdeundersøgte enkelt-epoke strukturer i `HD 43629` (`D002-0061`, `D002-0063`, `D002-0071`) har fortsat uafklaret fysisk oprindelse.
+> **Videnskabelig status (`HD 43629` afsluttet ved `D078`):** `0` kvalificerede lasersignaler. Empirisk FEROS-stjernehastighed målt til `+33,820 ± 0,216 km/s` (`-0,020 km/s` fra Gaia DR3); ingen vedvarende smal emissionskomponent findes ved hvilebølgelængderne `6549,356 Å`, `4826,103 Å` eller `5730,069 Å`, og de tre 2021 HARPS enkelt-epoke strukturer forklares uden teknosignaturer (se [`HD43629_SYNTHESIS3.csv`](../progress/2026-11-14-feros-d078/HD43629_SYNTHESIS3.csv)).
 
 ---
 
@@ -26,7 +26,7 @@ I faserne **`D002`–`D034`** (bevaret i det lokale hovedarkiv `SETI_D002_D003_C
 
 ---
 
-## 2. Kronologisk rapportindeks (`D035`–`D077`)
+## 2. Kronologisk rapportindeks (`D035`–`D078`)
 
 | Fase | Dato | Rapport (dansk) | Hovedindhold |
 | --- | --- | --- | --- |
@@ -52,5 +52,6 @@ I faserne **`D002`–`D034`** (bevaret i det lokale hovedarkiv `SETI_D002_D003_C
 | `D075–D076` | `2026-11-13` | [`SETI_D075_D076_FEROS_ORDERS_AND_DIRECTION_2026-11-13.md`](reports_d035_d077/SETI_D075_D076_FEROS_ORDERS_AND_DIRECTION_2026-11-13.md) | 900 ordenskurver + 1.440 baglæns kurver (op til 1,45 km/s ordensforskel ved 0061) |
 | `Status` | `2026-11-13` | [`SETI_GITHUB_OG_FEROS_STATUS_2026-11-13.md`](reports_d035_d077/SETI_GITHUB_OG_FEROS_STATUS_2026-11-13.md) | Afstemning af D075-reproduktion, D076-checkpoint og GitHub-status |
 | `D077` | `2026-11-14` | [`SETI_D077_FEROS_WLC_METADATA_GATE_2026-11-14.md`](reports_d035_d077/SETI_D077_FEROS_WLC_METADATA_GATE_2026-11-14.md) | Prospektiv metadata- og proveniensgate for alle 30 FEROS dagslys-WLC råfiler |
+| `D078` | `2026-11-14` | [`SETI_D078_FEROS_RESTFRAME_AND_HD43629_SYNTHESIS_2026-11-14.md`](reports_d035_d077/SETI_D078_FEROS_RESTFRAME_AND_HD43629_SYNTHESIS_2026-11-14.md) | Empirisk stellar hvileramme (+33,820 km/s), løsning af 1,45 km/s sidebåndseffekt, 5-epoke coadd og afslutning af HD 43629 |
 
-Maskinlæsbare metodelåse, kilde-ID'er og numeriske audit-kvitteringer for de nyeste FEROS-faser findes tillige under [`progress/2026-11-13-feros-d075/`](../progress/2026-11-13-feros-d075/REPORT.md), [`progress/2026-11-13-feros-d076/`](../progress/2026-11-13-feros-d076/REPORT.md) og [`progress/2026-11-14-feros-d077/`](../progress/2026-11-14-feros-d077/REPORT.md).
+Maskinlæsbare metodelåse, kilde-ID'er og numeriske audit-kvitteringer for de nyeste FEROS-faser findes tillige under [`progress/2026-11-13-feros-d075/`](../progress/2026-11-13-feros-d075/REPORT.md), [`progress/2026-11-13-feros-d076/`](../progress/2026-11-13-feros-d076/REPORT.md) [`progress/2026-11-14-feros-d077/`](../progress/2026-11-14-feros-d077/REPORT.md) og [`progress/2026-11-14-feros-d078/`](../progress/2026-11-14-feros-d078/REPORT.md).
