@@ -19,8 +19,9 @@ Dette dokument indekserer projektets 3. generations optiske og nær-infrarøde e
 
 ## Publikationsmanuskript (`D079–D082`)
 
+- [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) — Færdigkompileret to-spaltet publikations-PDF (8 sider, inkl. alle 4 tabeller og 6 figurer).
 - [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md) — Komplet videnskabeligt artikelmanuskript på engelsk med alle 6 publikationsfigurer (`paper/figures/fig1_...png` til `fig6_...png`).
-- [`paper/main.tex`](../paper/main.tex) — Komplet LaTeX-artikelkilde klar til `pdflatex`.
+- [`paper/main.tex`](../paper/main.tex) — Komplet LaTeX-artikelkilde.
 
 ---
 
