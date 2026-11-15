@@ -9,11 +9,11 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | Optisk (aktivt) | Autoritativ teknisk overdragelse, faglige guardrails og aktiv køreplan (`D079` afsluttet → `Trin 3: V3.1`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | Optisk (`D079+`) | Indeks over det prospektivt kalibrerede `HARPS_ECELLE_V3`-survey (`10` friske science-stjerner + `2` kontrolstjerner i `D079`). |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | Optisk (aktivt) | Autoritativ teknisk overdragelse, faglige guardrails og aktiv køreplan (`D080` afsluttet → `Trin 4: D081`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | Optisk (`D079–D080+`) | Indeks over det prospektivt kalibrerede `V3` / `ECELLE_V3_1`-survey (`38` friske stjerner, `190` `HARPS` + VLT `ESPRESSO`-eksponeringer). |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-14-harps-d079-v3/REPORT.md) | Optisk (`FEROS` & `HARPS V3`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `SUMMARY.json`, `NUMERICAL_AUDIT.json`, normaliserede CSV-tabeller og `REPORT.md`) fra `D075` til `D079`. |
+| [`progress/`](../progress/2026-11-14-echelle-d080-v3-1/REPORT.md) | Optisk (`FEROS`, `HARPS`, `ESPRESSO`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `SUMMARY.json`, audit-JSON, CSV-tabeller og `REPORT.md`) fra `D075` til `D080`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -28,9 +28,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–E (optisk spor)
+## 3. Kompakte numeriske kompagnonarkiver A–F (optisk spor)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D079` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d079_workspace.py --check-only` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D080` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d080_workspace.py --check-only` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -40,3 +40,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **C** | `SETI_D077_FEROS_WLC_METADATA_GATE_RESULTS_2026-11-14.zip` | `659.654` | `828466e2c8ede7897be98d38d247fb18def0e5acdb40754656c8d2517c27c818` |
 | **D** | `SETI_D078_FEROS_RESTFRAME_AND_HD43629_SYNTHESIS_RESULTS_2026-11-14.zip` | `11.427.944` | `83132e0a43903a26ba6808b8bcca34f39850088d0aee05f0bdfb93b5d5ea6069` |
 | **E** | `SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_RESULTS_2026-11-14.zip` | `5.770.342` | `ae7ec48fc51522c823c06940c60b661725430f632ba6f048402d9cf66ce07af3` |
+| **F** | `SETI_D080_V3_1_EXOPLANET_AND_HARPS_ESPRESSO_RESULTS_2026-11-14.zip` | `7.736.372` | `0c663b2b65e340deedf629cea069cee5092230a954ad56b6c39bf79684f00133` |

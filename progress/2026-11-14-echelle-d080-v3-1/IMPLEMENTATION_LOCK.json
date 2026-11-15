@@ -1,0 +1,48 @@
+{
+  "phase_id": "D080",
+  "schema": "SETI_D080_IMPLEMENTATION_LOCK_V1",
+  "amendment_id": "AMEND_1_ESO_RELEASE_DATE_AND_FITS_LOADER_PRE_ANALYSIS",
+  "created_utc": "2026-11-14T19:06:36.056898+00:00",
+  "parent_method_lock_sha256": "bf757017dac55b157ebdba65eb41aa11c877b04f41e028e5debee0ccc06932a1",
+  "zero_spectra_analyzed_prior_to_amendment": true,
+  "zero_detector_parameters_modified": true,
+  "zero_code_files_modified": true,
+  "public_release_cutoff_utc": "2026-11-13T00:00:00Z",
+  "technical_reason": "Strictly pre-analysis ESO archive & memory-bounding technical adjustments before any cohort result was computed: (1) During Pass-1 download (at 25/268 files), ESO dataPortal returned HTTP 401 on 2026 exposures still under 1-year proprietary embargo until 2027; applying obs_release_date <= '2026-11-13T00:00:00Z' on the cached Stage-0C metadata preserved 116/130 exposures identically and replaced embargoed nights (including 0-public-night control HD208704 -> next-ranked public ESPRESSO control HD191849, 31 public nights). (2) In analyze.py FITS ingestion & bounded-memory helpers only: added _safe_header_dict() so malformed archival ESO housekeeping cards (e.g. 'ESO INS TEMP40 RMS') do not raise astropy VerifyError, extended load_espresso_s1d_fits to ingest the 6 esotk/0.9.8 OB-combined ESPRESSO Phase-3 IDP spectra (HD161098 ep 1-5, GJ9827 ep 5) onto the identical 443,262-bin barycentric air wavelength grid and electron flux scale, added single-HDU (4096, 4296) 2-chip mosaic handling in load_harps_raw_2d_fits for 3 early-2004 HARPS raw frames, and bounded harps_raw_cache/espresso_s2d_cache to 1 active frame so peak RSS stays ~4.5 GB instead of OOM-exceeding 16 GB host RAM, while leaving v3_1_detector.py, audit.py, plot_figures.py, and all detector gates/thresholds 100% untouched.",
+  "cohort_replacements": [
+    {
+      "original_star": "HD161098",
+      "replacement_star": "HD161098",
+      "reason": "Filtered HD 161098 exposure pool to obs_release_date <= 2026-11-13T00:00:00Z (51 public nights) to exclude embargoed exposure(s)."
+    },
+    {
+      "original_star": "HD208704",
+      "replacement_star": "HD191849",
+      "reason": "All 37 ESPRESSO nights of HD208704 have obs_release_date in May-Nov 2027 (HTTP 401 ESO 1-year proprietary embargo); replaced pre-analysis with next-ranked Stage-0B non-planet ESPRESSO control HD191849 (31 public nights)."
+    },
+    {
+      "original_star": "HD222259A",
+      "replacement_star": "HD222259A",
+      "reason": "Filtered HD 222259A exposure pool to obs_release_date <= 2026-11-13T00:00:00Z (9 public nights) to exclude embargoed exposure(s)."
+    },
+    {
+      "original_star": "HD93083",
+      "replacement_star": "HD93083",
+      "reason": "Filtered HD93083 exposure pool to obs_release_date <= 2026-11-13T00:00:00Z (25 public nights) to exclude embargoed exposure(s)."
+    }
+  ],
+  "preserved_pre_ingestion_files": {
+    "FROZEN_COHORT130.csv": "FROZEN_PRE_INGESTION/FROZEN_COHORT130_v0.csv",
+    "EXOPLANET_EPHEMERIS_CATALOG.json": "FROZEN_PRE_INGESTION/EXOPLANET_EPHEMERIS_CATALOG_v0.json",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "FROZEN_PRE_INGESTION/PRIOR_EXCLUSION_VERIFICATION_v0.json",
+    "analyze.py": "FROZEN_PRE_INGESTION/analyze_v0.py"
+  },
+  "amended_file_hashes": {
+    "FROZEN_COHORT130.csv": "bda36d5401ef7a8c88c525aa487016ec1cd3f94b589b4248e9634bdc8cf05f70",
+    "EXOPLANET_EPHEMERIS_CATALOG.json": "e4180eb0f921b7ae491ef3c165bea26de75f079a63fc683f4d0e2fccc3365118",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "830bba279afdcd672468aa64a95b1670e54b8d7d5bfd19508908a69bfca45a49",
+    "analyze.py": "d8f94375fe47f1dba0e286ca24978f77c72b65b5c8eedef0eb8c9fcc20cd8b71"
+  },
+  "updated_utc": "2026-11-15T06:44:15+00:00",
+  "detector_and_audit_code_unmodified": true
+}

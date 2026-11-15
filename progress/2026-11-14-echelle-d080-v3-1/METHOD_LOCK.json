@@ -1,0 +1,477 @@
+{
+  "phase_id": "D080",
+  "schema": "SETI_D080_PROSPECTIVE_METHOD_LOCK_V1",
+  "locked_utc": "2026-11-14T18:48:47.756658+00:00",
+  "detector_version": "ECELLE_V3_1",
+  "scientific_scope": "Prospective multi-instrument optical SETI narrowband laser survey across 130 archival exposures of 26 fresh nearby FGKM stars (70 HARPS + 60 VLT ESPRESSO; 4 non-planet CONTROL stars + 22 confirmed exoplanet-host SCIENCE stars hosting 44 planets at 3.64-44.86 pc), incorporating supraphotospheric continuum gate G1_F1/G3_F1, 2D (Teff, [M/H]) K=5 photospheric atlases, and 2D detector physics gate G5_F2 (HARPS 5x11 raw2D PSF + ESPRESSO 2x11 anamorphic pupil-slice).",
+  "pre_lock_cohort_science_files_downloaded": 0,
+  "detector_base_config": {
+    "schema": "ECELLE_V3_1",
+    "coadd_step_angstrom": 0.01,
+    "knn_atlas_neighbors": 5,
+    "knn_teff_scale_k": 350.0,
+    "knn_mh_scale_dex": 0.25,
+    "fit_phases_bins": [
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5
+    ],
+    "core_sigma_mult": 3.5,
+    "mid_inner_sigma_mult": 6.0,
+    "mid_outer_sigma_mult": 30.0,
+    "outer_inner_sigma_mult": 30.0,
+    "outer_outer_sigma_mult": 60.0,
+    "prescreen_local_mad": 3.5,
+    "channel_t_snr_mid_min": 6.5,
+    "channel_t_snr_outer_min": 6.0,
+    "channel_t_amp_ratio_min": 0.7,
+    "channel_t_amp_ratio_max": 1.35,
+    "channel_t_cosine_min": 0.82,
+    "channel_t_fwhm_ratio_min": 0.55,
+    "channel_t_fwhm_ratio_max": 1.65,
+    "channel_t_cross_amp_ratio_min": 0.6,
+    "channel_t_cross_snr_min": 4.5,
+    "channel_p_snr_mid_min": 7.0,
+    "channel_p_snr_outer_min": 6.5,
+    "channel_p_amp_ratio_min": 0.7,
+    "channel_p_amp_ratio_max": 1.35,
+    "channel_p_cosine_min": 0.85,
+    "channel_p_fwhm_ratio_min": 0.6,
+    "channel_p_fwhm_ratio_max": 1.45,
+    "channel_p_min_epochs_above_3sigma": 4,
+    "channel_p_supraphotospheric_min_fn_pk3": 1.008,
+    "gate_g2_airglow_tol_angstrom": 0.12,
+    "gate_g3_native_snr_min": 5.0,
+    "gate_g3_max_single_px_fraction": 0.62,
+    "gate_g3_min_bilateral_wing_ratio": 0.12,
+    "gate_g4_overlap_edge_margin_px": 40,
+    "gate_g4_secondary_flux_ratio_min": 0.15,
+    "gate_g4_secondary_cont_snr_min": 25.0,
+    "gate_g4_secondary_snr_min": 3.0,
+    "gate_g4_order_contrast_ratio_min": 0.35,
+    "gate_g4_order_contrast_ratio_max": 2.85,
+    "gate_g4_fiber_b_wave_bleed_mad_mult": 30.0,
+    "gate_g4_fiber_b_wave_over_a_ratio": 10.0,
+    "gate_g4_fiber_b_sky_ratio_max": 0.35,
+    "gate_g5_raw2d_cosine_min": 0.85,
+    "gate_g5_raw2d_centroid_max_px": 0.85,
+    "gate_g5_raw2d_off_fiber_max_ratio": 0.35,
+    "gate_g5_f2_cos2d_5x11_min": 0.85,
+    "gate_g5_f2_max_3row_dx_px": 0.85,
+    "gate_g5_f2_far_wing_34_max": 0.55,
+    "gate_g5_esp_slice_snr_min": 3.5,
+    "gate_g5_esp_slice_ratio_min": 0.45,
+    "gate_g5_esp_slice_ratio_max": 2.2,
+    "gate_g5_esp_slice_dv_max_kms": 1.25,
+    "gate_g5_esp_cos2d_min": 0.85,
+    "gate_g5_esp_far_wing_max": 0.45,
+    "rv_anchor_window_kms": 24.0,
+    "rv_anchor_scan_half_kms": 8.0,
+    "rv_anchor_scan_step_kms": 0.05,
+    "rv_anchor_photospheric_fwhm_kms": 7.0,
+    "rv_anchor_min_rel_depth": 0.12,
+    "continuum_block_bins": 100,
+    "continuum_quantile": 0.8,
+    "continuum_median_blocks": 5,
+    "tx_aperture_diameter_m": 10.0
+  },
+  "instrument_configs": {
+    "HARPS": {
+      "schema": "ECELLE_V3_1",
+      "coadd_step_angstrom": 0.01,
+      "knn_atlas_neighbors": 5,
+      "knn_teff_scale_k": 350.0,
+      "knn_mh_scale_dex": 0.25,
+      "fit_phases_bins": [
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "core_sigma_mult": 3.5,
+      "mid_inner_sigma_mult": 6.0,
+      "mid_outer_sigma_mult": 30.0,
+      "outer_inner_sigma_mult": 30.0,
+      "outer_outer_sigma_mult": 60.0,
+      "prescreen_local_mad": 3.5,
+      "channel_t_snr_mid_min": 6.5,
+      "channel_t_snr_outer_min": 6.0,
+      "channel_t_amp_ratio_min": 0.7,
+      "channel_t_amp_ratio_max": 1.35,
+      "channel_t_cosine_min": 0.82,
+      "channel_t_fwhm_ratio_min": 0.55,
+      "channel_t_fwhm_ratio_max": 1.65,
+      "channel_t_cross_amp_ratio_min": 0.6,
+      "channel_t_cross_snr_min": 4.5,
+      "channel_p_snr_mid_min": 7.0,
+      "channel_p_snr_outer_min": 6.5,
+      "channel_p_amp_ratio_min": 0.7,
+      "channel_p_amp_ratio_max": 1.35,
+      "channel_p_cosine_min": 0.85,
+      "channel_p_fwhm_ratio_min": 0.6,
+      "channel_p_fwhm_ratio_max": 1.45,
+      "channel_p_min_epochs_above_3sigma": 4,
+      "channel_p_supraphotospheric_min_fn_pk3": 1.008,
+      "gate_g2_airglow_tol_angstrom": 0.12,
+      "gate_g3_native_snr_min": 5.0,
+      "gate_g3_max_single_px_fraction": 0.62,
+      "gate_g3_min_bilateral_wing_ratio": 0.12,
+      "gate_g4_overlap_edge_margin_px": 40,
+      "gate_g4_secondary_flux_ratio_min": 0.15,
+      "gate_g4_secondary_cont_snr_min": 25.0,
+      "gate_g4_secondary_snr_min": 3.0,
+      "gate_g4_order_contrast_ratio_min": 0.35,
+      "gate_g4_order_contrast_ratio_max": 2.85,
+      "gate_g4_fiber_b_wave_bleed_mad_mult": 30.0,
+      "gate_g4_fiber_b_wave_over_a_ratio": 10.0,
+      "gate_g4_fiber_b_sky_ratio_max": 0.35,
+      "gate_g5_raw2d_cosine_min": 0.85,
+      "gate_g5_raw2d_centroid_max_px": 0.85,
+      "gate_g5_raw2d_off_fiber_max_ratio": 0.35,
+      "gate_g5_f2_cos2d_5x11_min": 0.85,
+      "gate_g5_f2_max_3row_dx_px": 0.85,
+      "gate_g5_f2_far_wing_34_max": 0.55,
+      "gate_g5_esp_slice_snr_min": 3.5,
+      "gate_g5_esp_slice_ratio_min": 0.45,
+      "gate_g5_esp_slice_ratio_max": 2.2,
+      "gate_g5_esp_slice_dv_max_kms": 1.25,
+      "gate_g5_esp_cos2d_min": 0.85,
+      "gate_g5_esp_far_wing_max": 0.45,
+      "rv_anchor_window_kms": 24.0,
+      "rv_anchor_scan_half_kms": 8.0,
+      "rv_anchor_scan_step_kms": 0.05,
+      "rv_anchor_photospheric_fwhm_kms": 7.0,
+      "rv_anchor_min_rel_depth": 0.12,
+      "continuum_block_bins": 100,
+      "continuum_quantile": 0.8,
+      "continuum_median_blocks": 5,
+      "tx_aperture_diameter_m": 10.0,
+      "instrument": "HARPS",
+      "telescope_diameter_m": 3.57,
+      "resolving_power": 115000.0,
+      "fwhm_v_kms": 2.6068909391304347,
+      "sigma_v_kms": 1.1070446527883928,
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 6900.0,
+      "coadd_rest_min_angstrom": 3802.0,
+      "coadd_rest_max_angstrom": 6890.0,
+      "ext_rest_min_angstrom": 3798.0,
+      "ext_rest_max_angstrom": 6902.0
+    },
+    "ESPRESSO": {
+      "schema": "ECELLE_V3_1",
+      "coadd_step_angstrom": 0.01,
+      "knn_atlas_neighbors": 5,
+      "knn_teff_scale_k": 350.0,
+      "knn_mh_scale_dex": 0.25,
+      "fit_phases_bins": [
+        -0.5,
+        -0.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "core_sigma_mult": 3.5,
+      "mid_inner_sigma_mult": 6.0,
+      "mid_outer_sigma_mult": 30.0,
+      "outer_inner_sigma_mult": 30.0,
+      "outer_outer_sigma_mult": 60.0,
+      "prescreen_local_mad": 3.5,
+      "channel_t_snr_mid_min": 6.5,
+      "channel_t_snr_outer_min": 6.0,
+      "channel_t_amp_ratio_min": 0.7,
+      "channel_t_amp_ratio_max": 1.35,
+      "channel_t_cosine_min": 0.82,
+      "channel_t_fwhm_ratio_min": 0.55,
+      "channel_t_fwhm_ratio_max": 1.65,
+      "channel_t_cross_amp_ratio_min": 0.6,
+      "channel_t_cross_snr_min": 4.5,
+      "channel_p_snr_mid_min": 7.0,
+      "channel_p_snr_outer_min": 6.5,
+      "channel_p_amp_ratio_min": 0.7,
+      "channel_p_amp_ratio_max": 1.35,
+      "channel_p_cosine_min": 0.85,
+      "channel_p_fwhm_ratio_min": 0.6,
+      "channel_p_fwhm_ratio_max": 1.45,
+      "channel_p_min_epochs_above_3sigma": 4,
+      "channel_p_supraphotospheric_min_fn_pk3": 1.008,
+      "gate_g2_airglow_tol_angstrom": 0.12,
+      "gate_g3_native_snr_min": 5.0,
+      "gate_g3_max_single_px_fraction": 0.62,
+      "gate_g3_min_bilateral_wing_ratio": 0.12,
+      "gate_g4_overlap_edge_margin_px": 40,
+      "gate_g4_secondary_flux_ratio_min": 0.15,
+      "gate_g4_secondary_cont_snr_min": 25.0,
+      "gate_g4_secondary_snr_min": 3.0,
+      "gate_g4_order_contrast_ratio_min": 0.35,
+      "gate_g4_order_contrast_ratio_max": 2.85,
+      "gate_g4_fiber_b_wave_bleed_mad_mult": 30.0,
+      "gate_g4_fiber_b_wave_over_a_ratio": 10.0,
+      "gate_g4_fiber_b_sky_ratio_max": 0.35,
+      "gate_g5_raw2d_cosine_min": 0.85,
+      "gate_g5_raw2d_centroid_max_px": 0.85,
+      "gate_g5_raw2d_off_fiber_max_ratio": 0.35,
+      "gate_g5_f2_cos2d_5x11_min": 0.85,
+      "gate_g5_f2_max_3row_dx_px": 0.85,
+      "gate_g5_f2_far_wing_34_max": 0.55,
+      "gate_g5_esp_slice_snr_min": 3.5,
+      "gate_g5_esp_slice_ratio_min": 0.45,
+      "gate_g5_esp_slice_ratio_max": 2.2,
+      "gate_g5_esp_slice_dv_max_kms": 1.25,
+      "gate_g5_esp_cos2d_min": 0.85,
+      "gate_g5_esp_far_wing_max": 0.45,
+      "rv_anchor_window_kms": 24.0,
+      "rv_anchor_scan_half_kms": 8.0,
+      "rv_anchor_scan_step_kms": 0.05,
+      "rv_anchor_photospheric_fwhm_kms": 7.0,
+      "rv_anchor_min_rel_depth": 0.12,
+      "continuum_block_bins": 100,
+      "continuum_quantile": 0.8,
+      "continuum_median_blocks": 5,
+      "tx_aperture_diameter_m": 10.0,
+      "instrument": "ESPRESSO",
+      "telescope_diameter_m": 8.2,
+      "resolving_power": 140000.0,
+      "fwhm_v_kms": 2.1413747,
+      "sigma_v_kms": 0.9093581076476084,
+      "wave_min_angstrom": 3800.0,
+      "wave_max_angstrom": 7860.0,
+      "coadd_rest_min_angstrom": 3802.0,
+      "coadd_rest_max_angstrom": 7850.0,
+      "ext_rest_min_angstrom": 3798.0,
+      "ext_rest_max_angstrom": 7864.0
+    }
+  },
+  "rv_anchors": [
+    {
+      "anchor_id": "FeI_4447p717",
+      "species": "Fe I",
+      "lab_air_A": 4447.717
+    },
+    {
+      "anchor_id": "TiII_4571p971",
+      "species": "Ti II",
+      "lab_air_A": 4571.971
+    },
+    {
+      "anchor_id": "FeI_4602p941",
+      "species": "Fe I",
+      "lab_air_A": 4602.941
+    },
+    {
+      "anchor_id": "NiI_4829p023",
+      "species": "Ni I",
+      "lab_air_A": 4829.023
+    },
+    {
+      "anchor_id": "FeI_5250p646",
+      "species": "Fe I",
+      "lab_air_A": 5250.646
+    },
+    {
+      "anchor_id": "FeI_5731p762",
+      "species": "Fe I",
+      "lab_air_A": 5731.762
+    },
+    {
+      "anchor_id": "FeI_5732p296",
+      "species": "Fe I",
+      "lab_air_A": 5732.296
+    },
+    {
+      "anchor_id": "CaI_6122p217",
+      "species": "Ca I",
+      "lab_air_A": 6122.217
+    },
+    {
+      "anchor_id": "FeI_6173p334",
+      "species": "Fe I",
+      "lab_air_A": 6173.334
+    },
+    {
+      "anchor_id": "FeI_6200p313",
+      "species": "Fe I",
+      "lab_air_A": 6200.313
+    },
+    {
+      "anchor_id": "FeI_6498p938",
+      "species": "Fe I",
+      "lab_air_A": 6498.938
+    },
+    {
+      "anchor_id": "FeI_6546p238",
+      "species": "Fe I",
+      "lab_air_A": 6546.238
+    }
+  ],
+  "telluric_airglow_lines_a": [
+    {
+      "name": "HgI_4046",
+      "wave_air_A": 4046.563
+    },
+    {
+      "name": "HgI_4358",
+      "wave_air_A": 4358.328
+    },
+    {
+      "name": "NaI_5460_HgI",
+      "wave_air_A": 5460.735
+    },
+    {
+      "name": "OI_5577_auroral",
+      "wave_air_A": 5577.339
+    },
+    {
+      "name": "NaID2_5889",
+      "wave_air_A": 5889.951
+    },
+    {
+      "name": "NaID1_5895",
+      "wave_air_A": 5895.924
+    },
+    {
+      "name": "OI_6300_nebular",
+      "wave_air_A": 6300.304
+    },
+    {
+      "name": "OI_6363_nebular",
+      "wave_air_A": 6363.776
+    },
+    {
+      "name": "OH_6828",
+      "wave_air_A": 6828.52
+    },
+    {
+      "name": "OH_6834",
+      "wave_air_A": 6834.23
+    },
+    {
+      "name": "OH_6863",
+      "wave_air_A": 6863.955
+    },
+    {
+      "name": "OH_7276",
+      "wave_air_A": 7276.405
+    },
+    {
+      "name": "OH_7316",
+      "wave_air_A": 7316.282
+    },
+    {
+      "name": "OH_7340",
+      "wave_air_A": 7340.885
+    },
+    {
+      "name": "OH_7369",
+      "wave_air_A": 7369.248
+    },
+    {
+      "name": "OH_7750",
+      "wave_air_A": 7750.64
+    },
+    {
+      "name": "OH_7794",
+      "wave_air_A": 7794.112
+    },
+    {
+      "name": "OH_7821",
+      "wave_air_A": 7821.503
+    }
+  ],
+  "telluric_saturated_bands_topo_a": [
+    {
+      "name": "O2_B_band_core",
+      "lo_air_A": 6866.0,
+      "hi_air_A": 6932.0
+    },
+    {
+      "name": "O2_A_band_core",
+      "lo_air_A": 7592.0,
+      "hi_air_A": 7685.0
+    }
+  ],
+  "calibration_bands_harps_a": [
+    {
+      "band_id": "B1_UVBLUE_3844",
+      "center_bary_air_A": 3844.75
+    },
+    {
+      "band_id": "B2_CAHK_BLUE_3951",
+      "center_bary_air_A": 3951.5
+    },
+    {
+      "band_id": "B3_VIOLET_4244",
+      "center_bary_air_A": 4244.3
+    },
+    {
+      "band_id": "B4_BLUEGRN_4675",
+      "center_bary_air_A": 4675.8
+    },
+    {
+      "band_id": "B5_GREEN_5189",
+      "center_bary_air_A": 5189.9
+    },
+    {
+      "band_id": "B6_YLWGRN_5773",
+      "center_bary_air_A": 5773.0
+    },
+    {
+      "band_id": "B7_HENE_RED_6323",
+      "center_bary_air_A": 6323.6
+    },
+    {
+      "band_id": "B8_FARRED_6825",
+      "center_bary_air_A": 6825.4
+    }
+  ],
+  "calibration_bands_espresso_a": [
+    {
+      "band_id": "B1_UVBLUE_3844",
+      "center_bary_air_A": 3844.75
+    },
+    {
+      "band_id": "B2_CAHK_BLUE_3951",
+      "center_bary_air_A": 3951.5
+    },
+    {
+      "band_id": "B3_VIOLET_4244",
+      "center_bary_air_A": 4244.3
+    },
+    {
+      "band_id": "B4_BLUEGRN_4675",
+      "center_bary_air_A": 4675.8
+    },
+    {
+      "band_id": "B5_GREEN_5189",
+      "center_bary_air_A": 5189.9
+    },
+    {
+      "band_id": "B6_YLWGRN_5773",
+      "center_bary_air_A": 5773.0
+    },
+    {
+      "band_id": "B7_HENE_RED_6323",
+      "center_bary_air_A": 6323.6
+    },
+    {
+      "band_id": "B8_FARRED_6825",
+      "center_bary_air_A": 6825.4
+    },
+    {
+      "band_id": "B9_DEEPRED_7465",
+      "center_bary_air_A": 7465.1
+    }
+  ],
+  "locked_file_hashes": {
+    "FROZEN_COHORT130.csv": "33593f85e3f48cfb0187d2bc8046267c84dd3868b6d4073d3f53cbce51ca0982",
+    "EXOPLANET_EPHEMERIS_CATALOG.json": "11620d4968f52224d38f8cf1161f8e0a661ed611176d992bfb142ae854ad66d6",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "9262be0b9680c7367f632b62c5bea51e2b398c7cfe08bd1f738f2a8e56efaed5",
+    "v3_1_detector.py": "6669b5871965d265e38fa4d4b1c17952fa8d22177e89cf3d803954907d96d3f3",
+    "analyze.py": "a54e55073a073e92483fbf206c4741b6f9400146d4c81074737c7df118774ac7",
+    "audit.py": "8c0a85cf627cd713fcb441fec0fceb2f997fd51e1bdab6c6e6d324894a3132ab",
+    "plot_figures.py": "df8ddfde46d398e8db751618409b61c825f362d180d9bcd48ccd1e3d0e48d29f"
+  }
+}
