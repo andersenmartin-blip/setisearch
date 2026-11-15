@@ -1,0 +1,91 @@
+{
+  "phase_id": "D082",
+  "schema": "SETI_D082_FORENSIC_NEAR_IR_CASCADE_DIAGNOSIS_V1",
+  "total_g1_candidates": 4053,
+  "surviving_g2_nir_atmosphere": 54,
+  "surviving_g3_chromospheric_and_ridge": 6,
+  "surviving_g4_skysub_and_overlap": 3,
+  "qualified_v33_control": 0,
+  "qualified_v33_science": 0,
+  "verified_eti_detections": 0,
+  "g3_survivor_forensic_diagnoses": [
+    {
+      "candidate_id": "V33-T-0441",
+      "channel": "T",
+      "role": "CONTROL",
+      "star": "GJ3618",
+      "dp_id": "ADP.2025-04-10T15:19:32.083",
+      "topo_wave_a": 12254.36713,
+      "bary_wave_a": 12254.65711,
+      "snr_mid": 10.4575,
+      "vetoed_at_gate": "G4_V33",
+      "physical_classification": "FIBER_B_SIMULTANEOUS_SKY_AIRGLOW",
+      "forensic_note": "Unlogged faint terrestrial OH/O2 sky-emission residual in J-band unambiguously detected in simultaneous Fiber B = SKY vector (embedded FLUX_EL - FLUX_EL_SKYSUB)."
+    },
+    {
+      "candidate_id": "V33-T-2376",
+      "channel": "T",
+      "role": "SCIENCE",
+      "star": "GJ9066",
+      "dp_id": "ADP.2025-02-21T16:30:20.675",
+      "topo_wave_a": 15505.34912,
+      "bary_wave_a": 15504.63662,
+      "snr_mid": 7.2773,
+      "vetoed_at_gate": "G4_V33",
+      "physical_classification": "FIBER_B_SIMULTANEOUS_SKY_AIRGLOW",
+      "forensic_note": "Terrestrial H-band OH Meinel airglow sky-subtraction residual adjacent to the 1550.0 nm telecom window, vetoed directly via simultaneous Fiber B = SKY emission."
+    },
+    {
+      "candidate_id": "V33-T-3185",
+      "channel": "T",
+      "role": "SCIENCE",
+      "star": "GJ1132",
+      "dp_id": "ADP.2025-04-16T12:59:32.075",
+      "topo_wave_a": 12544.87694,
+      "bary_wave_a": 12544.88409,
+      "snr_mid": 9.4294,
+      "vetoed_at_gate": "G4_V33",
+      "physical_classification": "SINGLE_ORDER_H2RG_ARTIFACT",
+      "forensic_note": "Present in primary Hawaii-2RG 2D echelle order (71x4084 ANCILLARY.2DECHELLE.TAR) but absent in the high-SNR adjacent overlapping echelle order (overlap_tested=True)."
+    },
+    {
+      "candidate_id": "V33-T-3259",
+      "channel": "T",
+      "role": "SCIENCE",
+      "star": "GJ1132",
+      "dp_id": "ADP.2025-04-17T10:33:29.892",
+      "topo_wave_a": 10895.6779,
+      "bary_wave_a": 10895.02337,
+      "snr_mid": 10.5112,
+      "vetoed_at_gate": "G5_V33",
+      "physical_classification": "H2RG_PERSISTENCE_OR_BANDHEAD_WING",
+      "forensic_note": "Broad plateau wing (fwhm_over_lsf=1.389, g5_cos11=0.9148 < 0.92, g5_far_wing_ratio=0.5185 > 0.35) inconsistent with unresolved R=70,000 NIRPS_HE LSF."
+    },
+    {
+      "candidate_id": "V33-P-3754",
+      "channel": "P",
+      "role": "CONTROL",
+      "star": "GJ3618",
+      "dp_id": "ADP.2025-04-16T07:51:30.321",
+      "topo_wave_a": 10591.21999,
+      "bary_wave_a": 10591.73539,
+      "snr_mid": 8.215,
+      "vetoed_at_gate": "G5_V33",
+      "physical_classification": "H2RG_PERSISTENCE_OR_BANDHEAD_WING",
+      "forensic_note": "Persistent M5.5V photospheric molecular pseudocontinuum wing on zero-planet control star GJ 3618 (template_dip_frac=0.451, g5_cos11=0.9147 < 0.92, g5_far_wing_ratio=0.5357 > 0.35)."
+    },
+    {
+      "candidate_id": "V33-P-3755",
+      "channel": "P",
+      "role": "CONTROL",
+      "star": "GJ3618",
+      "dp_id": "ADP.2025-04-16T07:51:30.321",
+      "topo_wave_a": 15477.02807,
+      "bary_wave_a": 15477.78123,
+      "snr_mid": 7.8083,
+      "vetoed_at_gate": "G5_V33",
+      "physical_classification": "H2RG_PERSISTENCE_OR_BANDHEAD_WING",
+      "forensic_note": "Broad H-band H2O/OH molecular wing plateau on zero-planet control star GJ 3618 (fwhm_over_lsf=1.356, g5_far_wing_ratio=0.4361 > 0.35)."
+    }
+  ]
+}

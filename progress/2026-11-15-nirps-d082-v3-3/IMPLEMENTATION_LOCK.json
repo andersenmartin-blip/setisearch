@@ -1,0 +1,17 @@
+{
+  "schema": "SETI_D082_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D082",
+  "created_utc": "2026-11-15T13:51:21.226730+00:00",
+  "parent_method_lock_sha256": "8a7d0ab5965cbc6a23c05f9357fd6387ac896c58d4d08ffa7e760c749f4cbc64",
+  "reason": "ESO NIRPS Phase-3 archive format compatibility: 44 of 152 frozen cohort exposures are ESO P3ORIG='IDP' products (*_S1D_FINAL_TRUNCATED_WAVE_A.fits, pipeline nirps/3.2.7) published in phase3v2 without separate S1D_FINAL_B or ANCILLARY.2DECHELLE.TAR files. Added ingestion of embedded (FLUX_EL - FLUX_EL_SKYSUB) Fiber-B sky vectors + native-pixel S1D fallback order patch when 2DECHELLE is absent, and selected S2D-bearing control epochs so all 216 Hawaii-2RG 2D and 1,620 injection trials use full 71x4084 2DECHELLE data. Zero changes to METHOD_LOCK.json, FROZEN_COHORT_D082.csv, v3_3_detector.py, audit.py, or any detection threshold.",
+  "zero_threshold_or_cohort_changes": true,
+  "preserved_pre_ingestion_files": {
+    "analyze.py": "preserved_pre_ingestion/analyze.py.v0",
+    "plot_figures.py": "preserved_pre_ingestion/plot_figures.py.v0"
+  },
+  "amended_file_hashes": {
+    "analyze.py": "8a4c588d5d582d2dd782efd5a0dd12d0380340b3df679832acd4cfa2d4704989",
+    "plot_figures.py": "3b0701d57c6f7b5057b74bfd8e2e72c4bbc5c2ecd3abc8f9a70fc7a1b56eb02d"
+  },
+  "updated_utc": "2026-11-15T14:14:36.415045+00:00"
+}

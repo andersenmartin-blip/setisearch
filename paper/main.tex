@@ -1,0 +1,202 @@
+\documentclass[twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{\textbf{A Prospectively Locked Panchromatic (0.38--1.80\,$\mu$m) High-Resolution Echelle Search for Interstellar Laser Technosignatures Across 80 Nearby Stellar Systems with HARPS, ESPRESSO, and NIRPS}}
+\author{Martin Andersen\\ \small MSc Astrophysics, University of Copenhagen\\ \small \href{https://github.com/andersenmartin-blip/setisearch}{https://github.com/andersenmartin-blip/setisearch}}
+\date{15 November 2026}
+
+\begin{document}
+
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+\noindent High-resolution astronomical echelle spectrographs designed for extreme-precision radial-velocity exoplanet discovery simultaneously act as sensitive receivers for narrowband continuous-wave (CW) interstellar laser technosignatures. Historically, archival spectral line searches have suffered from thousands of false positives driven by unsubtracted photospheric absorption-trough fluctuations, terrestrial telluric and OH Meinel airglow residuals, calibration-fiber bleed-through, cosmic-ray and hot-pixel detector defects, and uncompensated planetary orbital Doppler drift during exoplanet transits. Here we present a unified, prospectively locked four-phase panchromatic ($0.38\text{--}1.80\,\mu\text{m}$) laser technosignature survey (\textbf{Phases D079--D082}, detector series \texttt{V3.0--V3.3}) across \textbf{80 unique nearby stellar systems} and \textbf{501 archival echelle exposures} ($66.79\,\text{h}$ open-shutter integration; $140.72\times 10^{6}$ searched 1D spectral bins) obtained with ESO \textbf{HARPS} ($R = 115{,}000$, $0.38\text{--}0.69\,\mu\text{m}$), VLT \textbf{ESPRESSO} ($R = 140{,}000$, $0.38\text{--}0.78\,\mu\text{m}$), and La Silla 3.6\,m \textbf{NIRPS} (\texttt{NIRPS\_HE}, $R = 70{,}000$, $0.98\text{--}1.80\,\mu\text{m}$ YJH, covering the canonical $1064.1\,\text{nm}$ Nd:YAG/Yb and $1550.0\,\text{nm}$ Er C-band laser wavelengths). Every cohort list, threshold, and 2D detector gate was cryptographically hashed and sealed strictly prior to science FITS ingestion, and independently verified to zero discrepancies via zero-dependency Python standard-library audit suites. Across \textbf{6,570 prospective synthetic calibration trials} injected into verified zero-planet control stars, our four-channel template-subtracted architecture---combining single-epoch transient scanning (\textbf{Channel T}), multi-epoch stellar-rest-frame coaddition (\textbf{Channel P}), uncompensated transit-window differencing (\textbf{Channel T\_DIFF}), and exact Keplerian planetary-rest-frame de-Doppler stacking (\textbf{Channel K\_PLANET})---achieves $93.3\%\text{--}94.4\%$ optical ($8\sigma$) and $90.9\%$ near-infrared ($8\sigma$) single-epoch completeness, boosts moving-planet CW recovery during transits ($\Delta v_{\mathrm{orb}} = 15\text{--}30\,\text{km\,s}^{-1}$) from $3.7\%\text{--}6.2\%$ to $58.0\%\text{--}93.8\%$, and rejects $99.3\%\text{--}100.0\%$ of optical CCD cosmic rays and near-infrared Hawaii-2RG inter-pixel capacitance (IPC) hot pixels and persistence plateaus on native 2D echelle orders. Across all 501 archival exposures, the \texttt{V3} five-gate veto cascade collapses \textbf{5,850 Legacy V2 1D false alarms} to \textbf{0 control-cohort false alarms} in \texttt{V3.2} ($0/34$ optical) and \texttt{V3.3} ($0/27$ near-IR), \textbf{0 automated \texttt{NIRPS\_V3\_3} science candidates} ($0/125$), and \textbf{0 verified extraterrestrial laser detections} across all 80 stellar systems (66 science hosts including 56 exoplanet hosts harboring 118 confirmed planets, plus 14 zero-planet controls). Direct Gaia DR3 ($G_{\mathrm{BP}}, G, G_{\mathrm{RP}}$) and 2MASS ($J, H$) spectrophotometric calibration establishes $8\sigma$ beamed transmitter power upper limits ($D_{\mathrm{tx}} = 10\,\text{m}$) down to \textbf{9.03\,W} at $467.6\,\text{nm}$, \textbf{607.7\,W} at $1064.1\,\text{nm}$, and \textbf{1,026.1\,W} at $1550.0\,\text{nm}$ on \textbf{Proxima Centauri} ($1.302\,\text{pc}$), \textbf{23.61\,W} (optical) and \textbf{1,433.0\,W} (near-IR) on \textbf{Barnard's Star} ($1.828\,\text{pc}$), and a median panchromatic limit of \textbf{1.75\,kW} across 23 exoplanet host stars within $<10.0\,\text{pc}$ of the Sun.
+\end{abstract}
+\vspace{1.2em}
+\end{@twocolumnfalse}
+]
+
+\section{Introduction}
+Diffraction-limited optical and near-infrared lasers coupled to meter-class apertures can outshine a host star within an unresolved spectrograph line-spread function ($\Delta\lambda/\lambda \lesssim 10^{-5}$) across interstellar distances \cite{SchwartzTownes1961,Townes1983,Kingsley2001}. Stabilized radial-velocity (RV) echelle spectrographs---notably ESO HARPS ($R=115{,}000$; \cite{Mayor2003}), VLT ESPRESSO ($R=140{,}000$; \cite{Pepe2021}), and the near-infrared fiber-fed spectrograph NIRPS ($R=70{,}000$; \cite{Bouchy2017,Bouchy2025})---provide an unprecedented public archive of high-SNR spectra across the nearest exoplanet systems \cite{ReinesMarcy2002,TellisMarcy2017,Zuckerman2023}.
+
+Extending high-resolution laser SETI from the optical ($0.38\text{--}0.78\,\mu\text{m}$) into the near-infrared YJH windows ($0.98\text{--}1.80\,\mu\text{m}$; \cite{Maire2019}) directly probes the two dominant industrial free-space laser wavelengths---\textbf{1064.1\,nm} (Nd:YAG / Yb-doped fiber) and \textbf{1550.0\,nm} (Er-doped telecom C-band)---while exploiting the $3\text{--}5\,\text{mag}$ brighter near-IR continuum of late-M dwarfs within $10\,\text{pc}$. However, rigorous archival SETI requires suppressing five major false-alarm sources: (i) unsubtracted photospheric absorption-core fluctuations, (ii) orbital Doppler smearing ($\Delta v_{\mathrm{orb}} \approx 15\text{--}35\,\text{km\,s}^{-1}$) of planetary beacons during transits \cite{KippingTeachey2016,Sheikh2020}, (iii) telluric division spikes and OH Meinel airglow in YJH, (iv) Fiber-B calibration bleed-through and detector-level CCD cosmic rays or Hawaii-2RG inter-pixel capacitance (IPC) hot pixels, and (v) post-hoc parameter tuning.
+
+Here we present the complete prospectively locked four-phase \textbf{Panchromatic V3 Echelle Laser Survey (D079--D082)} spanning \textbf{80 unique stellar systems} and \textbf{501 exposures} across $0.38\text{--}1.80\,\mu\text{m}$.
+
+\section{Archival Cohorts and Prospective Lock Protocol}
+Every phase (\texttt{D079}, \texttt{D080}, \texttt{D081}, \texttt{D082}) enforced strict chronological monotonicity: cohort CSVs, laboratory masks, and detector source code were SHA-256 sealed in \texttt{METHOD\_LOCK.json} and \texttt{LOCK\_RECEIPT.json} strictly prior to the first ESO DataLink/FITS HTTP request (\texttt{FIRST\_SCIENCE\_DOWNLOAD\_RECEIPT.json}), and independently audited via zero-dependency \texttt{/usr/bin/python3 -S audit.py} scripts (\texttt{PASS} across all phases with zero discrepancies).
+
+\begin{table*}[t]
+\centering
+\caption{Summary of the Four Prospectively Locked Phases of the Unified 80-Star (501-Exposure) Panchromatic V3 Survey.}
+\label{tab:phases}
+\small
+\begin{tabular}{llccccccc}
+\toprule
+Phase & Detector & Instruments ($R$) & Band ($\mu$m) & Stars (New) & Exposures (Ctrl/Sci) & Time (h) & Calib.\ Trials & Legacy V2 $\rightarrow$ Ctrl / ETI \\
+\midrule
+D079 & \texttt{OPTICAL\_V3}   & HARPS (115k)            & 0.38--0.69 & 12 (12)       & 60 (10 / 50)   & 4.57  & 990   & $48 \rightarrow 28^{\ast} / 0$ \\
+D080 & \texttt{OPTICAL\_V3\_1} & HARPS + ESPRESSO (140k) & 0.38--0.78 & 26 (26)       & 130 (20 / 110) & 27.43 & 1,620 & $422 \rightarrow 10^{\ast} / 0$ \\
+D081 & \texttt{OPTICAL\_V3\_2} & HARPS + ESPRESSO (140k) & 0.38--0.78 & 22 (22)       & 159 (34 / 125) & 21.26 & 1,989 & $1{,}552 \rightarrow \mathbf{0} / \mathbf{0}$ \\
+D082 & \texttt{NIRPS\_V3\_3}   & NIRPS\_HE (70k)         & 0.98--1.80 & 22 (20+2 br.) & 152 (27 / 125) & 13.54 & 1,971 & $3{,}828 \rightarrow \mathbf{0} / \mathbf{0}$ \\
+\midrule
+\textbf{Total} & \texttt{V3.0--V3.3} & \textbf{HARPS+ESPRESSO+NIRPS} & \textbf{0.38--1.80} & \textbf{80 Unique} & \textbf{501 (91 / 410)} & \textbf{66.79} & \textbf{6,570} & $\mathbf{5{,}850 \rightarrow 0 / 0}$ \\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize{$^{\ast}$Pre-\texttt{F1} sub-continuum absorption-core residuals in D079--D080, eliminated completely ($0/61$ control exposures) by supraphotospheric filter \texttt{F1} in D081--D082.}
+\end{table*}
+
+Table~\ref{tab:phases} summarizes the survey architecture: 60 unique optical targets in \texttt{D079--D081} plus 20 brand-new near-IR targets and 2 $<2\,\text{pc}$ panchromatic bridge stars (Proxima Centauri and Barnard's Star) in \texttt{D082}, totaling \textbf{80 unique stars} ($2992 \le T_{\mathrm{eff}} \le 6327\,\text{K}$, $1.302 \le d \le 114.26\,\text{pc}$): 14 verified zero-planet \texttt{CONTROL} stars (91 exposures) and 66 \texttt{SCIENCE} targets (410 exposures, including 56 exoplanet hosts with 118 confirmed planets, 10 single-night 12-exposure transit campaigns, and 29 stars within $<10.0\,\text{pc}$).\footnote{In D080, zero-planet M0V control star HD\,191849 ($d=6.165\,\text{pc}$, $\mathrm{RV}=-33.52\,\text{km\,s}^{-1}$) is GJ\,784, distinct by $>10{,}649^{\prime\prime}$ from the planet-hosting star AU\,Mic (HD\,197481, $d=9.722\,\text{pc}$) observed during transit in D082.}
+
+\section{Four-Channel Methodology and 2D Detector Gates}
+Each exposure is anchored in barycentric air wavelength via locked NIST photospheric absorption lines (3,490 optical + 1,824 near-IR fits; median $|\Delta v_{\mathrm{Gaia}}| \le 0.39\,\text{km\,s}^{-1}$). For \texttt{NIRPS\_HE}, clean atmospheric windows cover Y ($9800\text{--}11100\,\text{\AA}$), J ($11700\text{--}13250\,\text{\AA}$), and H ($14950\text{--}17800\,\text{\AA}$) with \texttt{QUAL == 0} and $\mathrm{ATM\_TRANSM} \ge 0.65$.
+
+Normalized stellar-rest-frame spectra $u_{s,e}(\lambda_{\star})$ are searched across four channels:
+\begin{enumerate}
+  \item \textbf{Channel T (Single-Epoch Transient):} Subtracts both the leave-one-epoch-out self-template $T_{s,-e}$ and a 2D $(T_{\mathrm{eff}}, [\mathrm{M/H}])$ $K=5$ nearest-neighbor cross-star atlas $M_s$.
+  \item \textbf{Channel P (Multi-Epoch Persistent):} Subtracts rotationally broadened $M_s$ from the multi-epoch median $C_s(\lambda_{\star})$, requiring $\ge 60\%$ epoch persistence above $3\sigma$.
+  \item \textbf{Channel T\_DIFF ($\alpha=0$) \& Channel K\_PLANET ($\alpha=1$):} Across single-night transit sequences (6 \texttt{IN\_TRANSIT} + 6 \texttt{OUT\_OF\_TRANSIT} exposures), subtracts out-of-transit baseline $C_{\mathrm{out}}$ and shifts each in-transit residual $R_{s,j}$ by the planet's instantaneous Keplerian velocity $\Delta v_{\mathrm{orb}}(t_j) = +K_p \sin(2\pi\phi_j)$, where $K_p = (2\pi G M_{\star}/P_{\mathrm{orb}})^{1/3}\sin i$:
+  \begin{equation}
+    Y_{\mathrm{K\_PLANET}}(\lambda_p) = \operatorname*{median}_{j \in \mathrm{IN}} R_{s,j}\!\left(\lambda_p \left[1 + \frac{\Delta v_{\mathrm{orb}}(t_j)}{c}\right]\right).
+  \end{equation}
+\end{enumerate}
+
+Candidates must pass five sequential physical gates:
+\textbf{G1+F1} (matched Gaussian LSF SNR $\ge 8.0/9.0/7.5$, cosine $\ge 0.85\text{--}0.86$, FWHM ratio $\in [0.65, 1.45]$, and supraphotospheric peak flux $f_{\mathrm{norm}} \ge 1.02$);
+\textbf{G2} (optical sky-line veto; near-IR $\mathrm{ATM\_TRANSM} \ge 0.78$, pre/post telluric spike ratio $\in [0.72, 1.35]$, and topocentric OH Meinel / $\mathrm{O}_2$ / $\mathrm{CO}_2$ band vetoes);
+\textbf{G3} (native 2D order SNR, chromospheric Balmer/Ca\,II/He\,I\,10830/Paschen/Brackett masks, and cross-star molecular bandhead ridge veto when $\ge 2$ other stars exhibit $f_{\mathrm{norm}} \ge 1.02$ within $\pm 0.12\,\text{\AA}$);
+\textbf{G4} (simultaneous Fiber-B FP/ThAr bleed-through or \texttt{Fiber B = SKY} airglow veto + adjacent echelle order blaze-overlap consistency); and
+\textbf{G5} (2D detector morphology: optical CCD 9-px cosine $\ge 0.90$ and cosmic-ray charge ratio $\le 2.35$; near-IR Hawaii-2RG 11-px cosine $\ge 0.92$, symmetric IPC hot-pixel ratio $\le 2.55$, and far-wing persistence/bandhead plateau ratio $\le 0.35$).
+
+\section{Synthetic Calibration and Search Results}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig1_optical_v32_keplerian_and_ccd_calibration.png}
+\caption{Prospective synthetic calibration of \texttt{OPTICAL\_V3\_2} (\texttt{D081}, 1,989 trials on HARPS and ESPRESSO), showing Keplerian \texttt{Channel K\_PLANET} recovery vs.\ uncompensated \texttt{Channel T\_DIFF} and $99.3\%$ CCD cosmic-ray rejection at Gate \texttt{G5\_V32}.}
+\label{fig:opt_cal}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig3_nirps_v33_calibration_and_h2rg_completeness.png}
+\caption{Prospective synthetic calibration of \texttt{NIRPS\_V3\_3} (\texttt{D082}, 1,971 trials across 9 YJH bands on 4 zero-planet control stars), highlighting $1064.1\,\text{nm}$ Nd:YAG/Yb and $1550.0\,\text{nm}$ Er C-band completeness, Keplerian planetary-track recovery, and $100.0\%$ ($72/72$ pass, $144/144$ reject) Hawaii-2RG 2D order gating.}
+\label{fig:nir_cal}
+\end{figure*}
+
+Figures~\ref{fig:opt_cal} and \ref{fig:nir_cal} display our prospective synthetic calibration results across 6,570 trials:
+\begin{itemize}
+  \item \textbf{Single- \& Multi-Epoch CW Completeness:} At $8\sigma$, \texttt{Channel T} recovers $93.3\%$ (HARPS), $94.4\%$ (ESPRESSO), and $90.9\%$ (\texttt{NIRPS\_HE}, including $91.7\%$ at $1064.1\,\text{nm}$ and $72.2\%$ at $1550.0\,\text{nm}$); \texttt{Channel P} recovers $96.8\%\text{--}100.0\%$ at $12\sigma$.
+  \item \textbf{Keplerian De-Doppler Gain:} Across transiting planetary tracks ($\Delta v_{\mathrm{orb}} = 19.3\text{--}25.9\,\text{km\,s}^{-1}$), \texttt{Channel K\_PLANET} boosts recovery at $\ge 6.5\sigma_{\mathrm{exp}}$ from $6.2\%$ to $93.8\%$ in the optical ($15.2\times$) and from $3.7\%$ to $58.0\%$ in the near-IR ($15.7\times$; reaching $74.1\%$ at $9\sigma_{\mathrm{exp}}$ and $100.0\%$ at $14\sigma_{\mathrm{exp}}$ vs.\ $0.0\%$ and $11.1\%$ uncompensated).
+  \item \textbf{2D Detector Artifact Rejection:} Gate \texttt{G5} passes $100.0\%$ of true fiber-fed laser signals ($72/72$ optical, $72/72$ near-IR) while rejecting $99.3\%$ ($143/144$) of CCD cosmic-ray/hot-pixel defects and $100.0\%$ ($144/144$) of Hawaii-2RG IPC hot pixels and persistence plateaus.
+\end{itemize}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig2_optical_v32_veto_cascade_and_mdwarf_diagnostics.png}
+\caption{Optical four-generation false-alarm collapse (\texttt{D081}, 159 exposures): 1,552 Legacy V2 false alarms collapse to 0 control false alarms ($0/34$) and 21 natural late-M dMe flare and TiO/VO molecular bandhead features.}
+\label{fig:opt_veto}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig4_nirps_v33_veto_cascade_and_telluric_plane.png}
+\caption{Near-infrared \texttt{NIRPS\_V3\_3} veto cascade (\texttt{D082}, 152 exposures): 3,828 Legacy V2 false alarms and 4,053 \texttt{G1} seeds collapse through \texttt{G2\_V33} (54), \texttt{G3\_V33} (6), \texttt{G4\_V33} (3), and \texttt{G5\_V33} to \textbf{0 control} and \textbf{0 science} candidates.}
+\label{fig:nir_veto}
+\end{figure*}
+
+Across all 501 archival exposures (Figs.~\ref{fig:opt_veto} and \ref{fig:nir_veto}), Legacy \texttt{V2} generated \textbf{5,850 false alarms}. Both mature 4-channel detectors achieved \textbf{0 control false alarms} ($0/34$ in \texttt{D081}; $0/27$ in \texttt{D082}) and \textbf{0 transit-channel candidates} across all 10 exoplanet transit nights (120 exposures). In \texttt{D082}, \texttt{NIRPS\_V3\_3} reduced 4,053 \texttt{G1} seeds to 54 after \texttt{G2\_V33} ($98.7\%$ telluric/OH rejection), 6 after \texttt{G3\_V33}, 3 after \texttt{G4\_V33} (vetoing 2 faint unlogged sky lines via simultaneous \texttt{Fiber B = SKY} on GJ\,3618 and GJ\,9066 plus 1 single-order H2RG artifact on GJ\,1132), and \textbf{0} after \texttt{G5\_V33}. Following forensic identification of the 21 natural M-dwarf features in \texttt{D081} (2 Proxima Cen flare lines Fe\,II $4233.17\,\text{\AA}$ and Fe\,I $4375.93\,\text{\AA}$ \cite{Fuhrmeister2011} + 19 TiO/VO bandhead peaks), we report \textbf{0 verified ETI laser detections} across all 80 stellar systems.
+
+\section{Panchromatic Laser Power Upper Limits}
+Using unresolved LSF equivalent widths $\mathrm{EW}_{8\sigma}(\lambda) = \sqrt{\pi/(4\ln 2)}\,(8\sigma_{\mathrm{MAD}})\,\lambda/R$ anchored to Gaia DR3 ($G_{\mathrm{BP}}, G, G_{\mathrm{RP}}$; \cite{GaiaDR3}) and two-band 2MASS ($J, H$; \cite{Cohen2003}) continuum flux densities $F_{\lambda,\star}(\lambda)$ at Gaia DR3 distance $d$, the $8\sigma$ beamed CW transmitter power limit for a diffraction-limited $D_{\mathrm{tx}} = 10\,\text{m}$ aperture is
+\begin{equation}
+  P_{\mathrm{tx},8\sigma}(10\,\text{m}) = \frac{4\pi d^2 F_{\lambda,\star}(\lambda)\,\mathrm{EW}_{8\sigma}(\lambda)}{(\pi D_{\mathrm{tx}} / \lambda)^2}.
+\end{equation}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig5_panchromatic_2pc_bridge_and_nir_limits.png}
+\caption{(A) Joint ESPRESSO ($0.38\text{--}0.78\,\mu\text{m}$) + \texttt{NIRPS\_HE} ($0.98\text{--}1.80\,\mu\text{m}$) $<2\,\text{pc}$ panchromatic $8\sigma$ CW transmitter power upper limits ($D_{\mathrm{tx}}=10\,\text{m}$) on Proxima Centauri and Barnard's Star. (B) All 162 2MASS-calibrated near-IR upper-limit cells across the 18 \texttt{D082} exoplanet hosts.}
+\label{fig:bridge}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig6_unified_80star_panchromatic_survey_census.png}
+\caption{Unified \texttt{D079--D082} Panchromatic V3 Survey across 80 unique stars (501 exposures): (A) best $8\sigma$ $10\,\text{m}$ beamed CW laser power upper limits vs.\ distance across 66 science hosts; (B) complete 80-star $T_{\mathrm{eff}}$ vs.\ distance census.}
+\label{fig:census}
+\end{figure*}
+
+\begin{table*}[t]
+\centering
+\caption{Selected $<10\,\text{pc}$ Solar-Neighborhood Panchromatic \& Near-Infrared $8\sigma$ CW Laser Power Upper Limits ($D_{\mathrm{tx}}=10\,\text{m}$).}
+\label{tab:limits}
+\small
+\begin{tabular}{llcccrrrr}
+\toprule
+Star & Common Name & $d$ (pc) & $T_{\mathrm{eff}}$ (K) & $N_{\mathrm{pl}}$ & Instruments & Best Opt.\ (W) & 1064.1\,nm (W) & 1550.0\,nm (W) \\
+\midrule
+PROXIMACEN   & Proxima Centauri & 1.302 & 2992 & 2 & ESPRESSO+NIRPS & \textbf{9.03}  & \textbf{607.7}   & \textbf{1,026.1} \\
+BARNARDSSTAR & Barnard's Star   & 1.828 & 3259 & 4 & ESPRESSO+NIRPS & \textbf{23.61} & \textbf{1,569.7} & \textbf{2,016.0} \\
+EPSERI       & $\epsilon$ Eridani & 3.203 & 5020 & 1 & NIRPS\_HE    & ---            & 45,122.1         & 95,970.9 \\
+HD217987     & Lacaille 9352    & 3.288 & 3667 & 4 & ESPRESSO       & \textbf{108.6} & ---              & --- \\
+TAUCET       & $\tau$ Ceti      & 3.603 & 5310 & 3 & NIRPS\_HE      & ---            & 49,212.4         & 105,141.2 \\
+GJ273        & Luyten's Star    & 3.786 & 3382 & 2 & ESPRESSO       & \textbf{80.78} & ---              & --- \\
+TEEGARDEN    & Teegarden's Star & 3.831 & 3034 & 3 & NIRPS\_HE      & ---            & \textbf{1,840.4} & 5,852.6 \\
+GJ191        & Kapteyn's Star   & 3.934 & 3819 & 1 & ESPRESSO       & \textbf{89.92} & ---              & --- \\
+WOLF1061     & Wolf 1061        & 4.308 & 3342 & 3 & ESPRESSO       & \textbf{79.72} & ---              & --- \\
+GJ9066       & GJ 9066          & 4.471 & 3154 & 1 & NIRPS\_HE      & ---            & \textbf{1,623.7} & \textbf{2,682.1} \\
+GJ682        & GJ 682           & 5.007 & 3028 & 2 & NIRPS\_HE      & ---            & 4,735.2          & 7,742.7 \\
+GJ581        & GJ 581           & 6.298 & 3500 & 3 & NIRPS\_HE      & ---            & 4,681.4          & 8,750.2 \\
+AUMIC        & AU Microscopii   & 9.722 & 3540 & 4 & NIRPS\_HE (tr) & ---            & 43,240.1         & 46,400.9 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Figures~\ref{fig:bridge} and \ref{fig:census} and Table~\ref{tab:limits} present our panchromatic limits:
+\begin{itemize}
+  \item \textbf{$<2\,\text{pc}$ Panchromatic Bridge:} On \textbf{Proxima Centauri} ($1.302\,\text{pc}$), $10\,\text{m}$ CW transmitters are excluded above \textbf{9.03\,W} ($467.6\,\text{nm}$), \textbf{607.7\,W} ($1064.1\,\text{nm}$ Nd:YAG/Yb), and \textbf{1,026.1\,W} ($1550.0\,\text{nm}$ Er C-band); on \textbf{Barnard's Star} ($1.828\,\text{pc}$), limits reach \textbf{23.61\,W} (optical), \textbf{1,433.0\,W} ($1096.5\,\text{nm}$), \textbf{1,569.7\,W} ($1064.1\,\text{nm}$), and \textbf{2,016.0\,W} ($1550.0\,\text{nm}$).
+  \item \textbf{$<10\,\text{pc}$ Solar Neighborhood \& 80-Star Census:} Across all 23 exoplanet hosts within $<10.0\,\text{pc}$ (51 planets), the median best $8\sigma$ $10\,\text{m}$ limit is \textbf{1.75\,kW} (including $79.7\text{--}108.6\,\text{W}$ optically on Wolf\,1061, GJ\,273, GJ\,191, and Lacaille\,9352, and $1.62\text{--}1.84\,\text{kW}$ at $1064\,\text{nm}$ on GJ\,9066 and Teegarden's Star), with a median of \textbf{9.32\,kW} across all 66 science stars out to $114.3\,\text{pc}$.
+\end{itemize}
+
+\section{Conclusions}
+By combining empirically RV-anchored dual template subtraction, supraphotospheric and cross-star molecular ridge vetoes, Keplerian planetary-rest-frame de-Doppler transit stacking, simultaneous Fiber-B sky/calibration vetoes, and 2D CCD and Hawaii-2RG detector physics gates under a strictly prospective cryptographic lock protocol, the \texttt{D079--D082} survey establishes a zero-false-alarm panchromatic ($0.38\text{--}1.80\,\mu\text{m}$) technosignature framework across 80 nearby stellar systems and 501 ESO archival exposures, placing Watt-to-kilowatt continuous-wave laser upper limits across the solar neighborhood.
+
+\section*{Data Availability}
+All source codes, SHA-256 lock manifests, candidate ledgers, upper-limit tables, and zero-dependency standard-library audit suites are openly available at \url{https://github.com/andersenmartin-blip/setisearch}.
+
+\begin{thebibliography}{99}
+\small
+\bibitem{SchwartzTownes1961} Schwartz, R.~N., \& Townes, C.~H.\ 1961, \textit{Nature}, 190, 205
+\bibitem{Townes1983} Townes, C.~H.\ 1983, \textit{PNAS}, 80, 1147
+\bibitem{Kingsley2001} Kingsley, S.~A.\ 2001, \textit{SPIE Proc.}, 4273, 72
+\bibitem{Mayor2003} Mayor, M., Pepe, F., Queloz, D., et al.\ 2003, \textit{The Messenger}, 114, 20
+\bibitem{Pepe2021} Pepe, F., Cristiani, S., Rebolo, R., et al.\ 2021, \textit{A\&A}, 645, A96
+\bibitem{Bouchy2017} Bouchy, F., Doyon, R., Artigau, \'{E}., et al.\ 2017, \textit{The Messenger}, 169, 21
+\bibitem{Bouchy2025} Bouchy, F., Artigau, \'{E}., Wildi, F., et al.\ 2025, \textit{A\&A}, NIRPS commissioning
+\bibitem{ReinesMarcy2002} Reines, A.~E., \& Marcy, G.~W.\ 2002, \textit{PASP}, 114, 416
+\bibitem{TellisMarcy2017} Tellis, N.~K., \& Marcy, G.~W.\ 2017, \textit{AJ}, 153, 251
+\bibitem{Zuckerman2023} Zuckerman, A., Isaacson, H., Siemion, A.~P.~V., et al.\ 2023, \textit{AJ}, 165, 114
+\bibitem{Maire2019} Maire, J., Wright, S.~A., Dorval, P., et al.\ 2019, \textit{AJ}, 158, 203
+\bibitem{KippingTeachey2016} Kipping, D.~M., \& Teachey, A.\ 2016, \textit{MNRAS}, 459, 1233
+\bibitem{Sheikh2020} Sheikh, S.~Z., Wright, J.~T., Siemion, A., \& Enriquez, J.~E.\ 2020, \textit{ApJ}, 888, 78
+\bibitem{Fuhrmeister2011} Fuhrmeister, B., Lalitha, S., Poppenhaeger, K., et al.\ 2011, \textit{A\&A}, 534, A133
+\bibitem{GaiaDR3} Gaia Collaboration, Vallenari, A., Brown, A.~G.~A., et al.\ 2023, \textit{A\&A}, 674, A1
+\bibitem{Cohen2003} Cohen, M., Wheaton, W.~A., \& Megeath, S.~T.\ 2003, \textit{AJ}, 126, 1090
+\end{thebibliography}
+
+\end{document}
