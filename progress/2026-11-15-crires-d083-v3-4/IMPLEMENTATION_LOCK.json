@@ -1,0 +1,20 @@
+{
+  "schema": "D083_IMPLEMENTATION_LOCK_AMENDMENT_V1",
+  "phase_id": "D083",
+  "amended_utc": "2026-11-15T17:46:31.528746+00:00",
+  "parent_method_lock_sha256": "3a5e9332342e2fa7017afb13a9ace7d54d4ba7c5b9bc962e3c6326f99c781af8",
+  "scientific_thresholds_changed": false,
+  "cohort_changed": false,
+  "detector_or_pipeline_changed": false,
+  "reason": "Two pure bookkeeping/serialization fixes with zero changes to v3_4_detector.py, FROZEN_COHORT_D083.csv, detection gates G1-G5, calibration trials, or radiometric limits: (1) In audit.py check #8 (recompute_216_detector_h2rg_g5_v34_trials), amended tolerance to max(1e-5, 1e-8 * |val|) to match 10-significant-digit (%.10g) CSV formatting when ipc_hotpx_ratio ~ 6.5e8 (relative error ~3.5e-11), and added explicit zero-ETI assertion in check #11; (2) In analyze.py synthesis CSV assembly (lines 2979 & 3010), corrected verified_eti_detections from q_d083 (already recorded in automated_qualified_candidates) to 0, consistent with SUMMARY.json and FORENSIC_KBAND_CASCADE_DIAGNOSIS_21.json. (3) In plot_figures.py, refined non-overlapping label placement in fig1A, fig3B (corrected Proxima Cen optical instrument label to ESPRESSO + NIRPS and increased y-headroom), and fig4B/4C.",
+  "preserved_pre_ingestion_files": {
+    "analyze.py": "preserved_pre_ingestion/analyze.py",
+    "audit.py": "preserved_pre_ingestion/audit.py",
+    "plot_figures.py": "preserved_pre_ingestion/plot_figures.py"
+  },
+  "amended_file_hashes": {
+    "analyze.py": "80bea93969cfc33157bcdf648b45557708b674d42788255172bdf73ddd2d6671",
+    "audit.py": "432d3667bf132b24981255b18ee58c7a473e199258bafd7002ca4a071f1c0ca3",
+    "plot_figures.py": "1a3715ac01f1bc9e96cdf26b670ef5b9b17858f9c08c052f4169edd49cc7848c"
+  }
+}

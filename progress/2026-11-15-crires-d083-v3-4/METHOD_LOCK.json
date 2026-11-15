@@ -1,0 +1,411 @@
+{
+  "schema": "D083_PROSPECTIVE_METHOD_LOCK_V1",
+  "phase_id": "D083",
+  "title": "CRIRES_V3_4 VLT CRIRES+ K-Band (1.95-2.48 um, R=86,000) Thermal Near-IR Laser Survey & 100-Star / 120-System Multi-Messenger Synthesis",
+  "locked_before_science_download": true,
+  "obs_release_cutoff_utc": "2026-11-15T00:00:00Z",
+  "cohort_summary": {
+    "total_stars": 22,
+    "control_stars": 4,
+    "science_stars": 18,
+    "brand_new_unique_stars": 20,
+    "panchromatic_bridge_stars": [
+      "HD42581",
+      "AUMIC"
+    ],
+    "total_exposures": 148,
+    "control_exposures": 26,
+    "science_exposures": 122,
+    "orbital_campaigns": 7,
+    "prior_dp_id_overlap": 0
+  },
+  "detector_parameters": {
+    "schema": "CRIRES_V3_4",
+    "coadd_step_angstrom": 0.05,
+    "ingest_min_atm_transm": 0.68,
+    "knn_atlas_neighbors": 5,
+    "knn_teff_scale_k": 450.0,
+    "knn_mh_scale_dex": 0.28,
+    "fit_phases_bins": [
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5
+    ],
+    "core_sigma_mult": 3.5,
+    "mid_inner_sigma_mult": 6.0,
+    "mid_outer_sigma_mult": 30.0,
+    "outer_inner_sigma_mult": 30.0,
+    "outer_outer_sigma_mult": 60.0,
+    "prescreen_local_mad": 3.5,
+    "scan_margin_bins": 145,
+    "supraphotospheric_min_fn_pk3": 1.008,
+    "channel_t_snr_mid_min": 6.5,
+    "channel_t_snr_outer_min": 6.0,
+    "channel_t_amp_ratio_min": 0.7,
+    "channel_t_amp_ratio_max": 1.35,
+    "channel_t_cosine_min": 0.82,
+    "channel_t_fwhm_ratio_min": 0.55,
+    "channel_t_fwhm_ratio_max": 1.65,
+    "channel_t_cross_amp_ratio_min": 0.6,
+    "channel_t_cross_snr_min": 4.5,
+    "channel_p_snr_mid_min": 7.0,
+    "channel_p_snr_outer_min": 6.5,
+    "channel_p_amp_ratio_min": 0.7,
+    "channel_p_amp_ratio_max": 1.35,
+    "channel_p_cosine_min": 0.85,
+    "channel_p_fwhm_ratio_min": 0.6,
+    "channel_p_fwhm_ratio_max": 1.45,
+    "channel_p_min_epochs_above_3sigma": 3,
+    "channel_p_min_epoch_fraction": 0.5,
+    "channel_tdiff_snr_mid_min": 6.8,
+    "channel_tdiff_snr_outer_min": 6.2,
+    "channel_tdiff_amp_ratio_min": 0.7,
+    "channel_tdiff_amp_ratio_max": 1.35,
+    "channel_tdiff_cosine_min": 0.84,
+    "channel_tdiff_fwhm_ratio_min": 0.58,
+    "channel_tdiff_fwhm_ratio_max": 1.5,
+    "channel_tdiff_min_in_exp_snr": 2.6,
+    "channel_tdiff_min_in_exp_fraction": 0.6,
+    "channel_kplanet_snr_mid_min": 6.8,
+    "channel_kplanet_snr_outer_min": 6.2,
+    "channel_kplanet_amp_ratio_min": 0.7,
+    "channel_kplanet_amp_ratio_max": 1.35,
+    "channel_kplanet_cosine_min": 0.84,
+    "channel_kplanet_fwhm_ratio_min": 0.58,
+    "channel_kplanet_fwhm_ratio_max": 1.5,
+    "channel_kplanet_min_in_exp_snr": 2.4,
+    "channel_kplanet_min_in_exp_fraction": 0.6,
+    "gate_g2_airglow_tol_angstrom": 0.35,
+    "gate_g2_min_atm_transm_center": 0.78,
+    "gate_g2_min_atm_transm_3px": 0.62,
+    "gate_g2_pre_post_tell_ratio_min": 0.55,
+    "gate_g2_pre_post_tell_ratio_max": 1.55,
+    "gate_g3_native_snr_min": 5.0,
+    "gate_g3_max_single_px_fraction": 0.62,
+    "gate_g3_min_bilateral_wing_ratio": 0.12,
+    "gate_g3_max_template_dip_fraction": 0.5,
+    "gate_g3_chromospheric_tol_angstrom": 0.55,
+    "gate_g3_cross_star_ridge_fn_min": 1.02,
+    "gate_g3_cross_star_ridge_max_stars": 1,
+    "gate_g4_chip_edge_margin_px": 28,
+    "gate_g4_overlap_edge_margin_px": 40,
+    "gate_g4_secondary_flux_ratio_min": 0.15,
+    "gate_g4_secondary_cont_snr_min": 20.0,
+    "gate_g4_secondary_snr_min": 3.0,
+    "gate_g4_order_contrast_ratio_min": 0.35,
+    "gate_g4_order_contrast_ratio_max": 2.85,
+    "gate_g4_max_nod_ghost_ratio": 0.45,
+    "gate_g5_kband_cos11_min": 0.86,
+    "gate_g5_kband_max_ipc_hotpx_ratio": 2.35,
+    "gate_g5_kband_far_wing_34_max": 0.42,
+    "gate_g5_kband_min_tell_core": 0.65,
+    "rv_anchor_window_kms": 28.0,
+    "rv_anchor_scan_half_kms": 10.0,
+    "rv_anchor_scan_step_kms": 0.05,
+    "rv_anchor_photospheric_fwhm_kms": 7.5,
+    "rv_anchor_min_rel_depth": 0.06,
+    "rv_anchor_min_clean_lines": 3,
+    "continuum_block_bins": 110,
+    "continuum_quantile": 0.84,
+    "continuum_median_blocks": 5,
+    "tx_aperture_diameter_m": 10.0
+  },
+  "clean_kband_windows_bary_vac_A": [
+    {
+      "band": "K_SHORT",
+      "lo_a": 19620.0,
+      "hi_a": 19980.0
+    },
+    {
+      "band": "K_TM",
+      "lo_a": 20220.0,
+      "hi_a": 20550.0
+    },
+    {
+      "band": "K_CORE",
+      "lo_a": 20800.0,
+      "hi_a": 24020.0
+    },
+    {
+      "band": "K_LONG",
+      "lo_a": 24420.0,
+      "hi_a": 24760.0
+    }
+  ],
+  "kband_oh_airglow_lines_topo_vac_A": [
+    {
+      "name": "OH_19702_8_6_P1",
+      "wave_vac_A": 19701.7
+    },
+    {
+      "name": "OH_19772_8_6_P2",
+      "wave_vac_A": 19771.9
+    },
+    {
+      "name": "OH_19840_8_6_Q1",
+      "wave_vac_A": 19839.8
+    },
+    {
+      "name": "OH_20008_8_6_P1_2",
+      "wave_vac_A": 20008.1
+    },
+    {
+      "name": "OH_20276_8_6_P1_3",
+      "wave_vac_A": 20276.0
+    },
+    {
+      "name": "OH_20413_8_6_P1_4",
+      "wave_vac_A": 20412.7
+    },
+    {
+      "name": "OH_20564_8_6_P1_5",
+      "wave_vac_A": 20563.6
+    },
+    {
+      "name": "OH_20729_8_6_P1_6",
+      "wave_vac_A": 20729.0
+    },
+    {
+      "name": "OH_20860_9_7_R1",
+      "wave_vac_A": 20860.2
+    },
+    {
+      "name": "OH_20910_8_6_P1_7",
+      "wave_vac_A": 20909.6
+    },
+    {
+      "name": "OH_21177_9_7_Q1_1",
+      "wave_vac_A": 21176.6
+    },
+    {
+      "name": "OH_21233_9_7_Q1_2",
+      "wave_vac_A": 21232.5
+    },
+    {
+      "name": "OH_21250_9_7_Q1_3",
+      "wave_vac_A": 21249.6
+    },
+    {
+      "name": "OH_21507_9_7_P1_2",
+      "wave_vac_A": 21506.9
+    },
+    {
+      "name": "OH_21711_9_7_P1_3",
+      "wave_vac_A": 21711.2
+    },
+    {
+      "name": "OH_21802_9_7_P2_3",
+      "wave_vac_A": 21802.3
+    },
+    {
+      "name": "OH_21956_9_7_P1_4",
+      "wave_vac_A": 21955.7
+    },
+    {
+      "name": "OH_22126_9_7_P1_5",
+      "wave_vac_A": 22125.5
+    },
+    {
+      "name": "OH_22313_9_7_P1_6",
+      "wave_vac_A": 22312.8
+    }
+  ],
+  "kband_telluric_bands_topo_vac_A": [
+    {
+      "name": "CO2_2p00um_strong_band",
+      "lo_vac_A": 19985.0,
+      "hi_vac_A": 20215.0
+    },
+    {
+      "name": "CO2_2p06um_strong_band",
+      "lo_vac_A": 20555.0,
+      "hi_vac_A": 20795.0
+    },
+    {
+      "name": "CH4_H2O_2p42um_strong_band",
+      "lo_vac_A": 24030.0,
+      "hi_vac_A": 24415.0
+    }
+  ],
+  "stellar_chromospheric_kband_lines_rest_vac_A": [
+    {
+      "name": "H2_1_0_S2_20338",
+      "rest_vac_A": 20337.58
+    },
+    {
+      "name": "HeI_20587_singlet",
+      "rest_vac_A": 20586.9
+    },
+    {
+      "name": "HeI_21126_triplet",
+      "rest_vac_A": 21125.83
+    },
+    {
+      "name": "H2_1_0_S1_21218",
+      "rest_vac_A": 21218.34
+    },
+    {
+      "name": "MgII_21375_doublet_a",
+      "rest_vac_A": 21374.86
+    },
+    {
+      "name": "MgII_21438_doublet_b",
+      "rest_vac_A": 21438.05
+    },
+    {
+      "name": "HI_Brackett_gamma_21661",
+      "rest_vac_A": 21661.2
+    },
+    {
+      "name": "NaI_22062_doublet_a",
+      "rest_vac_A": 22062.42
+    },
+    {
+      "name": "NaI_22090_doublet_b",
+      "rest_vac_A": 22089.69
+    },
+    {
+      "name": "H2_1_0_S0_22233",
+      "rest_vac_A": 22232.9
+    },
+    {
+      "name": "H2_2_1_S1_22477",
+      "rest_vac_A": 22477.14
+    },
+    {
+      "name": "H2_1_0_Q1_24066",
+      "rest_vac_A": 24065.92
+    }
+  ],
+  "locked_kband_rv_anchors": [
+    {
+      "anchor_id": "CaI_19782p190",
+      "species": "Ca I",
+      "lab_vac_A": 19782.19
+    },
+    {
+      "anchor_id": "MgI_21065p500",
+      "species": "Mg I",
+      "lab_vac_A": 21065.5
+    },
+    {
+      "anchor_id": "AlI_21098p840",
+      "species": "Al I",
+      "lab_vac_A": 21098.84
+    },
+    {
+      "anchor_id": "AlI_21169p580",
+      "species": "Al I",
+      "lab_vac_A": 21169.58
+    },
+    {
+      "anchor_id": "TiI_21788p890",
+      "species": "Ti I",
+      "lab_vac_A": 21788.89
+    },
+    {
+      "anchor_id": "SiI_21885p310",
+      "species": "Si I",
+      "lab_vac_A": 21885.31
+    },
+    {
+      "anchor_id": "TiI_21903p350",
+      "species": "Ti I",
+      "lab_vac_A": 21903.35
+    },
+    {
+      "anchor_id": "NaI_22062p420",
+      "species": "Na I",
+      "lab_vac_A": 22062.42
+    },
+    {
+      "anchor_id": "NaI_22089p690",
+      "species": "Na I",
+      "lab_vac_A": 22089.69
+    },
+    {
+      "anchor_id": "CaI_22614p100",
+      "species": "Ca I",
+      "lab_vac_A": 22614.1
+    },
+    {
+      "anchor_id": "CaI_22631p100",
+      "species": "Ca I",
+      "lab_vac_A": 22631.1
+    },
+    {
+      "anchor_id": "CaI_22657p410",
+      "species": "Ca I",
+      "lab_vac_A": 22657.41
+    }
+  ],
+  "calibration_bands_crires_vac_A": [
+    {
+      "band_id": "K1_SHORT_19764",
+      "window": "K_SHORT",
+      "center_bary_vac_A": 19764.0,
+      "tech_note": "Clean short-K 1.976 um window"
+    },
+    {
+      "band_id": "K2_TM_FIBER_20400",
+      "window": "K_TM",
+      "center_bary_vac_A": 20400.0,
+      "tech_note": "Tm-doped silica fiber 2040.0 nm primary CW/pulsed space laser"
+    },
+    {
+      "band_id": "K3_HOYAG_20970",
+      "window": "K_CORE",
+      "center_bary_vac_A": 20970.0,
+      "tech_note": "Ho:YAG 2097.0 nm solid-state atmospheric-window laser"
+    },
+    {
+      "band_id": "K4_CORE_21145",
+      "window": "K_CORE",
+      "center_bary_vac_A": 21145.0,
+      "tech_note": "Clean 2.115 um continuum window"
+    },
+    {
+      "band_id": "K5_KS_PIVOT_21835",
+      "window": "K_CORE",
+      "center_bary_vac_A": 21835.0,
+      "tech_note": "2MASS K_s pivot neighborhood"
+    },
+    {
+      "band_id": "K6_CORE_22020",
+      "window": "K_CORE",
+      "center_bary_vac_A": 22020.0,
+      "tech_note": "Clean 2.202 um low-telluric window"
+    },
+    {
+      "band_id": "K7_CORE_22685",
+      "window": "K_CORE",
+      "center_bary_vac_A": 22685.0,
+      "tech_note": "Clean 2.269 um pre-CO bandhead window"
+    },
+    {
+      "band_id": "K8_LONG_23580",
+      "window": "K_CORE",
+      "center_bary_vac_A": 23580.0,
+      "tech_note": "Thermal 2.358 um CO-overtone window"
+    },
+    {
+      "band_id": "K9_LONG_24580",
+      "window": "K_LONG",
+      "center_bary_vac_A": 24580.0,
+      "tech_note": "Long-K 2.458 um thermal edge window"
+    }
+  ],
+  "locked_file_hashes": {
+    "FROZEN_COHORT_D083.csv": "444f7009fc62a9552e569b871cfca2389d7fec1712021adab8be015092a0debf",
+    "ORBITAL_CAMPAIGNS_AND_KINEMATICS.json": "a781ac6ce0839a34def5fc93d111a36be1dd28a934462210d3e2bc53472a9a14",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "93cd81a152ce3ff8fa434cc3e7f1cbd9545b1f453c8711963c8f953964b1b91d",
+    "PRIOR_V3_PHASES_SNAPSHOT.json": "6bb601f877a52da8194d9cfc03b4bd573077dba7e7ecbe29b57cd873fa2cf02f",
+    "MULTIMESSENGER_RADIO_TESS_SNAPSHOT.json": "e6e236c616a74d8be76421303df46c14a49f79d3611507a1ea99405b6d5102c1",
+    "v3_4_detector.py": "6e29f87503bb7e45caa38962531042b0e0837ca80b4f35130de1d6bc01530be4",
+    "analyze.py": "b409c68e8dda760eb240f7e5c883eb31aaeee3abd778b788b6d4e6375764c591",
+    "audit.py": "d456141a993b26b7e0fdbc13a29d228ec028611a50924f7e66b2fcd810c839d2",
+    "plot_figures.py": "17d7d023d8aefa2ffda67c91f4da98d3dfa4309dc2b9a459eb8e2fb523490751"
+  }
+}
