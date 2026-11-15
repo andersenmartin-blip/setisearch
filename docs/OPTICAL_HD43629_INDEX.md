@@ -58,6 +58,6 @@ Maskinlæsbare metodelåse, kilde-ID'er og numeriske audit-kvitteringer for de n
 
 ---
 
-## 3. Fortsættelse i Trin 2 & Trin 3 (`D079–D080+` — Kalibreret `HARPS` & VLT `ESPRESSO` `V3 / V3.1`-survey)
+## 3. Fortsættelse i Trin 2–4 (`D079–D081` — Kalibreret `HARPS` & VLT `ESPRESSO` `V3.0–V3.2`-survey)
 
-Efter lukningen af `HD 43629` fortsætter det optiske hovedspor med det prospektivt kalibrerede `V3` / `ECELLE_V3_1`-survey på `38` friske FGKM- og exoplanet-stjerner (`190` eksponeringer) i [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md), [`SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md`](reports_d035_d077/SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md) og [`SETI_D080_V3_1_EXOPLANET_AND_HARPS_ESPRESSO_SURVEY_2026-11-14.md`](reports_d035_d077/SETI_D080_V3_1_EXOPLANET_AND_HARPS_ESPRESSO_SURVEY_2026-11-14.md).
+Efter lukningen af `HD 43629` fortsætter det optiske hovedspor med det prospektivt kalibrerede `V3.0–V3.2`-survey på `60` unikke FGKM- og exoplanet-stjerner (`349` eksponeringer) i [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md), [`SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md`](reports_d035_d077/SETI_D079_V3_CALIBRATED_OPTICAL_SEARCH_2026-11-14.md), [`SETI_D080_V3_1_EXOPLANET_AND_HARPS_ESPRESSO_SURVEY_2026-11-14.md`](reports_d035_d077/SETI_D080_V3_1_EXOPLANET_AND_HARPS_ESPRESSO_SURVEY_2026-11-14.md) og [`SETI_D081_V3_2_TRANSIT_KINEMATICS_AND_10PC_SURVEY_2026-11-15.md`](reports_d035_d077/SETI_D081_V3_2_TRANSIT_KINEMATICS_AND_10PC_SURVEY_2026-11-15.md).
