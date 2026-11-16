@@ -1,0 +1,71 @@
+{
+  "schema": "D084_STDLIB_AUDIT_SUMMARY",
+  "python_executable": "/usr/bin/python3",
+  "python_version": "3.12.3",
+  "audited_utc": "2026-11-16T17:40:29Z",
+  "checks_passed": 12,
+  "checks_total": 12,
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check": "C1_PROSPECTIVE_LOCK_AND_CHRONOLOGY",
+      "status": "PASS",
+      "detail": "lock_utc=2026-11-16T16:04:20Z, first_dl=2026-11-16T16:22:17Z (delta=+1077.0s), mismatches=0"
+    },
+    {
+      "check": "C2_PRIOR_EXCLUSION_AND_COHORT_INTEGRITY",
+      "status": "PASS",
+      "detail": "183 exp (64 HARPS-N + 119 CARMENES_VIS), 25 stars (18 <10pc), 10 campaigns, min_sep=19002.51\", overlap=0"
+    },
+    {
+      "check": "C3_BUNDLE_SIZE_AND_SCHEMA",
+      "status": "PASS",
+      "detail": "d084_bounded_bundle.json.gz = 8.50 MiB (<25.0 MiB), patches=(72,36,9,72,20)"
+    },
+    {
+      "check": "C4_EXPOSURE_PROVENANCE_AND_STDLIB_BERV",
+      "status": "PASS",
+      "detail": "183 PASS rows, max |header_BERV - pure_stdlib_BERV| = 0.4973 km/s (<= 0.60)"
+    },
+    {
+      "check": "C5_RV_ANCHORING_AND_STAR_SUMMARY",
+      "status": "PASS",
+      "detail": "2196 anchors (1760 clean), 25 star summaries, median |emp - prior| = 0.4599 km/s"
+    },
+    {
+      "check": "C6_CALIBRATION_2151_TRIALS",
+      "status": "PASS",
+      "detail": "2151 trials: coreOptT>=8sig=0.913, T>=8sig=0.636, P>=9sig=0.781, Kep(T_DIFF=0.000->K_PL=0.210), G5=(0.861,1.000,0.972), G6=(0.650,1.000,1.000)"
+    },
+    {
+      "check": "C7_FOUR_GEN_BENCHMARK_AND_CASCADE",
+      "status": "PASS",
+      "detail": "V2=1170 -> V3.5 G1=897 -> preG6=128 -> G6_vetoed=116 -> qual=(ctrl=0, sci=12)"
+    },
+    {
+      "check": "C8_FORENSIC_CASCADE_DIAGNOSIS_AND_ZERO_ETI",
+      "status": "PASS",
+      "detail": "pre_g6=128 (G6 vetoed=116, post-G6 audited=12), verified_eti_detections=0"
+    },
+    {
+      "check": "C9_ORBITAL_CAMPAIGNS_10_CHECK",
+      "status": "PASS",
+      "detail": "10 campaigns (2 ctrl + 8 sci), max |Kp_stdlib - Kp_csv| = 0.00005 km/s"
+    },
+    {
+      "check": "C10_UPPER_LIMITS_189_GAIA_2MASS_RECOMPUTATION",
+      "status": "PASS",
+      "detail": "189 cells (0 NaNs), max relative diff vs pure-stdlib Gaia/2MASS Planck inversion = 3.97e-10"
+    },
+    {
+      "check": "C11_UNIFIED_125STAR_AND_53_10PC_SYNTHESIS",
+      "status": "PASS",
+      "detail": "125 unique stars (100 South + 25 North), 53 < 10 pc, 832 exposures, 0 ETI detections"
+    },
+    {
+      "check": "C12_MULTIMESSENGER_136SYSTEM_SYNTHESIS",
+      "status": "PASS",
+      "detail": "136 distinct systems, 13 direct echelle+radio/TESS overlaps, 0 ETI detections"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "D084_SOURCES_AND_PROVENANCE",
+  "phase_id": "D084",
+  "detector": "NORTHERN_V3_5",
+  "created_utc": "2026-11-16T17:42:00Z",
+  "observatories_and_archives": [
+    {
+      "instrument": "HARPS_N",
+      "facility": "Telescopio Nazionale Galileo (TNG 3.58 m), Roque de los Muchachos Observatory, La Palma",
+      "resolving_power": 115000,
+      "wavelength_range_vac_a": [3880.0, 6862.0],
+      "exposures": 64,
+      "stars": 10,
+      "tap_endpoint": "http://archives.ia2.inaf.it/vo/tap/tng/sync",
+      "data_products": "s1d_A.fits.gz + e2ds_A.fits.gz"
+    },
+    {
+      "instrument": "CARMENES_VIS",
+      "facility": "Calar Alto Observatory (3.50 m), Almeria, Spain",
+      "resolving_power": 94600,
+      "wavelength_range_vac_a": [5150.0, 10615.0],
+      "dichroic_note": "Beam splitter (~960 nm) feeds NIR channel; VIS SNR drops steeply >995 nm (FOX SNR 0.5-1.2 at >=1027 nm).",
+      "exposures": 119,
+      "stars": 15,
+      "tap_endpoint": "https://dc.g-vo.org/__system__/tap/run/sync",
+      "data_products": "CARACAL DR1 multi-HDU FITS (SPEC, CONT, SIG, WAVE)"
+    }
+  ],
+  "external_catalogs": [
+    "ESA Gaia DR3 lite (dc.g-vo.org gaia.dr3lite): parallaxes, distances (<10 pc census), proper motions, G/BP/RP photometry",
+    "2MASS Point Source Catalog (dc.g-vo.org twomass.data): J/H/Ks photometry via J2000 PM-propagated cone match",
+    "NASA Exoplanet Archive (exoplanetarchive.ipac.caltech.edu ps / pscomppars): zero-planet control verification & orbital ephemerides (T0, P_orb, e, M_*)",
+    "NIST Atomic Spectra Database: 12 HARPS-N and 12 CARMENES_VIS vacuum photospheric RV anchors"
+  ],
+  "prior_phase_snapshots": [
+    "D079 (OPTICAL_V3, HARPS)",
+    "D080 (OPTICAL_V3_1, HARPS+ESPRESSO)",
+    "D081 (OPTICAL_V3_2, HARPS+ESPRESSO)",
+    "D082 (NIRPS_V3_3, NIRPS_HE)",
+    "D083 (CRIRES_V3_4, CRIRES+)",
+    "M5-M36 (Parkes/GBT 1.4 GHz radio)",
+    "LS7 (TESS specular lightsail L 98-59)"
+  ]
+}

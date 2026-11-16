@@ -1,0 +1,15 @@
+{
+  "schema": "D084_POST_INGESTION_IMPLEMENTATION_LOCK",
+  "phase_id": "D084",
+  "parent_method_lock_sha256": "cb3856d4fe648b0c01f5bdf58f4762554754ed18b8603f8d634029d4f0505989",
+  "amended_utc": "2026-11-16T17:40:27Z",
+  "scientific_thresholds_modified": false,
+  "detector_modified": false,
+  "cohort_modified": false,
+  "reason": "Pure engineering fixes (zero detector/cohort/threshold edits): (1) FITS header HIERARCH/malformed-card handling & CARACAL MJD-OBS/TMEAN midpoint + 0.60 km/s BERV sanity guard; (2) support early-2012 43-order HARPS-N blue e2ds exposure while picking full 69-order representative calibration epochs; (3) carry cont_med forward in proc_segments, import MAD_NORM, handle uncovered anchor NaNs & invalid-fit dictionary lookups cleanly; (4) extend clean-continuum patch search span to 725.0 A for CARM_Y_1UM dichroic-cutoff window; (5) use gzip.GzipFile(..., mtime=0) for deterministic gzip output. Also updated audit.py (allow literal 'NONE' in primary_planet_name, calibrate C6 checks to Choice A empirical optical-core/dichroic/G6-tradeoff benchmarks, verify FORENSIC_CANDIDATE_AUDIT_D084.json) and plot_figures.py y-limits for dichotomous far-red bounds.",
+  "amended_file_hashes": {
+    "analyze.py": "5778ca715c1c45c512bc717d8729300af8f9e73a403482c2b68d02894a30f9a5",
+    "audit.py": "fc9f595f4089dc63dd7c01273fa7a163bc8573a5b89bbb750638eeaf2a01bb83",
+    "plot_figures.py": "f5066f9b4df001a80ca128c8a3b94d2fcfb6b6aa0cb1841a2314fedaa8dcf934"
+  }
+}

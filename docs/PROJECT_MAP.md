@@ -9,12 +9,12 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | Pankromatisk & Multi-Messenger (`D083`) | Autoritativ teknisk overdragelse, faglige guardrails og videre perspektiver efter afslutningen af `D079–D083` (`100` echelle-stjerner / `120` multi-messenger-systemer). |
-| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | Pankromatisk & Multi-Messenger (`D079–D083`) | Færdigkompileret to-spaltet publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`, `10` sider), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | Pankromatisk (`D079–D083`) | Indeks over det prospektivt kalibrerede `V3.0–V3.4`-survey (`100` unikke stjerner, `649` `HARPS` + VLT `ESPRESSO` + ESO `NIRPS_HE` + VLT `CRIRES+`-eksponeringer over `0,38–2,48 µm`) + `120`-systems syntese. |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | All-Sky Pankromatisk & Multi-Messenger (`D084`) | Autoritativ teknisk overdragelse, faglige guardrails og videre perspektiver efter afslutningen af `D079–D084` (`125` all-sky echelle-stjerner / `136` multi-messenger-systemer). |
+| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky Pankromatisk & Multi-Messenger (`D079–D084`) | Færdigkompileret to-spaltet publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`, `12` sider), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky Pankromatisk (`D079–D084`) | Indeks over det prospektivt kalibrerede `V3.0–V3.5`-survey (`125` unikke stjerner, `832` `HARPS` + `ESPRESSO` + `NIRPS_HE` + `CRIRES+` + `HARPS-N` + `CARMENES_VIS`-eksponeringer over `0,38–2,48 µm`) + `136`-systems syntese. |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-15-crires-d083-v3-4/REPORT.md) | Optisk & nær-IR (`FEROS`, `HARPS`, `ESPRESSO`, `NIRPS`, `CRIRES+`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `SUMMARY.json`, audit-JSON, CSV-tabeller og `REPORT.md`) fra `D075` til `D083`. |
+| [`progress/`](../progress/2026-11-16-northern-d084-v3-5/RESULTS_REPORT.md) | Optisk & nær-IR (`FEROS`, `HARPS`, `ESPRESSO`, `NIRPS`, `CRIRES+`, `HARPS-N`, `CARMENES_VIS`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `SUMMARY.json`, `FORENSIC_CANDIDATE_AUDIT_D084.json`, CSV-tabeller og `RESULTS_REPORT.md`) fra `D075` til `D084`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -29,9 +29,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–I (optisk & nær-IR spor)
+## 3. Kompakte numeriske kompagnonarkiver A–J (optisk & nær-IR spor)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D083` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d083_workspace.py --check-only` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D084` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d084_workspace.py --check-only` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -45,3 +45,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **G** | `SETI_D081_V3_2_TRANSIT_KINEMATICS_AND_10PC_RESULTS_2026-11-15.zip` | `8.045.722` | `12b951d77993cae116b8b7e8968866c13a374a23bd06ac1e96610ac63ee713a9` |
 | **H** | `SETI_D082_V3_3_NIRPS_NEAR_IR_AND_PANCHROMATIC_RESULTS_2026-11-15.zip` | `29.473.205` | `d5f73f0c93e6e6381441896e0457ea18d3baa05fadd7a8c569b60361f88a2457` |
 | **I** | `SETI_D083_V3_4_CRIRES_KBAND_AND_100STAR_RESULTS_2026-11-15.zip` | `5.549.428` | `f60cf9d63b457c5246dcb14c5b4064376ef709118b5b325360d0d6c1686adf19` |
+| **J** | `SETI_D084_V3_5_NORTHERN_10PC_AND_125STAR_RESULTS_2026-11-16.zip` | `10.117.107` | `d13c6f409047d9b8a16c74f26098c44d4808d9f6a96a2e79dba34395f99d77cc` |
