@@ -1,0 +1,60 @@
+{
+  "schema": "D086_SOURCES_AND_PROVENANCE",
+  "phase_id": "D086",
+  "detector": "PANCHROM_NUV_OPT_V3_7_AND_COMB_V4_1",
+  "created_utc": "2026-11-17T20:37:00Z",
+  "observatories_and_archives": [
+    {
+      "instrument": "UVES_NUV",
+      "facility": "ESO VLT-UT2 Kueyen (8.2 m), Cerro Paranal, Chile (24.6272 S, 70.4048 W)",
+      "detector_array": "EEV 44-82 blue-arm CCD (UVES Blue / DIC1-346 & 390)",
+      "resolving_power_range": [40970, 71050],
+      "wavelength_range_air_a": [3043.0, 4563.0],
+      "exposures": 55,
+      "stars": 12,
+      "tap_endpoint": "https://archive.eso.org/tap_obs",
+      "datalink_endpoint": "https://archive.eso.org/datalink/links",
+      "data_products": "ESO Phase 3 1D UVES reduced spectra (WAVE, FLUX_REDUCED, ERR_REDUCED, BGFLUX_REDUCED)"
+    },
+    {
+      "instrument": "ESPRESSO",
+      "facility": "ESO VLT Combined Coude Laboratory (8.2 m), Cerro Paranal, Chile",
+      "detector_array": "Blue & Red E2V CCDs (1x1 / 2x1 / 4x2 / 8x4)",
+      "resolving_power": 140000,
+      "wavelength_range_air_a": [3790.0, 7860.0],
+      "exposures": 48,
+      "stars": 6,
+      "tap_endpoint": "https://archive.eso.org/tap_obs",
+      "datalink_endpoint": "https://archive.eso.org/datalink/links",
+      "data_products": "ESO Phase 3 ESPRESSO S1D_A primary barycentric spectra + simultaneous Fiber-B S1D_B calibration/sky ancillary spectra"
+    },
+    {
+      "instrument": "HARPS",
+      "facility": "ESO 3.6 m Telescope, La Silla Observatory, Chile (29.2584 S, 70.7345 W)",
+      "detector_array": "2x2k EEV44-82 mosaic CCD",
+      "resolving_power": 115000,
+      "wavelength_range_air_a": [3800.0, 6900.0],
+      "exposures": 78,
+      "stars": 13,
+      "tap_endpoint": "https://archive.eso.org/tap_obs",
+      "datalink_endpoint": "https://archive.eso.org/datalink/links",
+      "data_products": "ESO Phase 3 HARPS S1D_A + ancillary `tar` archive (E2DS A/B order spectra & 2D order-wave calibration)"
+    }
+  ],
+  "external_catalogs": [
+    "ESA Gaia DR3 TAP (gea.esac.esa.int): parallaxes (<10 pc census), proper motions, ICRS positions, G and G_BP photometry, radial velocities",
+    "SVO Filter Profile Service (svo2.cab.inta-csic.es): GAIA/GAIA3.G (pivot 6217.5904 A, ZP_flam 2.503862e-09) and GAIA/GAIA3.Gbp (pivot 5109.7121 A, ZP_flam 4.078518e-09) Vega zero-points",
+    "NASA Exoplanet Archive (exoplanetarchive.ipac.caltech.edu ps / pscomppars): zero-planet control verification (all 6 CONTROL stars verified n_exo=0) and orbital ephemerides (T0, P_orb, e, M_*)",
+    "NIST Atomic Spectra Database: UVES_NUV (3040-4565 A) and Optical (3800-6900 A) Fe I, Mg I, Ca I, Na I, Ti I photospheric RV anchor transitions"
+  ],
+  "prior_phase_snapshots": [
+    "D079 (OPTICAL_V3, HARPS)",
+    "D080 (OPTICAL_V3_1, HARPS+ESPRESSO)",
+    "D081 (OPTICAL_V3_2, HARPS+ESPRESSO)",
+    "D082 (NIRPS_V3_3, NIRPS_HE)",
+    "D083 (CRIRES_V3_4, CRIRES+)",
+    "D084 (NORTHERN_V3_5, HARPS-N+CARMENES_VIS)",
+    "D085 (SPIROU_V3_6_AND_COMB_V4, SPIROU YJHK, read-only regression on 19 COMB_V4 false alarms)",
+    "M5-M36 (Parkes/GBT 1.4 GHz radio) & LS7 (TESS specular lightsail)"
+  ]
+}
