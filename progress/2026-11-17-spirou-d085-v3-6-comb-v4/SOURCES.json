@@ -1,0 +1,40 @@
+{
+  "schema": "D085_SOURCES_AND_PROVENANCE",
+  "phase_id": "D085",
+  "detector": "SPIROU_V3_6_AND_COMB_V4",
+  "created_utc": "2026-11-16T18:54:00Z",
+  "observatories_and_archives": [
+    {
+      "instrument": "SPIROU",
+      "facility": "Canada-France-Hawaii Telescope (CFHT 3.6 m), Maunakea Observatory, Hawaii, USA (19.8253 N, 155.4689 W)",
+      "detector_array": "Teledyne Hawaii-4RG HgCdTe (cryogenic nIR)",
+      "resolving_power": 70000,
+      "wavelength_range_vac_a": [9550.0, 25150.0],
+      "exposures": 177,
+      "stars": 29,
+      "brand_new_unique_stars": 25,
+      "panchromatic_northern_bridge_stars": 4,
+      "tap_endpoint": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+      "file_server": "https://cadc-west-01.canfar.net/raven/files/cadc:CFHT/<obs_id>t.fits",
+      "data_products": "APERO 0.7.295 multi-HDU telluric-cleaned `*t.fits` (49 x 4088): FluxAB, WaveAB (vac nm), BlazeAB, Recon, OHLine, FluxA, FluxB"
+    }
+  ],
+  "external_catalogs": [
+    "ESA Gaia DR3 TAP (gea.esac.esa.int): parallaxes (<10 pc census), proper motions, RA/Dec, G/BP/RP photometry, radial velocities",
+    "2MASS Point Source Catalog via GAVO (dc.g-vo.org twomass.data): J (12350 A), H (16620 A), Ks (21590 A) magnitudes via J2000 PM-propagated cone match",
+    "GAVO CARMENES DR1 Objects (dc.g-vo.org carmenes.objects): homogeneous M-dwarf Teff and stellar mass parameters",
+    "MAST TESS Input Catalog v8 (mast.stsci.edu): GJ 1245 B (TIC 274127413) Teff = 2865 K and mass = 0.1154 Msun",
+    "NASA Exoplanet Archive (exoplanetarchive.ipac.caltech.edu ps / pscomppars): zero-planet control verification & orbital ephemerides (T0, P_orb, e, M_*)",
+    "NIST Atomic Spectra Database: 12 vacuum NIR/YJHK Si I, Mg I, K I, Al I, Ca I, Ti I, Na I absorption anchors"
+  ],
+  "prior_phase_snapshots": [
+    "D079 (OPTICAL_V3, HARPS)",
+    "D080 (OPTICAL_V3_1, HARPS+ESPRESSO)",
+    "D081 (OPTICAL_V3_2, HARPS+ESPRESSO)",
+    "D082 (NIRPS_V3_3, NIRPS_HE)",
+    "D083 (CRIRES_V3_4, CRIRES+)",
+    "D084 (NORTHERN_V3_5, HARPS-N+CARMENES_VIS)",
+    "M5-M36 (Parkes/GBT 1.4 GHz radio)",
+    "LS7 (TESS specular lightsail L 98-59)"
+  ]
+}

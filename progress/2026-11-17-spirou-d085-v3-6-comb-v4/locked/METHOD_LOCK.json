@@ -1,0 +1,293 @@
+{
+  "schema": "D085_PROSPECTIVE_METHOD_LOCK_V1",
+  "phase_id": "D085",
+  "detector": "SPIROU_V3_6_AND_COMB_V4",
+  "locked_utc": "2026-11-16T18:53:07Z",
+  "prospective_rule": "All detector parameters, 6-gate thresholds (G1_V36-G6_V36 sparse), V4 COMB Channel 5 thresholds, 29-star / 177-exposure CFHT SPIRou cohort, and 2,592-trial calibration matrix are cryptographically sealed BEFORE creating inputs_d085_v3_6 or initiating any science FITS download.",
+  "config": {
+    "schema": "SPIROU_V3_6_AND_COMB_V4",
+    "instrument": "SPIROU",
+    "telescope_diameter_m": 3.6,
+    "resolving_power": 70000.0,
+    "coadd_step_angstrom": 0.05,
+    "wave_min_angstrom": 9650.0,
+    "wave_max_angstrom": 24780.0,
+    "n_orders": 49,
+    "n_px": 4088,
+    "knn_atlas_neighbors": 4,
+    "knn_teff_scale_k": 420.0,
+    "knn_mh_scale_dex": 0.3,
+    "fit_phases_bins": [
+      -0.5,
+      -0.25,
+      0.0,
+      0.25,
+      0.5
+    ],
+    "core_sigma_mult": 3.5,
+    "mid_inner_sigma_mult": 6.0,
+    "mid_outer_sigma_mult": 26.0,
+    "outer_inner_sigma_mult": 26.0,
+    "outer_outer_sigma_mult": 52.0,
+    "prescreen_local_mad": 3.5,
+    "scan_margin_bins": 120,
+    "supraphotospheric_min_fn_pk3": 1.01,
+    "channel_t_snr_mid_min": 6.5,
+    "channel_t_snr_outer_min": 6.0,
+    "channel_t_amp_ratio_min": 0.7,
+    "channel_t_amp_ratio_max": 1.35,
+    "channel_t_cosine_min": 0.82,
+    "channel_t_fwhm_ratio_min": 0.58,
+    "channel_t_fwhm_ratio_max": 1.62,
+    "channel_t_cross_amp_ratio_min": 0.6,
+    "channel_t_cross_snr_min": 4.5,
+    "channel_p_snr_mid_min": 7.0,
+    "channel_p_snr_outer_min": 6.5,
+    "channel_p_amp_ratio_min": 0.7,
+    "channel_p_amp_ratio_max": 1.35,
+    "channel_p_cosine_min": 0.85,
+    "channel_p_fwhm_ratio_min": 0.62,
+    "channel_p_fwhm_ratio_max": 1.5,
+    "channel_p_min_epochs_above_3sigma": 3,
+    "channel_p_min_epoch_fraction": 0.5,
+    "channel_tdiff_snr_mid_min": 6.8,
+    "channel_tdiff_snr_outer_min": 6.2,
+    "channel_tdiff_amp_ratio_min": 0.7,
+    "channel_tdiff_amp_ratio_max": 1.35,
+    "channel_tdiff_cosine_min": 0.84,
+    "channel_tdiff_fwhm_ratio_min": 0.6,
+    "channel_tdiff_fwhm_ratio_max": 1.5,
+    "channel_tdiff_min_in_exp_snr": 2.6,
+    "channel_tdiff_min_in_exp_fraction": 0.5,
+    "channel_kplanet_snr_mid_min": 6.8,
+    "channel_kplanet_snr_outer_min": 6.2,
+    "channel_kplanet_amp_ratio_min": 0.7,
+    "channel_kplanet_amp_ratio_max": 1.35,
+    "channel_kplanet_cosine_min": 0.84,
+    "channel_kplanet_fwhm_ratio_min": 0.6,
+    "channel_kplanet_fwhm_ratio_max": 1.5,
+    "channel_kplanet_min_in_exp_snr": 2.4,
+    "channel_kplanet_min_in_exp_fraction": 0.5,
+    "gate_g2_airglow_tol_angstrom": 0.25,
+    "gate_g2_min_atm_transm_center": 0.78,
+    "gate_g2_min_atm_transm_3px": 0.65,
+    "gate_g2_max_oh_rel_pk3": 0.08,
+    "gate_g2_pre_post_ratio_min": 0.52,
+    "gate_g2_pre_post_ratio_max": 1.6,
+    "gate_g3_native_snr_min": 5.2,
+    "gate_g3_max_single_px_fraction": 0.64,
+    "gate_g3_min_bilateral_wing_ratio": 0.12,
+    "gate_g3_max_template_dip_fraction": 0.5,
+    "gate_g3_chromospheric_tol_angstrom": 0.65,
+    "gate_g3_cross_star_ridge_fn_min": 1.022,
+    "gate_g3_cross_star_ridge_max_stars": 2,
+    "gate_g4_chip_edge_margin_px": 36,
+    "gate_g4_overlap_edge_margin_px": 45,
+    "gate_g4_fiber_ab_snr_min": 3.8,
+    "gate_g4_fiber_ab_ratio_min": 0.48,
+    "gate_g4_fiber_ab_ratio_max": 2.08,
+    "gate_g4_secondary_flux_ratio_min": 0.3,
+    "gate_g4_secondary_cont_snr_min": 15.0,
+    "gate_g4_secondary_snr_min": 2.8,
+    "gate_g4_order_contrast_ratio_min": 0.35,
+    "gate_g4_order_contrast_ratio_max": 2.85,
+    "gate_g5_h4rg_cos11_min": 0.88,
+    "gate_g5_h4rg_max_ipc_ratio": 2.4,
+    "gate_g5_h4rg_far_wing_34_max": 0.4,
+    "gate_g6_dense_prom_min": 0.018,
+    "gate_g6_dense_snr_min": 3.4,
+    "gate_g6_dense_topo_tol_a": 0.16,
+    "gate_g6_dense_pixel_tol_px": 1.5,
+    "gate_g6_sparse_prom_min": 0.022,
+    "gate_g6_sparse_snr_min": 5.5,
+    "gate_g6_sparse_fn_min": 1.015,
+    "gate_g6_sparse_fwhm_lsf_min": 0.5,
+    "gate_g6_sparse_fwhm_lsf_max": 2.2,
+    "gate_g6_sparse_topo_tol_a": 0.22,
+    "gate_g6_sparse_pixel_tol_px": 1.5,
+    "gate_g6_min_dv_frame_sep_kms": 8.0,
+    "gate_g6_max_other_stars": 1,
+    "gate_g6_same_star_dberv_min_kms": 3.5,
+    "gate_g6_same_star_topo_tol_a": 0.18,
+    "gate_g6_same_star_pixel_tol_px": 1.2,
+    "comb_freq_step_ghz": 0.5,
+    "comb_spacings_ghz": [
+      25.0,
+      50.0,
+      100.0
+    ],
+    "comb_n_teeth": 6,
+    "comb_min_qualifying_teeth": 5,
+    "comb_tooth_z_min": 2.5,
+    "comb_tooth_z_cap": 6.5,
+    "comb_tooth_fn_min": 1.008,
+    "comb_tooth_recon_min": 0.8,
+    "comb_score_min": 10.5,
+    "comb_max_tooth_frac": 0.32,
+    "comb_topo_anti_ratio_max": 0.75,
+    "comb_search_bands": [
+      "SPIROU_Y",
+      "SPIROU_J",
+      "SPIROU_H",
+      "SPIROU_K_CORE"
+    ],
+    "rv_anchor_window_kms": 50.0,
+    "rv_anchor_scan_half_kms": 12.0,
+    "rv_anchor_scan_step_kms": 0.05,
+    "rv_anchor_photospheric_fwhm_kms": 8.5,
+    "rv_anchor_min_rel_depth": 0.04,
+    "rv_anchor_min_clean_lines": 3,
+    "continuum_block_bins": 115,
+    "continuum_quantile": 0.84,
+    "continuum_median_blocks": 5,
+    "tx_aperture_diameter_m": 10.0,
+    "fwhm_v_kms": 4.2827494,
+    "sigma_v_kms": 1.8187162152952168
+  },
+  "benchmark_bands_12": [
+    {
+      "band_id": "S1_Y_9950",
+      "center_vac_A": 9950.0,
+      "tech_note": "Clean Y-band 995.0 nm reference"
+    },
+    {
+      "band_id": "S2_YBYAG_10300",
+      "center_vac_A": 10300.0,
+      "tech_note": "Yb:YAG / Yb-fiber 1030.0 nm (CARMENES dichroic gap closure)"
+    },
+    {
+      "band_id": "S3_NDYAG_10641",
+      "center_vac_A": 10641.0,
+      "tech_note": "Nd:YAG / Yb-fiber 1064.1 nm primary beacon"
+    },
+    {
+      "band_id": "S4_J_12150",
+      "center_vac_A": 12150.0,
+      "tech_note": "Clean J-band 1215.0 nm window"
+    },
+    {
+      "band": "J",
+      "band_id": "S5_OBAND_13100",
+      "center_vac_A": 13100.0,
+      "tech_note": "O-band 1310.0 nm / 1315.2 nm iodine laser window"
+    },
+    {
+      "band_id": "S6_H_15220",
+      "center_vac_A": 15220.0,
+      "tech_note": "Clean H-band 1522.0 nm window"
+    },
+    {
+      "band_id": "S7_ER_CBAND_15500",
+      "center_vac_A": 15500.0,
+      "tech_note": "Er-doped telecom C-band 1550.0 nm"
+    },
+    {
+      "band_id": "S8_H_16620",
+      "center_vac_A": 16620.0,
+      "tech_note": "2MASS H pivot 1662.0 nm window"
+    },
+    {
+      "band_id": "S9_TM_FIBER_20400",
+      "center_vac_A": 20400.0,
+      "tech_note": "Tm-doped silica fiber 2040.0 nm eye-safe laser"
+    },
+    {
+      "band_id": "S10_HOYAG_20970",
+      "center_vac_A": 20970.0,
+      "tech_note": "Holmium:YAG 2097.0 nm solid-state laser"
+    },
+    {
+      "band_id": "S11_KS_21835",
+      "center_vac_A": 21835.0,
+      "tech_note": "2MASS Ks thermal K-core 2183.5 nm"
+    },
+    {
+      "band_id": "S12_KLONG_23450",
+      "center_vac_A": 23450.0,
+      "tech_note": "Long K-band 2345.0 nm low-extinction window"
+    }
+  ],
+  "locked_rv_anchors_12": [
+    {
+      "anchor_id": "SiI_10374p11",
+      "species": "Si I",
+      "lab_vac_A": 10374.109
+    },
+    {
+      "anchor_id": "SiI_10606p33",
+      "species": "Si I",
+      "lab_vac_A": 10606.334
+    },
+    {
+      "anchor_id": "MgI_11831p42",
+      "species": "Mg I",
+      "lab_vac_A": 11831.422
+    },
+    {
+      "anchor_id": "KI_12435p68",
+      "species": "K I",
+      "lab_vac_A": 12435.675
+    },
+    {
+      "anchor_id": "KI_12525p56",
+      "species": "K I",
+      "lab_vac_A": 12525.56
+    },
+    {
+      "anchor_id": "AlI_13127p01",
+      "species": "Al I",
+      "lab_vac_A": 13127.006
+    },
+    {
+      "anchor_id": "AlI_16723p52",
+      "species": "Al I",
+      "lab_vac_A": 16723.524
+    },
+    {
+      "anchor_id": "CaI_19782p19",
+      "species": "Ca I",
+      "lab_vac_A": 19782.19
+    },
+    {
+      "anchor_id": "TiI_21788p89",
+      "species": "Ti I",
+      "lab_vac_A": 21788.89
+    },
+    {
+      "anchor_id": "NaI_22062p42",
+      "species": "Na I",
+      "lab_vac_A": 22062.42
+    },
+    {
+      "anchor_id": "NaI_22089p69",
+      "species": "Na I",
+      "lab_vac_A": 22089.69
+    },
+    {
+      "anchor_id": "CaI_22631p10",
+      "species": "Ca I",
+      "lab_vac_A": 22631.1
+    }
+  ],
+  "calibration_protocol": {
+    "total_trials": 2592,
+    "suite_a_transient": "72 patches x 3 phases x 5 sigmas = 1080",
+    "suite_b_persistent": "36 patches x 3 phases x 5 sigmas = 540",
+    "suite_c_keplerian": "9 patches x 3 phases x 5 sigmas = 135",
+    "suite_d_h4rg_dualfiber_g4g5": "72 patches x 3 classes = 216",
+    "suite_e_g6_sparse_vs_dense": "20 patches x 3 sigmas x 4 classes = 240",
+    "suite_f_comb_v4": "16 patches x 3 dnu x 6 sigmas (288) + 48 single-line + 45 topo ro-vib = 381"
+  },
+  "locked_file_hashes": {
+    "v3_6_detector.py": "0daa6fba3f5da47eca47ea4129f547ae5402c8848db0a5c7b7651626d1487f58",
+    "build_cohort.py": "4f553e8d56f9974efee98160e121db0d15fb3fceb6c66a65a90842b86f2ec9e7",
+    "analyze.py": "d73c2e4a86b664f6fdc99c0e9191c8c7a9bf0583ff3ea61b8dda41e9894c145f",
+    "audit.py": "c5bdada098a46522915125a60a1f46c20b3968589ee13e053fc349d97ceab60a",
+    "plot_figures.py": "2219073e7816269327cf0ff2d14a5b1ff95cc4f181344d8040c892cd2436f89b",
+    "FROZEN_COHORT_D085.csv": "9c9bc8b4128df26e908a30393a81e877191739ede9a5fc6733a050f78139d98f",
+    "ORBITAL_CAMPAIGNS_AND_KINEMATICS.json": "f9b0ba956ae48d2e07089779d574eeea0e011f8490e9846f2ff4515b83d02e56",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "2e8d5d3e6805dd2adc5c353736b076921e0792a66a96605de9e4abd51bc2e21f",
+    "PRIOR_V3_PHASES_SNAPSHOT.json": "6fc7d2ab1b6cd7c574fe3856e900315ea2234a438e4b70b57b6e760bfe29a582",
+    "MULTIMESSENGER_RADIO_TESS_SNAPSHOT.json": "3b7bbe00a93e459b90a54fb62debb6a77110ad636f3348849c8271753fc9bdeb"
+  }
+}

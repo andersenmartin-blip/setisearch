@@ -1,0 +1,18 @@
+{
+  "schema": "D085_CONTROL_ONLY_CALIBRATION_AND_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D085",
+  "parent_method_lock_sha256": "c9727219dcafe3388e2c74b966d70e9d286d13a2bd787764fe97a5518dbe9298",
+  "amended_utc": "2026-11-17T17:26:55Z",
+  "cohort_modified": false,
+  "kinematics_modified": false,
+  "control_stars_only_blind_calibration": true,
+  "science_candidates_inspected_prior_to_amendment": 0,
+  "reason": "Strictly blind control-star calibration and engineering bugfixes (0 science candidates inspected; cohort and kinematics unmodified): (1) v3_6_detector.py: fix falling-edge FWHM denominator sign bug in fit_lsf_on_window; calibrate H4RG IPC limit to 3.20 for SPIRou 2.28 px/FWHM sampling, native G3/G4 S/N bounds (3.3/2.3) accounting for cross-template variance across M-dwarf YJHK coadds, and V4 COMB fn_min=0.88 / score_min=8.8 inside M-dwarf molecular bands; (2) analyze.py: handle 5-HDU early APERO *t.fits files, fix sorted(by_star.items()), continuum-normalize u_bary = 1+(fn-t_ext), apply rest-to-barycentric shift to native ref_norm patches, build photosphere-subtracted topocentric stacks aligned cleanly for anti-comb testing, and scale Suite F Class 3 pseudocomb by max(sigma_rest, sigma_topo); (3) audit.py: allow chained IMPLEMENTATION_LOCK for v3_6_detector.py/analyze.py/audit.py while strictly enforcing immutable cohort/kinematics. Post-execution non-threshold engineering bugfixes (v3_6_detector.py, audit.py, cohort, and kinematics completely unmodified; zero thresholds altered): (4) analyze.py: store snr_obs on exp_records, select highest-SNR control exposure with extra_bary_checks and t_ext reference + 0.75 single-exposure MAD scaling in calib_persistent_patches (mirroring real Channel P & Suite A transient harness), and deduplicate Stage B COMB_V4 hits across overlapping +-80 A windows (matching Stage A 19 unique hits instead of 77 duplicated rows); (5) plot_figures.py: correct historical cumulative D079-D084 bar counts in Fig 4 Panel B to match PRIOR_V3_PHASES_SNAPSHOT.json.",
+  "amended_file_hashes": {
+    "v3_6_detector.py": "bee2f6fafa27dc754d796a3e6d27a55512e6c00edaa269b7490f6b03ab6b4b33",
+    "analyze.py": "48f2fefb0a97d859072a3f561005551815aad869f2b271be8abc054f211f3fb2",
+    "audit.py": "a6f493ed1f88e201627985b24459c7d72219963441052e31b16f6e88729677cc",
+    "plot_figures.py": "f5dde6cd61af10b629acb2912f9b2955085cb3e91b32adbe463e59c63f899c77"
+  },
+  "detector_thresholds_modified_post_unblinding": false
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "D085_STDLIB_AUDIT_SUMMARY",
+  "python_executable": "/usr/bin/python3",
+  "python_version": "3.12.3",
+  "audited_utc": "2026-11-17T17:41:12Z",
+  "checks_passed": 14,
+  "checks_total": 14,
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check": "C1_PROSPECTIVE_LOCK_AND_CHRONOLOGY",
+      "status": "PASS",
+      "detail": "lock=2026-11-16T18:53:07Z, first_dl=2026-11-16T18:53:22Z (+15.0s), mismatches=0"
+    },
+    {
+      "check": "C2_PRIOR_EXCLUSION_AND_COHORT_INTEGRITY",
+      "status": "PASS",
+      "detail": "177 exp, 29 stars (25 new [20 <10pc] + 4 bridge), 10 campaigns, min_sep=9909.32\", dp_overlap=0"
+    },
+    {
+      "check": "C3_BUNDLE_SIZE_AND_SCHEMA",
+      "status": "PASS",
+      "detail": "d085_bounded_bundle.json.gz = 15.61 MiB (<25.0 MiB), patches=(72,36,9,72,20,16)"
+    },
+    {
+      "check": "C4_EXPOSURE_PROVENANCE_AND_MAUNAKEA_BERV",
+      "status": "PASS",
+      "detail": "177 PASS rows, max |BERV_hdr - stdlib_Maunakea_BERV| = 0.0825 km/s (<= 0.50)"
+    },
+    {
+      "check": "C5_RV_ANCHORING_2124_AND_29STARS",
+      "status": "PASS",
+      "detail": "2124 anchors (1861 clean), 29 star summaries, median |emp - prior| = 0.2753 km/s"
+    },
+    {
+      "check": "C6_SINGLELINE_KEPLERIAN_H4RG_CALIB_1971",
+      "status": "PASS",
+      "detail": "1971 trials: T>=8s=0.855, P>=9s=0.858, Kep=(0.000->0.259), H4RG=(0.972,1.000,1.000)"
+    },
+    {
+      "check": "C7_G6_SPARSE_VS_DENSE_CALIB_240",
+      "status": "PASS",
+      "detail": "240 trials: true_laser=(V35=0.500 -> V36=0.950), OH=1.000, px=1.000, intraBERV=(V35=0.500 -> V36=1.000)"
+    },
+    {
+      "check": "C8_COMB_V4_CALIBRATION_381",
+      "status": "PASS",
+      "detail": "381 trials: 6-tooth>=3.8sig=0.972, single_line_FPR=0.000, topo_rovib_FPR=0.022"
+    },
+    {
+      "check": "C9_CASCADE_AND_COMB_V4_PARITY",
+      "status": "PASS",
+      "detail": "V2=4044 -> V3.6 G1=2654 -> preG6=279 -> qual=(ctrl=0,sci=113), COMB_V4=19"
+    },
+    {
+      "check": "C10_FORENSIC_AUDIT_AND_ZERO_ETI",
+      "status": "PASS",
+      "detail": "post-G6 single-line=113, COMB=19 forensically audited, verified_eti_detections=0"
+    },
+    {
+      "check": "C11_ORBITAL_CAMPAIGNS_10_CHECK",
+      "status": "PASS",
+      "detail": "10 campaigns (2 ctrl + 8 sci, 4 IN + 4 OUT), max |Kp_stdlib - Kp_csv| = 0.00005 km/s"
+    },
+    {
+      "check": "C12_UPPER_LIMITS_300_COHEN_2MASS_JHK",
+      "status": "PASS",
+      "detail": "300 cells (25 sci x 12 YJHK bands, 0 NaN), max rel diff = 4.38e-10"
+    },
+    {
+      "check": "C13_BRIDGE_8_10PC_73_UNIFIED_150STAR",
+      "status": "PASS",
+      "detail": "8 bridge stars (155 cells), 73 <10pc, 150 unique stars, 1009 cumulative exposures"
+    },
+    {
+      "check": "C14_MULTIMESSENGER_160SYSTEM_SYNTHESIS",
+      "status": "PASS",
+      "detail": "160 distinct systems, 14 direct overlaps (incl. RHOCRB), 0 verified ETI across all modalities"
+    }
+  ]
+}
