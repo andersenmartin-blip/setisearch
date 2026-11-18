@@ -1,0 +1,62 @@
+{
+  "schema": "D087_SOURCES_AND_PROVENANCE",
+  "phase_id": "D087",
+  "detector": "SPACE_UV_STIS_AND_FARRED_V3_8",
+  "created_utc": "2026-11-18T06:42:00Z",
+  "observatories_and_archives": [
+    {
+      "instrument": "HST_STIS",
+      "facility": "Hubble Space Telescope (2.40 m, Low-Earth Orbit), Space Telescope Imaging Spectrograph (STIS) E140M MAMA FUV Echelle",
+      "detector_array": "FUV-MAMA (CsI photocathode, 1024x1024)",
+      "resolving_power": 45800,
+      "wavelength_range_vac_a": [1145.0, 1710.0],
+      "exposures": 54,
+      "stars": 10,
+      "archive_endpoint": "https://mast.stsci.edu/api/v0.1/Download/file",
+      "data_products": "STScI MAST CALSTIS 1D extracted echelle order spectra (*_x1d.fits; SPORDER, WAVELENGTH, FLUX [erg s^-1 cm^-2 A^-1], ERROR, GROSS, BACKGROUND, NET, DQ)"
+    },
+    {
+      "instrument": "UVES_RED",
+      "facility": "ESO VLT-UT2 Kueyen (8.20 m), Cerro Paranal, Chile (24.6272 S, 70.4042 W)",
+      "detector_array": "UVES Red-Arm EEV/MIT-LL mosaic CCDs",
+      "resolving_power_range": [42310, 107200],
+      "wavelength_range_air_a": [5655.0, 10425.0],
+      "exposures": 55,
+      "stars": 10,
+      "tap_endpoint": "https://archive.eso.org/tap_obs",
+      "datalink_endpoint": "https://archive.eso.org/datalink/links",
+      "data_products": "ESO Phase 3 1D UVES reduced spectra (WAVE, FLUX_REDUCED, ERR_REDUCED, BGFLUX_REDUCED)"
+    },
+    {
+      "instrument": "ESPRESSO",
+      "facility": "ESO VLT Combined Coude Laboratory (8.20 m), Cerro Paranal, Chile",
+      "detector_array": "Blue & Red E2V CCDs (HR R=140,000 + GJ3138 1x UHR R=190,000 + 7x HR)",
+      "resolving_power_range": [140000, 190000],
+      "wavelength_range_air_a": [3790.0, 7860.0],
+      "exposures": 92,
+      "stars": 13,
+      "tap_endpoint": "https://archive.eso.org/tap_obs",
+      "datalink_endpoint": "https://archive.eso.org/datalink/links",
+      "data_products": "ESO Phase 3 ESPRESSO S1D_A primary barycentric spectra + simultaneous Fiber-B S1D_B calibration/sky ancillary spectra (with Astropy SkyCoord barycentric BERV for esotk S1D_STACK_A products)"
+    }
+  ],
+  "external_catalogs": [
+    "STScI CALSTIS direct spectrophotometric FLAM (HST_CALSTIS_DIRECT_FLAM) for absolute FUV beam-power limits on HST_STIS E140M",
+    "ESA Gaia DR3 TAP (gea.esac.esa.int): parallaxes (<10 pc census), proper motions, ICRS positions, G and G_RP photometry, radial velocities",
+    "2MASS All-Sky Point Source Catalog (II/246): J-band magnitudes (pivot 12350 A, ZP_flam 3.129e-10 erg cm^-2 s^-1 A^-1) for dual G_RP/2MASS-J UVES_RED calibration >= 8500 A",
+    "SVO Filter Profile Service (svo2.cab.inta-csic.es): GAIA/GAIA3.G (pivot 6217.6 A, ZP_flam 2.50386e-09) and GAIA/GAIA3.Grp (pivot 7769.0 A, ZP_flam 1.29303e-09)",
+    "NASA Exoplanet Archive (exoplanetarchive.ipac.caltech.edu ps / pscomppars): zero-planet control verification (all 6 CONTROL stars verified n_exo=0) and orbital ephemerides (T0, P_orb, e, M_*)",
+    "NIST Atomic Spectra Database: FUV (Si IV, C II, C IV, Si II, N V, Fe II), Far-Red (Ca II IRT, K I, Fe I, Ti I), and Optical RV anchor transitions"
+  ],
+  "prior_phase_snapshots": [
+    "D079 (OPTICAL_V3, HARPS)",
+    "D080 (OPTICAL_V3_1, HARPS+ESPRESSO)",
+    "D081 (OPTICAL_V3_2, HARPS+ESPRESSO)",
+    "D082 (NIRPS_V3_3, NIRPS_HE)",
+    "D083 (CRIRES_V3_4, CRIRES+)",
+    "D084 (NORTHERN_V3_5, HARPS-N+CARMENES_VIS)",
+    "D085 (SPIROU_V3_6_AND_COMB_V4, CFHT SPIRou YJHK)",
+    "D086 (PANCHROM_NUV_OPT_V3_7_AND_COMB_V4_1, UVES_NUV+ESPRESSO+HARPS; 577 Fiber-B bleeds regression-tested in D087)",
+    "M5-M36 (Parkes/GBT 1.4 GHz radio) & LS7 (TESS specular lightsail)"
+  ]
+}

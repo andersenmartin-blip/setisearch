@@ -1,0 +1,27 @@
+{
+  "schema": "D087_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D087",
+  "sealed_utc": "2026-11-18T05:32:23Z",
+  "method_lock_sha256": "0c5ae97eab051aced0652317a65ac6215f33e4565351a5e42d5ee424e693cd53",
+  "frozen_detector_unchanged": true,
+  "frozen_cohort_unchanged": true,
+  "pre_ingestion_v0_hashes": {
+    "analyze_pre_ingestion_v0.py": "48b36f840898c3b6ce47059e15f264621bb1cbfdbc4ad08bf633cdc5764eb7a4",
+    "analyze.py_at_method_lock": "48b36f840898c3b6ce47059e15f264621bb1cbfdbc4ad08bf633cdc5764eb7a4",
+    "audit.py_at_method_lock": "e91347e271488b9cc9f8b384355bff4c203b8ba63e773e61f8af791764f1f04a",
+    "plot_figures.py_at_method_lock": "4cf84e637832e3b2ac60ddd2ae9045e6668ff7e9a9bcbebfa5d17ca2185cec89"
+  },
+  "post_ingestion_hashes": {
+    "analyze.py": "cd543052615491ff610c8e2bbcea063a03c72be3bc50324e080808905a698dd6",
+    "audit.py": "e91347e271488b9cc9f8b384355bff4c203b8ba63e773e61f8af791764f1f04a",
+    "plot_figures.py": "4cf84e637832e3b2ac60ddd2ae9045e6668ff7e9a9bcbebfa5d17ca2185cec89"
+  },
+  "non_gate_engineering_and_bugfix_changelog": [
+    "load_uves_red_s1d & load_espresso_s1d: Astropy SkyCoord barycentric correction fallback for S1D headers lacking ESO QC VRAD BARYCOR or ESO QC BERV (21 esotk S1D_STACK_A ESPRESSO exposures).",
+    "NaN-safe Stage A JSON bundle serialization (_assert_json_finite, RV anchor clean pairs, bounded window compaction +-2.0 A / +-4.5 A, zero LSF change) keeping d087_bounded_bundle.json.gz < 25 MiB.",
+    "Stage A/B calibration benchmark alignment (matching D086 annulus MAD noise estimator _annulus_noise_mad, clean continuum patch selection with G4/G5 & T/P checks, updated target_wave_a during shifted-phase native order injection, continuum-scaled single-pixel cosmic spike injection, and quarter-spacing sub-harmonic forest in COMB_V4_1_CALIBRATION_486).",
+    "Stage B Schema & synthesis bugfixes: 14-column PANCHROMATIC_BRIDGE_17STARS.csv normalization, g345.get(...) and g6_same_star_stationary_hits key fixes, D081 p_beam_10m_w fallback.",
+    "Zero changes to frozen v3_8_detector.py detection gates (G1-G6, G4_V38, COMB_V4_1) or FROZEN_COHORT_D087.csv.",
+    "Stage B MULTIMESSENGER_ECHELLE_RADIO_TESS_206SYSTEMS.csv fix: read milestone/facility/snr40_recovery_fraction keys, handle OPTICAL_PHOTOMETRY_LIGHTSAIL_GLINT (L9859), and populate external NORTHERN SCIENCE hosts."
+  ]
+}
