@@ -1,0 +1,37 @@
+{
+  "schema": "D088_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D088",
+  "sealed_utc": "2026-11-19T04:09:15Z",
+  "method_lock_sha256": "7348f0f516e8192cc08cc6e1a6a73283afb3733bd090dc0a1358ab00ce4d2f12",
+  "frozen_detector_unchanged": true,
+  "frozen_cohort_unchanged": true,
+  "original_analyze_sha256": "fa3c3fabf3dc18b9d368d7e00d8ecd86d5ace4c73823b7052d650dd93e82dea9",
+  "updated_analyze_sha256": "fce88f51df23ce805c9f218f8c6bc4084ae2826d1922f81973c7b39c673097dd",
+  "pre_ingestion_v0_hashes": {
+    "analyze_pre_ingestion_v0.py": "fa3c3fabf3dc18b9d368d7e00d8ecd86d5ace4c73823b7052d650dd93e82dea9",
+    "analyze.py_at_method_lock": "fa3c3fabf3dc18b9d368d7e00d8ecd86d5ace4c73823b7052d650dd93e82dea9",
+    "audit.py_at_method_lock": "8e7bff7846cc90379da84fe6a1fa6e98804f107d35d777f9a47def781c4168a0",
+    "plot_figures.py_at_method_lock": "d5d242e0fab7ffba32f658d7a160cb1ab4604cc74ac13a9e11e6bbab78b0ef44"
+  },
+  "post_ingestion_hashes": {
+    "analyze.py": "fce88f51df23ce805c9f218f8c6bc4084ae2826d1922f81973c7b39c673097dd",
+    "audit.py": "10f35fec27627a30f1697db3ef8da5e5dba4d87965c396cb3d8617b493fb8ced",
+    "plot_figures.py": "4378a70c1378fbfea86a87ce9c705bfe4b96cc18ab6c92c30e6162f26e76c7eb"
+  },
+  "non_gate_engineering_and_bugfix_changelog": [
+    "load_elodie_s1d: Verified empirically on HD6582 across BERV=-6.00..+21.46 km/s that ELODIE z=s1d (SPECSYS=None) is in topocentric air and requires *(1 + berv_kms / C_KMS) transformation.",
+    "load_sophie_pair: Astropy ICRS BERV cross-check repaired 2 April-May 2023 47UMA exposures (SOPHIE_3375820 -0.778 km/s, SOPHIE_3381430 -0.392 km/s) where OHP DRS header BERV drifted from ephemeris.",
+    "load_espadons_i: Handle both 12-row Polarimetry (rows 3,4,5) and 28-row Spectroscopy star+sky (rows 7,8,10,11) CFHT Libre-ESpRIT FITS layouts + strict INSTMODE R parsing.",
+    "Removed non-existent normalize_flux_with_continuum import and implemented local continuum normalization matching v3_9_detector formula.",
+    "rarr(): Emit strict RFC-8259 null for non-finite floats so compressed JSON bundles avoid non-standard NaN tokens.",
+    "Stage B PANCHROMATIC_BRIDGE_21STARS.csv: Populate wave_um for newly bridged D084 HARPS-N / CARMENES_VIS rows.",
+    "Zero changes to frozen v3_9_detector.py gates (G1-G6, G4_V38, COMB_V4_1) or FROZEN_COHORT_D088.csv.",
+    "run_retroactive_d079_d085_comb_sweep: Normalize CRIRES_PLUS_K->CRIRES_K, resolve star from EXPOSURE_PROVENANCE when omitted in D081/D082 manifests, align topocentric stacks to common med_berv topo_target.",
+    "analyze.py: Add comb_v41_automated_candidates & verified_eti_detections keys in diag_doc[cascade] and suppress benign nanmedian/nanstd RuntimeWarnings.",
+    "audit.py C13: Fix string-vs-int comparison for verified_eti_detections != 0 on DictReader rows and record updated_audit_sha256.",
+    "Calibration harness & COMB noise floor parity fixes: rolling 1.4826*MAD sigma_rest for COMB_V4_1 scans, annulus local MAD + F1/gate selection for calib_tp/kep_patches, D087 G45 amplitudes, 3-star G6 coincidence, and 40/60/100 GHz COMB_V4_1 calibration grid.",
+    "Visual polish to plot_figures.py (symlog COMB_V4_1 y-scale, non-overlapping radio-host annotations & fig28 titles, fig30 xlim margin) with Check C1 tracking."
+  ],
+  "updated_audit_sha256": "10f35fec27627a30f1697db3ef8da5e5dba4d87965c396cb3d8617b493fb8ced",
+  "updated_plot_figures_sha256": "4378a70c1378fbfea86a87ce9c705bfe4b96cc18ab6c92c30e6162f26e76c7eb"
+}

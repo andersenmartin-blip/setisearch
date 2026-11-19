@@ -1,0 +1,91 @@
+{
+  "schema": "D088_STDLIB_AUDIT_SUMMARY",
+  "python_executable": "/usr/bin/python3",
+  "python_version": "3.12.3",
+  "audited_utc": "2026-11-19T04:26:34Z",
+  "checks_passed": 16,
+  "checks_total": 16,
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check": "C1_PROSPECTIVE_CHRONOLOGY_AND_HASHES",
+      "status": "PASS",
+      "detail": "lock=2026-11-18T17:00:07Z, dt_dl=8.0s"
+    },
+    {
+      "check": "C2_PRIOR_EXCLUSION_AND_COHORT_INTEGRITY",
+      "status": "PASS",
+      "detail": "176 exp, 25 stars (20 new [14 <10pc] + 5 bridge), min_sep=10643.93\", dp_overlap=0"
+    },
+    {
+      "check": "C3_BUNDLE_SIZE_AND_SCHEMA",
+      "status": "PASS",
+      "detail": "d088_bounded_bundle.json.gz = 8.34 MiB (<25.0 MiB), exp=176, retro_d079_d085=1009 exp / 158 stacks"
+    },
+    {
+      "check": "C4_EXPOSURE_PROVENANCE_AND_STDLIB_BERV",
+      "status": "PASS",
+      "detail": "176 PASS rows, max |BERV-stdlib|=0.1308 km/s (<=0.50)"
+    },
+    {
+      "check": "C5_RV_ANCHORING_AND_25STARS",
+      "status": "PASS",
+      "detail": "2704 anchors (2327 clean), 25 star summaries, med|emp-prior|=0.3411 km/s"
+    },
+    {
+      "check": "C6_SINGLELINE_KEPLERIAN_G4G5_CALIB_1971",
+      "status": "PASS",
+      "detail": "1971 trials: T>=8s=1.000, P>=8s=1.000, T_DIFF=0.000, K_PLANET=1.000, G4G5=(1.000,1.000,1.000)"
+    },
+    {
+      "check": "C7_G6_SPARSE_VS_DENSE_CALIB_240",
+      "status": "PASS",
+      "detail": "240 trials: true=1.000, OH=1.000, px=1.000, intraBERV=1.000"
+    },
+    {
+      "check": "C8_COMB_V4_1_CALIBRATION_486",
+      "status": "PASS",
+      "detail": "486 trials (tot=2697): 6t=0.972, 1L=0.000, topo=0.000, forest=(V4=1.000->V4.1=0.000)"
+    },
+    {
+      "check": "C9_RETROACTIVE_ALLSKY_COMB_V4_1_SWEEP_1567EXP",
+      "status": "PASS",
+      "detail": "247 stacks, 1567 exposures (100% D079-D088), 15 COMB_V4_1 candidates, ETI=0"
+    },
+    {
+      "check": "C10_G4_V38_FIBERB_REGRESSION_577_AND_SOPHIE",
+      "status": "PASS",
+      "detail": "D086 Fiber-B 577->0 retained; D088 Fiber-B/cal vetoes=3"
+    },
+    {
+      "check": "C11_CASCADE_AND_COMB_V4_1_PARITY",
+      "status": "PASS",
+      "detail": "V2=99910 -> G1=4727 -> preG6=20 -> postG6=20, COMB_V4_1=0, ETI=0"
+    },
+    {
+      "check": "C12_FORENSIC_AUDIT_AND_ZERO_ETI",
+      "status": "PASS",
+      "detail": "post-G6=20, allsky COMB_V4_1=15 forensically audited, verified_eti=0"
+    },
+    {
+      "check": "C13_ORBITAL_CAMPAIGNS_10_CHECK",
+      "status": "PASS",
+      "detail": "10 campaigns (3 ctrl + 7 sci, 4 IN + 4 OUT), max |Kp_std-Kp_csv|=0.00005 km/s"
+    },
+    {
+      "check": "C14_UPPER_LIMITS_PLANCK_AND_JOHNSON_V_RECOMPUTE",
+      "status": "PASS",
+      "detail": "225 upper-limit cells (incl. JOHNSON_V BETUMI), max rel diff=4.16e-05"
+    },
+    {
+      "check": "C15_BRIDGE_21_10PC_117_UNIFIED_220STAR",
+      "status": "PASS",
+      "detail": "21 bridges (415 cells), 117 <10pc, 220 unique stars, 1567 exposures"
+    },
+    {
+      "check": "C16_MULTIMESSENGER_220SYSTEM_RADIO23_CLOSURE",
+      "status": "PASS",
+      "detail": "220 distinct systems, 23/23 radio closure + 1 TESS = 24 direct overlaps, 0 ETI"
+    }
+  ]
+}

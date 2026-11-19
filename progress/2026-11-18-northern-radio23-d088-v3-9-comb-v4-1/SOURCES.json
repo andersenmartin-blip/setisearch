@@ -1,0 +1,62 @@
+{
+  "schema": "D088_SOURCES_AND_PROVENANCE",
+  "phase_id": "D088",
+  "detector": "NORTHERN_RADIO23_AND_ALLSKY_COMB_V4_1_V3_9",
+  "created_utc": "2026-11-19T04:25:18Z",
+  "observatories_and_archives": [
+    {
+      "instrument": "OHP_SOPHIE",
+      "facility": "Observatoire de Haute-Provence 1.93 m Telescope (43.9308 N, 5.7133 E, 650 m), SOPHIE HR Echelle Spectrograph",
+      "detector_array": "4096x2048 EEV 44-82 CCD",
+      "resolving_power": 75000,
+      "wavelength_range_air_a": [3872.0, 6943.0],
+      "exposures": 68,
+      "stars": 9,
+      "archive_endpoint": "http://atlas.obs-hp.fr/sophie/",
+      "data_products": "OHP SOPHIE DRS 1D merged (s1d) + 39-order 2D extracted Fiber A/B (e2ds) spectra; Astropy ICRS BERV cross-check repaired 2 drifted April-May 2023 47UMA headers"
+    },
+    {
+      "instrument": "OHP_ELODIE",
+      "facility": "Observatoire de Haute-Provence 1.93 m Telescope (43.9308 N, 5.7133 E, 650 m), ELODIE Echelle Spectrograph",
+      "detector_array": "1024x1024 SITe SI003B CCD",
+      "resolving_power": 42000,
+      "wavelength_range_air_a": [4000.0, 6800.0],
+      "exposures": 48,
+      "stars": 7,
+      "archive_endpoint": "http://atlas.obs-hp.fr/elodie/",
+      "data_products": "OHP ELODIE INTER-TACOS 1D merged (s1d) spectra; empirical HD6582 multi-BERV check confirmed topocentric air wavelength frame converted via (1 + BERV/c)"
+    },
+    {
+      "instrument": "CFHT_ESPADONS",
+      "facility": "Canada-France-Hawaii Telescope 3.6 m, Maunakea (19.8253 N, 155.4689 W, 4204 m), ESPaDOnS Echelle Spectropolarimeter",
+      "detector_array": "2048x4612 EEV / Olapa CCD",
+      "resolving_power_range": [65000, 80000],
+      "wavelength_range_a": [3700.0, 10480.0],
+      "exposures": 60,
+      "stars": 9,
+      "tap_endpoint": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+      "datalink_endpoint": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2ops/datalink",
+      "data_products": "CADC CFHT Libre-ESpRIT reduced unnormalized intensity order spectra (*i.fits; supporting both 12-row Polarimetry and 28-row Spectroscopy star+sky layouts)"
+    }
+  ],
+  "reference_catalogs": [
+    "ESA Gaia DR3 I/355 (distances, parallaxes, G, G_RP photometry, systemic RVs)",
+    "2MASS II/246 (J, H, Ks photometry for >8500 A ESPaDOnS calibration)",
+    "Hipparcos I/311 + Ducati 2002 Johnson V (BETUMI = beta UMi M30 Kochab V=2.08 mag)",
+    "SVO Filter Profile Service zero points + Cohen et al. (2003) 2MASS zero points",
+    "NASA Exoplanet Archive pscomppars (planetary ephemerides and control-star verification)",
+    "NIST Atomic Spectra Database (locked laboratory optical RV anchor wavelengths)",
+    "Breakthrough Listen 1.4 GHz GBT/Parkes exoplanet survey (M5-M36) & TESS lightsail vetting (LS7)"
+  ],
+  "retroactive_cached_phases_included_in_allsky_comb_v4_1": [
+    "D079 (HARPS_ECELLE_V3, 12 stacks / 60 exp)",
+    "D080 (ECELLE_V3_1, 26 stacks / 130 exp)",
+    "D081 (ECELLE_V3_2, 22 stacks / 159 exp)",
+    "D082 (NIRPS_V3_3, 22 stacks / 152 exp)",
+    "D083 (CRIRES_V3_4, 22 stacks / 148 exp)",
+    "D084 (NORTHERN_V3_5, 25 stacks / 183 exp)",
+    "D085 (SPIROU_V3_6_AND_COMB_V4, 29 stacks / 177 exp)",
+    "D086 (PANCHROM_NUV_OPT_V3_7_AND_COMB_V4_1, 31 stacks / 181 exp)",
+    "D087 (SPACE_UV_STIS_AND_FARRED_V3_8, 33 stacks / 201 exp)"
+  ]
+}
