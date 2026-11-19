@@ -1,0 +1,22 @@
+{
+  "schema": "D090_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D090",
+  "sealed_utc": "2026-11-19T21:34:25Z",
+  "method_lock_sha256": "129b5193f4277e51f6d9ad1189b49ce851f59116cba2dbd3e170a4b9d7be4290",
+  "frozen_detector_unchanged": true,
+  "frozen_cohort_unchanged": true,
+  "original_analyze_sha256": "8b97d285b74e6bb6a7dd58b71e9484a35e9d74efff9c9521852b14fccb59e912",
+  "updated_analyze_sha256": "85055205205c15f68e018be3c621a332cb0e1091ea14ee1d08df5fd5c97d36e4",
+  "locked_files_sha256": {
+    "analyze.py": "85055205205c15f68e018be3c621a332cb0e1091ea14ee1d08df5fd5c97d36e4",
+    "plot_figures.py": "6a8b60ab6b5ec7ab5829ad52cb6081b994e53dee519362eef4e1787a142901bc"
+  },
+  "non_gate_engineering_and_bugfix_changelog": [
+    "analyze.py _apply_nirspec_gaps_mask & _classify_forensic_candidate: unpack single (lo, hi) tuple from NIRSPEC_DETECTOR_GAPS_A[inst] and read name/wave_A dict fields from STELLAR_IR_EMISSION_VAC_A.",
+    "analyze.py _normalize_piecewise_continuum: compute_running_continuum returns physical (c_raw, c_eff scales) rather than (continuum, flux_norm); split barycentric spectra at detector/channel gaps (>200 A) so short-wavelength Rayleigh-Jeans continuum never clamps long-wavelength MIRI/NRS2 normalization.",
+    "analyze.py COMB_V4_1 TOPO_TELLURIC_OR_BG_COMB calibration trial: set y_t = 1.15 * y_r (coherent un-smeared topocentric/background comb matching D089 calibration methodology; zero change to detection gates).",
+    "analyze.py _classify_forensic_candidate & audit_doc: classify H I Br-beta (26258.7 A) accretion emission (OPH1631, CHA1107), HR8799 NIRSpec IFU roll-angle PSF-subtraction residual (2.9777 um across T_DIFF/K_PLANET at dv_orb=0.0005 km/s), un-dithered Level-2 MIRI single-subband warm-pixel/fringe residuals (OBJECT_D, OBJECT_E, ZZPSC), and summarize the 26 COMB_V4_1 forensic triggers plus prop-7199 BKGDTARG=True sky offset metadata.",
+    "plot_figures.py: preserve raw integer zero in fig35 cascade labels, trim fig36 x-axis to 3.0-12.6 sigma, compute dynamic min-max distance range in fig37 title, and fix MIRI/NIRSpec campaign range legend and dynamic T_DIFF/K_PLANET counts in fig38.",
+    "Zero changes to v4_1_detector.py or FROZEN_COHORT_D090.csv."
+  ]
+}

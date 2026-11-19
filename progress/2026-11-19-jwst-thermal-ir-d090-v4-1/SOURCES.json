@@ -1,0 +1,93 @@
+{
+  "schema": "D090_SOURCES",
+  "phase_id": "D090",
+  "detector": "JWST_SPACE_THERMAL_IR_V4_1",
+  "created_utc": "2026-11-19T21:40:00Z",
+  "prospective_locks": {
+    "locked_utc": "2026-11-19T21:09:25Z",
+    "method_lock_sha256": "129b5193f4277e51f6d9ad1189b49ce851f59116cba2dbd3e170a4b9d7be4290",
+    "first_science_download_utc": "2026-11-19T21:09:34Z",
+    "chronology_lag_seconds": 9.0,
+    "implementation_lock_schema": "D090_IMPLEMENTATION_LOCK_V1",
+    "sealed_utc": "2026-11-19T21:34:25Z",
+    "updated_analyze_sha256": "85055205205c15f68e018be3c621a332cb0e1091ea14ee1d08df5fd5c97d36e4",
+    "plot_figures_sha256": "6a8b60ab6b5ec7ab5829ad52cb6081b994e53dee519362eef4e1787a142901bc",
+    "frozen_detector_sha256": "3a38ff23d50a5e251a49c5eb005595c813db3c25ea42429830622a904a13b125",
+    "frozen_cohort_sha256": "4697cb58a7201dbb2a4220b326440b83b5b13fa3d78eb82c139c3d7168102105"
+  },
+  "observatories_and_archives": [
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — JWST NIRSpec G235H",
+      "facility": "James Webb Space Telescope (JWST, Sun-Earth L2)",
+      "instrument": "JWST_NIRSPEC_G235H (F170LP, NRS1+NRS2 paired Level-2 *_x1d.fits)",
+      "wavelength_range_um": [1.655, 3.072],
+      "resolving_power": 2700,
+      "paired_exposures": 33,
+      "fits_files": 66,
+      "stars": 11,
+      "integration_hours": 4.0399,
+      "jwst_proposal_ids": ["1270", "1292", "1364", "1386", "1678", "3762", "5299", "7024", "9448"],
+      "access_url": "https://mast.stsci.edu/"
+    },
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — JWST NIRSpec G395H",
+      "facility": "James Webb Space Telescope (JWST, Sun-Earth L2)",
+      "instrument": "JWST_NIRSPEC_G395H (F290LP, NRS1+NRS2 paired Level-2 *_x1d.fits)",
+      "wavelength_range_um": [2.862, 5.179],
+      "resolving_power": 2700,
+      "paired_exposures": 63,
+      "fits_files": 126,
+      "stars": 11,
+      "integration_hours": 5.5541,
+      "jwst_proposal_ids": ["1188", "1414", "1536", "1538", "2288", "2778", "3522", "4982", "5342", "6607", "8714", "11441"],
+      "access_url": "https://mast.stsci.edu/"
+    },
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — JWST MIRI MRS",
+      "facility": "James Webb Space Telescope (JWST, Sun-Earth L2)",
+      "instrument": "JWST_MIRI_MRS (Ch1-2 SHORT + Ch3-4 LONG paired Level-2 *_x1d.fits)",
+      "wavelength_range_um": [4.900, 28.000],
+      "resolving_power": 2500,
+      "paired_exposures": 65,
+      "fits_files": 130,
+      "stars": 15,
+      "integration_hours": 8.1040,
+      "jwst_proposal_ids": ["1050", "1230", "1239", "1282", "1294", "1536", "1538", "1539", "5298", "6604", "6607", "7199", "7487", "7564", "7671"],
+      "access_url": "https://mast.stsci.edu/"
+    }
+  ],
+  "reference_catalogs_and_literature": [
+    {
+      "name": "ESA Gaia DR3",
+      "usage": "Parallax/distance, ICRS astrometry, G/BP/RP photometry, prior radial velocities",
+      "access_url": "https://gea.esac.esa.int/tap-server/tap"
+    },
+    {
+      "name": "SIMBAD Astronomical Database (CDS)",
+      "usage": "Cross-identification and trigonometric parallaxes for cold brown dwarfs/white dwarfs (e.g. WISE0855)",
+      "access_url": "https://simbad.u-strasbg.fr/simbad/"
+    },
+    {
+      "name": "NASA Exoplanet Archive (pscomppars)",
+      "usage": "Control star n_exoplanets == 0 verification, stellar mass, orbital ephemerides",
+      "access_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/"
+    },
+    {
+      "name": "Townes, C. H. (1983), PNAS 80, 1147-1151",
+      "usage": "Theoretical benchmark for 10.60 um CO2 planetary-diffraction interstellar laser communication"
+    },
+    {
+      "name": "Suazo, M., Zackrisson, E., Maurent, P. K., et al. (2024), MNRAS 531, 695 (Project Hephaistos II)",
+      "usage": "Mid-IR Dyson-sphere M-dwarf candidate provenance (JWST MIRI MRS proposal 7199 OBJECT_D and OBJECT_E)"
+    },
+    {
+      "name": "Companion Archive O (Phase D089 V4_0_SPACE_LYMAN_FUV_NUV)",
+      "file": "SETI_D089_V4_0_SPACE_LYMAN_NUV_RESULTS_2026-11-19.zip",
+      "sha256": "4864dd3b5c0e958e428e1af815e1a378a37824d6bc87a89de9c223d89bccd723",
+      "usage": "Canonical frozen D079-D089 250-star census, 1,759-exposure stack baselines, 26 prior bridges, 23/23 radio + 1 TESS closure snapshot"
+    }
+  ],
+  "retroactive_cached_phases_included_in_allsky_comb_v4_1": [
+    "D079", "D080", "D081", "D082", "D083", "D084", "D085", "D086", "D087", "D088", "D089"
+  ]
+}
