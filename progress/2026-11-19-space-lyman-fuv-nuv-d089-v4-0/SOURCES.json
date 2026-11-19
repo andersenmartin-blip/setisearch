@@ -1,0 +1,75 @@
+{
+  "schema": "D089_SOURCES",
+  "phase_id": "D089",
+  "detector": "SPACE_LYMAN_FUV_NUV_V4_0",
+  "created_utc": "2026-11-19T19:06:00Z",
+  "prospective_locks": {
+    "locked_utc": "2026-11-19T18:43:01Z",
+    "method_lock_sha256": "c822fc1fabdd4af7facdb116915c78753dc7a54769086d85fa2d56ba29dc6bf6",
+    "first_science_download_utc": "2026-11-19T18:43:34Z",
+    "chronology_lag_seconds": 33.0,
+    "implementation_lock_schema": "D089_IMPLEMENTATION_LOCK_V1",
+    "updated_analyze_sha256": "dbe602ad8391ddfcd4008242760592309a25b3861624c3b5a129f9c429e1880c",
+    "frozen_detector_sha256": "5bbd0178f3b611bed90f26453c42f90a0abb99a5608eaacf296b38986caf4604",
+    "frozen_cohort_sha256": "5e0f40744e0f0745005a8f6f74383b41f7cf3a558894c51cf5b7268e50526c0c"
+  },
+  "observatories_and_archives": [
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — FUSE Legacy Archive",
+      "facility": "FUSE (Far Ultraviolet Spectroscopic Explorer, LEO)",
+      "instrument": "FUSE_FUV (LiF1/LiF2 + SiC1/SiC2, CalFUSE *fcal.fit.gz)",
+      "wavelength_range_um": [0.0905, 0.1187],
+      "resolving_power": 20000,
+      "exposures": 36,
+      "stars": 8,
+      "access_url": "https://archive.stsci.edu/fuse/"
+    },
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — HST COS",
+      "facility": "Hubble Space Telescope (HST, LEO)",
+      "instrument": "HST_COS_FUV (G130M, CALCOS *_x1d.fits EXP-FP science members)",
+      "wavelength_range_um": [0.1125, 0.1450],
+      "resolving_power": 18000,
+      "exposures": 84,
+      "stars": 17,
+      "hst_proposal_ids": ["11530", "12464", "13650", "14625", "14767", "14784", "14843", "15071", "16701", "17482", "17503", "17801", "17904", "18250"],
+      "access_url": "https://mast.stsci.edu/"
+    },
+    {
+      "archive": "STScI Mikulski Archive for Space Telescopes (MAST) — HST STIS NUV",
+      "facility": "Hubble Space Telescope (HST, LEO)",
+      "instrument": "HST_STIS_NUV (E230M R=30,000 & E230H R=114,000, CALSTIS *_x1d.fits)",
+      "wavelength_range_um": [0.1605, 0.3150],
+      "resolving_power": [30000, 114000],
+      "exposures": 72,
+      "stars": 12,
+      "hst_proposal_ids": ["8111", "8614", "9455", "9804", "11576", "12268", "12278", "12976", "14094", "14767", "14789", "14917", "15327", "15338", "17460"],
+      "access_url": "https://mast.stsci.edu/"
+    }
+  ],
+  "reference_catalogs": [
+    {
+      "name": "ESA Gaia DR3",
+      "usage": "Parallax/distance, ICRS astrometry, G/BP/RP photometry, prior radial velocities",
+      "access_url": "https://gea.esac.esa.int/tap-server/tap"
+    },
+    {
+      "name": "GAVO 2MASS Point Source Catalog (PSC)",
+      "usage": "J, H, Ks photometry for calibration pool prioritization",
+      "access_url": "https://dc.g-vo.org/tap"
+    },
+    {
+      "name": "NASA Exoplanet Archive (pscomppars)",
+      "usage": "Control star n_exoplanets == 0 verification, stellar mass, orbital ephemerides",
+      "access_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/"
+    },
+    {
+      "name": "Companion Archive N (Phase D088 V3_9_NORTHERN_RADIO23_AND_ALLSKY_COMB_V4_1)",
+      "sha256": "c0210250b925df3bebb1710c2bf7333a64ed767ebdc1f38a496d6a9454f7d45d",
+      "usage": "Canonical frozen D079-D088 220-star census, 1,567-exposure stack baselines, 21 prior bridges, 23/23 radio + 1 TESS closure snapshot"
+    }
+  ],
+  "retroactive_cached_phases_included_in_allsky_comb_v4_1": [
+    "D079", "D080", "D081", "D082", "D083", "D084", "D085", "D086", "D087", "D088"
+  ]
+}
