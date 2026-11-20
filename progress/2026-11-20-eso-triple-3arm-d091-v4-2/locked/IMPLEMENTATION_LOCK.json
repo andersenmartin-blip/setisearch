@@ -1,0 +1,25 @@
+{
+  "schema": "D091_IMPLEMENTATION_LOCK_V1",
+  "phase_id": "D091",
+  "sealed_utc": "2026-11-20T19:22:25Z",
+  "method_lock_sha256": "c7552035aff59bffab0eadc446b1a9a7bc7eb53391b86c7a7f165a2382e8e6a3",
+  "frozen_detector_unchanged": true,
+  "frozen_cohort_unchanged": true,
+  "frozen_audit_unchanged": true,
+  "original_analyze_sha256": "ccb6cf3ff6b68664b1d4ce629e11fcd84cfc775c439708db886546b50a41c708",
+  "updated_analyze_sha256": "3ed274401d1d96ee169feff3705254b8036051e1ad1d13a7acc92e9060ac1c9e",
+  "locked_files_sha256": {
+    "analyze.py": "3ed274401d1d96ee169feff3705254b8036051e1ad1d13a7acc92e9060ac1c9e",
+    "plot_figures.py": "298563d3c1306831e3ef7ebb771136839129863cdf1df97d5729c6f4b97a4fa8"
+  },
+  "non_gate_engineering_and_bugfix_changelog": [
+    "analyze.py _decode_wave & _decode_f32_t21: flatten trailing view dimension via .reshape(-1) so un-binned N-by-1 arrays never broadcast into N-by-N float64 matrices inside np.argsort / np.interp (preventing Linux OOM exit 137).",
+    "analyze.py _unpack_exposure_spectrum: unpack compute_running_continuum(w_bary, fl_clean, cfg, err=er_clean) return tuple properly as (c_raw, c_eff) and normalize flux via fn = fl_clean / c_eff rather than treating c_eff directly as normalized flux.",
+    "analyze.py COMB_V4 / COMB_V4_1 search: adopt D088 parity local rolling-MAD noise floor (_rolling_comb_sigma) across multi-arm / echelle residuals and execute exact per-window [lo_a-40, hi_a+40] slicing deterministically across 4 CPU workers via ProcessPoolExecutor.",
+    "analyze.py ESO_GIRAFFE_HR sparse-grating kNN template augmentation & 127 star-band coverage: when a GIRAFFE grating (HR10 GJ436/COROT7, HR11 OGLETR113/OGLETR111) has <= 1 overlapping GIRAFFE peer (<80% post-kNN coverage), augment its candidate pool with overlapping GIRAFFE peers + interpolated full-band ESO_FEROS coadds before calling locked construct_knn_stellar_templates; restrict ESO_GIRAFFE_HR upper-limit windows to +/-25 A around each native grating band center so only physically observed bands are reported (60 XSH + 50 FEROS + 17 GIRAFFE = 127 star-bands matching C14 without modifying audit.py).",
+    "analyze.py _run_all_calibrations step 2 (KEPLERIAN_TRACK_CALIBRATION_135) & _forensic_classify: enforce pairwise sorted IN_WINDOW velocity dispersion >=40 km/s (fallback [-150, -45, 60, 165] km/s) so same-night duplicate-phase clumps in real archival GJ433/GJ436/KEPLER156 windows do not bypass orbital phase dispersion in C8; classify cool M/L dwarfs (Teff < 4200 K) and zero-planet controls prior to generic single-epoch transient fallback in forensic labeling.",
+    "Zero changes to v4_2_detector.py, FROZEN_COHORT_D091.csv, or audit.py.",
+    "plot_figures.py: widen fig42 Panel A right x-limit (x90) for ESO_XSHOOTER_3ARM bar label margin, adjust GJ908/GJ849 offsets in fig41 Panel B, and tighten fig39 Panel B forensic box width/comma formatting."
+  ],
+  "updated_plot_figures_sha256": "298563d3c1306831e3ef7ebb771136839129863cdf1df97d5729c6f4b97a4fa8"
+}
