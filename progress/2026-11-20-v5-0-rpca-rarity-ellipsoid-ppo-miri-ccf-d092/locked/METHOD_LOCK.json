@@ -1,0 +1,57 @@
+{
+  "schema": "D092_METHOD_LOCK_V1",
+  "phase_id": "D092",
+  "detector": "TECHNOSIGNATURE_V5_0_RPCA_RARITY_ELLIPSOID_PPO_MIRI_CCF",
+  "locked_utc": "2026-11-20T20:27:32Z",
+  "instruments": [
+    "ESO_HARPS",
+    "ESO_FEROS",
+    "ESO_CRIRES"
+  ],
+  "retroactive_reused_bundles": {
+    "d091_bundle": {
+      "archive": "SETI_D091_V4_2_ESO_TRIPLE_3ARM_RESULTS_2026-11-20.zip",
+      "archive_sha256": "9da4739bdb413d675b9bc1f17dc9d60d5abc7944622714017cf1889a097b51d0",
+      "n_exposures": 156
+    },
+    "d090_bundle": {
+      "archive": "SETI_D090_V4_1_JWST_SPACE_THERMAL_IR_RESULTS_2026-11-19.zip",
+      "archive_sha256": "2940839e8613b0d388c9b922743ba8244852806411f28586696e59eb8d73841a",
+      "n_miri_exposures": 65
+    }
+  },
+  "locked_v50_parameters": {
+    "rpca_block_len": 2048,
+    "rpca_overlap": 128,
+    "rpca_loso_rank": 8,
+    "g7_min_z_rpca": 6.0,
+    "g7_min_rarity_score": 0.65,
+    "agnostic_scales_lsf": [
+      2.0,
+      4.0,
+      8.0,
+      14.0
+    ],
+    "agnostic_min_abs_z": 7.5,
+    "agnostic_min_rarity_score": 0.7,
+    "miri_ccf_min_sigma": 5.0,
+    "miri_ccf_min_confounder_ratio": 1.5,
+    "etz_max_abs_beta_deg": 0.264,
+    "sn1987a_ellipsoid_max_abs_dt_days": 180.0
+  },
+  "hard_caps": {
+    "max_raw_download_mib": 225.0,
+    "min_post_free_gib": 6.5,
+    "max_bounded_bundle_mib": 25.0,
+    "min_chronology_lag_s": 3.0
+  },
+  "locked_file_hashes": {
+    "v5_0_detector.py": "7d6ab796630aa2193eb5c653af1790dd8fec8c9b3830f72f0abacfaba3b0b64d",
+    "build_cohort.py": "970a6477f74addafa1bd8e3c5951881ebbb9131f02acfde23505730b15d3bc5b",
+    "download_inputs.py": "b516e1d9713150df975eab6488191d0ba1c9573ea40621a59ed6f3ded8820c17",
+    "FROZEN_COHORT_D092.csv": "2a600b63281e025c830474b924df89ecd1cdc6d3a92af58bbb0e49a3170cd7f3",
+    "ORBITAL_CAMPAIGNS_AND_KINEMATICS.json": "03791a8c301da42b982e4602799196f502fcee20e783f82a0fc0da6f22a9e0f5",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "782a001329df9d2e6ba815480b23693ddf32ca51d268b39a8625d3af6e39e306",
+    "PRIOR_V4_2_PHASES_SNAPSHOT.json": "e27aa05724dab16156a270506d0e94d2a7558b972bbd1319d2b6c139f0f2ba63"
+  }
+}

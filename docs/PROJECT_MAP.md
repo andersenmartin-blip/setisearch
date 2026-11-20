@@ -9,12 +9,12 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | Rum-Lyman til JWST Termisk-IR + ESO 3-Arm (`D091`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `V5.0`-perspektiver efter afslutningen af `D079–D091` (`310` rum- + all-sky stjerner / `135` `< 10 pc` / `19` spektrografer [`22` arme] / `8,273` oktaver `0,0905–28,00 µm` / `23/23` radio-echelle lukning). |
-| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D091`) | Færdigkompileret to-spaltet publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D091`) | Indeks over det prospektivt kalibrerede `V3.0–V4.2` + all-sky `COMB_V4_1`-survey (`310` unikke stjerner, `2.076` eksponeringer på `19` spektrografer / `22` arme over `0,0905–28,00 µm`, `8,273` oktaver) + `310`-systems `23/23` radio-echelle syntese. |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.0` Rum-Lyman til JWST Termisk-IR (`D092`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D093`-perspektiver efter afslutningen af `D079–D092` (`335` stjerner / `146` `< 10 pc` / `19` spektrografer [`22` arme] / `8,273` oktaver `0,0905–28,00 µm` / `23/23` radio-echelle lukning). |
+| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D092`) | Færdigkompileret to-spaltet publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D092`) | Indeks over det prospektivt kalibrerede `V3.0–V5.0` + all-sky `COMB_V4_1`-survey (`335` unikke stjerner, `2.133` eksponeringer på `19` spektrografer / `22` arme over `0,0905–28,00 µm`, `8,273` oktaver) + `V5.0` RPCA/Rarity/Agnostic/MIRI-CCF/Geom. |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-20-eso-triple-3arm-d091-v4-2/RESULTS_REPORT.md) | Rum-Lyman/FUV/NUV, Optisk, Nær-IR, ESO 3-Arm & **JWST Termisk-IR** (`JWST NIRSpec/MIRI`, `FUSE`, `HST_COS`, `HST_STIS`, `ESO X-shooter`, `UVES_NUV/RED`, `FEROS`, `HARPS`, `ESPRESSO`, `OHP SOPHIE/ELODIE`, `CFHT ESPaDOnS`, `HARPS-N`, `FLAMES/GIRAFFE`, `CARMENES_VIS`, `NIRPS`, `CRIRES+`, `SPIRou`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `SUMMARY.json`, `FORENSIC_CANDIDATE_AUDIT_D091.json`, CSV-tabeller og `RESULTS_REPORT.md`) fra `D075` til `D091`. |
+| [`progress/`](../progress/2026-11-20-v5-0-rpca-rarity-ellipsoid-ppo-miri-ccf-d092/RESULTS_REPORT.md) | `V5.0` & Alle Pankromatiske Faser (`D075–D092`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `SUMMARY.json`, `FORENSIC_CANDIDATE_AUDIT_D092.json`, CSV-tabeller og `RESULTS_REPORT.md`) fra `D075` til `D092`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -29,9 +29,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–Q (Rum-Lyman til JWST Termisk-IR, ESO 3-Arm, optisk & nær-IR spor)
+## 3. Kompakte numeriske kompagnonarkiver A–R (Rum-Lyman til JWST Termisk-IR, ESO 3-Arm, `V5.0` RPCA/MIRI-CCF, optisk & nær-IR spor)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D091` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d091_workspace.py --check-only` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D092` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d092_workspace.py --check-only` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -53,3 +53,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **O** | `SETI_D089_V4_0_SPACE_LYMAN_FUV_NUV_RESULTS_2026-11-19.zip` | `4.262.551` | `4864dd3b5c0e958e428e1af815e1a378a37824d6bc87a89de9c223d89bccd723` |
 | **P** | `SETI_D090_V4_1_JWST_SPACE_THERMAL_IR_RESULTS_2026-11-19.zip` | `8.610.790` | `2940839e8613b0d388c9b922743ba8244852806411f28586696e59eb8d73841a` |
 | **Q** | `SETI_D091_V4_2_ESO_TRIPLE_3ARM_RESULTS_2026-11-20.zip` | `22.923.782` | `9da4739bdb413d675b9bc1f17dc9d60d5abc7944622714017cf1889a097b51d0` |
+| **R** | `SETI_D092_V5_0_RPCA_RARITY_ELLIPSOID_PPO_MIRI_CCF_RESULTS_2026-11-20.zip` | `27.934.528` | `845f0186a6a793ece2b62f9a2e7caaca5181a9b5a12f8db39326376a58a1d8dd` |

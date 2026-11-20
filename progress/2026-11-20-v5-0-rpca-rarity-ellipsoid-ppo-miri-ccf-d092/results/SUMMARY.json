@@ -1,0 +1,165 @@
+{
+  "phase_id": "D092",
+  "detector": "TECHNOSIGNATURE_V5_0_RPCA_RARITY_ELLIPSOID_PPO_MIRI_CCF",
+  "instruments": [
+    "ESO_HARPS",
+    "ESO_FEROS",
+    "ESO_CRIRES"
+  ],
+  "cohort": {
+    "total_stars": 28,
+    "control_stars": 6,
+    "science_stars": 22,
+    "brand_new_unique_stars": 25,
+    "panchromatic_bridge_stars": 3,
+    "brand_new_within_10pc": 11,
+    "total_exposures": 57,
+    "harps_exposures": 24,
+    "feros_exposures": 20,
+    "crires_exposures": 13,
+    "total_integration_hours": 12.6625,
+    "orbital_campaigns": 9
+  },
+  "searched_spectral_elements": {
+    "by_instrument": {
+      "ESO_HARPS": {
+        "T": 3757827,
+        "P": 1879104,
+        "T_DIFF": 626257,
+        "K_PLANET": 625866,
+        "COMB_CONFIGS": 6439248
+      },
+      "ESO_FEROS": {
+        "T": 3791610,
+        "P": 1895837,
+        "T_DIFF": 568749,
+        "K_PLANET": 568526,
+        "COMB_CONFIGS": 7037800
+      },
+      "ESO_CRIRES": {
+        "T": 399948,
+        "P": 191479,
+        "T_DIFF": 59932,
+        "K_PLANET": 60308,
+        "COMB_CONFIGS": 429696
+      }
+    },
+    "channel_t_1d_bins": 7949385,
+    "channel_p_coadd_bins": 3966420,
+    "channel_tdiff_bins": 1254938,
+    "channel_kplanet_bins": 1254700,
+    "comb_v41_searched_configs": 13906744
+  },
+  "synthetic_calibration_1351_trials": {
+    "total_trials": 1351,
+    "rpca_isolated_laser_recovery": "56/60 (0.9333)",
+    "rpca_shared_leak_suppression": "60/60 (1.0000)",
+    "rpca_topo_repeat_suppression": "60/60 (1.0000)",
+    "agnostic_multiscale_recovery": "118/120 (0.9833)",
+    "miri_greenhouse_recovery": "74/80 (0.9250)",
+    "miri_confounder_veto": "80/80 (1.0000)",
+    "channel_t_ge_8sigma": "152/162 (0.9383)",
+    "channel_p_ge_8sigma": "152/162 (0.9383)",
+    "keplerian_tdiff_ge_6p5sigma": "0/81 (0.0000)",
+    "keplerian_kplanet_ge_6p5sigma": "80/81 (0.9877)",
+    "g45_true_laser_pass": "36/36 (1.0000)",
+    "g5_cosmic_hotpx_rejection": "36/36 (1.0000)",
+    "g5_plateau_rejection": "36/36 (1.0000)",
+    "comb_v41_6tooth_ge_3p8sigma_recovery": "36/36 (1.0000)",
+    "comb_v4_forest_false_alarm": "54/54",
+    "comb_v41_forest_false_alarm": "0/54",
+    "comb_v41_topo_false_alarm": "0/54"
+  },
+  "false_alarm_cascade": {
+    "v2_legacy_false_alarms": 15147,
+    "v42_total_ledger_g1_candidates": 3461,
+    "v42_after_g2": 3435,
+    "v42_after_g3": 3419,
+    "v42_after_g4": 1601,
+    "v42_pre_g6_passed_g1_to_g5": 925,
+    "v42_qualified_before_g7": 815,
+    "v50_g7_vetoed_from_v42": 669,
+    "v50_qualified_control": 6,
+    "v50_qualified_science": 140,
+    "v50_agnostic_evals": 14274,
+    "v50_agnostic_survivors": 107,
+    "comb_v41_automated_candidates": 64,
+    "miri_ccf_cells_60_detections": 4
+  },
+  "retroactive_d091_regression": {
+    "d091_v42_qualified_input": 2362,
+    "d091_v50_g7_survivors": 28,
+    "suppression_fraction": 0.98815,
+    "top_d091_stars_before_after": {
+      "SCR1845": {
+        "v42": 1050,
+        "v50": 11
+      },
+      "HD213885": {
+        "v42": 85,
+        "v50": 0
+      },
+      "LP94420": {
+        "v42": 474,
+        "v50": 8
+      },
+      "GJ1128": {
+        "v42": 382,
+        "v50": 0
+      }
+    }
+  },
+  "miri_greenhouse_ccf_summary": {
+    "CF4": {
+      "n_covered_targets": 14,
+      "median_delta_min_5sigma": 0.05908,
+      "median_ppm_equiv_10pct_ref": 5.907,
+      "detections": 0
+    },
+    "C2F6": {
+      "n_covered_targets": 15,
+      "median_delta_min_5sigma": 0.03116,
+      "median_ppm_equiv_10pct_ref": 3.116,
+      "detections": 2
+    },
+    "SF6": {
+      "n_covered_targets": 14,
+      "median_delta_min_5sigma": 0.02613,
+      "median_ppm_equiv_10pct_ref": 2.613,
+      "detections": 1
+    },
+    "NF3": {
+      "n_covered_targets": 15,
+      "median_delta_min_5sigma": 0.01964,
+      "median_ppm_equiv_10pct_ref": 1.964,
+      "detections": 1
+    }
+  },
+  "upper_limits": {
+    "n_cells": 122,
+    "best_d092_star": "ESPRI1542",
+    "best_d092_instrument": "ESO_FEROS",
+    "best_d092_band": "F1_4100",
+    "best_d092_10m_w": 495.153,
+    "best_d092_10m_kw": 0.495153,
+    "best_harps_star": "LHS1678",
+    "best_harps_10m_kw": 0.52481,
+    "best_feros_star": "ESPRI1542",
+    "best_feros_10m_kw": 0.49515,
+    "best_crires_star": "TRAPPIST1",
+    "best_crires_10m_kw": 1.18663
+  },
+  "unified_335star_panchromatic_v5_0_synthesis": {
+    "phases": "D079-D092",
+    "spectrographs": 22,
+    "unique_stars_total": 335,
+    "within_10pc_unique_stars": 146,
+    "within_10pc_median_limit_kw": 1.57296,
+    "panchromatic_bridge_stars_total": 37,
+    "total_exposures_d079_d092": 2133,
+    "total_integration_hours_d079_d092": 647.0511,
+    "total_calibration_trials_d079_d092": 30817,
+    "v2_false_alarms_eliminated_total": 301190,
+    "cumulative_orbital_campaigns": 109
+  }
+}
