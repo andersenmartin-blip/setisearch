@@ -1,0 +1,3659 @@
+#!/usr/bin/env python3
+"""
+Phase D093 Detector Module: `TECHNOSIGNATURE_V5_1_DEDOPPLER_DRIFT_MULTIEVENT_ELLIPSOID_GRACES_CORALIE_CARMENES`
+
+Prospectively locked V5.1 unsupervised, kinematic-drift & thermal-IR molecular technosignature
+detector suite extending V5.0 across `GEMINI_GRACES`, `ESO_CORALIE`, `CARMENES_VIS`, and
+retroactive `JWST_NIRSPEC_G395H` / Northern `D088` manifolds (`CFHT_ESPADONS`, `OHP_SOPHIE`,
+`OHP_ELODIE`) with four new V5.1 engines:
+  6. `DRIFT_V51` (`scan_blind_drift_dedoppler_v51`): blind two-epoch linear drift `(v_0, v_dot)`
+     de-Doppler scan across 41 non-zero velocity-drift shifts in `[-250,-5] U [+5,+250] km/s`.
+  7. `G8_V51` (`fit_patch_novelty_model_v51`, `evaluate_gate_g8_v51`): `17`-pixel L2-normalized
+     patch + `4` RPCA/LOSO scalars projected onto a `d=8` PCA-whitened `k=7`-NN novelty scorer.
+  8. `MULTIEVENT_ELLIPSOID_V51` (`compute_event_ellipsoid_mjd`, `compute_multievent_sync_v51`):
+     simultaneous Schelling-point light-travel ellipsoids for `SN 1987A`, `GW170817`, & `SN 2023ixf`.
+  9. `NIRSPEC_MOL_CCF_V51` (`scan_nirspec_molecular_ccf_v51`): `2.86-5.18 um` thermal-IR CCF
+     (`NO2`, `N2O`, `CH4_C2H6`, `CO_13CO` vs `H2O_NIR`, `CO2_4P26`, `H2_0_0_S9_VIB`, `DUST_SIL_SLOPE`)
+     with `0.06 um` NRS1/NRS2 edge/gap trimming and 2-parameter joint OLS confounder separation.
+"""
+from __future__ import annotations
+
+import math
+import warnings
+from typing import Any
+
+import numpy as np
+from scipy.ndimage import convolve1d, median_filter
+
+DETECTOR_NAME = "TECHNOSIGNATURE_V5_1_DEDOPPLER_DRIFT_MULTIEVENT_ELLIPSOID_GRACES_CORALIE_CARMENES"
+
+# Exact physical constants (SI / CGS / IAU)
+C_KMS = 299792.458
+C_SI = 299792458.0
+C_ANGSTROM_GHZ = 2.99792458e9
+H_PLANCK = 6.62607015e-34
+K_BOLTZ = 1.380649e-23
+PC_CM = 3.085677581491367e18
+G_SI = 6.67430e-11
+M_SUN_KG = 1.98847e30
+DAY_S = 86400.0
+AU_M = 149597870700.0
+SOLAR_RADIUS_CM = 6.957e10
+FWHM_FACTOR = 2.0 * math.sqrt(2.0 * math.log(2.0))
+MAD_NORM = 1.482602218505602
+
+# Gaia G Vega zero-point flux density (lambda_eff = 6217.59 A, erg s^-1 cm^-2 A^-1)
+GAIA_G_EFF_WAVE_A = 6217.59
+GAIA_G_FLAM0_CGS = 2.500e-9
+
+# X-shooter NIR telluric water-vapor opaque absorption blackout windows (A)
+XSHOOTER_TELLURIC_BLACKOUT_A: list[tuple[float, float]] = [
+    (13450.0, 14500.0),
+    (18000.0, 19450.0),
+]
+
+# ---------------------------------------------------------------------------
+# Gate G2_V42: Paranal / La Silla Sky Airglow & Telluric Lines (A)
+# ---------------------------------------------------------------------------
+
+GROUND_AIRGLOW_AND_TELLURIC_A: list[dict[str, Any]] = [
+    {"name": "OI_5577", "wave_A": 5577.34, "half_width_kms": 55.0},
+    {"name": "NaI_D2_5890", "wave_A": 5889.95, "half_width_kms": 45.0},
+    {"name": "NaI_D1_5896", "wave_A": 5895.92, "half_width_kms": 45.0},
+    {"name": "OI_6300", "wave_A": 6300.30, "half_width_kms": 55.0},
+    {"name": "OI_6364", "wave_A": 6363.78, "half_width_kms": 55.0},
+    {"name": "O2_B_6870", "wave_A": 6875.00, "half_width_kms": 450.0},
+    {"name": "OH_7276", "wave_A": 7276.40, "half_width_kms": 55.0},
+    {"name": "OH_7316", "wave_A": 7316.28, "half_width_kms": 55.0},
+    {"name": "OH_7341", "wave_A": 7340.89, "half_width_kms": 55.0},
+    {"name": "O2_A_7605", "wave_A": 7606.00, "half_width_kms": 650.0},
+    {"name": "OH_7751", "wave_A": 7750.64, "half_width_kms": 55.0},
+    {"name": "OH_7913", "wave_A": 7913.71, "half_width_kms": 55.0},
+    {"name": "OH_8344", "wave_A": 8344.60, "half_width_kms": 55.0},
+    {"name": "O2_8645", "wave_A": 8645.00, "half_width_kms": 200.0},
+    {"name": "OH_8827", "wave_A": 8827.10, "half_width_kms": 60.0},
+    {"name": "OH_9376", "wave_A": 9375.96, "half_width_kms": 70.0},
+    {"name": "OH_9872", "wave_A": 9872.10, "half_width_kms": 70.0},
+    {"name": "OH_10832", "wave_A": 10832.10, "half_width_kms": 80.0},
+    {"name": "OH_11438", "wave_A": 11438.00, "half_width_kms": 80.0},
+    {"name": "O2_IR_12680", "wave_A": 12685.00, "half_width_kms": 350.0},
+    {"name": "H2O_13950", "wave_A": 13975.00, "half_width_kms": 11500.0},
+    {"name": "OH_15055", "wave_A": 15055.00, "half_width_kms": 80.0},
+    {"name": "OH_15830", "wave_A": 15830.00, "half_width_kms": 80.0},
+    {"name": "OH_16904", "wave_A": 16904.00, "half_width_kms": 80.0},
+    {"name": "H2O_18725", "wave_A": 18725.00, "half_width_kms": 12000.0},
+    {"name": "CO2_20080", "wave_A": 20080.00, "half_width_kms": 450.0},
+    {"name": "OH_21240", "wave_A": 21240.00, "half_width_kms": 85.0},
+]
+
+# ---------------------------------------------------------------------------
+# Gate G3_V42: Optical & NIR Stellar Chromospheric / Nebular Emission (A)
+# ---------------------------------------------------------------------------
+
+STELLAR_OPT_NIR_EMISSION_A: list[dict[str, Any]] = [
+    {"name": "CaII_K_3934", "wave_A": 3934.78},
+    {"name": "CaII_H_3969", "wave_A": 3969.59},
+    {"name": "HI_Heps_3970", "wave_A": 3970.07},
+    {"name": "HI_Hdelta_4102", "wave_A": 4102.89},
+    {"name": "HI_Hgamma_4341", "wave_A": 4341.68},
+    {"name": "HI_Hbeta_4862", "wave_A": 4862.68},
+    {"name": "OIII_5007", "wave_A": 5008.24},
+    {"name": "HeI_5876", "wave_A": 5877.25},
+    {"name": "HI_Halpha_6564", "wave_A": 6564.61},
+    {"name": "NII_6583", "wave_A": 6585.27},
+    {"name": "SII_6716", "wave_A": 6718.29},
+    {"name": "CaII_IRT1_8500", "wave_A": 8500.35},
+    {"name": "CaII_IRT2_8544", "wave_A": 8544.44},
+    {"name": "CaII_IRT3_8664", "wave_A": 8664.52},
+    {"name": "HeI_10833", "wave_A": 10833.20},
+    {"name": "HI_PaG_10941", "wave_A": 10941.10},
+    {"name": "HI_PaB_12822", "wave_A": 12821.60},
+    {"name": "FeII_16440", "wave_A": 16440.00},
+    {"name": "HI_PaA_18756", "wave_A": 18756.13},
+    {"name": "H2_1_0_S1_21218", "wave_A": 21218.30},
+    {"name": "HI_BrG_21661", "wave_A": 21661.20},
+]
+
+# ---------------------------------------------------------------------------
+# Optical / NIR Photospheric RV Anchors (A)
+# ---------------------------------------------------------------------------
+
+LOCKED_RV_ANCHORS_OPTICAL: list[dict[str, Any]] = [
+    {"anchor_id": "CAII_K_3934", "species": "Ca II K", "lab_wave_A": 3934.78},
+    {"anchor_id": "MGI_5173", "species": "Mg I b1", "lab_wave_A": 5174.13},
+    {"anchor_id": "MGI_5184", "species": "Mg I b0", "lab_wave_A": 5185.05},
+    {"anchor_id": "FEI_5270", "species": "Fe I 5270", "lab_wave_A": 5270.36},
+    {"anchor_id": "FEI_5328", "species": "Fe I 5328", "lab_wave_A": 5328.04},
+    {"anchor_id": "NAI_D2_5890", "species": "Na I D2", "lab_wave_A": 5891.58},
+    {"anchor_id": "CAII_6162", "species": "Ca I 6162", "lab_wave_A": 6163.88},
+    {"anchor_id": "HI_HA_6565", "species": "H-alpha", "lab_wave_A": 6564.61},
+    {"anchor_id": "CAII_IRT2", "species": "Ca II IRT2", "lab_wave_A": 8544.44},
+]
+
+LOCKED_RV_ANCHORS_XSHOOTER: list[dict[str, Any]] = LOCKED_RV_ANCHORS_OPTICAL + [
+    {"anchor_id": "NAI_8195", "species": "Na I 8195", "lab_wave_A": 8197.07},
+    {"anchor_id": "HI_PAG_10941", "species": "H I Pa-g", "lab_wave_A": 10941.10},
+    {"anchor_id": "HI_PAB_12822", "species": "H I Pa-b", "lab_wave_A": 12821.60},
+    {"anchor_id": "FEI_15648", "species": "Fe I 15648", "lab_wave_A": 15652.87},
+    {"anchor_id": "HI_BRG_21661", "species": "H I Br-g", "lab_wave_A": 21661.20},
+]
+
+# ---------------------------------------------------------------------------
+# Calibration & Radiometric Upper-Limit Bands
+# ---------------------------------------------------------------------------
+
+CALIBRATION_BANDS_XSHOOTER = [
+    {"band_id": "X1_3600", "center_wave_A": 3600.0},
+    {"band_id": "X2_5450", "center_wave_A": 5450.0},
+    {"band_id": "X3_6800", "center_wave_A": 6800.0},
+    {"band_id": "X4_10070", "center_wave_A": 10070.0},
+    {"band_id": "X5_15500", "center_wave_A": 15500.0},
+    {"band_id": "X6_20970", "center_wave_A": 20970.0},
+]
+
+CALIBRATION_BANDS_FEROS = [
+    {"band_id": "F1_4100", "center_wave_A": 4100.0},
+    {"band_id": "F2_5320", "center_wave_A": 5320.0},
+    {"band_id": "F3_6328", "center_wave_A": 6328.0},
+    {"band_id": "F4_7800", "center_wave_A": 7800.0},
+    {"band_id": "F5_8800", "center_wave_A": 8800.0},
+]
+
+CALIBRATION_BANDS_HARPS = [
+    {"band_id": "H1_4100", "center_wave_A": 4100.0},
+    {"band_id": "H2_5320", "center_wave_A": 5320.0},
+    {"band_id": "H3_5800", "center_wave_A": 5800.0},
+    {"band_id": "H4_6328", "center_wave_A": 6328.0},
+    {"band_id": "H5_6750", "center_wave_A": 6750.0},
+]
+
+CALIBRATION_BANDS_UVES = [
+    {"band_id": "U1_4100", "center_wave_A": 4100.0},
+    {"band_id": "U2_5320", "center_wave_A": 5320.0},
+    {"band_id": "U3_6800", "center_wave_A": 6800.0},
+    {"band_id": "U4_7800", "center_wave_A": 7800.0},
+    {"band_id": "U5_8800", "center_wave_A": 8800.0},
+]
+
+CALIBRATION_BANDS_CRIRES = [
+    {"band_id": "C1_10070", "center_wave_A": 10070.0},
+    {"band_id": "C2_10700", "center_wave_A": 10700.0},
+    {"band_id": "C3_15500", "center_wave_A": 15500.0},
+    {"band_id": "C4_20970", "center_wave_A": 20970.0},
+]
+
+CALIBRATION_BANDS_GIRAFFE = [
+    {"band_id": "G1_5250", "center_wave_A": 5250.0},
+    {"band_id": "G2_5480", "center_wave_A": 5480.0},
+    {"band_id": "G3_5715", "center_wave_A": 5715.0},
+    {"band_id": "G4_6260", "center_wave_A": 6260.0},
+]
+
+GIRAFFE_EXTRA_BANDS = CALIBRATION_BANDS_GIRAFFE + [
+    {"band_id": "G5_8750", "center_wave_A": 8750.0},
+]
+
+CALIBRATION_BANDS_GRACES = [
+    {"band_id": "R1_4675", "center_wave_A": 4675.8},
+    {"band_id": "R2_5320", "center_wave_A": 5320.5},
+    {"band_id": "R3_6328", "center_wave_A": 6328.2},
+    {"band_id": "R4_8521", "center_wave_A": 8521.1},
+]
+
+CALIBRATION_BANDS_CORALIE = [
+    {"band_id": "L1_4100", "center_wave_A": 4100.0},
+    {"band_id": "L2_5320", "center_wave_A": 5320.5},
+    {"band_id": "L3_5800", "center_wave_A": 5800.0},
+    {"band_id": "L4_6328", "center_wave_A": 6328.2},
+]
+
+CALIBRATION_BANDS_CARMENES_VIS = [
+    {"band_id": "M1_5320", "center_wave_A": 5320.5},
+    {"band_id": "M2_6328", "center_wave_A": 6328.2},
+    {"band_id": "M3_8082", "center_wave_A": 8082.0},
+    {"band_id": "M4_8800", "center_wave_A": 8800.0},
+]
+
+CALIBRATION_BANDS_ESPADONS = [
+    {"band_id": "E1_4675", "center_wave_A": 4675.8},
+    {"band_id": "E2_5320", "center_wave_A": 5320.5},
+    {"band_id": "E3_6328", "center_wave_A": 6328.2},
+    {"band_id": "E4_8521", "center_wave_A": 8521.1},
+]
+
+CALIBRATION_BANDS_SOPHIE = [
+    {"band_id": "S1_4244", "center_wave_A": 4244.3},
+    {"band_id": "S2_5320", "center_wave_A": 5320.5},
+    {"band_id": "S3_6328", "center_wave_A": 6328.2},
+]
+
+CALIBRATION_BANDS_ELODIE = [
+    {"band_id": "O1_4244", "center_wave_A": 4244.3},
+    {"band_id": "O2_5320", "center_wave_A": 5320.5},
+    {"band_id": "O3_6328", "center_wave_A": 6328.2},
+]
+
+CALIBRATION_BANDS_NIRSPEC = [
+    {"band_id": "N1_33200", "center_wave_A": 33200.0},
+    {"band_id": "N2_34400", "center_wave_A": 34400.0},
+    {"band_id": "N3_45000", "center_wave_A": 45000.0},
+    {"band_id": "N4_47250", "center_wave_A": 47250.0},
+]
+
+CALIBRATION_BANDS_MIRI = [
+    {"band_id": "M1_78000", "center_wave_A": 78000.0},
+    {"band_id": "M2_89600", "center_wave_A": 89600.0},
+    {"band_id": "M3_105500", "center_wave_A": 105500.0},
+    {"band_id": "M4_110200", "center_wave_A": 110200.0},
+]
+
+COMB_V4_1_WINDOWS_A: dict[str, list[dict[str, Any]]] = {
+    "ESO_XSHOOTER_3ARM": [
+        {"band": "XSH_UVB", "lo_a": 3200.0, "hi_a": 5300.0},
+        {"band": "XSH_VIS", "lo_a": 5600.0, "hi_a": 9850.0},
+        {"band": "XSH_NIR", "lo_a": 10250.0, "hi_a": 23500.0},
+    ],
+    "ESO_FEROS": [
+        {"band": "FEROS_BLUE", "lo_a": 3800.0, "hi_a": 5800.0},
+        {"band": "FEROS_RED", "lo_a": 6000.0, "hi_a": 9050.0},
+    ],
+    "ESO_HARPS": [
+        {"band": "HARPS_BLUE", "lo_a": 3820.0, "hi_a": 5280.0},
+        {"band": "HARPS_RED", "lo_a": 5380.0, "hi_a": 6840.0},
+    ],
+    "ESO_UVES": [
+        {"band": "UVES_BLUE", "lo_a": 3800.0, "hi_a": 4980.0},
+        {"band": "UVES_REDL", "lo_a": 5800.0, "hi_a": 7400.0},
+        {"band": "UVES_REDU", "lo_a": 7700.0, "hi_a": 9800.0},
+    ],
+    "ESO_CRIRES": [
+        {"band": "CRIRES_Y", "lo_a": 9550.0, "hi_a": 11150.0},
+        {"band": "CRIRES_J", "lo_a": 11500.0, "hi_a": 13350.0},
+        {"band": "CRIRES_H", "lo_a": 14800.0, "hi_a": 17800.0},
+        {"band": "CRIRES_K", "lo_a": 19600.0, "hi_a": 24500.0},
+    ],
+    "ESO_GIRAFFE_HR": [
+        {"band": "GIRAFFE_HR09B", "lo_a": 5145.0, "hi_a": 5350.0},
+        {"band": "GIRAFFE_HR10", "lo_a": 5340.0, "hi_a": 5610.0},
+        {"band": "GIRAFFE_HR11", "lo_a": 5600.0, "hi_a": 5830.0},
+        {"band": "GIRAFFE_HR13", "lo_a": 6120.0, "hi_a": 6395.0},
+        {"band": "GIRAFFE_HR21", "lo_a": 8490.0, "hi_a": 8985.0},
+    ],
+    "GEMINI_GRACES": [
+        {"band": "GRACES_OPT", "lo_a": 5150.0, "hi_a": 5550.0},
+        {"band": "GRACES_RED", "lo_a": 6050.0, "hi_a": 6450.0},
+        {"band": "GRACES_FARRED", "lo_a": 8550.0, "hi_a": 8850.0},
+    ],
+    "ESO_CORALIE": [
+        {"band": "CORALIE_BLUE", "lo_a": 4050.0, "hi_a": 5450.0},
+        {"band": "CORALIE_RED", "lo_a": 5650.0, "hi_a": 6840.0},
+    ],
+    "CARMENES_VIS": [
+        {"band": "CARM_GREEN", "lo_a": 5400.0, "hi_a": 5860.0},
+        {"band": "CARM_RED", "lo_a": 5940.0, "hi_a": 6840.0},
+        {"band": "CARM_FARRED", "lo_a": 7860.0, "hi_a": 8850.0},
+    ],
+    "CFHT_ESPADONS": [
+        {"band": "ESPADONS_OPT", "lo_a": 5150.0, "hi_a": 5550.0},
+        {"band": "ESPADONS_FARRED", "lo_a": 8550.0, "hi_a": 8820.0},
+    ],
+    "OHP_SOPHIE": [
+        {"band": "SOPHIE_BLUE", "lo_a": 4450.0, "hi_a": 4750.0},
+        {"band": "SOPHIE_RED", "lo_a": 6050.0, "hi_a": 6450.0},
+    ],
+    "OHP_ELODIE": [
+        {"band": "ELODIE_BLUE", "lo_a": 4450.0, "hi_a": 4750.0},
+        {"band": "ELODIE_RED", "lo_a": 6050.0, "hi_a": 6450.0},
+    ],
+}
+
+# ---------------------------------------------------------------------------
+# Prospectively Locked Detector Configuration
+# ---------------------------------------------------------------------------
+
+BASE_V4_2_CONFIG: dict[str, Any] = {
+    "detector_name": DETECTOR_NAME,
+    "instrument": "ESO_FEROS",
+    "resolving_power": 48000.0,
+    "sigma_v_kms": C_KMS / (48000.0 * FWHM_FACTOR),
+    "wave_range_a": (3527.0, 9216.0),
+    "coadd_rest_min_angstrom": 3527.0,
+    "coadd_rest_max_angstrom": 9216.0,
+    "coadd_step_angstrom": 0.03,
+    "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+    # Step 1: Optical/NIR RV anchors
+    "rv_anchor_window_kms": 280.0,
+    "rv_anchor_fwhm_kms": 16.0,
+    "rv_anchor_scan_half_kms": 150.0,
+    "rv_anchor_scan_step_kms": 1.0,
+    "rv_anchor_min_snr": 3.8,
+    # Step 2: Continuum & overlap-aware KNN
+    "continuum_block_bins": 60,
+    "continuum_median_blocks": 5,
+    "continuum_quantile": 0.72,
+    "continuum_quantile_blue": 0.75,
+    "continuum_blue_cutoff_angstrom": 4500.0,
+    "knn_atlas_neighbors": 4,
+    "knn_teff_scale_k": 1500.0,
+    "knn_mh_scale_dex": 0.50,
+    "knn_min_wave_overlap_frac": 0.55,
+    # Step 3: Matched LSF scan (annuli in velocity sigma units)
+    "fit_phases_bins": [-0.35, -0.15, 0.0, 0.15, 0.35],
+    "core_sigma_mult": 2.8,
+    "mid_inner_sigma_mult": 4.0,
+    "mid_outer_sigma_mult": 16.0,
+    "outer_inner_sigma_mult": 6.0,
+    "outer_outer_sigma_mult": 22.0,
+    "supraphotospheric_min_fn_pk3": 1.01,
+    "scan_seed_sigma_mult": 4.2,
+    "scan_nms_min_sep_bins": 18,
+    "channel_t_snr_mid_min": 6.5,
+    "channel_t_snr_outer_min": 6.0,
+    "channel_t_amp_ratio_min": 0.70,
+    "channel_t_amp_ratio_max": 1.45,
+    "channel_t_cosine_min": 0.78,
+    "channel_t_fwhm_ratio_min": 0.50,
+    "channel_t_fwhm_ratio_max": 1.65,
+    "channel_p_snr_mid_min": 6.5,
+    "channel_p_snr_outer_min": 6.0,
+    "channel_p_amp_ratio_min": 0.70,
+    "channel_p_amp_ratio_max": 1.45,
+    "channel_p_cosine_min": 0.78,
+    "channel_p_fwhm_ratio_min": 0.50,
+    "channel_p_fwhm_ratio_max": 1.65,
+    "channel_tdiff_snr_mid_min": 6.0,
+    "channel_tdiff_snr_outer_min": 5.5,
+    "channel_tdiff_amp_ratio_min": 0.70,
+    "channel_tdiff_amp_ratio_max": 1.45,
+    "channel_tdiff_cosine_min": 0.75,
+    "channel_tdiff_fwhm_ratio_min": 0.50,
+    "channel_tdiff_fwhm_ratio_max": 1.65,
+    "channel_tdiff_min_in_exp_snr": 3.5,
+    "channel_tdiff_min_in_exp_fraction": 0.50,
+    "channel_kplanet_snr_mid_min": 6.0,
+    "channel_kplanet_snr_outer_min": 5.5,
+    "channel_kplanet_amp_ratio_min": 0.70,
+    "channel_kplanet_amp_ratio_max": 1.45,
+    "channel_kplanet_cosine_min": 0.75,
+    "channel_kplanet_fwhm_ratio_min": 0.50,
+    "channel_kplanet_fwhm_ratio_max": 1.65,
+    "channel_kplanet_min_in_exp_snr": 3.5,
+    "channel_kplanet_min_in_exp_fraction": 0.50,
+    # Step 4: V4.2 Physics Vetting Gates (G2_V42, G3_V42, G4_V42, G5, G6)
+    "g4_min_continuum_snr": 1.2,
+    "g4_max_template_dip_frac": 0.35,
+    "xshooter_dual_min_snr": 4.0,
+    "g5_min_native_snr": 4.0,
+    "g5_eta_1px_max": 0.74,
+    "g5_min_wing_ratio": 0.14,
+    "g5_ipc_hotpx_ratio_max": 2.20,
+    "g5_far_wing_34_max": 0.42,
+    "g5_cos_1d_11px_min": 0.72,
+    "g6_topo_tol_kms": 6.0,
+    "g6_px_tol": 1.0,
+    "g6_min_berv_shift_kms": 4.0,
+    "g6_min_diff_stars": 2,
+    # Step 5: COMB_V4_1
+    "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+    "comb_step_ghz": 2.5,
+    "comb_n_teeth": 6,
+    "comb_tooth_snr_min": 2.2,
+    "comb_sum_snr_min": 20.5,
+    "comb_min_qualifying_teeth": 5,
+    "comb_max_off_tooth_crowding": 0.38,
+    "comb_min_intertooth_ratio": 1.85,
+    "comb_min_topo_anti_ratio": 1.08,
+    "comb_min_fn_pk3": 1.005,
+    "comb_search_bands": ["FEROS_BLUE", "FEROS_RED"],
+    # V5.0 Unsupervised RPCA + Rarity + Agnostic + MIRI Greenhouse CCF
+    "rpca_block_len": 2048,
+    "rpca_overlap": 128,
+    "rpca_loso_rank": 8,
+    "g7_min_z_rpca": 6.0,
+    "g7_min_rarity_score": 0.65,
+    "agnostic_scales_lsf": (2.0, 4.0, 8.0, 14.0),
+    "agnostic_min_abs_z": 7.5,
+    "agnostic_min_rarity_score": 0.70,
+    "miri_ccf_min_sigma": 5.0,
+    "miri_ccf_min_confounder_ratio": 1.5,
+    "drift_v51_n_offsets": 41,
+    "drift_v51_min_abs_dv_kms": 5.0,
+    "drift_v51_max_abs_dv_kms": 250.0,
+    "drift_v51_stat_veto_dv_kms": 3.0,
+    "drift_v51_stat_max_z": 4.0,
+    "drift_v51_epoch_min_z": 5.0,
+    "drift_v51_comb_min_z": 7.5,
+    "g8_patch_half_px": 8,
+    "g8_pca_dim": 8,
+    "g8_knn_k": 7,
+    "g8_min_novelty_z": 3.5,
+    "nirspec_edge_trim_um": 0.06,
+    "nirspec_ccf_min_sigma": 5.0,
+    "nirspec_ccf_min_confounder_ratio": 1.5,
+}
+
+BASE_V5_0_CONFIG = BASE_V4_2_CONFIG
+BASE_V5_1_CONFIG = BASE_V4_2_CONFIG
+
+
+def effective_resolving_power(cfg: dict[str, Any], wave_a: float) -> float:
+    """Return local resolving power R(lambda); captures X-shooter UVB/VIS/NIR arms."""
+    if cfg.get("instrument") == "ESO_XSHOOTER_3ARM" and math.isfinite(float(wave_a)) and float(wave_a) > 0.0:
+        wa = float(wave_a)
+        if wa < 5350.0:
+            return 9860.0
+        if wa <= 10050.0:
+            return 18340.0
+        return 11420.0
+    if cfg.get("instrument") == "ESO_GIRAFFE_HR" and math.isfinite(float(wave_a)) and float(wave_a) > 0.0:
+        wa = float(wave_a)
+        if wa >= 8400.0:
+            return 18000.0
+        if wa >= 6050.0:
+            return 24000.0
+        if wa >= 5580.0:
+            return 27000.0
+        if wa >= 5340.0:
+            return 20000.0
+        return 29000.0
+    return float(cfg.get("resolving_power", 48000.0))
+
+
+def _scan_margin_bins(wave_a: float, cfg: dict[str, Any], min_bins: int = 45, max_bins: int = 340) -> int:
+    step_a = float(cfg["coadd_step_angstrom"])
+    r_eff = effective_resolving_power(cfg, wave_a)
+    sig_a = float(wave_a) / (r_eff * FWHM_FACTOR)
+    m = int(math.ceil(15.0 * sig_a / max(1e-6, step_a)))
+    return int(max(min_bins, min(max_bins, m)))
+
+
+def get_inst_config(instrument: str, resolving_power: float | None = None) -> dict[str, Any]:
+    cfg = dict(BASE_V5_0_CONFIG)
+    cfg["instrument"] = instrument
+    if instrument == "ESO_XSHOOTER_3ARM":
+        r_val = float(resolving_power) if resolving_power is not None else 18340.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (2989.0, 24790.0),
+            "coadd_rest_min_angstrom": 2990.0,
+            "coadd_rest_max_angstrom": 24780.0,
+            "coadd_step_angstrom": 0.25,
+            "rv_anchor_fwhm_kms": 22.0,
+            "scan_nms_min_sep_bins": 16,
+            "radiometric_anchor": "ESO_XSHOOTER_DIRECT_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_XSHOOTER,
+            "comb_spacings_ghz": [40.0, 60.0, 90.0, 130.0],
+            "comb_step_ghz": 4.0,
+            "comb_search_bands": ["XSH_UVB", "XSH_VIS", "XSH_NIR"],
+            "g6_topo_tol_kms": 12.0,
+        })
+    elif instrument == "ESO_GIRAFFE_HR":
+        r_val = float(resolving_power) if resolving_power is not None else 26000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (5139.0, 8994.0),
+            "coadd_rest_min_angstrom": 5139.0,
+            "coadd_rest_max_angstrom": 8994.0,
+            "coadd_step_angstrom": 0.05,
+            "rv_anchor_fwhm_kms": 14.0,
+            "scan_nms_min_sep_bins": 18,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [30.0, 50.0, 80.0, 120.0],
+            "comb_step_ghz": 3.0,
+            "comb_search_bands": ["GIRAFFE_HR09B", "GIRAFFE_HR10", "GIRAFFE_HR11", "GIRAFFE_HR13", "GIRAFFE_HR21"],
+            "g6_topo_tol_kms": 8.0,
+        })
+    elif instrument == "ESO_HARPS":
+        r_val = float(resolving_power) if resolving_power is not None else 115000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3780.0, 6915.0),
+            "coadd_rest_min_angstrom": 3780.0,
+            "coadd_rest_max_angstrom": 6915.0,
+            "coadd_step_angstrom": 0.02,
+            "rv_anchor_fwhm_kms": 8.0,
+            "scan_nms_min_sep_bins": 22,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["HARPS_BLUE", "HARPS_RED"],
+            "g6_topo_tol_kms": 4.0,
+        })
+    elif instrument == "ESO_UVES":
+        r_val = float(resolving_power) if resolving_power is not None else 51690.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3280.0, 10260.0),
+            "coadd_rest_min_angstrom": 3280.0,
+            "coadd_rest_max_angstrom": 10260.0,
+            "coadd_step_angstrom": 0.03,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_XSHOOTER,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["UVES_BLUE", "UVES_REDL", "UVES_REDU"],
+            "g6_topo_tol_kms": 6.0,
+        })
+    elif instrument == "ESO_CRIRES":
+        r_val = float(resolving_power) if resolving_power is not None else 86000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (9450.0, 25000.0),
+            "coadd_rest_min_angstrom": 9450.0,
+            "coadd_rest_max_angstrom": 25000.0,
+            "coadd_step_angstrom": 0.05,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_XSHOOTER,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["CRIRES_Y", "CRIRES_J", "CRIRES_H", "CRIRES_K"],
+            "g6_topo_tol_kms": 5.0,
+        })
+    elif instrument == "GEMINI_GRACES":
+        r_val = float(resolving_power) if resolving_power is not None else 67500.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (4000.0, 10000.0),
+            "coadd_rest_min_angstrom": 4000.0,
+            "coadd_rest_max_angstrom": 10000.0,
+            "coadd_step_angstrom": 0.03,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["GRACES_OPT", "GRACES_RED", "GRACES_FARRED"],
+            "g6_topo_tol_kms": 5.0,
+        })
+    elif instrument == "ESO_CORALIE":
+        r_val = float(resolving_power) if resolving_power is not None else 60000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3860.0, 6905.0),
+            "coadd_rest_min_angstrom": 3860.0,
+            "coadd_rest_max_angstrom": 6905.0,
+            "coadd_step_angstrom": 0.025,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["CORALIE_BLUE", "CORALIE_RED"],
+            "g6_topo_tol_kms": 5.0,
+        })
+    elif instrument == "CARMENES_VIS":
+        r_val = float(resolving_power) if resolving_power is not None else 94600.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (5200.0, 9600.0),
+            "coadd_rest_min_angstrom": 5210.0,
+            "coadd_rest_max_angstrom": 9580.0,
+            "coadd_step_angstrom": 0.02,
+            "rv_anchor_fwhm_kms": 8.0,
+            "scan_nms_min_sep_bins": 22,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["CARM_GREEN", "CARM_RED", "CARM_FARRED"],
+            "g6_topo_tol_kms": 4.5,
+        })
+    elif instrument == "CFHT_ESPADONS":
+        r_val = float(resolving_power) if resolving_power is not None else 68000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3700.0, 10480.0),
+            "coadd_rest_min_angstrom": 3700.0,
+            "coadd_rest_max_angstrom": 10480.0,
+            "coadd_step_angstrom": 0.03,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["ESPADONS_OPT", "ESPADONS_FARRED"],
+            "g6_topo_tol_kms": 5.0,
+        })
+    elif instrument == "OHP_SOPHIE":
+        r_val = float(resolving_power) if resolving_power is not None else 75000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3870.0, 6940.0),
+            "coadd_rest_min_angstrom": 3870.0,
+            "coadd_rest_max_angstrom": 6940.0,
+            "coadd_step_angstrom": 0.02,
+            "rv_anchor_fwhm_kms": 9.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["SOPHIE_BLUE", "SOPHIE_RED"],
+            "g6_topo_tol_kms": 5.0,
+        })
+    elif instrument == "OHP_ELODIE":
+        r_val = float(resolving_power) if resolving_power is not None else 42000.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3890.0, 6815.0),
+            "coadd_rest_min_angstrom": 3890.0,
+            "coadd_rest_max_angstrom": 6815.0,
+            "coadd_step_angstrom": 0.03,
+            "rv_anchor_fwhm_kms": 12.0,
+            "scan_nms_min_sep_bins": 18,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["ELODIE_BLUE", "ELODIE_RED"],
+            "g6_topo_tol_kms": 7.0,
+        })
+    elif instrument == "JWST_NIRSPEC_G395H":
+        r_val = float(resolving_power) if resolving_power is not None else 2700.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (28620.0, 51790.0),
+            "coadd_rest_min_angstrom": 28620.0,
+            "coadd_rest_max_angstrom": 51790.0,
+            "coadd_step_angstrom": 5.0,
+            "rv_anchor_fwhm_kms": 110.0,
+            "scan_nms_min_sep_bins": 14,
+            "radiometric_anchor": "JWST_NIRSPEC_DIRECT_CGS",
+            "rv_anchors": [],
+            "comb_search_bands": [],
+            "g6_topo_tol_kms": 35.0,
+        })
+    elif instrument == "JWST_MIRI_MRS":
+        r_val = float(resolving_power) if resolving_power is not None else 2500.0
+        cfg.update({
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (49000.0, 286300.0),
+            "coadd_rest_min_angstrom": 49000.0,
+            "coadd_rest_max_angstrom": 286300.0,
+            "coadd_step_angstrom": 8.0,
+            "rv_anchor_fwhm_kms": 120.0,
+            "scan_nms_min_sep_bins": 14,
+            "radiometric_anchor": "JWST_MIRI_DIRECT_CGS",
+            "rv_anchors": [],
+            "comb_search_bands": [],
+            "g6_topo_tol_kms": 35.0,
+        })
+    else:
+        r_val = float(resolving_power) if resolving_power is not None else 48000.0
+        cfg.update({
+            "instrument": "ESO_FEROS",
+            "resolving_power": r_val,
+            "sigma_v_kms": C_KMS / (r_val * FWHM_FACTOR),
+            "wave_range_a": (3527.0, 9216.0),
+            "coadd_rest_min_angstrom": 3527.0,
+            "coadd_rest_max_angstrom": 9216.0,
+            "coadd_step_angstrom": 0.03,
+            "rv_anchor_fwhm_kms": 10.0,
+            "scan_nms_min_sep_bins": 20,
+            "radiometric_anchor": "GAIA_G_PLANCK_CGS",
+            "rv_anchors": LOCKED_RV_ANCHORS_OPTICAL,
+            "comb_spacings_ghz": [25.0, 40.0, 65.0, 100.0],
+            "comb_step_ghz": 2.5,
+            "comb_search_bands": ["FEROS_BLUE", "FEROS_RED"],
+            "g6_topo_tol_kms": 6.0,
+        })
+    return cfg
+
+
+def get_calibration_bands(instrument: str) -> list[dict[str, Any]]:
+    if instrument == "ESO_XSHOOTER_3ARM":
+        return list(CALIBRATION_BANDS_XSHOOTER)
+    if instrument == "ESO_GIRAFFE_HR":
+        return list(CALIBRATION_BANDS_GIRAFFE)
+    if instrument == "ESO_HARPS":
+        return list(CALIBRATION_BANDS_HARPS)
+    if instrument == "ESO_UVES":
+        return list(CALIBRATION_BANDS_UVES)
+    if instrument == "ESO_CRIRES":
+        return list(CALIBRATION_BANDS_CRIRES)
+    if instrument == "GEMINI_GRACES":
+        return list(CALIBRATION_BANDS_GRACES)
+    if instrument == "ESO_CORALIE":
+        return list(CALIBRATION_BANDS_CORALIE)
+    if instrument == "CARMENES_VIS":
+        return list(CALIBRATION_BANDS_CARMENES_VIS)
+    if instrument == "CFHT_ESPADONS":
+        return list(CALIBRATION_BANDS_ESPADONS)
+    if instrument == "OHP_SOPHIE":
+        return list(CALIBRATION_BANDS_SOPHIE)
+    if instrument == "OHP_ELODIE":
+        return list(CALIBRATION_BANDS_ELODIE)
+    if instrument == "JWST_NIRSPEC_G395H":
+        return list(CALIBRATION_BANDS_NIRSPEC)
+    if instrument == "JWST_MIRI_MRS":
+        return list(CALIBRATION_BANDS_MIRI)
+    return list(CALIBRATION_BANDS_FEROS)
+
+
+def resolve_band_radiometric_anchor(instrument: str) -> str:
+    return str(get_inst_config(instrument)["radiometric_anchor"])
+
+
+def gaia_g_planck_flam_cgs(wave_a: float, phot_g_mag: float, teff_k: float) -> float:
+    """Closed-form Gaia G Planck extrapolation in erg s^-1 cm^-2 A^-1."""
+    lam_w = float(wave_a) * 1e-10
+    lam_g = GAIA_G_EFF_WAVE_A * 1e-10
+    teff = max(1200.0, float(teff_k))
+    xw = min(700.0, (H_PLANCK * C_SI) / (lam_w * K_BOLTZ * teff))
+    xg = min(700.0, (H_PLANCK * C_SI) / (lam_g * K_BOLTZ * teff))
+    bw = (2.0 * H_PLANCK * C_SI * C_SI) / ((lam_w ** 5) * math.expm1(xw))
+    bg = (2.0 * H_PLANCK * C_SI * C_SI) / ((lam_g ** 5) * math.expm1(xg))
+    fg = GAIA_G_FLAM0_CGS * (10.0 ** (-0.4 * float(phot_g_mag)))
+    return float(fg * (bw / max(1e-30, bg)))
+
+
+# ---------------------------------------------------------------------------
+# Pure-Stdlib Earth Heliocentric Ephemeris
+# ---------------------------------------------------------------------------
+
+def _earth_sun_state_equatorial(mjd_mid: float) -> tuple[float, float, float, float, float, float]:
+    """Return Earth's heliocentric equatorial position (AU) and velocity (km/s)."""
+    n = float(mjd_mid) - 51544.5
+    L = math.radians((280.460 + 0.9856474 * n) % 360.0)
+    g = math.radians((357.528 + 0.9856003 * n) % 360.0)
+    lam_sun = L + math.radians(1.915) * math.sin(g) + math.radians(0.020) * math.sin(2.0 * g)
+    r_au = 1.00014 - 0.01671 * math.cos(g) - 0.00014 * math.cos(2.0 * g)
+    eps = math.radians(23.439 - 0.0000004 * n)
+
+    c_eps = math.cos(eps)
+    s_eps = math.sin(eps)
+    s_lam = math.sin(lam_sun)
+    c_lam = math.cos(lam_sun)
+
+    ex = -r_au * c_lam
+    ey = -r_au * c_eps * s_lam
+    ez = -r_au * s_eps * s_lam
+
+    g_dot = math.radians(0.9856003)
+    d_lam = math.radians(0.9856474) + (math.radians(1.915) * math.cos(g) + 2.0 * math.radians(0.020) * math.cos(2.0 * g)) * g_dot
+    d_r = (0.01671 * math.sin(g) + 0.00028 * math.sin(2.0 * g)) * g_dot
+    au_per_day_to_kms = AU_M / (DAY_S * 1000.0)
+
+    vx = -(d_r * c_lam - r_au * s_lam * d_lam) * au_per_day_to_kms
+    vy = -c_eps * (d_r * s_lam + r_au * c_lam * d_lam) * au_per_day_to_kms
+    vz = -s_eps * (d_r * s_lam + r_au * c_lam * d_lam) * au_per_day_to_kms
+    return ex, ey, ez, vx, vy, vz
+
+
+def stdlib_earth_helio_rv_kms(ra_deg: float, dec_deg: float, mjd_mid: float) -> float:
+    _, _, _, vx, vy, vz = _earth_sun_state_equatorial(mjd_mid)
+    ra_r = math.radians(float(ra_deg))
+    dec_r = math.radians(float(dec_deg))
+    ux = math.cos(dec_r) * math.cos(ra_r)
+    uy = math.cos(dec_r) * math.sin(ra_r)
+    uz = math.sin(dec_r)
+    return float(vx * ux + vy * uy + vz * uz)
+
+
+# ---------------------------------------------------------------------------
+# Pure Array & Orbital Helpers
+# ---------------------------------------------------------------------------
+
+def exact_median_1d(arr: np.ndarray) -> float:
+    s = np.sort(np.asarray(arr, dtype=np.float64))
+    n = len(s)
+    if n == 0:
+        return float("nan")
+    m = n // 2
+    return float(s[m]) if (n % 2 == 1) else float(0.5 * (s[m - 1] + s[m]))
+
+
+def exact_mad_1d(arr: np.ndarray) -> float:
+    a = np.asarray(arr, dtype=np.float64)
+    if len(a) == 0:
+        return float("nan")
+    med = exact_median_1d(a)
+    return float(MAD_NORM * exact_median_1d(np.abs(a - med)))
+
+
+def exact_quantile_1d(arr: np.ndarray, q: float) -> float:
+    s = np.sort(np.asarray(arr, dtype=np.float64))
+    n = len(s)
+    if n == 0:
+        return float("nan")
+    if n == 1:
+        return float(s[0])
+    pos = float(q) * (n - 1)
+    lo = int(math.floor(pos))
+    hi = min(n - 1, lo + 1)
+    frac = pos - lo
+    return float(s[lo] + frac * (s[hi] - s[lo]))
+
+
+def compute_keplerian_kp_kms(st_mass_msun: float, orbper_days: float, ecc: float = 0.0) -> float:
+    v_circ = ((2.0 * math.pi * G_SI * float(st_mass_msun) * M_SUN_KG) / (float(orbper_days) * DAY_S)) ** (1.0 / 3.0)
+    return float((v_circ / math.sqrt(max(1e-6, 1.0 - float(ecc) ** 2))) / 1000.0)
+
+
+def compute_planet_orbital_rv_kms(bjd_mid: float, t0_bjd: float, orbper_days: float, kp_kms: float) -> tuple[float, float]:
+    raw_phi = (float(bjd_mid) - float(t0_bjd)) / float(orbper_days)
+    phi_signed = raw_phi - round(raw_phi)
+    return float(phi_signed), float(kp_kms * math.sin(2.0 * math.pi * phi_signed))
+
+
+def planet_rest_to_bary_wave(wave_planet_a: float | np.ndarray, v_star_kms: float, dv_orb_kms: float) -> float | np.ndarray:
+    return wave_planet_a * (1.0 + float(v_star_kms) / C_KMS) * (1.0 + float(dv_orb_kms) / C_KMS)
+
+
+def bary_to_planet_rest_wave(wave_bary_a: float | np.ndarray, v_star_kms: float, dv_orb_kms: float) -> float | np.ndarray:
+    return wave_bary_a / ((1.0 + float(v_star_kms) / C_KMS) * (1.0 + float(dv_orb_kms) / C_KMS))
+
+
+# ---------------------------------------------------------------------------
+# Step 1: Optical/NIR RV Anchoring
+# ---------------------------------------------------------------------------
+
+def extract_rv_anchor_window(
+    wave: np.ndarray,
+    flux: np.ndarray,
+    lab_wave_a: float,
+    prior_rv_kms: float,
+    cfg: dict[str, Any] = BASE_V4_2_CONFIG,
+) -> tuple[np.ndarray, np.ndarray]:
+    dv = C_KMS * (wave - lab_wave_a) / lab_wave_a
+    win_kms = float(cfg["rv_anchor_window_kms"])
+    mask = np.abs(dv - prior_rv_kms) <= win_kms
+    return wave[mask].copy(), flux[mask].copy()
+
+
+def fit_rv_anchor_absorption(
+    wave_win: np.ndarray,
+    flux_win: np.ndarray,
+    lab_wave_a: float,
+    prior_rv_kms: float,
+    cfg: dict[str, Any] = BASE_V4_2_CONFIG,
+) -> dict[str, Any]:
+    w = np.asarray(wave_win, dtype=np.float64)
+    f = np.asarray(flux_win, dtype=np.float64)
+    valid = np.isfinite(w) & np.isfinite(f)
+    w, f = w[valid], f[valid]
+    if len(w) < 8:
+        return {
+            "status": "INSUFFICIENT_SAMPLES",
+            "n_samples": int(len(w)),
+            "best_rv_kms": float("nan"),
+            "rel_depth": float("nan"),
+            "min_sse": float("nan"),
+            "boundary_hit": True,
+        }
+
+    dv = C_KMS * (w - lab_wave_a) / lab_wave_a
+    win_kms = float(cfg["rv_anchor_window_kms"])
+    u = (dv - prior_rv_kms) / max(1.0, win_kms)
+    fwhm_p = max(float(cfg["rv_anchor_fwhm_kms"]), C_KMS / effective_resolving_power(cfg, lab_wave_a))
+    sigma_phot = fwhm_p / FWHM_FACTOR
+    half = float(cfg["rv_anchor_scan_half_kms"])
+    step = float(cfg["rv_anchor_scan_step_kms"])
+    n_grid = int(round(2.0 * half / step)) + 1
+    grid = prior_rv_kms - half + step * np.arange(n_grid, dtype=np.float64)
+    ones = np.ones_like(u)
+    sses = np.full(n_grid, np.inf, dtype=np.float64)
+    snrs = np.zeros(n_grid, dtype=np.float64)
+
+    for idx, v_try in enumerate(grid):
+        prof = np.exp(-0.5 * ((dv - v_try) / sigma_phot) ** 2)
+        X = np.column_stack([ones, u, prof])
+        try:
+            beta = np.linalg.solve(X.T @ X, X.T @ f)
+        except np.linalg.LinAlgError:
+            continue
+        amp = float(beta[2])
+        resid = f - (X @ beta)
+        sse = float(resid @ resid)
+        sb_mask = np.abs(dv - v_try) >= 1.8 * sigma_phot
+        sb_mad = max(1e-30, exact_mad_1d(resid[sb_mask]) if int(np.sum(sb_mask)) >= 5 else exact_mad_1d(resid))
+        sses[idx] = sse
+        snrs[idx] = abs(amp) / sb_mad
+
+    best_idx = int(np.argmin(sses))
+    boundary_hit = (best_idx == 0) or (best_idx == n_grid - 1)
+    best_v = float(grid[best_idx])
+    if not boundary_hit:
+        y_m, y_0, y_p = float(sses[best_idx - 1]), float(sses[best_idx]), float(sses[best_idx + 1])
+        denom = y_m - 2.0 * y_0 + y_p
+        if denom > 1e-30:
+            delta = max(-0.5, min(0.5, 0.5 * (y_m - y_p) / denom))
+            best_v = float(grid[best_idx] + delta * step)
+
+    metric = float(snrs[best_idx])
+    clean = (not boundary_hit) and (metric >= float(cfg["rv_anchor_min_snr"]))
+    return {
+        "status": "CLEAN_ABSORPTION" if clean else ("BOUNDARY_HIT" if boundary_hit else "SHALLOW_OR_BLENDED"),
+        "n_samples": int(len(w)),
+        "best_rv_kms": best_v,
+        "rel_depth": float(metric),
+        "min_sse": float(sses[best_idx]),
+        "boundary_hit": bool(boundary_hit),
+    }
+
+
+def measure_exposure_stellar_rv(
+    wave: np.ndarray,
+    flux: np.ndarray,
+    prior_rv_kms: float,
+    cfg: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, dict[str, list[float]]]]:
+    anchors = cfg.get("rv_anchors", LOCKED_RV_ANCHORS_OPTICAL)
+    anchor_rows: list[dict[str, Any]] = []
+    bundle: dict[str, dict[str, list[float]]] = {}
+    clean_rvs: list[float] = []
+    fin_nz = np.isfinite(flux) & (flux != 0)
+    med_abs = float(np.nanmedian(np.abs(flux[fin_nz]))) if np.any(fin_nz) else 1e-17
+    scale_anc = 1.0 / max(1e-26, med_abs)
+    for anc in anchors:
+        aid = anc["anchor_id"]
+        lab_a = float(anc["lab_wave_A"])
+        w_win, f_win = extract_rv_anchor_window(wave, flux * scale_anc, lab_a, prior_rv_kms, cfg)
+        res = fit_rv_anchor_absorption(w_win, f_win, lab_a, prior_rv_kms, cfg)
+        anchor_rows.append({
+            "anchor_id": aid,
+            "species": anc["species"],
+            "lab_wave_A": lab_a,
+            "status": res["status"],
+            "n_samples": res["n_samples"],
+            "best_rv_kms": res["best_rv_kms"],
+            "rel_depth": res["rel_depth"],
+            "min_sse": res["min_sse"],
+        })
+        bundle[aid] = {"wave_a": [round(float(x), 4) for x in w_win], "flux": [round(float(y), 4) for y in f_win]}
+        if res["status"] == "CLEAN_ABSORPTION":
+            clean_rvs.append(float(res["best_rv_kms"]))
+
+    if clean_rvs:
+        emp_rv = exact_median_1d(np.asarray(clean_rvs, dtype=np.float64))
+        emp_mad = exact_mad_1d(np.asarray(clean_rvs, dtype=np.float64)) if len(clean_rvs) >= 2 else 0.0
+    else:
+        emp_rv = float(prior_rv_kms)
+        emp_mad = 0.0
+
+    summary = {
+        "empirical_rv_kms": float(emp_rv),
+        "anchor_mad_kms": float(emp_mad),
+        "n_clean_anchors": len(clean_rvs),
+        "used_fallback_prior_rv": len(clean_rvs) == 0,
+    }
+    return summary, anchor_rows, bundle
+
+
+# ---------------------------------------------------------------------------
+# Step 2: Running Continuum & Overlap-Aware KNN Templates
+# ---------------------------------------------------------------------------
+
+def compute_running_continuum(
+    wave: np.ndarray,
+    flux: np.ndarray,
+    cfg: dict[str, Any] = BASE_V4_2_CONFIG,
+    err: np.ndarray | None = None,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return (raw_continuum, strictly_positive_effective_scale)."""
+    w = np.asarray(wave, dtype=np.float64)
+    f = np.asarray(flux, dtype=np.float64)
+    n = len(f)
+    blk = int(cfg["continuum_block_bins"])
+    m = (n + blk - 1) // blk
+    bx = np.empty(m, dtype=np.float64)
+    by_raw = np.empty(m, dtype=np.float64)
+    by_eff = np.empty(m, dtype=np.float64)
+    q_blue = float(cfg["continuum_quantile_blue"])
+    q_red = float(cfg["continuum_quantile"])
+    blue_cut = float(cfg["continuum_blue_cutoff_angstrom"])
+
+    e_arr = np.asarray(err, dtype=np.float64) if err is not None else None
+    global_pos = f[np.isfinite(f) & (f > 0.0)]
+    g_floor = 0.25 * exact_quantile_1d(global_pos, 0.70) if len(global_pos) >= 20 else 1e-22
+    if e_arr is not None:
+        e_fin = e_arr[np.isfinite(e_arr) & (e_arr > 0.0)]
+        if len(e_fin) >= 20:
+            g_floor = max(g_floor, 3.0 * exact_median_1d(e_fin))
+    g_floor = max(1e-26, float(g_floor))
+
+    for i in range(m):
+        s, e = i * blk, min(n, (i + 1) * blk)
+        bx[i] = 0.5 * (w[s] + w[e - 1])
+        seg = f[s:e]
+        fin_s = seg[np.isfinite(seg)]
+        q_use = q_blue if bx[i] < blue_cut else q_red
+        if len(fin_s) >= 8:
+            c_q = exact_quantile_1d(fin_s, q_use)
+            c_raw = max(0.0, float(c_q)) if math.isfinite(c_q) else 0.0
+            if e_arr is not None:
+                eseg = e_arr[s:e]
+                ef = eseg[np.isfinite(eseg) & (eseg > 0.0)]
+                efloor = 3.0 * exact_median_1d(ef) if len(ef) >= 4 else g_floor
+            else:
+                efloor = g_floor
+            by_raw[i] = c_raw
+            by_eff[i] = max(c_raw, efloor, g_floor)
+        else:
+            by_raw[i] = float("nan")
+            by_eff[i] = float("nan")
+
+    fin = np.isfinite(by_eff) & (by_eff > 0.0)
+    if int(fin.sum()) < 2:
+        return np.zeros(n, dtype=np.float64), np.full(n, g_floor, dtype=np.float64)
+    iraw = np.interp(bx, bx[fin], np.where(np.isfinite(by_raw[fin]), by_raw[fin], 0.0))
+    ieff = np.interp(bx, bx[fin], by_eff[fin])
+    sm_k = int(cfg["continuum_median_blocks"])
+    c_raw_full = np.interp(w, bx, median_filter(iraw, size=sm_k, mode="nearest"))
+    c_eff_full = np.maximum(g_floor, np.interp(w, bx, median_filter(ieff, size=sm_k, mode="nearest")))
+    return c_raw_full, c_eff_full
+
+
+def fit_optical_depth_and_continuum_gamma(
+    target_flux: np.ndarray,
+    template_flux: np.ndarray,
+    block_size: int = 800,
+) -> tuple[np.ndarray, float, float]:
+    t = np.asarray(target_flux, dtype=np.float64)
+    r = np.asarray(template_flux, dtype=np.float64)
+    fin = np.isfinite(t) & np.isfinite(r) & (t > 0.05) & (r > 0.05) & (t < 1.35) & (r < 1.35)
+    t_clip = np.clip(t, 0.05, 1.35)
+    r_clip = np.clip(r, 0.05, 1.35)
+
+    gammas = [1.0]
+    if int(fin.sum()) >= 50:
+        for s in range(0, len(t), block_size):
+            e = min(len(t), s + block_size)
+            m_b = fin[s:e] & (t[s:e] < 0.92) & (r[s:e] < 0.92)
+            if int(m_b.sum()) >= 25:
+                num = float(np.sum((t_clip[s:e][m_b] - 1.0) * (r_clip[s:e][m_b] - 1.0)))
+                den = float(np.sum((r_clip[s:e][m_b] - 1.0) ** 2))
+                if den > 1e-9:
+                    gammas.append(max(0.55, min(1.80, num / den)))
+    gamma_best = exact_median_1d(np.asarray(gammas, dtype=np.float64))
+    pred = r_clip ** gamma_best
+
+    ratio_blocks = np.ones(max(1, (len(t) + block_size - 1) // block_size), dtype=np.float64)
+    bx = np.zeros(len(ratio_blocks), dtype=np.float64)
+    idx_arr = np.arange(len(t), dtype=np.float64)
+    for b_i in range(len(ratio_blocks)):
+        s, e = b_i * block_size, min(len(t), (b_i + 1) * block_size)
+        bx[b_i] = 0.5 * (s + e - 1)
+        mb = fin[s:e] & (pred[s:e] > 0.25)
+        if int(mb.sum()) >= 20:
+            ratio_blocks[b_i] = max(0.75, min(1.30, exact_median_1d(t[s:e][mb] / pred[s:e][mb])))
+    scale_smooth = np.interp(idx_arr, bx, ratio_blocks)
+    matched = np.where(np.isfinite(pred), scale_smooth * pred, np.nan)
+    resid = np.where(np.isfinite(t) & np.isfinite(matched), t - matched, np.nan)
+    post_mad = exact_mad_1d(resid[np.isfinite(resid)]) if int(np.sum(np.isfinite(resid))) >= 50 else 0.05
+    return matched, float(gamma_best), float(post_mad)
+
+
+def construct_knn_stellar_templates(
+    star_meta: dict[str, dict[str, Any]],
+    star_norm_coadds: dict[str, np.ndarray],
+    cfg: dict[str, Any] = BASE_V4_2_CONFIG,
+) -> tuple[dict[str, np.ndarray], dict[str, dict[str, Any]]]:
+    k_nn = int(cfg["knn_atlas_neighbors"])
+    s_t = float(cfg["knn_teff_scale_k"])
+    s_m = float(cfg["knn_mh_scale_dex"])
+    min_ov = float(cfg["knn_min_wave_overlap_frac"])
+    matched_templates: dict[str, np.ndarray] = {}
+    template_meta: dict[str, dict[str, Any]] = {}
+
+    stars = sorted(star_norm_coadds.keys())
+    fin_by_star = {s: np.isfinite(star_norm_coadds[s]) for s in stars}
+
+    for st in stars:
+        mt = star_meta[st]
+        inst_st = mt["instrument"]
+        ft = fin_by_star[st]
+        n_ft = max(1, int(ft.sum()))
+
+        ov_cands, all_cands = [], []
+        for other in stars:
+            if other == st:
+                continue
+            mo = star_meta[other]
+            if mo["instrument"] != inst_st:
+                continue
+            d2 = ((mt["teff_k"] - mo["teff_k"]) / s_t) ** 2 + ((mt["mh_dex"] - mo["mh_dex"]) / s_m) ** 2
+            ov_frac = int(np.sum(ft & fin_by_star[other])) / n_ft
+            all_cands.append((d2, other))
+            if ov_frac >= min_ov:
+                ov_cands.append((d2, other))
+
+        cands = ov_cands if len(ov_cands) >= 2 else all_cands
+        cands.sort(key=lambda x: (x[0], x[1]))
+        nbrs = cands[: min(k_nn, len(cands))]
+        if not nbrs:
+            matched_templates[st] = np.ones_like(star_norm_coadds[st])
+            template_meta[st] = {"knn_neighbors": "", "optical_depth_gamma": 1.0, "post_match_mad": 0.05}
+            continue
+        weights = [1.0 / (d2 + 0.05) for d2, _ in nbrs]
+        stack = np.vstack([star_norm_coadds[o] for _, o in nbrs])
+        w_arr = np.asarray(weights, dtype=np.float64)[:, None]
+        fin_m = np.isfinite(stack)
+        num = np.sum(np.where(fin_m, stack, 0.0) * w_arr, axis=0)
+        den = np.sum(np.where(fin_m, w_arr, 0.0), axis=0)
+        raw_t = np.where(den > 0.0, num / np.where(den > 0.0, den, 1.0), np.nan)
+        matched, gamma, pmad = fit_optical_depth_and_continuum_gamma(star_norm_coadds[st], raw_t)
+        matched_templates[st] = matched
+        template_meta[st] = {
+            "knn_neighbors": ",".join(o for _, o in nbrs),
+            "optical_depth_gamma": round(gamma, 4),
+            "post_match_mad": round(pmad, 6),
+        }
+    return matched_templates, template_meta
+
+
+# ---------------------------------------------------------------------------
+# Step 3: Wavelength-Adaptive Instrument-LSF Matched Filtering
+# ---------------------------------------------------------------------------
+
+def fit_lsf_on_window(
+    wave_win: np.ndarray,
+    resid_win: np.ndarray,
+    seed_wave_a: float,
+    cfg: dict[str, Any],
+    fixed_phase_bins: float | None = None,
+) -> dict[str, Any]:
+    w = np.asarray(wave_win, dtype=np.float64)
+    y = np.asarray(resid_win, dtype=np.float64)
+    valid = np.isfinite(w) & np.isfinite(y)
+    if int(valid.sum()) < 20:
+        return {"valid_fit": False}
+
+    step_a = float(exact_median_1d(np.diff(w)))
+    r_eff = effective_resolving_power(cfg, seed_wave_a)
+    sigma_v = C_KMS / (r_eff * FWHM_FACTOR)
+    phases = [fixed_phase_bins] if fixed_phase_bins is not None else cfg["fit_phases_bins"]
+
+    best: dict[str, Any] | None = None
+    best_energy = -1.0
+    for ph in phases:
+        assert ph is not None
+        mu_a = float(seed_wave_a + ph * step_a)
+        dv = C_KMS * (w - mu_a) / mu_a
+        abs_dv = np.abs(dv)
+        bg_mid = valid & (abs_dv >= cfg["mid_inner_sigma_mult"] * sigma_v) & (abs_dv <= cfg["mid_outer_sigma_mult"] * sigma_v)
+        bg_out = valid & (abs_dv >= cfg["outer_inner_sigma_mult"] * sigma_v) & (abs_dv <= cfg["outer_outer_sigma_mult"] * sigma_v)
+        core = valid & (abs_dv <= cfg["core_sigma_mult"] * sigma_v)
+        if int(bg_mid.sum()) < 8 or int(core.sum()) < 3:
+            continue
+
+        b0 = exact_median_1d(y[bg_mid])
+        b0_out = exact_median_1d(y[bg_out]) if int(bg_out.sum()) >= 8 else b0
+        yc = y[core] - b0
+        yc_out = y[core] - b0_out
+        g = np.exp(-0.5 * (dv[core] / sigma_v) ** 2)
+        gg = float(g @ g)
+        if gg <= 0.0:
+            continue
+        amp = float(yc @ g) / gg
+        amp_out = float(yc_out @ g) / gg
+        if amp <= 0.0:
+            continue
+        yn = float(math.sqrt(max(0.0, float(yc @ yc))))
+        gn = float(math.sqrt(gg))
+        cosine = (float(yc @ g) / (yn * gn)) if (yn > 0.0 and gn > 0.0) else 0.0
+        sig_mid = exact_mad_1d(y[bg_mid])
+        sig_out = exact_mad_1d(y[bg_out]) if int(bg_out.sum()) >= 8 else sig_mid
+        if not (math.isfinite(sig_mid) and sig_mid > 0.0):
+            continue
+        energy = amp * amp * gg
+        if energy > best_energy:
+            best_energy = energy
+            half_lv = 0.5 * amp
+            sub_c = valid & (abs_dv <= 8.0 * sigma_v)
+            ws, ys = w[sub_c], y[sub_c] - b0
+            above = np.flatnonzero(ys >= half_lv)
+            if len(above) >= 2:
+                w_span = float(ws[above[-1]] - ws[above[0]] + step_a)
+                fwhm_a = mu_a / r_eff
+                fwhm_ratio = w_span / max(1e-6, fwhm_a)
+            else:
+                fwhm_ratio = 1.0
+            best = {
+                "valid_fit": True,
+                "fitted_center_a": mu_a,
+                "phase_bins": float(ph),
+                "amp_mid": float(amp),
+                "amp_out": float(amp_out),
+                "snr_mid": float(amp / sig_mid),
+                "snr_out": float(amp / sig_out) if (math.isfinite(sig_out) and sig_out > 0.0) else float(amp / sig_mid),
+                "sig_mid": float(sig_mid),
+                "cosine": float(cosine),
+                "fwhm_ratio": float(fwhm_ratio),
+                "effective_resolving_power": float(r_eff),
+            }
+    return best if best is not None else {"valid_fit": False}
+
+
+def compute_supraphotospheric_f1_window(
+    wave_win: np.ndarray,
+    flux_norm_win: np.ndarray,
+    center_a: float,
+    min_fn_pk3: float,
+) -> dict[str, Any]:
+    w = np.asarray(wave_win, dtype=np.float64)
+    fn = np.asarray(flux_norm_win, dtype=np.float64)
+    k0 = int(np.argmin(np.abs(w - center_a)))
+    sub = fn[max(0, k0 - 1) : min(len(fn), k0 + 2)]
+    fin = sub[np.isfinite(sub)]
+    if len(fin) == 0:
+        return {"fn_pk3": 0.0, "f1_supraphotospheric_pass": False}
+    fn_pk3 = float(np.max(fin))
+    return {"fn_pk3": fn_pk3, "f1_supraphotospheric_pass": fn_pk3 >= min_fn_pk3}
+
+
+def check_channel_lsf_gate(fit: dict[str, Any], channel: str, cfg: dict[str, Any]) -> bool:
+    if not fit.get("valid_fit"):
+        return False
+    ch = channel.lower()
+    if ch == "t":
+        pref = "channel_t"
+    elif ch == "p":
+        pref = "channel_p"
+    elif ch == "t_diff":
+        pref = "channel_tdiff"
+    else:
+        pref = "channel_kplanet"
+    snr_out = fit["snr_out"]
+    amp_out = float(fit.get("amp_out", fit["amp_mid"]))
+    if snr_out <= 0.0 or amp_out <= 0.0:
+        return False
+    ratio = float(fit["amp_mid"]) / amp_out
+    return bool(
+        fit["snr_mid"] >= cfg[f"{pref}_snr_mid_min"]
+        and snr_out >= cfg[f"{pref}_snr_outer_min"]
+        and cfg[f"{pref}_amp_ratio_min"] <= ratio <= cfg[f"{pref}_amp_ratio_max"]
+        and fit["cosine"] >= cfg[f"{pref}_cosine_min"]
+        and cfg[f"{pref}_fwhm_ratio_min"] <= fit["fwhm_ratio"] <= cfg[f"{pref}_fwhm_ratio_max"]
+    )
+
+
+def scan_single_exposure_residual_lsf(
+    wave: np.ndarray,
+    y_primary: np.ndarray,
+    cfg: dict[str, Any],
+    channel: str = "T",
+    y_secondary_check: np.ndarray | None = None,
+    flux_norm_for_f1: np.ndarray | None = None,
+    enforce_f1_in_g1: bool = True,
+) -> tuple[list[dict[str, Any]], int, int]:
+    n = len(wave)
+    finite = np.isfinite(y_primary)
+    diffs = np.diff(finite.astype(np.int8))
+    starts = list(np.flatnonzero(diffs == 1) + 1)
+    if finite[0]:
+        starts.insert(0, 0)
+    ends = list(np.flatnonzero(diffs == -1) + 1)
+    if finite[-1]:
+        ends.append(n)
+
+    min_fn = float(cfg["supraphotospheric_min_fn_pk3"])
+    prelim_pre_f1: list[dict[str, Any]] = []
+    searched_bins = 0
+
+    for seg_s, seg_e in zip(starts, ends):
+        if seg_e - seg_s < 120:
+            continue
+        vals = y_primary[seg_s:seg_e]
+        mad = exact_mad_1d(vals)
+        if not (math.isfinite(mad) and mad > 0.0):
+            continue
+        searched_bins += int(seg_e - seg_s)
+
+        med = exact_median_1d(vals)
+        thresh = med + float(cfg["scan_seed_sigma_mult"]) * mad
+        is_pk = (vals[1:-1] > vals[:-2]) & (vals[1:-1] >= vals[2:]) & (vals[1:-1] > thresh)
+        cand_locs = sorted(
+            [seg_s + 1 + int(i) for i in np.flatnonzero(is_pk)],
+            key=lambda k: float(y_primary[k]),
+            reverse=True,
+        )
+        kept_locs: list[int] = []
+        min_sep = int(cfg["scan_nms_min_sep_bins"])
+        for k in cand_locs:
+            margin = _scan_margin_bins(float(wave[k]), cfg)
+            if k < seg_s + margin or k >= seg_e - margin:
+                continue
+            if any(abs(k - prev) < min_sep for prev in kept_locs):
+                continue
+            kept_locs.append(k)
+            sl = slice(k - margin, k + margin + 1)
+            fit = fit_lsf_on_window(wave[sl], y_primary[sl], float(wave[k]), cfg)
+            if not check_channel_lsf_gate(fit, channel, cfg):
+                continue
+            f1 = (
+                compute_supraphotospheric_f1_window(wave[sl], flux_norm_for_f1[sl], float(fit["fitted_center_a"]), min_fn)
+                if flux_norm_for_f1 is not None
+                else {"fn_pk3": 1.5, "f1_supraphotospheric_pass": True}
+            )
+            fit["seed_index"] = int(k)
+            fit["fn_pk3"] = float(f1["fn_pk3"])
+            fit["f1_pass"] = bool(f1["f1_supraphotospheric_pass"])
+            if enforce_f1_in_g1 and not fit["f1_pass"]:
+                continue
+            prelim_pre_f1.append(fit)
+
+    if y_secondary_check is not None:
+        final = []
+        for c in prelim_pre_f1:
+            k = c["seed_index"]
+            margin = _scan_margin_bins(float(wave[k]), cfg)
+            sl = slice(max(0, k - margin), min(n, k + margin + 1))
+            f_opp = fit_lsf_on_window(wave[sl], y_secondary_check[sl], c["fitted_center_a"], cfg, fixed_phase_bins=c["phase_bins"])
+            c["opp_snr_mid"] = float(f_opp.get("snr_mid", 0.0))
+            final.append(c)
+    else:
+        final = prelim_pre_f1
+    return final, searched_bins, len(final)
+
+
+def build_multi_epoch_rest_coadd_and_channel_p(
+    rest_grid: np.ndarray,
+    exp_rest_norm_mat: np.ndarray,
+    exp_rest_resid_mat: np.ndarray,
+    matched_template: np.ndarray,
+    cfg: dict[str, Any],
+) -> tuple[np.ndarray, np.ndarray, list[dict[str, Any]], int, int]:
+    with warnings.catch_warnings(), np.errstate(all="ignore"):
+        warnings.simplefilter("ignore", RuntimeWarning)
+        coadd_resid = np.nanmedian(exp_rest_resid_mat, axis=0)
+        coadd_fn = np.nanmedian(exp_rest_norm_mat, axis=0)
+    cands, searched_bins, _ = scan_single_exposure_residual_lsf(
+        rest_grid, coadd_resid, cfg, channel="P", flux_norm_for_f1=coadd_fn, enforce_f1_in_g1=False
+    )
+    return coadd_resid, coadd_fn, cands, searched_bins, len(cands)
+
+
+def build_and_scan_transit_channels(
+    planet_grid: np.ndarray,
+    unshifted_resids: np.ndarray,
+    unshifted_fn: np.ndarray,
+    dedoppler_resids: np.ndarray,
+    dedoppler_fn: np.ndarray,
+    out_resid_med: np.ndarray,
+    cfg: dict[str, Any],
+) -> dict[str, Any]:
+    with warnings.catch_warnings(), np.errstate(all="ignore"):
+        warnings.simplefilter("ignore", RuntimeWarning)
+        in_unsh = np.nanmedian(unshifted_resids, axis=0) - out_resid_med
+        in_unsh_fn = np.nanmedian(unshifted_fn, axis=0)
+        y_kp = np.nanmedian(dedoppler_resids, axis=0) - out_resid_med
+        kp_fn = np.nanmedian(dedoppler_fn, axis=0)
+
+    td_cands, td_bins, _ = scan_single_exposure_residual_lsf(
+        planet_grid, in_unsh, cfg, channel="T_DIFF", flux_norm_for_f1=in_unsh_fn, enforce_f1_in_g1=False
+    )
+    kp_cands, kp_bins, _ = scan_single_exposure_residual_lsf(
+        planet_grid, y_kp, cfg, channel="K_PLANET", flux_norm_for_f1=kp_fn, enforce_f1_in_g1=False
+    )
+
+    def _keep_multi(c_list: list[dict[str, Any]], mat: np.ndarray, min_snr: float, min_frac: float) -> list[dict[str, Any]]:
+        out = []
+        for h in c_list:
+            k = int(h["seed_index"])
+            margin = _scan_margin_bins(float(h["fitted_center_a"]), cfg)
+            sl = slice(max(0, k - margin), min(len(planet_grid), k + margin + 1))
+            nhit, ncov = 0, 0
+            for j in range(mat.shape[0]):
+                ef = fit_lsf_on_window(planet_grid[sl], mat[j, sl], h["fitted_center_a"], cfg, fixed_phase_bins=h["phase_bins"])
+                if ef.get("valid_fit"):
+                    ncov += 1
+                    if ef["snr_mid"] >= min_snr:
+                        nhit += 1
+            if ncov >= 2 and nhit >= max(2, int(math.ceil(min_frac * ncov))):
+                h["in_epochs_hit"] = nhit
+                out.append(h)
+        return out
+
+    return {
+        "y_tdiff": in_unsh,
+        "u_tdiff_fn": in_unsh_fn,
+        "y_kplanet": y_kp,
+        "f_kplanet_fn": kp_fn,
+        "tdiff_cands": _keep_multi(td_cands, unshifted_resids - out_resid_med[None, :], cfg["channel_tdiff_min_in_exp_snr"], cfg["channel_tdiff_min_in_exp_fraction"]),
+        "kplanet_cands": _keep_multi(kp_cands, dedoppler_resids - out_resid_med[None, :], cfg["channel_kplanet_min_in_exp_snr"], cfg["channel_kplanet_min_in_exp_fraction"]),
+        "tdiff_searched_bins": td_bins,
+        "kplanet_searched_bins": kp_bins,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Step 4: Automated Physics Vetting Gates G2_V42, G3_V42, G4_V42, G5, G6
+# ---------------------------------------------------------------------------
+
+def evaluate_gate_g2_airglow(
+    fitted_bary_wave_a: float,
+    berv_kms: float,
+    cfg: dict[str, Any],
+) -> dict[str, Any]:
+    """Paranal/La Silla ground sky airglow + telluric O2/H2O absorption gate."""
+    topo_a = float(fitted_bary_wave_a / (1.0 + berv_kms / C_KMS))
+    best_line = min(GROUND_AIRGLOW_AND_TELLURIC_A, key=lambda x: abs(topo_a - float(x["wave_A"])))
+    dv = abs(C_KMS * (topo_a - float(best_line["wave_A"])) / max(1.0, float(best_line["wave_A"])))
+    sep_a = abs(topo_a - float(best_line["wave_A"]))
+    if dv <= float(best_line["half_width_kms"]):
+        return {
+            "topo_wave_a": topo_a,
+            "nearest_airglow_name": best_line["name"],
+            "nearest_airglow_sep_a": round(sep_a, 4),
+            "g2_pass": False,
+            "g2_reason": f"GROUND_SKY_{best_line['name']}",
+        }
+    return {
+        "topo_wave_a": topo_a,
+        "nearest_airglow_name": best_line["name"],
+        "nearest_airglow_sep_a": round(sep_a, 4),
+        "g2_pass": True,
+        "g2_reason": "PASS",
+    }
+
+
+def evaluate_native_order_patch(
+    wave_ord_win: np.ndarray,
+    flux_ord_win: np.ndarray,
+    ref_ord_win: np.ndarray | None,
+    target_wave_a: float,
+    cfg: dict[str, Any],
+    err_ord_win: np.ndarray | None = None,
+) -> dict[str, Any]:
+    w = np.asarray(wave_ord_win, dtype=np.float64)
+    f = np.asarray(flux_ord_win, dtype=np.float64)
+    if len(w) < 35 or not (np.all(np.isfinite(w)) and np.all(np.isfinite(f))):
+        return {"usable": False}
+
+    k_loc = int(np.argmin(np.abs(w - target_wave_a)))
+    if k_loc < 12 or k_loc >= len(w) - 12:
+        return {"usable": False}
+
+    idx_rel = np.abs(np.arange(len(w)) - k_loc)
+    sb_mask = (idx_rel >= 10) & (idx_rel <= min(70, len(w) // 2))
+    if int(sb_mask.sum()) < 12:
+        return {"usable": False}
+
+    q_cont = float(cfg["continuum_quantile_blue"]) if target_wave_a < float(cfg["continuum_blue_cutoff_angstrom"]) else float(cfg["continuum_quantile"])
+    cont_q = exact_quantile_1d(f[sb_mask], q_cont)
+    if not math.isfinite(cont_q):
+        return {"usable": False}
+
+    cont_raw = max(0.0, float(cont_q))
+    e_floor = 1e-26
+    if err_ord_win is not None:
+        ea = np.asarray(err_ord_win, dtype=np.float64)
+        esb = ea[sb_mask]
+        ef = esb[np.isfinite(esb) & (esb > 0.0)]
+        if len(ef) >= 5:
+            e_floor = max(e_floor, 3.0 * exact_median_1d(ef))
+    sb_mad_f = exact_mad_1d(f[sb_mask])
+    if math.isfinite(sb_mad_f) and sb_mad_f > 0.0:
+        e_floor = max(e_floor, 3.0 * sb_mad_f)
+    cont_adu = max(cont_raw, e_floor)
+    if cont_raw >= e_floor:
+        f_norm = f / cont_adu
+    else:
+        f_norm = 1.0 + (f - cont_raw) / cont_adu
+
+    native_fn_pk3 = float(np.max(f_norm[k_loc - 1 : k_loc + 2]))
+
+    scale = 1.0
+    r_ref_clean = None
+    if ref_ord_win is not None:
+        r_ref = np.asarray(ref_ord_win, dtype=np.float64)
+        valid_sb = sb_mask & np.isfinite(r_ref) & (r_ref > 0.05)
+        scale = exact_median_1d(f_norm[valid_sb] / r_ref[valid_sb]) if int(valid_sb.sum()) >= 10 else 1.0
+        scale = max(0.5, min(2.0, scale))
+        r_ref_clean = np.where(np.isfinite(r_ref), r_ref, 1.0)
+        y = f_norm - scale * r_ref_clean
+    else:
+        y = f_norm - 1.0
+
+    idx = np.arange(len(w)) - k_loc
+    max_sb = min(70, len(w) // 2)
+    m_l = (idx >= -max_sb) & (idx <= -10)
+    m_r = (idx >= 10) & (idx <= max_sb)
+    slope = (exact_median_1d(y[m_r]) - exact_median_1d(y[m_l])) / (
+        exact_median_1d(idx[m_r].astype(np.float64)) - exact_median_1d(idx[m_l].astype(np.float64))
+    )
+    intercept = exact_median_1d(y[m_l | m_r] - slope * idx[m_l | m_r])
+    det = y - (intercept + slope * idx)
+    mad_sb = exact_mad_1d(det[m_l | m_r])
+    if not math.isfinite(mad_sb) or mad_sb <= 0:
+        return {"usable": False}
+
+    r_eff = effective_resolving_power(cfg, target_wave_a)
+    sig_a = target_wave_a / (r_eff * FWHM_FACTOR)
+    core_sl = slice(max(0, k_loc - 6), min(len(w), k_loc + 7))
+    g = np.exp(-0.5 * ((w[core_sl] - target_wave_a) / sig_a) ** 2)
+    gg = float(g @ g)
+    amp_rel = max(0.0, float(det[core_sl] @ g) / gg)
+    snr_native = amp_rel / mad_sb
+
+    template_dip_frac = 0.0
+    if r_ref_clean is not None and amp_rel > 0.0:
+        dv = C_KMS * (w - target_wave_a) / target_wave_a
+        sig_v = C_KMS / (r_eff * FWHM_FACTOR)
+        ns_l = (dv >= -10.0 * sig_v) & (dv <= -4.0 * sig_v)
+        ns_r = (dv >= 4.0 * sig_v) & (dv <= 10.0 * sig_v)
+        if int(ns_l.sum()) >= 2 and int(ns_r.sum()) >= 2:
+            neg_t = -scale * r_ref_clean
+            slp_nt = (exact_median_1d(neg_t[ns_r]) - exact_median_1d(neg_t[ns_l])) / (
+                exact_median_1d(dv[ns_r]) - exact_median_1d(dv[ns_l])
+            )
+            icp_nt = exact_median_1d(neg_t[ns_l | ns_r] - slp_nt * dv[ns_l | ns_r])
+            det_nt = neg_t - (icp_nt + slp_nt * dv)
+            c_nt = np.abs(dv) <= 3.0 * sig_v
+            g_nt = np.exp(-0.5 * (dv[c_nt] / sig_v) ** 2)
+            gg_nt = float(g_nt @ g_nt)
+            amp_nt = max(0.0, float(det_nt[c_nt] @ g_nt) / gg_nt) if gg_nt > 0.0 else 0.0
+            template_dip_frac = float(amp_nt / max(1e-12, amp_rel))
+
+    search_sl = slice(k_loc - 2, k_loc + 3)
+    k_pk = (k_loc - 2) + int(np.argmax(det[search_sl]))
+    r_pk = float(det[k_pk])
+    pos_7 = float(np.sum(np.maximum(0.0, det[k_pk - 3 : k_pk + 4])))
+    eta_1px = (r_pk / pos_7) if (r_pk > 0 and pos_7 > 0) else 1.0
+    left_w = float(det[k_pk - 1]) / r_pk if r_pk > 0 else -1.0
+    right_w = float(det[k_pk + 1]) / r_pk if r_pk > 0 else -1.0
+    min_wing = min(left_w, right_w)
+    cont_snr = 1.0 / mad_sb if mad_sb > 0 else 0.0
+
+    w11 = w[k_pk - 5 : k_pk + 6]
+    d11 = det[k_pk - 5 : k_pk + 6]
+    step_px_a = abs(float(exact_median_1d(np.diff(w[k_loc - 5 : k_loc + 6]))))
+    best_cos11 = -1.0
+    for iph in range(-4, 5):
+        w_try = float(w[k_pk]) + (0.25 * iph) * step_px_a
+        m11 = np.exp(-0.5 * ((w11 - w_try) / sig_a) ** 2)
+        d_n = float(math.sqrt(max(0.0, float(d11 @ d11))))
+        m_n = float(math.sqrt(float(m11 @ m11)))
+        if d_n > 0.0 and m_n > 0.0:
+            c11 = float(d11 @ m11) / (d_n * m_n)
+            if c11 > best_cos11:
+                best_cos11 = c11
+
+    side_avg = 0.5 * (max(0.0, float(det[k_pk - 1])) + max(0.0, float(det[k_pk + 1])))
+    expected_side_1 = float(math.exp(-0.5 * (step_px_a / sig_a) ** 2))
+    obs_hot_ratio = (r_pk / max(1e-6 * abs(r_pk) + 1e-12, side_avg)) if (r_pk > 0 and side_avg > 0) else 99.0
+    ipc_hotpx_ratio = obs_hot_ratio * expected_side_1
+    far_wing_ratio = (
+        0.25 * float(det[k_pk - 4] + det[k_pk - 3] + det[k_pk + 3] + det[k_pk + 4]) / r_pk
+        if r_pk > 0
+        else 99.0
+    )
+
+    return {
+        "usable": True,
+        "local_index": k_loc,
+        "peak_local_index": k_pk,
+        "continuum_adu": float(cont_adu),
+        "continuum_snr": float(cont_snr),
+        "native_fn_pk3": native_fn_pk3,
+        "template_dip_frac": float(template_dip_frac),
+        "native_amp_rel": float(amp_rel),
+        "native_amp_adu": float(amp_rel * cont_adu),
+        "native_snr": float(snr_native),
+        "eta_1px": float(eta_1px),
+        "min_wing_ratio": float(min_wing),
+        "cos_1d_11px": float(best_cos11),
+        "ipc_hotpx_ratio": float(ipc_hotpx_ratio),
+        "far_wing_34_ratio": float(far_wing_ratio),
+    }
+
+
+def evaluate_gates_g3_g4_g5_v42(
+    order_patches: list[dict[str, Any]],
+    dpr_or_calsel: str,
+    channel: str,
+    star_rest_a: float | None,
+    cfg: dict[str, Any],
+) -> dict[str, Any]:
+    inst = cfg.get("instrument", "")
+    # Gate G3_V42: Optical/NIR stellar chromospheric or nebular emission rejection
+    if star_rest_a is not None:
+        r_eff = effective_resolving_power(cfg, float(star_rest_a))
+        tol_a = max(1.0, 2.5 * (float(star_rest_a) / r_eff))
+        best_line = min(STELLAR_OPT_NIR_EMISSION_A, key=lambda ch: abs(float(star_rest_a) - float(ch["wave_A"])))
+        if abs(float(star_rest_a) - float(best_line["wave_A"])) <= tol_a:
+            return {
+                "g3_pass": False,
+                "g4_pass": False,
+                "g5_pass": False,
+                "g3_reason": f"CHROMO_EMISSION_{best_line['name']}",
+                "g4_reason": "SKIPPED",
+                "g5_reason": "SKIPPED",
+            }
+
+    if not order_patches:
+        return {
+            "g3_pass": False,
+            "g4_pass": False,
+            "g5_pass": False,
+            "g3_reason": "NO_ORDER_PATCHES",
+            "g4_reason": "NO_ORDER_PATCHES",
+            "g5_reason": "NO_ORDER_PATCHES",
+        }
+
+    evs = []
+    for p in order_patches:
+        ev = evaluate_native_order_patch(
+            np.asarray(p["wave"], dtype=np.float64),
+            np.asarray(p["flux_a"], dtype=np.float64),
+            np.asarray(p["ref_norm_a"], dtype=np.float64) if p.get("ref_norm_a") is not None else None,
+            float(p["target_wave_a"]),
+            cfg,
+            err_ord_win=np.asarray(p["err_a"], dtype=np.float64) if p.get("err_a") is not None else None,
+        )
+        ev["patch"] = p
+        evs.append(ev)
+
+    usable = [e for e in evs if e.get("usable")]
+    if not usable:
+        return {
+            "g3_pass": True,
+            "g4_pass": False,
+            "g5_pass": False,
+            "g3_reason": "PASS",
+            "g4_reason": "NO_USABLE_PATCH",
+            "g5_reason": "SKIPPED",
+        }
+
+    prim = max(usable, key=lambda e: e["native_snr"])
+    p_meta = prim["patch"]
+    kp_abs = int(p_meta["native_pixel"]) + (int(prim["peak_local_index"]) - int(prim["local_index"]))
+    common_meta = {
+        "primary_order": int(p_meta["order"]),
+        "primary_native_px": kp_abs,
+        "primary_native_fn_pk3": float(prim["native_fn_pk3"]),
+        "primary_eta_1px": float(prim["eta_1px"]),
+        "cos_1d_11px": float(prim["cos_1d_11px"]),
+        "ipc_hotpx_ratio": float(prim["ipc_hotpx_ratio"]),
+        "far_wing_34_ratio": float(prim["far_wing_34_ratio"]),
+    }
+
+    if prim["native_fn_pk3"] < cfg["supraphotospheric_min_fn_pk3"]:
+        return {**common_meta, "g3_pass": True, "g4_pass": False, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "G1_NATIVE_SUBCONTINUUM", "g5_reason": "SKIPPED"}
+
+    if prim["continuum_snr"] < cfg["g4_min_continuum_snr"]:
+        return {**common_meta, "g3_pass": True, "g4_pass": False, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "LOW_CONTINUUM_SNR", "g5_reason": "SKIPPED"}
+
+    if prim["template_dip_frac"] > cfg["g4_max_template_dip_frac"]:
+        return {**common_meta, "g3_pass": True, "g4_pass": False, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "G3_V42_TEMPLATE_ABSORPTION_LEAK", "g5_reason": "SKIPPED"}
+
+    # G4_V42: ESO fatal QUAL check + X-shooter simultaneous multi-arm dichroic coincidence
+    dq = p_meta.get("dq")
+    if dq is not None:
+        kl = int(prim["local_index"])
+        core_dq = 0
+        for dq_val in dq[max(0, kl - 1) : min(len(dq), kl + 2)]:
+            core_dq |= int(dq_val)
+        if core_dq != 0:
+            return {**common_meta, "g3_pass": True, "g4_pass": False, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "ESO_FATAL_QUAL_ARTIFACT", "g5_reason": "SKIPPED"}
+
+    if inst == "ESO_XSHOOTER_3ARM" and len(order_patches) >= 2:
+        p_amp = max(1e-30, prim["native_amp_adu"])
+        coinc = [
+            e for e in usable
+            if e["native_snr"] >= cfg["xshooter_dual_min_snr"] and 0.22 <= (e["native_amp_adu"] / p_amp) <= 4.5
+        ]
+        if len(coinc) < 2:
+            return {**common_meta, "g3_pass": True, "g4_pass": False, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "XSHOOTER_SINGLE_ARM_DETECTOR_ARTIFACT", "g5_reason": "SKIPPED"}
+
+    # G5 morphological & PSF verification
+    g5_ok = (
+        prim["native_snr"] >= cfg["g5_min_native_snr"]
+        and prim["eta_1px"] <= cfg["g5_eta_1px_max"]
+        and prim["min_wing_ratio"] >= cfg["g5_min_wing_ratio"]
+        and prim["ipc_hotpx_ratio"] <= cfg["g5_ipc_hotpx_ratio_max"]
+        and prim["far_wing_34_ratio"] <= cfg["g5_far_wing_34_max"]
+        and prim["cos_1d_11px"] >= cfg["g5_cos_1d_11px_min"]
+    )
+    if not g5_ok:
+        if prim["ipc_hotpx_ratio"] > cfg["g5_ipc_hotpx_ratio_max"] or prim["eta_1px"] > cfg["g5_eta_1px_max"] or prim["min_wing_ratio"] < cfg["g5_min_wing_ratio"]:
+            r5 = "G5_HOT_PIXEL_OR_COSMIC_RAY"
+        elif prim["far_wing_34_ratio"] > cfg["g5_far_wing_34_max"]:
+            r5 = "G5_BROAD_EMISSION_PLATEAU"
+        else:
+            r5 = "G5_LSF_SHAPE_MISMATCH"
+        return {**common_meta, "g3_pass": True, "g4_pass": True, "g5_pass": False, "g3_reason": "PASS", "g4_reason": "PASS", "g5_reason": r5}
+
+    return {**common_meta, "g3_pass": True, "g4_pass": True, "g5_pass": True, "g3_reason": "PASS", "g4_reason": "PASS", "g5_reason": "PASS"}
+
+
+def evaluate_gate_g6_v35_dense(
+    target_star: str,
+    topo_wave_a: float,
+    primary_order: int | None,
+    primary_native_px: int | None,
+    target_vshift_kms: float,
+    dense_atlas: list[dict[str, Any]],
+    cfg: dict[str, Any],
+) -> dict[str, Any]:
+    tol_kms = float(cfg["g6_topo_tol_kms"])
+    min_bs = float(cfg["g6_min_berv_shift_kms"])
+    coincident_stars = set()
+    same_star_hits = 0
+    for rec in dense_atlas:
+        dv = abs(C_KMS * (topo_wave_a - float(rec["topo_wave_a"])) / max(1.0, topo_wave_a))
+        if dv <= tol_kms:
+            st_r = rec["star"]
+            if st_r == target_star:
+                same_star_hits += 1
+            elif target_vshift_kms >= min_bs:
+                coincident_stars.add(st_r)
+    g6_pass = (len(coincident_stars) < int(cfg["g6_min_diff_stars"])) and (same_star_hits == 0)
+    return {
+        "g6_v35_pass": bool(g6_pass),
+        "g6_v35_coincident_total_stars": len(coincident_stars),
+        "g6_v35_same_star_hits": same_star_hits,
+    }
+
+
+def evaluate_gate_g6_v36_sparse(
+    target_star: str,
+    target_dp_id: str,
+    target_berv_kms: float,
+    topo_wave_a: float,
+    primary_order: int | None,
+    primary_native_px: int | None,
+    target_vshift_kms: float,
+    sparse_atlas: list[dict[str, Any]],
+    cfg: dict[str, Any],
+    channel: str = "T",
+) -> dict[str, Any]:
+    tol_kms = float(cfg["g6_topo_tol_kms"])
+    px_tol = float(cfg["g6_px_tol"])
+    diff_stars: set[str] = set()
+    same_star_hits = 0
+    for rec in sparse_atlas:
+        if rec["dp_id"] == target_dp_id:
+            continue
+        dv = abs(C_KMS * (topo_wave_a - float(rec["topo_wave_a"])) / max(1.0, topo_wave_a))
+        px_match = (
+            primary_order is not None
+            and primary_native_px is not None
+            and rec.get("native_order") == primary_order
+            and abs(float(rec.get("native_px", -9999)) - float(primary_native_px)) <= px_tol
+        )
+        if dv <= tol_kms or px_match:
+            if rec["star"] == target_star:
+                if abs(target_berv_kms - float(rec["berv_kms"])) >= float(cfg["g6_min_berv_shift_kms"]):
+                    same_star_hits += 1
+            else:
+                diff_stars.add(rec["star"])
+
+    if len(diff_stars) >= int(cfg["g6_min_diff_stars"]):
+        reason, ok = "STATIONARY_TOPO_MULTI_STAR", False
+    elif same_star_hits >= 1 and channel in ("T", "P"):
+        reason, ok = "SAME_STAR_STATIONARY_ACROSS_BERV", False
+    else:
+        reason, ok = "PASS", True
+    return {
+        "g6_pass": ok,
+        "g6_coincident_total_stars": len(diff_stars),
+        "g6_same_star_stationary_hits": same_star_hits,
+        "g6_reason": reason,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Step 5: Frequency-Comb Search (COMB_V4 and COMB_V4_1)
+# ---------------------------------------------------------------------------
+
+def _scan_comb_core(
+    wave_rest: np.ndarray,
+    y_rest: np.ndarray,
+    sigma_rest: np.ndarray,
+    fn_rest: np.ndarray,
+    recon_rest: np.ndarray,
+    sky_mask: np.ndarray,
+    y_topo: np.ndarray,
+    sigma_topo: np.ndarray,
+    windows: list[dict[str, Any]],
+    allowed_bands: list[str],
+    cfg: dict[str, Any],
+    enforce_v41_vetoes: bool,
+) -> tuple[list[dict[str, Any]], int]:
+    from scipy.ndimage import maximum_filter1d
+
+    w = np.asarray(wave_rest, dtype=np.float64)
+    yr = np.asarray(y_rest, dtype=np.float64)
+    sr = np.maximum(1e-5, np.asarray(sigma_rest, dtype=np.float64))
+    fn = np.where(np.isfinite(fn_rest), np.asarray(fn_rest, dtype=np.float64), 1.0)
+    rc = np.where(np.isfinite(recon_rest), np.asarray(recon_rest, dtype=np.float64), 1.0)
+    yt = np.asarray(y_topo, dtype=np.float64)
+    st = np.maximum(1e-5, np.asarray(sigma_topo, dtype=np.float64))
+
+    fin_r = np.isfinite(w) & np.isfinite(yr) & (~sky_mask)
+    if int(fin_r.sum()) < 80:
+        return [], 0
+
+    step_a = float(exact_median_1d(np.diff(w)))
+    snr_r = np.where(fin_r, yr / sr, 0.0)
+    snr_t = np.where(np.isfinite(yt), yt / st, 0.0)
+    n_teeth = int(cfg["comb_n_teeth"])
+    t_min = float(cfg["comb_tooth_snr_min"])
+    s_min = float(cfg["comb_sum_snr_min"])
+    min_q = int(cfg["comb_min_qualifying_teeth"])
+    max_crowd = float(cfg["comb_max_off_tooth_crowding"])
+    min_it = float(cfg["comb_min_intertooth_ratio"])
+    min_anti = float(cfg["comb_min_topo_anti_ratio"])
+    min_fn = float(cfg["comb_min_fn_pk3"])
+    k_idx = np.arange(n_teeth, dtype=np.float64)
+
+    raw_hits: list[dict[str, Any]] = []
+    searched_configs = 0
+
+    for win in windows:
+        if win["band"] not in allowed_bands:
+            continue
+        w_lo, w_hi = float(win["lo_a"]), float(win["hi_a"])
+        nu_hi = C_ANGSTROM_GHZ / w_lo
+        nu_lo = C_ANGSTROM_GHZ / w_hi
+        in_w = (w >= w_lo) & (w <= w_hi)
+        if int(np.sum(fin_r & in_w)) < 80:
+            continue
+
+        w_mid = 0.5 * (w_lo + w_hi)
+        sig_a_mid = w_mid / (effective_resolving_power(cfg, w_mid) * FWHM_FACTOR)
+        hw_core = max(1, int(round(0.8 * sig_a_mid / max(1e-6, step_a))))
+        hw_excl = max(3, int(round(2.8 * sig_a_mid / max(1e-6, step_a))))
+        win_margin_a = max(3.0, 4.0 * sig_a_mid)
+
+        snr_cmax = maximum_filter1d(snr_r, size=2 * hw_core + 1, mode="constant", cval=0.0)
+        fn_cmax = maximum_filter1d(fn, size=2 * hw_core + 1, mode="constant", cval=1.0)
+        topo_cmax = maximum_filter1d(snr_t, size=2 * (hw_core + 1) + 1, mode="constant", cval=0.0)
+        rc_cmin = -maximum_filter1d(-rc, size=2 * hw_core + 1, mode="constant", cval=-1.0)
+        fin_any = maximum_filter1d(fin_r.astype(np.int8), size=2 * hw_core + 1, mode="constant", cval=0) > 0
+
+        for dnu in cfg["comb_spacings_ghz"]:
+            span_nu = (n_teeth - 1) * float(dnu)
+            step_nu = min(0.25 * float(dnu), float(cfg.get("comb_step_ghz", 10.0)))
+            nu_starts = np.arange(nu_lo, nu_hi - span_nu + 1e-6, step_nu, dtype=np.float64)
+            searched_configs += int(len(nu_starts))
+            if len(nu_starts) == 0:
+                continue
+
+            nu_mat = nu_starts[:, None] + float(dnu) * k_idx[None, :]
+            w_mat = C_ANGSTROM_GHZ / nu_mat
+            idx_mat = np.searchsorted(w, w_mat)
+            in_b = np.all((idx_mat > hw_excl + 2) & (idx_mat < len(w) - hw_excl - 3), axis=1)
+            safe_idx = np.where(in_b[:, None], idx_mat, hw_excl + 2)
+            ok_fin = in_b & np.all(fin_any[safe_idx], axis=1)
+
+            t_snrs_mat = snr_cmax[safe_idx]
+            n_q_arr = (t_snrs_mat >= t_min).sum(axis=1)
+            s_comb_arr = np.maximum(0.0, t_snrs_mat).sum(axis=1)
+            pass_prelim = ok_fin & (n_q_arr >= min_q) & (s_comb_arr >= s_min)
+
+            for row_i in np.flatnonzero(pass_prelim):
+                nu0 = float(nu_starts[row_i])
+                idxs = idx_mat[row_i]
+                w_teeth = w_mat[row_i]
+                t_snrs = t_snrs_mat[row_i]
+                s_comb = float(s_comb_arr[row_i])
+                n_q = int(n_q_arr[row_i])
+
+                w_a_lo, w_a_hi = float(np.min(w_teeth)) - win_margin_a, float(np.max(w_teeth)) + win_margin_a
+                m_win = (w >= w_a_lo) & (w <= w_a_hi) & fin_r
+                nu_mids = nu0 + float(dnu) * (0.5 + np.arange(n_teeth - 1, dtype=np.float64))
+                w_mids = C_ANGSTROM_GHZ / nu_mids
+                mid_idxs = np.clip(np.searchsorted(w, w_mids), hw_excl + 1, len(w) - hw_excl - 2)
+                mid_snrs = snr_cmax[mid_idxs]
+                mean_t = float(np.mean(t_snrs))
+                mean_mid = max(0.25, float(np.mean(mid_snrs))) if len(mid_snrs) else 0.5
+                intertooth_ratio = mean_t / mean_mid
+
+                m_bg = m_win.copy()
+                for idx_t in idxs:
+                    m_bg[max(0, int(idx_t) - hw_excl) : min(len(m_bg), int(idx_t) + hw_excl + 1)] = False
+                off_crowd = float(np.mean(snr_r[m_bg] >= 2.0)) if int(m_bg.sum()) >= 10 else 0.0
+
+                s_topo = max(1.0, float(np.maximum(0.0, topo_cmax[idxs]).sum()))
+                topo_anti = s_comb / s_topo
+                n_sup = int((fn_cmax[idxs] >= min_fn).sum())
+
+                if enforce_v41_vetoes:
+                    n_absorb = int((rc_cmin[idxs] < 0.85).sum())
+                    if n_absorb >= 2:
+                        continue
+                    if n_sup < min_q or off_crowd > max_crowd or intertooth_ratio < min_it or topo_anti < min_anti:
+                        continue
+
+                raw_hits.append({
+                    "band": win["band"],
+                    "dnu_ghz": round(float(dnu), 3),
+                    "nu0_ghz": round(float(nu0), 3),
+                    "wave0_a": round(float(w_teeth[0]), 4),
+                    "wave_end_a": round(float(w_teeth[-1]), 4),
+                    "s_comb": round(s_comb, 3),
+                    "topo_anti_ratio": round(topo_anti, 3),
+                    "n_qualifying_teeth": n_q,
+                    "off_tooth_crowding": round(off_crowd, 4),
+                    "intertooth_ratio": round(intertooth_ratio, 3),
+                })
+
+    raw_hits.sort(key=lambda r: float(r["s_comb"]), reverse=True)
+    dedup: list[dict[str, Any]] = []
+    for h in raw_hits:
+        if any(
+            p["band"] == h["band"] and abs(p["dnu_ghz"] - h["dnu_ghz"]) < 1e-3 and abs(p["nu0_ghz"] - h["nu0_ghz"]) <= 0.6 * h["dnu_ghz"]
+            for p in dedup
+        ):
+            continue
+        dedup.append(h)
+    return dedup, searched_configs
+
+
+def scan_frequency_comb_v4(
+    wave_rest: np.ndarray,
+    y_rest: np.ndarray,
+    sigma_rest: np.ndarray,
+    fn_rest: np.ndarray,
+    recon_rest: np.ndarray,
+    sky_mask: np.ndarray,
+    y_topo: np.ndarray,
+    sigma_topo: np.ndarray,
+    windows: list[dict[str, Any]],
+    allowed_bands: list[str],
+    cfg: dict[str, Any],
+) -> tuple[list[dict[str, Any]], int]:
+    return _scan_comb_core(wave_rest, y_rest, sigma_rest, fn_rest, recon_rest, sky_mask, y_topo, sigma_topo, windows, allowed_bands, cfg, False)
+
+
+def scan_frequency_comb_v4_1(
+    wave_rest: np.ndarray,
+    y_rest: np.ndarray,
+    sigma_rest: np.ndarray,
+    fn_rest: np.ndarray,
+    recon_rest: np.ndarray,
+    sky_mask: np.ndarray,
+    y_topo: np.ndarray,
+    sigma_topo: np.ndarray,
+    windows: list[dict[str, Any]],
+    allowed_bands: list[str],
+    cfg: dict[str, Any],
+) -> tuple[list[dict[str, Any]], int]:
+    return _scan_comb_core(wave_rest, y_rest, sigma_rest, fn_rest, recon_rest, sky_mask, y_topo, sigma_topo, windows, allowed_bands, cfg, True)
+
+
+# ---------------------------------------------------------------------------
+# Step 6: 10-Meter Transmitter Optical-Beam Upper Limits
+# ---------------------------------------------------------------------------
+
+def compute_photon_beam_upper_limit(
+    wave_a: float,
+    amp_rel_lim: float,
+    teff_k: float,
+    dist_pc: float,
+    stellar_radius_rsun: float,
+    radiometric_anchor: str,
+    resolving_power: float,
+    direct_flam_cgs: float | None = None,
+    phot_g_mag: float | None = None,
+) -> dict[str, float]:
+    r_eff = float(resolving_power)
+    if direct_flam_cgs is not None and math.isfinite(float(direct_flam_cgs)) and float(direct_flam_cgs) > 0.0:
+        cont_flam_cgs = float(direct_flam_cgs)
+    elif phot_g_mag is not None and math.isfinite(float(phot_g_mag)):
+        cont_flam_cgs = gaia_g_planck_flam_cgs(float(wave_a), float(phot_g_mag), float(teff_k))
+    else:
+        lam_m = float(wave_a) * 1e-10
+        x = (H_PLANCK * C_SI) / (lam_m * K_BOLTZ * float(teff_k))
+        b_lam_si = (2.0 * H_PLANCK * C_SI * C_SI) / ((lam_m ** 5) * math.expm1(min(700.0, x)))
+        f_surf_cgs_a = math.pi * b_lam_si * 1e-7
+        dil = (float(stellar_radius_rsun) * SOLAR_RADIUS_CM / (float(dist_pc) * PC_CM)) ** 2
+        cont_flam_cgs = f_surf_cgs_a * dil
+
+    fwhm_a = float(wave_a) / r_eff
+    ew_a = math.sqrt(math.pi / (4.0 * math.log(2.0))) * float(amp_rel_lim) * fwhm_a
+    flux_cgs = cont_flam_cgs * ew_a
+    d_cm = float(dist_pc) * PC_CM
+    l_iso_w = 4.0 * math.pi * (d_cm * d_cm) * flux_cgs * 1e-7
+    theta = (math.pi * 10.0) / (float(wave_a) * 1e-10)
+    p_w = l_iso_w / (theta * theta)
+    return {
+        "fwhm_lsf_a": fwhm_a,
+        "ew_lim_mA": ew_a * 1000.0,
+        "continuum_flam_cgs": cont_flam_cgs,
+        "flux_lim_erg_cm2_s": flux_cgs,
+        "l_iso_mw": l_iso_w / 1e6,
+        "p_beam_10m_w": p_w,
+        "p_beam_10m_kw": p_w / 1000.0,
+    }
+
+
+# ===========================================================================
+# TECHNOSIGNATURE V5.0 ENGINES
+# ===========================================================================
+
+
+# ---------------------------------------------------------------------------
+# Engine 1: Masked Inexact-ALM Robust PCA + Leave-One-Star-Out (LOSO)
+# ---------------------------------------------------------------------------
+
+def decompose_rpca_block(
+    X: np.ndarray,
+    mask_obs: np.ndarray,
+    lam: float | None = None,
+    max_iter: int = 35,
+    tol: float = 1e-5,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Decompose observed-masked spectral block ``X`` into ``L + S`` via Inexact ALM RPCA."""
+    X_arr = np.asarray(X, dtype=np.float64)
+    mask = np.asarray(mask_obs, dtype=bool) & np.isfinite(X_arr)
+    n_rows, n_cols = X_arr.shape
+    if n_rows == 0 or n_cols == 0 or not np.any(mask):
+        zeros = np.zeros_like(X_arr, dtype=np.float64)
+        return zeros, zeros.copy()
+
+    lam_eff = float(lam) if lam is not None else 1.0 / math.sqrt(float(max(n_rows, n_cols)))
+    X_zero = np.where(mask, X_arr, 0.0)
+
+    # Spectral & infinity norms for Candes+2011 / Lin+2010 ALM step scaling
+    try:
+        s_top = float(np.linalg.svd(X_zero, compute_uv=False)[0])
+    except np.linalg.LinAlgError:
+        s_top = float(np.linalg.norm(X_zero))
+    norm_inf = float(np.max(np.abs(X_zero))) / max(lam_eff, 1e-12)
+    norm_dual = max(s_top, norm_inf, 1e-12)
+    norm_x = max(float(np.linalg.norm(X_zero)), 1e-12)
+
+    Y = X_zero / norm_dual
+    mu = 1.25 / max(s_top, 1e-12)
+    mu_bar = mu * 1e7
+    rho = 1.5
+
+    L = np.zeros_like(X_zero)
+    S = np.zeros_like(X_zero)
+
+    for _ in range(int(max_iter)):
+        # Matrix completion at missing entries keeps incomplete coverage out of S
+        D_cur = np.where(mask, X_zero, L + S)
+
+        inv_mu = 1.0 / mu
+        try:
+            U, sig, Vt = np.linalg.svd(D_cur - S + inv_mu * Y, full_matrices=False)
+            sig_thr = np.maximum(0.0, sig - inv_mu)
+            L = (U * sig_thr[None, :]) @ Vt
+        except np.linalg.LinAlgError:
+            pass
+
+        temp_S = D_cur - L + inv_mu * Y
+        thr_S = lam_eff * inv_mu
+        S_raw = np.sign(temp_S) * np.maximum(0.0, np.abs(temp_S) - thr_S)
+        S = np.where(mask, S_raw, 0.0)
+
+        Z = np.where(mask, X_zero - L - S, 0.0)
+        Y = Y + mu * Z
+        mu = min(mu * rho, mu_bar)
+
+        if float(np.linalg.norm(Z)) / norm_x < tol:
+            break
+
+    return L, S
+
+
+def _compute_rolling_mad_1d(vals: np.ndarray, valid_mask: np.ndarray, win_bins: int = 512) -> np.ndarray:
+    """Compute rolling local robust MAD noise scale with global floor across 1D residuals."""
+    n = len(vals)
+    out = np.full(n, np.nan, dtype=np.float64)
+    v_idx = np.where(valid_mask & np.isfinite(vals))[0]
+    if len(v_idx) < 8:
+        return out
+    global_med = float(np.median(vals[v_idx]))
+    global_mad = max(1e-6, MAD_NORM * float(np.median(np.abs(vals[v_idx] - global_med))))
+
+    half = max(32, int(win_bins) // 2)
+    step = max(16, half // 2)
+    centers: list[float] = []
+    mads: list[float] = []
+    for c in range(0, n, step):
+        lo = max(0, c - half)
+        hi = min(n, c + half + 1)
+        m_sub = valid_mask[lo:hi] & np.isfinite(vals[lo:hi])
+        if np.sum(m_sub) >= 16:
+            seg = vals[lo:hi][m_sub]
+            med = float(np.median(seg))
+            mad = MAD_NORM * float(np.median(np.abs(seg - med)))
+            centers.append(float(c))
+            mads.append(max(0.25 * global_mad, mad, 1e-6))
+    if not centers:
+        out[v_idx] = global_mad
+        return out
+    if len(centers) == 1:
+        out[v_idx] = mads[0]
+        return out
+    grid_x = np.arange(n, dtype=np.float64)
+    interp_mad = np.interp(grid_x, np.asarray(centers, dtype=np.float64), np.asarray(mads, dtype=np.float64))
+    out[v_idx] = np.maximum(0.25 * global_mad, interp_mad[v_idx])
+    return out
+
+
+def run_cohort_rpca_v50(
+    wave_rest: np.ndarray,
+    star_norm_matrix: np.ndarray,
+    teffs: np.ndarray | None = None,
+    block_len: int = 2048,
+    overlap: int = 128,
+    loso_rank: int = 8,
+) -> dict[str, np.ndarray]:
+    """
+    Run overlapping-block masked RPCA + Leave-One-Star-Out (LOSO) projection on a cohort.
+
+    Inputs:
+      wave_rest: shape ``(n_wave,)`` uniform rest-frame wavelength grid (A).
+      star_norm_matrix: shape ``(n_stars, n_wave)`` continuum-normalized spectra (~1.0 or ~0.0;
+          ``NaN`` where a star lacks spectral coverage).
+      teffs: optional shape ``(n_stars,)`` effective temperatures (K) used for mild peer weighting
+          in the LOSO manifold basis without isolating outlier spectral types.
+    Returns dict with ``L_mat``, ``S_mat``, ``L_loso``, ``S_loso``, ``z_rpca``, ``coverage_count``.
+    """
+    wave = np.asarray(wave_rest, dtype=np.float64)
+    M = np.asarray(star_norm_matrix, dtype=np.float64)
+    if M.ndim != 2:
+        raise ValueError("star_norm_matrix must be 2D (n_stars, n_wave)")
+    n_stars, n_wave = M.shape
+    mask_obs = np.isfinite(M)
+    cov_count = np.sum(mask_obs, axis=0).astype(np.int32)
+    valid_cohort = mask_obs & (cov_count[None, :] >= 2)
+
+    # Subtract per-star median baseline so matrix completion around gaps stays centered at 0
+    row_base = np.zeros(n_stars, dtype=np.float64)
+    M_centered = np.zeros_like(M, dtype=np.float64)
+    for i in range(n_stars):
+        vi = mask_obs[i]
+        if np.any(vi):
+            med_i = float(np.median(M[i, vi]))
+            row_base[i] = med_i
+            M_centered[i, vi] = M[i, vi] - med_i
+
+    teff_arr: np.ndarray | None = None
+    if teffs is not None and len(teffs) == n_stars:
+        teff_arr = np.asarray(teffs, dtype=np.float64)
+
+    blk = max(64, int(block_len))
+    ov = max(0, min(blk // 2, int(overlap)))
+    if n_wave <= blk:
+        starts = [0]
+        eff_blks = [n_wave]
+    else:
+        stride = max(32, blk - ov)
+        starts = list(range(0, n_wave - blk, stride))
+        starts.append(n_wave - blk)
+        eff_blks = [blk] * len(starts)
+
+    L_acc = np.zeros_like(M_centered)
+    S_acc = np.zeros_like(M_centered)
+    L_loso_acc = np.zeros_like(M_centered)
+    S_loso_acc = np.zeros_like(M_centered)
+    W_acc = np.zeros_like(M_centered)
+
+    for b_idx, (st, bl) in enumerate(zip(starts, eff_blks)):
+        ed = st + bl
+        X_b = M_centered[:, st:ed]
+        m_b = mask_obs[:, st:ed]
+
+        # Smooth triangular tent blend on interior overlaps, flat 1 at outer survey edges
+        w_1d = np.ones(bl, dtype=np.float64)
+        if ov > 0 and len(starts) > 1:
+            ramp = np.linspace(0.05, 1.0, ov, dtype=np.float64)
+            if b_idx > 0:
+                w_1d[:ov] = np.minimum(w_1d[:ov], ramp)
+            if b_idx < len(starts) - 1:
+                w_1d[-ov:] = np.minimum(w_1d[-ov:], ramp[::-1])
+
+        L_b, S_b = decompose_rpca_block(X_b, m_b)
+        L_loso_b = np.zeros_like(X_b)
+        S_loso_b = np.zeros_like(X_b)
+
+        for i in range(n_stars):
+            m_i = m_b[i]
+            if not np.any(m_i):
+                continue
+            if n_stars < 2:
+                S_loso_b[i, m_i] = X_b[i, m_i]
+                continue
+
+            other_rows = np.arange(n_stars) != i
+            L_oth = L_b[other_rows]
+            m_oth = m_b[other_rows]
+            col_has_other = np.any(m_oth, axis=0)
+            use_i = m_i & col_has_other
+            if int(np.sum(use_i)) < 4:
+                continue
+
+            if teff_arr is not None and math.isfinite(float(teff_arr[i])):
+                dT = teff_arr[other_rows] - float(teff_arr[i])
+                w_t = np.where(
+                    np.isfinite(dT),
+                    0.25 + 0.75 * np.exp(-0.5 * (dT / 1500.0) ** 2),
+                    0.5,
+                )
+            else:
+                w_t = np.ones(n_stars - 1, dtype=np.float64)
+
+            L_weighted = L_oth * w_t[:, None]
+            try:
+                _, _, Vt_oth = np.linalg.svd(L_weighted, full_matrices=False)
+            except np.linalg.LinAlgError:
+                S_loso_b[i, use_i] = X_b[i, use_i]
+                continue
+
+            k_eff = max(1, min(int(loso_rank), Vt_oth.shape[0]))
+            V_k = Vt_oth[:k_eff, :]
+            V_obs = V_k[:, use_i]
+            # Masked ridge solve avoids edge distortion across instrument gaps
+            gram = V_obs @ V_obs.T + 1e-4 * np.eye(k_eff, dtype=np.float64)
+            rhs = V_obs @ X_b[i, use_i]
+            try:
+                alpha = np.linalg.solve(gram, rhs)
+                recon = alpha @ V_k
+            except np.linalg.LinAlgError:
+                recon = np.zeros(bl, dtype=np.float64)
+
+            L_loso_b[i, use_i] = recon[use_i]
+            S_loso_b[i, use_i] = X_b[i, use_i] - recon[use_i]
+
+        w_b = w_1d[None, :] * m_b
+        L_acc[:, st:ed] += L_b * w_b
+        S_acc[:, st:ed] += S_b * w_b
+        L_loso_acc[:, st:ed] += L_loso_b * w_b
+        S_loso_acc[:, st:ed] += S_loso_b * w_b
+        W_acc[:, st:ed] += w_b
+
+    safe_w = W_acc > 0.0
+    L_out = np.full_like(M, np.nan)
+    S_out = np.full_like(M, np.nan)
+    L_loso_out = np.full_like(M, np.nan)
+    S_loso_out = np.full_like(M, np.nan)
+    z_rpca = np.full_like(M, np.nan)
+
+    L_out[safe_w] = L_acc[safe_w] / W_acc[safe_w]
+    S_out[safe_w] = S_acc[safe_w] / W_acc[safe_w]
+    L_loso_out[safe_w] = L_loso_acc[safe_w] / W_acc[safe_w]
+    S_loso_out[safe_w] = S_loso_acc[safe_w] / W_acc[safe_w]
+
+    # Restore baseline into L so M ~= L + S holds on observed bins
+    L_out[mask_obs] += np.broadcast_to(row_base[:, None], M.shape)[mask_obs]
+    L_loso_out[valid_cohort] += np.broadcast_to(row_base[:, None], M.shape)[valid_cohort]
+    L_loso_out[~valid_cohort] = np.nan
+    S_loso_out[~valid_cohort] = np.nan
+    S_out[~mask_obs] = np.nan
+
+    for i in range(n_stars):
+        vi = valid_cohort[i] & np.isfinite(S_loso_out[i])
+        if int(np.sum(vi)) < 8:
+            continue
+        mad_arr = _compute_rolling_mad_1d(S_loso_out[i], vi, win_bins=max(128, min(1024, n_wave // 8)))
+        ok_m = vi & np.isfinite(mad_arr) & (mad_arr > 0.0)
+        z_rpca[i, ok_m] = S_loso_out[i, ok_m] / mad_arr[ok_m]
+
+    return {
+        "wave_rest": wave,
+        "L_mat": L_out,
+        "S_mat": S_out,
+        "L_loso": L_loso_out,
+        "S_loso": S_loso_out,
+        "z_rpca": z_rpca,
+        "coverage_count": cov_count,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Engine 2: Spectral Rarity Score & Gate G7_V50
+# ---------------------------------------------------------------------------
+
+def compute_spectral_rarity_score(
+    wave_rest: np.ndarray,
+    z_mat: np.ndarray,
+    bervs: np.ndarray,
+    star_idx: int,
+    center_wave_a: float,
+    sigma_v_kms: float,
+    polarity: float = 1.0,
+) -> dict[str, float]:
+    """
+    Compute empirical cohort spectral uniqueness across rest and topocentric frames.
+
+    Inputs:
+      bervs: effective observatory-to-rest velocity offset (``BERV - RV_star``, km/s)
+          for each star row in ``z_mat``.
+      polarity: ``+1.0`` for emission, ``-1.0`` for absorption, or ``0.0`` for unsigned ``|z|``.
+    Formula:
+      ``rarity_score = exp(-4.0 * f_rest) * exp(-6.0 * f_topo)`` where peer repeats are
+      counted via matched-width unit-L2 Gaussian projection (preserving ``N(0, 1)`` scaling
+      across ``1x..14x LSF``) with ``+-1.5 sigma`` local alignment tolerance at ``>= 3.5 sigma``.
+    """
+    w = np.asarray(wave_rest, dtype=np.float64)
+    Z = np.asarray(z_mat, dtype=np.float64)
+    v_arr = np.asarray(bervs, dtype=np.float64)
+    n_stars = Z.shape[0]
+    w0 = float(center_wave_a)
+    sig_v = max(0.5, float(sigma_v_kms))
+
+    diffs = np.diff(w)
+    pos_diffs = diffs[diffs > 0.0]
+    dw = float(np.median(pos_diffs)) if len(pos_diffs) > 0 else 0.03
+    sig_a = max(dw, w0 * sig_v / C_KMS)
+    half_win_a = 4.0 * sig_a
+    offsets_a = (-1.5 * sig_a, -0.75 * sig_a, 0.0, 0.75 * sig_a, 1.5 * sig_a)
+
+    def _peer_matched_z(row_j: int, wc0: float) -> tuple[bool, float]:
+        lo = int(np.searchsorted(w, wc0 - half_win_a, side="left"))
+        hi = int(np.searchsorted(w, wc0 + half_win_a, side="right"))
+        if hi <= lo:
+            return False, 0.0
+        z_win = Z[row_j, lo:hi]
+        w_win = w[lo:hi]
+        fin = np.isfinite(z_win)
+        if not np.any(np.abs(w_win[fin] - wc0) <= 2.5 * sig_a):
+            return False, 0.0
+        wf = w_win[fin]
+        zf = z_win[fin]
+        best_val = -1e9 if polarity != 0.0 else 0.0
+        for off in offsets_a:
+            g = np.exp(-0.5 * ((wf - (wc0 + off)) / sig_a) ** 2)
+            ng = float(np.linalg.norm(g))
+            if ng <= 1e-12:
+                continue
+            zm = float(np.dot(g, zf) / ng)
+            score = abs(zm) if polarity == 0.0 else float(polarity) * zm
+            if score > best_val:
+                best_val = score
+        return True, float(best_val)
+
+    n_cover_rest = 0
+    n_repeat_rest = 0
+    n_cover_topo = 0
+    n_repeat_topo = 0
+    v_i = float(v_arr[star_idx]) if star_idx < len(v_arr) and math.isfinite(float(v_arr[star_idx])) else 0.0
+
+    for j in range(n_stars):
+        if j == star_idx:
+            continue
+        cov_r, z_r = _peer_matched_z(j, w0)
+        if cov_r:
+            n_cover_rest += 1
+            if z_r >= 3.5:
+                n_repeat_rest += 1
+
+        v_j = float(v_arr[j]) if j < len(v_arr) and math.isfinite(float(v_arr[j])) else v_i
+        if abs(v_j - v_i) >= 1.5:
+            w_topo_j = w0 * (1.0 + (v_j - v_i) / C_KMS)
+            cov_t, z_t = _peer_matched_z(j, w_topo_j)
+            if cov_t:
+                n_cover_topo += 1
+                if z_t >= 3.5:
+                    n_repeat_topo += 1
+
+    f_rest = (n_repeat_rest / n_cover_rest) if n_cover_rest > 0 else 1.0
+    f_topo = (n_repeat_topo / n_cover_topo) if n_cover_topo > 0 else 0.0
+    rarity_score = math.exp(-4.0 * f_rest) * math.exp(-6.0 * f_topo)
+    return {
+        "f_rest": float(f_rest),
+        "f_topo": float(f_topo),
+        "rarity_score": float(rarity_score),
+        "n_cover_rest": int(n_cover_rest),
+        "n_repeat_rest": int(n_repeat_rest),
+        "n_cover_topo": int(n_cover_topo),
+        "n_repeat_topo": int(n_repeat_topo),
+    }
+
+
+def evaluate_gate_g7_v50(
+    z_rpca: float,
+    rarity_score: float,
+    abs_mode: bool = False,
+) -> dict[str, Any]:
+    """V5.0 Gate G7: requires ``z_rpca >= 6.0`` (or ``|z|`` in agnostic mode) and ``rarity >= 0.65``."""
+    z_raw = float(z_rpca)
+    z_val = abs(z_raw) if abs_mode else z_raw
+    r_val = float(rarity_score)
+    z_ok = math.isfinite(z_val) and z_val >= float(BASE_V5_0_CONFIG["g7_min_z_rpca"])
+    r_ok = math.isfinite(r_val) and r_val >= float(BASE_V5_0_CONFIG["g7_min_rarity_score"])
+    passed = bool(z_ok and r_ok)
+    if passed:
+        reason = "PASS"
+    elif not z_ok:
+        reason = "G7_LOW_Z_RPCA"
+    else:
+        reason = "G7_LOW_RARITY"
+    return {
+        "g7_pass": passed,
+        "z_rpca": z_raw,
+        "rarity_score": r_val,
+        "reason": reason,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Engine 3: Dual-Polarity Agnostic Multi-Scale Matched Filter
+# ---------------------------------------------------------------------------
+
+def _is_masked_static_v50(
+    wave_rest_arr: np.ndarray,
+    cfg: dict[str, Any],
+    v_obs_to_rest_kms: float,
+) -> np.ndarray:
+    """Mask static Paranal/La Silla sky emission, blackout windows, and chromospheric lines."""
+    masked = np.zeros(len(wave_rest_arr), dtype=bool)
+    shift_obs_to_rest = 1.0 + float(v_obs_to_rest_kms) / C_KMS
+    for line in GROUND_AIRGLOW_AND_TELLURIC_A:
+        w_c = float(line["wave_A"]) * shift_obs_to_rest
+        hw = max(0.8, w_c * float(line["half_width_kms"]) / C_KMS)
+        masked |= np.abs(wave_rest_arr - w_c) <= hw
+    for lo_a, hi_a in XSHOOTER_TELLURIC_BLACKOUT_A:
+        masked |= (wave_rest_arr >= lo_a * shift_obs_to_rest) & (wave_rest_arr <= hi_a * shift_obs_to_rest)
+    for ch in STELLAR_OPT_NIR_EMISSION_A:
+        wc = float(ch["wave_A"])
+        r_eff = effective_resolving_power(cfg, wc)
+        tol_a = max(1.0, 2.5 * (wc / max(500.0, r_eff)))
+        masked |= np.abs(wave_rest_arr - wc) <= tol_a
+    return masked
+
+
+def scan_agnostic_multiscale_v50(
+    wave_rest: np.ndarray,
+    resid_s: np.ndarray,
+    star_idx: int,
+    z_mat: np.ndarray,
+    bervs: np.ndarray,
+    cfg: dict[str, Any],
+    scales_lsf: tuple[float, ...] = (2.0, 4.0, 8.0, 14.0),
+) -> tuple[list[dict[str, Any]], int]:
+    """
+    Scan residuals with dual-polarity (+/-) Gaussian and flat-top boxcar-drift kernels.
+
+    Scales span ``2, 4, 8, 14 x LSF``, vetoing known sky/telluric/chromospheric masks and
+    requiring calibrated matched-filter ``|z_multi| >= 7.5`` and ``rarity_score >= 0.70``.
+    """
+    wave = np.asarray(wave_rest, dtype=np.float64)
+    res = np.asarray(resid_s, dtype=np.float64)
+    n_wave = len(wave)
+    valid = np.isfinite(wave) & np.isfinite(res)
+    if int(np.sum(valid)) < 128 or n_wave < 128:
+        return [], 0
+
+    dw = float(np.median(np.diff(wave)))
+    if not math.isfinite(dw) or dw <= 0.0:
+        return [], 0
+
+    v_off = float(bervs[star_idx]) if star_idx < len(bervs) and math.isfinite(float(bervs[star_idx])) else 0.0
+    static_veto = _is_masked_static_v50(wave, cfg, v_off)
+
+    res_clean = np.where(valid, res, 0.0)
+    mask_f = valid.astype(np.float64)
+
+    min_abs_z = float(cfg.get("agnostic_min_abs_z", 7.5))
+    min_rarity = float(cfg.get("agnostic_min_rarity_score", 0.70))
+
+    # Process across smooth octave windows so LSF pixel width stays well calibrated across broad SEDs
+    w_min = float(wave[valid][0])
+    w_max = float(wave[valid][-1])
+    octaves: list[tuple[float, float]] = []
+    cur_lo = w_min
+    while cur_lo < w_max:
+        cur_hi = min(w_max + 1e-6, cur_lo * 1.55)
+        octaves.append((cur_lo, cur_hi))
+        cur_lo = cur_hi
+
+    raw_peaks: list[dict[str, Any]] = []
+    n_evals = 0
+
+    for oct_lo, oct_hi in octaves:
+        oct_sel = valid & (wave >= oct_lo) & (wave < oct_hi)
+        if int(np.sum(oct_sel)) < 64:
+            continue
+        ref_w = 0.5 * (oct_lo + oct_hi)
+        r_eff = effective_resolving_power(cfg, ref_w)
+        lsf_sigma_a = ref_w / (max(500.0, r_eff) * FWHM_FACTOR)
+        lsf_sigma_px = max(0.8, lsf_sigma_a / dw)
+
+        i0 = max(0, int(np.searchsorted(wave, oct_lo, side="left")) - 160)
+        i1 = min(n_wave, int(np.searchsorted(wave, oct_hi, side="right")) + 160)
+        sub_res = res_clean[i0:i1]
+        sub_mask = mask_f[i0:i1]
+        sub_wave = wave[i0:i1]
+        sub_valid = valid[i0:i1]
+
+        for scale_lsf in scales_lsf:
+            sig_px = float(scale_lsf) * lsf_sigma_px
+            for kernel_name in ("gaussian", "boxcar_drift"):
+                if kernel_name == "gaussian":
+                    half_w = int(max(4, min(400, math.ceil(3.5 * sig_px))))
+                    kx = np.arange(-half_w, half_w + 1, dtype=np.float64)
+                    kern = np.exp(-0.5 * (kx / max(0.75, sig_px)) ** 2)
+                    width_px = FWHM_FACTOR * sig_px
+                else:
+                    full_w = int(max(5, min(601, round(FWHM_FACTOR * sig_px))))
+                    if full_w % 2 == 0:
+                        full_w += 1
+                    kern = np.ones(full_w, dtype=np.float64)
+                    width_px = float(full_w)
+
+                kern /= max(1e-12, float(np.linalg.norm(kern)))
+                k_sq = kern * kern
+
+                num = convolve1d(sub_res, kern, mode="constant", cval=0.0)
+                den = np.sqrt(np.maximum(0.0, convolve1d(sub_mask, k_sq, mode="constant", cval=0.0)))
+                resp = np.full_like(num, np.nan)
+                ok_d = sub_valid & (den >= 0.45)
+                resp[ok_d] = num[ok_d] / den[ok_d]
+
+                if int(np.sum(ok_d)) < 32:
+                    continue
+
+                mad_loc = _compute_rolling_mad_1d(resp, ok_d, win_bins=max(256, 20 * len(kern)))
+                z_loc = np.full_like(resp, np.nan)
+                ok_z = ok_d & np.isfinite(mad_loc) & (mad_loc > 0.0)
+                z_loc[ok_z] = resp[ok_z] / mad_loc[ok_z]
+
+                cand_idx = np.where(
+                    ok_z
+                    & (sub_wave >= oct_lo)
+                    & (sub_wave < oct_hi)
+                    & (~static_veto[i0:i1])
+                    & (np.abs(z_loc) >= min_abs_z)
+                )[0]
+                if len(cand_idx) == 0:
+                    continue
+
+                # Non-maximum suppression within +/- max(16, 3 * kernel width) bins
+                nms_sep = max(16, int(round(3.0 * width_px)))
+                order_idx = cand_idx[np.argsort(np.abs(z_loc[cand_idx]))[::-1]]
+                taken = np.zeros(len(sub_wave), dtype=bool)
+                for idx in order_idx:
+                    if taken[idx]:
+                        continue
+                    n_evals += 1
+                    lo_t = max(0, idx - nms_sep)
+                    hi_t = min(len(sub_wave), idx + nms_sep + 1)
+                    taken[lo_t:hi_t] = True
+
+                    w_pk = float(sub_wave[idx])
+                    z_pk = float(z_loc[idx])
+                    fwhm_a = max(dw, width_px * dw)
+                    raw_peaks.append({
+                        "wave_rest_a": w_pk,
+                        "z_multi": z_pk,
+                        "polarity": "+" if z_pk >= 0.0 else "-",
+                        "scale_lsf": float(scale_lsf),
+                        "kernel": kernel_name,
+                        "fwhm_a": fwhm_a,
+                        "sigma_v_kms": (C_KMS / max(500.0, effective_resolving_power(cfg, w_pk) * FWHM_FACTOR)) * float(scale_lsf),
+                    })
+
+    # Deduplicate overlapping peaks across scales/kernels keeping strongest |z_multi|
+    raw_peaks.sort(key=lambda d: abs(float(d["z_multi"])), reverse=True)
+    dedup: list[dict[str, Any]] = []
+    for pk in raw_peaks:
+        w_p = float(pk["wave_rest_a"])
+        tol_dedup = max(0.5, 0.75 * float(pk["fwhm_a"]))
+        if any(abs(w_p - float(d["wave_rest_a"])) <= tol_dedup for d in dedup):
+            continue
+        dedup.append(pk)
+
+    survivors: list[dict[str, Any]] = []
+    for pk in dedup:
+        pol_val = 1.0 if pk["polarity"] == "+" else -1.0
+        rar = compute_spectral_rarity_score(
+            wave,
+            z_mat,
+            bervs,
+            star_idx,
+            float(pk["wave_rest_a"]),
+            float(pk["sigma_v_kms"]),
+            polarity=pol_val,
+        )
+        if rar["rarity_score"] >= min_rarity:
+            survivors.append({
+                **pk,
+                "rarity_score": float(rar["rarity_score"]),
+                "f_rest": float(rar["f_rest"]),
+                "f_topo": float(rar["f_topo"]),
+            })
+
+    return survivors, int(n_evals)
+
+
+# ---------------------------------------------------------------------------
+# Engine 4: JWST MIRI MRS Techno-Atmosphere Greenhouse Gas CCF
+# ---------------------------------------------------------------------------
+
+GREENHOUSE_GAS_TEMPLATES_UM: dict[str, list[dict[str, float]]] = {
+    "CF4": [{"mu_um": 7.80, "sigma_um": 0.14, "weight": 1.0}],
+    "C2F6": [
+        {"mu_um": 8.00, "sigma_um": 0.18, "weight": 0.55},
+        {"mu_um": 8.96, "sigma_um": 0.22, "weight": 0.45},
+    ],
+    "SF6": [{"mu_um": 10.55, "sigma_um": 0.16, "weight": 1.0}],
+    "NF3": [
+        {"mu_um": 11.02, "sigma_um": 0.25, "weight": 0.65},
+        {"mu_um": 9.70, "sigma_um": 0.18, "weight": 0.35},
+    ],
+}
+
+NATURAL_MIRI_CONFOUNDER_TEMPLATES_UM: dict[str, list[dict[str, float]]] = {
+    "CH4_ATM": [{"mu_um": 7.66, "sigma_um": 0.28, "weight": 1.0}],
+    "O3_ATM": [{"mu_um": 9.59, "sigma_um": 0.26, "weight": 1.0}],
+    "SILICATE_BROAD": [{"mu_um": 9.75, "sigma_um": 0.85, "weight": 1.0}],
+    "PAH_EMISSION": [
+        {"mu_um": 7.70, "sigma_um": 0.25, "weight": 0.50},
+        {"mu_um": 8.60, "sigma_um": 0.20, "weight": 0.20},
+        {"mu_um": 11.30, "sigma_um": 0.22, "weight": 0.30},
+    ],
+}
+
+
+def _fit_miri_loglog_continuum(
+    w_seg: np.ndarray,
+    f_seg: np.ndarray,
+    win_mask: np.ndarray,
+    sb_mask: np.ndarray,
+    mu_center: float,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray] | None:
+    """Fit smooth power-law continuum in ``(log(w), log(F))`` space + design matrices for leverage error."""
+    w_sb = w_seg[sb_mask]
+    f_sb = f_seg[sb_mask]
+    w_win = w_seg[win_mask]
+    if len(w_sb) < 20 or len(w_win) < 12 or (float(np.max(w_sb)) - float(np.min(w_sb))) < 0.20:
+        return None
+    mu_sb = float(np.mean(w_sb))
+    has_two_sides = int(np.sum(w_sb < mu_center)) >= 8 and int(np.sum(w_sb > mu_center)) >= 8
+
+    if np.all(f_sb > 0.0) and np.all(w_sb > 0.0) and np.all(w_win > 0.0):
+        lw_sb = np.log(w_sb)
+        lw_mid = float(np.mean(lw_sb))
+        x_sb = lw_sb - lw_mid
+        x_win = np.log(w_win) - lw_mid
+        deg = 2 if (has_two_sides and len(x_sb) >= 24) else 1
+        try:
+            coeffs = np.polyfit(x_sb, np.log(f_sb), deg)
+            cont_sb = np.exp(np.clip(np.polyval(coeffs, x_sb), -120.0, 120.0))
+            cont_win = np.exp(np.clip(np.polyval(coeffs, x_win), -120.0, 120.0))
+            X_sb = np.vander(x_sb, deg + 1)
+            X_win = np.vander(x_win, deg + 1)
+            return cont_win, cont_sb, X_win, X_sb
+        except (np.linalg.LinAlgError, ValueError):
+            pass
+
+    deg_lin = 2 if (has_two_sides and len(w_sb) >= 24) else 1
+    try:
+        x_lin_sb = w_sb - mu_sb
+        x_lin_win = w_win - mu_sb
+        coeffs = np.polyfit(x_lin_sb, f_sb, deg_lin)
+        X_sb = np.vander(x_lin_sb, deg_lin + 1)
+        X_win = np.vander(x_lin_win, deg_lin + 1)
+        return np.polyval(coeffs, x_lin_win), np.polyval(coeffs, x_lin_sb), X_win, X_sb
+    except (np.linalg.LinAlgError, ValueError):
+        return None
+
+
+def _sideband_noise_sigma(r_sb: np.ndarray) -> float:
+    """Compute robust sideband noise scale with conservative lag-1 fringing adjustment."""
+    sb_med = float(np.median(r_sb))
+    sigma_sb = max(1e-5, MAD_NORM * float(np.median(np.abs(r_sb - sb_med))))
+    if len(r_sb) >= 16:
+        rc = r_sb - np.mean(r_sb)
+        denom = float(np.dot(rc, rc))
+        if denom > 1e-20:
+            rho1 = float(np.dot(rc[:-1], rc[1:]) / denom)
+            if rho1 > 0.15:
+                sigma_sb *= min(2.5, math.sqrt((1.0 + rho1) / max(0.10, 1.0 - rho1)))
+    return float(sigma_sb)
+
+
+def _fit_miri_sideband_template(
+    segments: list[tuple[np.ndarray, np.ndarray]],
+    components: list[dict[str, float]],
+) -> dict[str, float]:
+    """Evaluate weighted Gaussian template CCF across contiguous MIRI MRS sub-channels."""
+    num_sum = 0.0
+    t2_sum = 0.0
+    var_sum = 0.0
+    n_cov = 0
+    w_sum_cov = 0.0
+
+    for comp in components:
+        mu = float(comp["mu_um"])
+        sig = float(comp["sigma_um"])
+        wt = float(comp["weight"])
+
+        best_seg: tuple[np.ndarray, np.ndarray] | None = None
+        best_n = 0
+        for w_seg, f_seg in segments:
+            in_core = np.abs(w_seg - mu) <= 2.2 * sig
+            n_core = int(np.sum(in_core))
+            if n_core >= 12 and n_core > best_n:
+                best_n = n_core
+                best_seg = (w_seg, f_seg)
+        if best_seg is None:
+            continue
+
+        w_seg, f_seg = best_seg
+        win_mask = np.abs(w_seg - mu) <= 5.0 * sig
+        sb_mask = (np.abs(w_seg - mu) >= 2.0 * sig) & (np.abs(w_seg - mu) <= 5.0 * sig)
+        if int(np.sum(sb_mask)) < 14:
+            sb_mask = (np.abs(w_seg - mu) >= 1.6 * sig) & (np.abs(w_seg - mu) <= 6.0 * sig)
+            win_mask = np.abs(w_seg - mu) <= 6.0 * sig
+        # Avoid degenerate one-sided extrapolation when a broad line has no two-sided continuum unless narrow core covered cleanly
+        n_left_core = int(np.sum((w_seg[win_mask] >= mu - 2.0 * sig) & (w_seg[win_mask] < mu)))
+        n_right_core = int(np.sum((w_seg[win_mask] > mu) & (w_seg[win_mask] <= mu + 2.0 * sig)))
+        if n_left_core < 4 or n_right_core < 4:
+            continue
+
+        fit_c = _fit_miri_loglog_continuum(w_seg, f_seg, win_mask, sb_mask, mu)
+        if fit_c is None:
+            continue
+        cont_win, cont_sb, X_win, X_sb = fit_c
+
+        f_sb = f_seg[sb_mask]
+        safe_sb = np.abs(cont_sb) > 1e-30
+        safe_win = np.abs(cont_win) > 1e-30
+        if int(np.sum(safe_sb)) < 10 or int(np.sum(safe_win)) < 12:
+            continue
+
+        r_sb = (f_sb[safe_sb] - cont_sb[safe_sb]) / np.abs(cont_sb[safe_sb])
+        r_win = (f_seg[win_mask][safe_win] - cont_win[safe_win]) / np.abs(cont_win[safe_win])
+        w_win = w_seg[win_mask][safe_win]
+        w_sb_safe = w_seg[sb_mask][safe_sb]
+
+        sigma_sb = _sideband_noise_sigma(r_sb)
+        T_vec = wt * np.exp(-0.5 * ((w_win - mu) / sig) ** 2)
+        T_sb = wt * np.exp(-0.5 * ((w_sb_safe - mu) / sig) ** 2)
+        T_vec = T_vec - float(np.median(T_sb))
+
+        t2 = float(np.dot(T_vec, T_vec))
+        if t2 <= 1e-12:
+            continue
+
+        # Propagate continuum-fit estimation leverage uncertainty into template projection variance
+        var_cont = 0.0
+        try:
+            X_sb_s = X_sb[safe_sb]
+            X_win_s = X_win[safe_win]
+            g_proj = X_win_s.T @ T_vec
+            xt_x = X_sb_s.T @ X_sb_s
+            var_cont = max(0.0, float(g_proj.T @ np.linalg.solve(xt_x + 1e-9 * np.eye(xt_x.shape[0]), g_proj)))
+        except np.linalg.LinAlgError:
+            var_cont = 0.0
+
+        num_sum += float(np.dot(T_vec, r_win))
+        t2_sum += t2
+        var_sum += (sigma_sb ** 2) * (t2 + var_cont)
+        n_cov += 1
+        w_sum_cov += wt
+
+    if n_cov == 0 or t2_sum <= 1e-12 or var_sum <= 1e-30:
+        return {
+            "covered": False,
+            "n_components": 0,
+            "depth": 0.0,
+            "sigma_depth": math.nan,
+            "ccf_sigma_abs": 0.0,
+            "max_abs_ccf_sigma": 0.0,
+            "delta_min_5sigma": math.nan,
+            "ppm_equiv_10pct_ref": math.nan,
+        }
+
+    w_scale = max(1e-6, w_sum_cov / float(n_cov))
+    amp_raw = num_sum / t2_sum
+    depth = -amp_raw * w_scale
+    sigma_depth = (math.sqrt(var_sum) / t2_sum) * w_scale
+    ccf_sigma_abs = depth / max(1e-12, sigma_depth)
+    delta_min_5sigma = min(1.0, 5.0 * sigma_depth)
+    ppm_equiv = 10.0 * (delta_min_5sigma / 0.10)
+    return {
+        "covered": True,
+        "n_components": int(n_cov),
+        "depth": float(depth),
+        "sigma_depth": float(sigma_depth),
+        "ccf_sigma_abs": float(ccf_sigma_abs),
+        "max_abs_ccf_sigma": float(abs(ccf_sigma_abs)),
+        "delta_min_5sigma": float(delta_min_5sigma),
+        "ppm_equiv_10pct_ref": float(ppm_equiv),
+    }
+
+
+def _joint_miri_confounder_test(
+    segments: list[tuple[np.ndarray, np.ndarray]],
+    mol_comps: list[dict[str, float]],
+    conf_comps: list[dict[str, float]],
+    conf_is_emission: bool = False,
+) -> dict[str, Any]:
+    """Simultaneously fit overlapping target molecule + natural confounder templates via 2-param OLS."""
+    pairs: list[tuple[dict[str, float], dict[str, float]]] = []
+    for mc in mol_comps:
+        for cc in conf_comps:
+            if abs(float(mc["mu_um"]) - float(cc["mu_um"])) <= 2.2 * (float(mc["sigma_um"]) + float(cc["sigma_um"])):
+                pairs.append((mc, cc))
+    if not pairs:
+        return {"overlaps": False}
+
+    # Evaluate joint linear model across overlapping component windows
+    xtx_tot = np.zeros((2, 2), dtype=np.float64)
+    xty_tot = np.zeros(2, dtype=np.float64)
+    cov_num = np.zeros((2, 2), dtype=np.float64)
+    n_pairs_used = 0
+
+    for mc, cc in pairs:
+        mu_m, sig_m = float(mc["mu_um"]), float(mc["sigma_um"])
+        mu_c, sig_c = float(cc["mu_um"]), float(cc["sigma_um"])
+        lo_core = min(mu_m - 2.0 * sig_m, mu_c - 2.0 * sig_c)
+        hi_core = max(mu_m + 2.0 * sig_m, mu_c + 2.0 * sig_c)
+        span = max(0.6, hi_core - lo_core)
+        lo_win = lo_core - 1.25 * span
+        hi_win = hi_core + 1.25 * span
+
+        best_seg: tuple[np.ndarray, np.ndarray] | None = None
+        best_n = 0
+        for w_seg, f_seg in segments:
+            if not (w_seg[0] + 0.05 < mu_m < w_seg[-1] - 0.05 and w_seg[0] + 0.05 < mu_c < w_seg[-1] - 0.05):
+                continue
+            in_m = int(np.sum(np.abs(w_seg - mu_m) <= 2.0 * sig_m))
+            if in_m >= 12 and in_m > best_n:
+                best_n = in_m
+                best_seg = (w_seg, f_seg)
+        if best_seg is None:
+            continue
+        w_seg, f_seg = best_seg
+
+        win_mask = (w_seg >= lo_win) & (w_seg <= hi_win)
+        sb_mask = win_mask & ((w_seg < lo_core) | (w_seg > hi_core))
+        if int(np.sum(sb_mask)) < 20:
+            sb_mask = (np.abs(w_seg - mu_m) >= 1.8 * sig_m) & ((w_seg < mu_c - 1.5 * sig_c) | (w_seg > mu_c + 1.5 * sig_c))
+            sb_mask &= (w_seg >= lo_win - 1.0) & (w_seg <= hi_win + 1.0)
+            win_mask |= sb_mask
+
+        fit_c = _fit_miri_loglog_continuum(w_seg, f_seg, win_mask, sb_mask, 0.5 * (mu_m + mu_c))
+        if fit_c is None:
+            continue
+        cont_win, cont_sb, X_win, X_sb = fit_c
+        safe_sb = np.abs(cont_sb) > 1e-30
+        safe_win = np.abs(cont_win) > 1e-30
+        if int(np.sum(safe_sb)) < 16 or int(np.sum(safe_win)) < 16:
+            continue
+
+        r_sb = (f_seg[sb_mask][safe_sb] - cont_sb[safe_sb]) / np.abs(cont_sb[safe_sb])
+        y_abs_depth = -(f_seg[win_mask][safe_win] - cont_win[safe_win]) / np.abs(cont_win[safe_win])
+        w_win = w_seg[win_mask][safe_win]
+        sigma_sb = _sideband_noise_sigma(r_sb)
+
+        tm = float(mc["weight"]) * np.exp(-0.5 * ((w_win - mu_m) / sig_m) ** 2)
+        tc = float(cc["weight"]) * np.exp(-0.5 * ((w_win - mu_c) / sig_c) ** 2)
+        X = np.column_stack([tm, tc])
+        xtx = X.T @ X
+        # Propagate continuum-fit leverage matrix G = (X_win^T X)^T inv(X_sb^T X_sb) (X_win^T X)
+        cov_c = np.zeros((2, 2), dtype=np.float64)
+        try:
+            X_sb_s = X_sb[safe_sb]
+            X_win_s = X_win[safe_win]
+            G = X_win_s.T @ X  # (deg+1, 2)
+            xt_x_sb = X_sb_s.T @ X_sb_s + 1e-9 * np.eye(X_sb_s.shape[1])
+            cov_c = G.T @ np.linalg.solve(xt_x_sb, G)
+        except np.linalg.LinAlgError:
+            cov_c = np.zeros((2, 2), dtype=np.float64)
+
+        xtx_tot += xtx
+        xty_tot += X.T @ y_abs_depth
+        cov_num += (sigma_sb ** 2) * (xtx + cov_c)
+        n_pairs_used += 1
+
+    if n_pairs_used == 0 or np.linalg.cond(xtx_tot + 1e-9 * np.eye(2)) > 1e4:
+        return {"overlaps": False}
+
+    try:
+        inv_xtx = np.linalg.inv(xtx_tot + 1e-9 * np.eye(2))
+        beta = inv_xtx @ xty_tot
+        var_beta = inv_xtx @ cov_num @ inv_xtx
+    except np.linalg.LinAlgError:
+        return {"overlaps": False}
+
+    se_m = max(1e-12, math.sqrt(max(0.0, float(var_beta[0, 0]))))
+    se_c = max(1e-12, math.sqrt(max(0.0, float(var_beta[1, 1]))))
+    z_m = float(beta[0] / se_m)
+    z_c_raw = float(beta[1] / se_c)
+    z_c_phys = (-z_c_raw) if conf_is_emission else z_c_raw
+    return {
+        "overlaps": True,
+        "ccf_mol_given_conf": float(z_m),
+        "ccf_conf_given_mol": float(z_c_phys),
+    }
+
+
+def scan_miri_greenhouse_ccf_v50(
+    wave_um: np.ndarray,
+    flux_norm_or_flam: np.ndarray,
+    cfg: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """
+    Scan JWST MIRI MRS spectra for industrial greenhouse technosignature absorption bands.
+
+    Evaluates ``CF4``, ``C2F6``, ``SF6``, and ``NF3`` against natural atmospheric/dust
+    confounders (``CH4_ATM``, ``O3_ATM``, ``SILICATE_BROAD``, ``PAH_EMISSION``) using
+    power-law ``log-log`` sideband continuum normalization and 2-parameter joint OLS
+    confounder separation for overlapping bands (e.g. ``CF4`` vs ``CH4_ATM``).
+    """
+    cfg_eff = cfg or BASE_V5_0_CONFIG
+    min_sigma = float(cfg_eff.get("miri_ccf_min_sigma", 5.0))
+    min_conf_ratio = float(cfg_eff.get("miri_ccf_min_confounder_ratio", 1.5))
+
+    w = np.asarray(wave_um, dtype=np.float64)
+    f = np.asarray(flux_norm_or_flam, dtype=np.float64)
+    valid = np.isfinite(w) & np.isfinite(f) & (w > 0.0)
+    if int(np.sum(valid)) < 32:
+        return {
+            "molecules": {},
+            "confounders": {},
+            "max_confounder_sigma": 0.0,
+            "detected_molecules": [],
+            "any_detection": False,
+        }
+
+    w_v = w[valid]
+    f_v = f[valid]
+    order = np.argsort(w_v)
+    w_v = w_v[order]
+    f_v = f_v[order]
+
+    split_idx = np.where((np.diff(w_v) > 0.05) | (np.diff(w_v) < 0.0))[0] + 1
+    bounds = [0] + list(split_idx) + [len(w_v)]
+    segments: list[tuple[np.ndarray, np.ndarray]] = []
+    for a, b in zip(bounds[:-1], bounds[1:]):
+        if (b - a) >= 20 and (w_v[b - 1] - w_v[a]) >= 0.30:
+            segments.append((w_v[a:b], f_v[a:b]))
+
+    conf_res: dict[str, dict[str, float]] = {}
+    max_conf = 0.0
+    for cname, comps in NATURAL_MIRI_CONFOUNDER_TEMPLATES_UM.items():
+        cres = _fit_miri_sideband_template(segments, comps)
+        # Physical sign: CH4/O3/Silicate act as absorption confounders, PAH as emission
+        raw_s = float(cres["ccf_sigma_abs"])
+        phys_s = max(0.0, -raw_s if cname == "PAH_EMISSION" else raw_s)
+        cres["physical_confounder_sigma"] = float(phys_s)
+        conf_res[cname] = cres
+        if cres["covered"]:
+            max_conf = max(max_conf, phys_s)
+
+    mol_res: dict[str, dict[str, Any]] = {}
+    detected: list[str] = []
+    for mname, comps in GREENHOUSE_GAS_TEMPLATES_UM.items():
+        mres = _fit_miri_sideband_template(segments, comps)
+        ccf_s = float(mres["ccf_sigma_abs"])
+        joint_vetoes: dict[str, Any] = {}
+        passes = bool(mres["covered"] and ccf_s >= min_sigma)
+
+        if mres["covered"]:
+            for cname, ccomps in NATURAL_MIRI_CONFOUNDER_TEMPLATES_UM.items():
+                is_em = cname == "PAH_EMISSION"
+                jres = _joint_miri_confounder_test(segments, comps, ccomps, conf_is_emission=is_em)
+                joint_vetoes[cname] = jres
+                if jres.get("overlaps"):
+                    zm = float(jres["ccf_mol_given_conf"])
+                    zc = max(0.0, float(jres["ccf_conf_given_mol"]))
+                    if not (zm >= min_sigma and zm > min_conf_ratio * zc):
+                        passes = False
+                else:
+                    min_dist_um = min(
+                        abs(float(mc["mu_um"]) - float(cc["mu_um"]))
+                        for mc in comps
+                        for cc in ccomps
+                    )
+                    if min_dist_um <= 1.2 and conf_res[cname]["covered"]:
+                        c_phys = float(conf_res[cname]["physical_confounder_sigma"])
+                        if not (ccf_s > min_conf_ratio * c_phys):
+                            passes = False
+
+        mres["joint_confounder_checks"] = joint_vetoes
+        mres["passes_ccf"] = passes
+        mol_res[mname] = mres
+        if passes:
+            detected.append(mname)
+
+    return {
+        "molecules": mol_res,
+        "confounders": conf_res,
+        "max_confounder_sigma": float(max_conf),
+        "detected_molecules": detected,
+        "any_detection": len(detected) > 0,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Engine 5: Exact Geometric Synchronization (SN 1987A Ellipsoid, ETZ, PPO)
+# ---------------------------------------------------------------------------
+
+SN1987A_RA_DEG = 83.86675
+SN1987A_DEC_DEG = -69.26974
+SN1987A_DIST_PC = 49590.0
+SN1987A_MJD0 = 46849.316
+_PC_PER_DAY = (C_SI * DAY_S) / (PC_CM * 1e-2)  # parsecs traveled by light per day
+_DAYS_PER_PC = 1.0 / _PC_PER_DAY
+
+
+def compute_sn1987a_ellipsoid_mjd(
+    ra_deg: float,
+    dec_deg: float,
+    dist_pc: float,
+    dist_err_pc: float = 0.0,
+) -> tuple[float, float, float]:
+    """
+    Compute exact SN 1987A SETI Ellipsoid synchronization epoch at Earth.
+
+    Returns ``(mjd_ellipsoid, dt_days_since_sn, mjd_err_days)`` where
+    ``dt = (d_* + |r_* - r_SN| - d_SN) / c``.
+    """
+    ra1 = math.radians(SN1987A_RA_DEG)
+    dec1 = math.radians(SN1987A_DEC_DEG)
+    ra2 = math.radians(float(ra_deg))
+    dec2 = math.radians(float(dec_deg))
+
+    cos_theta = (
+        math.cos(dec1) * math.cos(dec2) * math.cos(ra1 - ra2)
+        + math.sin(dec1) * math.sin(dec2)
+    )
+    cos_theta = max(-1.0, min(1.0, cos_theta))
+
+    d_sn = SN1987A_DIST_PC
+    d_star = max(0.0, float(dist_pc))
+    d_between = math.sqrt(max(1e-12, d_sn * d_sn + d_star * d_star - 2.0 * d_sn * d_star * cos_theta))
+    path_diff_pc = d_star + d_between - d_sn
+    dt_days = path_diff_pc * _DAYS_PER_PC
+    mjd_ell = SN1987A_MJD0 + dt_days
+
+    deriv_d = 1.0 + (d_star - d_sn * cos_theta) / d_between
+    mjd_err_days = abs(deriv_d) * max(0.0, float(dist_err_pc)) * _DAYS_PER_PC
+    return float(mjd_ell), float(dt_days), float(mjd_err_days)
+
+
+def compute_ecliptic_lat_deg(ra_deg: float, dec_deg: float) -> float:
+    """Compute J2000 ecliptic latitude beta (deg) from equatorial ICRS (RA, Dec)."""
+    eps = math.radians(23.4392911)
+    ra_r = math.radians(float(ra_deg))
+    dec_r = math.radians(float(dec_deg))
+    sin_beta = math.sin(dec_r) * math.cos(eps) - math.cos(dec_r) * math.sin(eps) * math.sin(ra_r)
+    sin_beta = max(-1.0, min(1.0, sin_beta))
+    return float(math.degrees(math.asin(sin_beta)))
+
+
+def compute_ppo_alignment_score(
+    bjd_obs: float,
+    planets: list[tuple[float, float]],
+) -> float:
+    """
+    Compute minimum pairwise Planet-Planet Occultation (PPO) syzygy phase offset [0.0, 0.25].
+
+    Each entry in ``planets`` is ``(orbper_days, t0_bjd)``. A score of ``0.0`` denotes exact
+    pairwise phase conjunction (``|dphi| = 0``) or opposition (``|dphi| = 0.5``).
+    Returns ``1.0`` when fewer than two valid planets are supplied.
+    """
+    if not math.isfinite(float(bjd_obs)):
+        return 1.0
+    phases: list[float] = []
+    for p_days, t0 in planets:
+        if math.isfinite(float(p_days)) and float(p_days) > 0.0 and math.isfinite(float(t0)):
+            phi = ((float(bjd_obs) - float(t0)) / float(p_days)) % 1.0
+            phases.append(phi)
+    if len(phases) < 2:
+        return 1.0
+
+    best = 1.0
+    for i in range(len(phases)):
+        for j in range(i + 1, len(phases)):
+            dp = abs(phases[i] - phases[j])
+            dp_wrap = min(dp, 1.0 - dp)
+            align = min(dp_wrap, abs(0.5 - dp_wrap))
+            if align < best:
+                best = align
+    return float(best)
+
+
+# ===========================================================================
+# TECHNOSIGNATURE V5.1 ENGINES (PHASE D093)
+# ===========================================================================
+
+OBSERVATORY_GEODETIC = {
+    "GEMINI_GRACES": (19.8238, -155.4690),   # Maunakea, Hawaii
+    "ESO_CORALIE": (-29.2543, -70.7346),     # La Silla, Chile
+    "CARMENES_VIS": (37.2236, -2.5462),      # Calar Alto, Spain
+    "CFHT_ESPADONS": (19.8253, -155.4688),   # Maunakea, Hawaii
+    "OHP_SOPHIE": (43.9308, 5.7133),         # Haute-Provence
+    "OHP_ELODIE": (43.9308, 5.7133),         # Haute-Provence
+    "ESO_HARPS": (-29.2543, -70.7346),
+    "ESO_FEROS": (-29.2543, -70.7346),
+    "ESO_CRIRES": (-24.6272, -70.4042),
+}
+
+
+def analytical_observatory_berv_kms(
+    ra_deg: float,
+    dec_deg: float,
+    mjd_mid: float,
+    instrument: str,
+) -> float:
+    """Pure-stdlib barycentric/heliocentric RV + diurnal Earth rotation correction (km/s)."""
+    v_helio = stdlib_earth_helio_rv_kms(ra_deg, dec_deg, mjd_mid)
+    lat_deg, lon_deg = OBSERVATORY_GEODETIC.get(instrument, (-29.2543, -70.7346))
+    gmst_deg = (280.46061837 + 360.98564736629 * (float(mjd_mid) - 51544.5)) % 360.0
+    lst_rad = math.radians((gmst_deg + lon_deg) % 360.0)
+    ha_rad = lst_rad - math.radians(float(ra_deg))
+    lat_rad = math.radians(lat_deg)
+    dec_rad = math.radians(float(dec_deg))
+    v_diurnal = -0.4651 * math.cos(lat_rad) * math.cos(dec_rad) * math.sin(ha_rad)
+    return float(v_helio + v_diurnal)
+
+
+def air_to_vac_a(wave_air_a: np.ndarray) -> np.ndarray:
+    """IAU standard (Morton 2000) air-to-vacuum wavelength conversion in Angstrom."""
+    w = np.asarray(wave_air_a, dtype=np.float64)
+    s2 = (1e4 / np.maximum(w, 100.0)) ** 2
+    n = 1.0 + 0.0000834254 + 0.02406147 / (130.0 - s2) + 0.00015998 / (38.9 - s2)
+    return np.where(w >= 2000.0, w * n, w)
+
+
+# ---------------------------------------------------------------------------
+# Engine 6 (V5.1): Blind Linear Drift-Rate (v_0, v_dot) De-Doppler Search
+# ---------------------------------------------------------------------------
+
+DRIFT_V51_SHIFTS_KMS: tuple[float, ...] = (
+    -250.0, -220.0, -190.0, -165.0, -140.0, -120.0, -100.0, -85.0, -70.0, -58.0,
+    -46.0, -36.0, -28.0, -22.0, -17.0, -13.0, -10.0, -7.5, -5.5, -5.0,
+    5.0, 6.0, 8.0, 10.0, 13.0, 17.0, 22.0, 28.0, 36.0, 46.0,
+    58.0, 70.0, 85.0, 100.0, 120.0, 140.0, 165.0, 190.0, 220.0, 240.0, 250.0,
+)
+
+
+def scan_blind_drift_dedoppler_v51(
+    wave_rest: np.ndarray,
+    z1: np.ndarray,
+    z2: np.ndarray,
+    dt_days: float,
+    berv1_kms: float,
+    berv2_kms: float,
+    cfg: dict[str, Any],
+    star: str = "",
+    star_idx: int = 0,
+    z_rpca_mat: np.ndarray | None = None,
+    bervs_cohort: np.ndarray | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    """
+    Scan paired epochs `(z1, z2)` for linearly drifting narrowband signals `w_2 = w_1 * (1 + dv/c)`
+    across 41 non-zero drift shifts spanning `[-250, -5] U [+5, +250] km/s`, plus fine continuous
+    peak matching inside adjacent drift corridors after stationary `|dv| < 3.0 km/s` veto.
+    """
+    w = np.asarray(wave_rest, dtype=np.float64)
+    a1 = np.asarray(z1, dtype=np.float64)
+    a2 = np.asarray(z2, dtype=np.float64)
+    n_wave = len(w)
+    if n_wave < 128 or not math.isfinite(float(dt_days)) or float(dt_days) <= 0.0:
+        return [], {"n_shifts": len(DRIFT_V51_SHIFTS_KMS), "n_evals": 0}
+
+    fin1 = np.isfinite(a1)
+    fin2 = np.isfinite(a2)
+    mask_stat = _is_masked_static_v50(w, cfg, 0.5 * (float(berv1_kms) + float(berv2_kms)))
+    epoch_min_z = float(cfg.get("drift_v51_epoch_min_z", 5.0))
+    comb_min_z = float(cfg.get("drift_v51_comb_min_z", 7.5))
+    stat_max_z = float(cfg.get("drift_v51_stat_max_z", 4.0))
+    dv_min_abs = float(cfg.get("drift_v51_min_abs_dv_kms", 5.0))
+    dv_max_abs = float(cfg.get("drift_v51_max_abs_dv_kms", 250.0))
+    min_rarity = float(cfg.get("g7_min_rarity_score", 0.65))
+    sig_v = float(cfg.get("sigma_v_kms", 2.0))
+
+    dw = float(np.median(np.diff(w)))
+    z2_safe = np.where(fin2, a2, 0.0)
+    a1_safe = np.where(fin1 & (~mask_stat), a1, 0.0)
+
+    pk_idx_raw = np.where(a1_safe >= epoch_min_z)[0]
+    if len(pk_idx_raw) == 0:
+        return [], {"n_shifts": len(DRIFT_V51_SHIFTS_KMS), "n_evals": int(n_wave * len(DRIFT_V51_SHIFTS_KMS))}
+
+    peaks1: list[int] = []
+    order_pk = pk_idx_raw[np.argsort(a1_safe[pk_idx_raw])[::-1]]
+    taken = np.zeros(n_wave, dtype=bool)
+    for idx in order_pk:
+        if taken[idx]:
+            continue
+        lo_n = max(0, idx - 5)
+        hi_n = min(n_wave, idx + 6)
+        if float(a1_safe[idx]) >= float(np.max(a1_safe[lo_n:hi_n])) - 1e-12:
+            peaks1.append(int(idx))
+            taken[lo_n:hi_n] = True
+
+    cands: list[dict[str, Any]] = []
+    min_sep_a = max(0.3, 4.0 * dw * 10.0)
+    kept_waves: list[float] = []
+
+    for idx1 in sorted(peaks1):
+        w1 = float(w[idx1])
+        z1_pk = float(a1_safe[idx1])
+        stat_hw_a = w1 * (3.0 / C_KMS) + 1.5 * dw
+        s_lo = int(np.searchsorted(w, w1 - stat_hw_a, side="left"))
+        s_hi = int(np.searchsorted(w, w1 + stat_hw_a, side="right"))
+        z_stat2 = float(np.max(z2_safe[s_lo:s_hi])) if s_hi > s_lo else 0.0
+        if z_stat2 >= stat_max_z:
+            continue
+
+        # Search epoch-2 shifted corridor spanning [-250,-5] U [+5,+250] via the 41 drift channels
+        best_dv = 0.0
+        best_z2 = -1e9
+        best_comb = -1e9
+        for dv_c in DRIFT_V51_SHIFTS_KMS:
+            w2_c = w1 * (1.0 + dv_c / C_KMS)
+            tol_kms = max(5.0, 0.14 * abs(dv_c))
+            tol_a = max(2.0 * dw, w1 * (tol_kms / C_KMS))
+            j0 = int(np.searchsorted(w, w2_c - tol_a, side="left"))
+            j1 = int(np.searchsorted(w, w2_c + tol_a, side="right"))
+            if j1 <= j0 or not np.any(fin2[j0:j1]):
+                continue
+            jmax = j0 + int(np.argmax(z2_safe[j0:j1]))
+            z2_v = float(z2_safe[jmax])
+            if z2_v >= epoch_min_z:
+                dv_exact = C_KMS * (float(w[jmax]) - w1) / w1
+                if dv_min_abs <= abs(dv_exact) <= dv_max_abs:
+                    comb = (z1_pk + z2_v) / math.sqrt(2.0)
+                    if comb > best_comb:
+                        best_comb = comb
+                        best_z2 = z2_v
+                        best_dv = dv_exact
+
+        if best_comb < comb_min_z or best_z2 < epoch_min_z:
+            continue
+
+        lo_p = max(0, idx1 - 5)
+        hi_p = min(n_wave, idx1 + 6)
+        win1 = a1[lo_p:hi_p]
+        if len(win1) >= 7 and np.all(np.isfinite(win1)):
+            c_idx = idx1 - lo_p
+            wing_max = max(float(win1[max(0, c_idx - 1)]), float(win1[min(len(win1) - 1, c_idx + 1)]))
+            eta_1px = wing_max / max(1e-6, z1_pk)
+            sig_px = (w1 * sig_v / C_KMS) / max(1e-6, dw)
+            if sig_px >= 0.7 and eta_1px < 0.08:
+                continue
+            far_wing = max(float(win1[0]), float(win1[-1])) / max(1e-6, z1_pk)
+            if far_wing > 0.55:
+                continue
+
+        w2_best = w1 * (1.0 + best_dv / C_KMS)
+        i2_best = min(n_wave - 1, max(0, int(np.searchsorted(w, w2_best))))
+        if bool(mask_stat[i2_best]):
+            continue
+
+        rarity_1 = 1.0
+        rarity_2 = 1.0
+        if z_rpca_mat is not None and bervs_cohort is not None and z_rpca_mat.shape[0] >= 2:
+            r1_d = compute_spectral_rarity_score(w, z_rpca_mat, bervs_cohort, star_idx, w1, sig_v, polarity=1.0)
+            r2_d = compute_spectral_rarity_score(w, z_rpca_mat, bervs_cohort, star_idx, w2_best, sig_v, polarity=1.0)
+            rarity_1 = float(r1_d["rarity_score"])
+            rarity_2 = float(r2_d["rarity_score"])
+            if rarity_1 < min_rarity or rarity_2 < min_rarity:
+                continue
+
+        if any(abs(w1 - kw) < min_sep_a for kw in kept_waves):
+            continue
+        kept_waves.append(w1)
+
+        vdot_kms_day = float(best_dv) / float(dt_days)
+        vdot_ms_h = (vdot_kms_day * 1000.0) / 24.0
+        cands.append({
+            "star": star,
+            "wave1_rest_a": round(w1, 5),
+            "wave2_rest_a": round(w2_best, 5),
+            "dv_kms": round(best_dv, 4),
+            "dt_days": round(float(dt_days), 6),
+            "vdot_kms_day": round(vdot_kms_day, 5),
+            "vdot_ms_h": round(vdot_ms_h, 3),
+            "z1": round(z1_pk, 4),
+            "z2": round(best_z2, 4),
+            "z_stat2": round(z_stat2, 4),
+            "z_drift_comb": round(best_comb, 4),
+            "rarity1": round(rarity_1, 4),
+            "rarity2": round(rarity_2, 4),
+        })
+
+    return cands, {
+        "n_shifts": len(DRIFT_V51_SHIFTS_KMS),
+        "n_evals": int(n_wave * len(DRIFT_V51_SHIFTS_KMS)),
+        "n_peaks1": len(peaks1),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Engine 7 (V5.1): Non-Linear Spectral-Patch Intrinsic Novelty (G8_V51)
+# ---------------------------------------------------------------------------
+
+def _extract_patch_feature_vector(
+    wave_rest: np.ndarray,
+    z_vec: np.ndarray,
+    idx: int,
+    z_rpca: float,
+    rarity_score: float,
+    f_rest: float,
+    f_topo: float,
+    half_px: int = 8,
+) -> np.ndarray | None:
+    n = len(z_vec)
+    if idx < half_px or idx + half_px >= n:
+        return None
+    sub = np.asarray(z_vec[idx - half_px : idx + half_px + 1], dtype=np.float64)
+    if not np.all(np.isfinite(sub)):
+        return None
+    nm = float(np.linalg.norm(sub))
+    if nm <= 1e-8:
+        return None
+    patch_u = sub / nm
+    scalars = np.asarray([
+        max(-2.0, min(2.0, float(z_rpca) / 15.0)),
+        max(0.0, min(1.0, float(rarity_score))),
+        max(0.0, min(1.0, float(f_rest))),
+        max(0.0, min(1.0, float(f_topo))),
+    ], dtype=np.float64)
+    return np.concatenate([patch_u, scalars])
+
+
+def fit_patch_novelty_model_v51(
+    patch_features: list[np.ndarray] | np.ndarray,
+    pca_dim: int = 8,
+    knn_k: int = 7,
+    min_novelty_z: float = 3.5,
+) -> dict[str, Any]:
+    """Fit PCA-whitened reference manifold on background spectral residual patches for Gate G8_V51."""
+    arr = np.asarray(patch_features, dtype=np.float64)
+    if arr.ndim != 2 or arr.shape[0] < max(24, knn_k + 4):
+        return {
+            "ready": False,
+            "n_ref": int(arr.shape[0]) if arr.ndim == 2 else 0,
+            "pca_dim": int(pca_dim),
+            "knn_k": int(knn_k),
+            "min_novelty_z": float(min_novelty_z),
+        }
+    mu = np.mean(arr, axis=0)
+    xc = arr - mu[None, :]
+    cov = (xc.T @ xc) / max(1.0, float(arr.shape[0] - 1))
+    evals, evecs = np.linalg.eigh(cov)
+    ord_idx = np.argsort(evals)[::-1]
+    k_pca = min(int(pca_dim), arr.shape[1])
+    evals_k = np.maximum(1e-5, evals[ord_idx[:k_pca]])
+    basis_k = evecs[:, ord_idx[:k_pca]]
+    proj = (xc @ basis_k) / np.sqrt(evals_k)[None, :]
+
+    diff2 = np.sum(proj * proj, axis=1, keepdims=True) + np.sum(proj * proj, axis=1)[None, :] - 2.0 * (proj @ proj.T)
+    np.fill_diagonal(diff2, 1e18)
+    k_eff = min(int(knn_k), arr.shape[0] - 1)
+    kth_d2 = np.partition(np.maximum(0.0, diff2), k_eff - 1, axis=1)[:, k_eff - 1]
+    kth_d = np.sqrt(kth_d2)
+    ref_med = float(np.median(kth_d))
+    ref_mad = max(0.08, MAD_NORM * float(np.median(np.abs(kth_d - ref_med))))
+
+    return {
+        "ready": True,
+        "n_ref": int(arr.shape[0]),
+        "pca_dim": int(k_pca),
+        "knn_k": int(k_eff),
+        "min_novelty_z": float(min_novelty_z),
+        "mu": mu,
+        "basis_k": basis_k,
+        "inv_sqrt_evals": 1.0 / np.sqrt(evals_k),
+        "proj_ref": proj,
+        "ref_med": ref_med,
+        "ref_mad": ref_mad,
+    }
+
+
+def evaluate_gate_g8_v51(
+    model: dict[str, Any],
+    wave_rest: np.ndarray,
+    z_vec: np.ndarray,
+    center_wave_a: float,
+    z_rpca: float,
+    rarity_score: float,
+    f_rest: float = 0.0,
+    f_topo: float = 0.0,
+) -> dict[str, Any]:
+    """Score non-linear local patch novelty against the PCA-whitened k-NN background library."""
+    if not model.get("ready"):
+        return {"g8_pass": True, "novelty_z": 99.0, "knn_dist": 0.0, "reason": "NO_REF_PASS"}
+
+    w = np.asarray(wave_rest, dtype=np.float64)
+    idx = int(np.searchsorted(w, float(center_wave_a)))
+    idx = max(0, min(len(w) - 1, idx))
+    half_px = int((len(model["mu"]) - 4 - 1) // 2)
+    vec = _extract_patch_feature_vector(
+        w, z_vec, idx, float(z_rpca), float(rarity_score), float(f_rest), float(f_topo), half_px=half_px
+    )
+    if vec is None:
+        return {"g8_pass": False, "novelty_z": 0.0, "knn_dist": 0.0, "reason": "G8_EDGE_NAN"}
+
+    p = ((vec - model["mu"]) @ model["basis_k"]) * model["inv_sqrt_evals"]
+    d2 = np.sum((model["proj_ref"] - p[None, :]) ** 2, axis=1)
+    k_eff = min(int(model["knn_k"]), len(d2) - 1)
+    d_k = math.sqrt(max(0.0, float(np.partition(d2, k_eff - 1)[k_eff - 1])))
+    novelty_z = (d_k - float(model["ref_med"])) / max(1e-6, float(model["ref_mad"]))
+    thr = float(model.get("min_novelty_z", 3.5))
+    passed = bool(math.isfinite(novelty_z) and novelty_z >= thr)
+    return {
+        "g8_pass": passed,
+        "novelty_z": float(novelty_z),
+        "knn_dist": float(d_k),
+        "reason": "PASS" if passed else "G8_LOW_PATCH_NOVELTY",
+    }
+
+
+# ---------------------------------------------------------------------------
+# Engine 8 (V5.1): Multi-Event Cosmic Schelling-Point Ellipsoids
+# ---------------------------------------------------------------------------
+
+COSMIC_BEACON_EVENTS: dict[str, dict[str, Any]] = {
+    "SN1987A": {
+        "label": "SN 1987A (LMC)",
+        "ra_deg": 83.86675,
+        "dec_deg": -69.26974,
+        "dist_pc": 49590.0,
+        "mjd0": 46849.316,
+    },
+    "GW170817": {
+        "label": "GW170817 / NGC 4993",
+        "ra_deg": 197.45037,
+        "dec_deg": -23.38149,
+        "dist_pc": 4.07e7,
+        "mjd0": 57982.528,
+    },
+    "SN2023ixf": {
+        "label": "SN 2023ixf (M101)",
+        "ra_deg": 210.91067,
+        "dec_deg": 54.31165,
+        "dist_pc": 6.85e6,
+        "mjd0": 60083.727,
+    },
+}
+
+
+def compute_event_ellipsoid_mjd(
+    ra_deg: float,
+    dec_deg: float,
+    dist_pc: float,
+    ev_ra_deg: float,
+    ev_dec_deg: float,
+    ev_dist_pc: float,
+    ev_mjd0: float,
+    dist_err_pc: float = 0.0,
+) -> tuple[float, float, float]:
+    """Unified 3D triangle SETI Ellipsoid crossing MJD for Galactic/LMC/Extragalactic beacons."""
+    ra1, dec1 = math.radians(float(ev_ra_deg)), math.radians(float(ev_dec_deg))
+    ra2, dec2 = math.radians(float(ra_deg)), math.radians(float(dec_deg))
+    cos_t = max(-1.0, min(1.0, math.cos(dec1) * math.cos(dec2) * math.cos(ra1 - ra2) + math.sin(dec1) * math.sin(dec2)))
+    d_ev = max(1.0, float(ev_dist_pc))
+    d_st = max(0.0, float(dist_pc))
+    if d_ev > 1e5 * max(1.0, d_st):
+        path_diff_pc = d_st * (1.0 - cos_t) + (d_st * d_st * (1.0 - cos_t * cos_t)) / (2.0 * d_ev)
+        deriv_d = 1.0 - cos_t
+    else:
+        d_between = math.sqrt(max(1e-12, d_ev * d_ev + d_st * d_st - 2.0 * d_ev * d_st * cos_t))
+        path_diff_pc = d_st + d_between - d_ev
+        deriv_d = 1.0 + (d_st - d_ev * cos_t) / d_between
+    dt_days = path_diff_pc * _DAYS_PER_PC
+    return float(ev_mjd0 + dt_days), float(dt_days), float(abs(deriv_d) * max(0.0, float(dist_err_pc)) * _DAYS_PER_PC)
+
+
+def compute_multievent_sync_v51(
+    ra_deg: float,
+    dec_deg: float,
+    dist_pc: float,
+    mjd_obs: float,
+    dist_err_pc: float = 0.0,
+) -> dict[str, Any]:
+    """Evaluate all three cosmic beacon ellipsoids + ETZ latitude for `(ra, dec, dist_pc, mjd_obs)`."""
+    out: dict[str, Any] = {"ecliptic_lat_deg": compute_ecliptic_lat_deg(ra_deg, dec_deg)}
+    best_abs = 1e18
+    best_ev = "NONE"
+    for key, ev in COSMIC_BEACON_EVENTS.items():
+        mjd_ell, _, err_d = compute_event_ellipsoid_mjd(
+            ra_deg, dec_deg, dist_pc, ev["ra_deg"], ev["dec_deg"], ev["dist_pc"], ev["mjd0"], dist_err_pc=dist_err_pc
+        )
+        dt_obs = float(mjd_obs) - mjd_ell
+        out[f"{key.lower()}_mjd_ell"] = float(mjd_ell)
+        out[f"{key.lower()}_dt_days"] = float(dt_obs)
+        out[f"{key.lower()}_err_days"] = float(err_d)
+        if abs(dt_obs) < best_abs:
+            best_abs = abs(dt_obs)
+            best_ev = key
+    out["nearest_event"] = best_ev
+    out["min_abs_ellipsoid_dt_days"] = float(best_abs)
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Engine 9 (V5.1): JWST NIRSpec G395H (2.86-5.18 um) Molecular & Isotopologue CCF
+# ---------------------------------------------------------------------------
+
+NIRSPEC_MOL_TEMPLATES_UM: dict[str, list[dict[str, float]]] = {
+    "NO2": [{"mu_um": 3.44, "sigma_um": 0.045, "weight": 1.00}],
+    "N2O": [{"mu_um": 4.50, "sigma_um": 0.055, "weight": 1.00}],
+    "CH4_C2H6": [{"mu_um": 3.32, "sigma_um": 0.050, "weight": 1.00}],
+    "CO_13CO": [
+        {"mu_um": 4.67, "sigma_um": 0.045, "weight": 0.60},
+        {"mu_um": 4.78, "sigma_um": 0.045, "weight": 0.40},
+    ],
+}
+
+NATURAL_NIRSPEC_CONFOUNDERS_UM: dict[str, list[dict[str, float]]] = {
+    "H2O_NIR": [
+        {"mu_um": 3.08, "sigma_um": 0.070, "weight": 0.50},
+        {"mu_um": 5.00, "sigma_um": 0.070, "weight": 0.50},
+    ],
+    "CO2_4P26": [{"mu_um": 4.26, "sigma_um": 0.060, "weight": 1.00}],
+    "H2_0_0_S9_VIB": [{"mu_um": 4.69, "sigma_um": 0.035, "weight": 1.00}],
+    "DUST_SIL_SLOPE": [
+        {"mu_um": 3.40, "sigma_um": 0.160, "weight": 0.45},
+        {"mu_um": 4.45, "sigma_um": 0.180, "weight": 0.55},
+    ],
+}
+
+
+def scan_nirspec_molecular_ccf_v51(
+    wave_um: np.ndarray,
+    flux_norm_or_flam: np.ndarray,
+    cfg: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """
+    Scan JWST NIRSpec G395H (`2.86-5.18 um`) spectra for industrial/biosignature molecular bands
+    (`NO2`, `N2O`, `CH4_C2H6`, `CO_13CO`) vs natural atmospheric/ISM confounders (`H2O_NIR`,
+    `CO2_4P26`, `H2_0_0_S9_VIB`, `DUST_SIL_SLOPE`) after trimming `0.06 um` around NRS1/NRS2 edges.
+    """
+    cfg_eff = cfg or BASE_V5_1_CONFIG
+    min_sigma = float(cfg_eff.get("nirspec_ccf_min_sigma", 5.0))
+    min_conf_ratio = float(cfg_eff.get("nirspec_ccf_min_confounder_ratio", 1.5))
+    trim_um = float(cfg_eff.get("nirspec_edge_trim_um", 0.06))
+
+    w = np.asarray(wave_um, dtype=np.float64)
+    f = np.asarray(flux_norm_or_flam, dtype=np.float64)
+    valid = np.isfinite(w) & np.isfinite(f) & (w > 2.5) & (w < 5.5)
+    if int(np.sum(valid)) < 48:
+        return {"molecules": {}, "confounders": {}, "max_confounder_sigma": 0.0, "detected_molecules": [], "any_detection": False}
+
+    w_v = w[valid]
+    f_v = f[valid]
+    order = np.argsort(w_v)
+    w_v = w_v[order]
+    f_v = f_v[order]
+
+    split_idx = np.where((np.diff(w_v) > 0.02) | (np.diff(w_v) < 0.0))[0] + 1
+    bounds = [0] + list(split_idx) + [len(w_v)]
+    segments: list[tuple[np.ndarray, np.ndarray]] = []
+    for a, b in zip(bounds[:-1], bounds[1:]):
+        if (b - a) < 30:
+            continue
+        wa, fa = w_v[a:b], f_v[a:b]
+        keep = (wa >= wa[0] + trim_um) & (wa <= wa[-1] - trim_um)
+        if int(np.sum(keep)) >= 30 and (wa[keep][-1] - wa[keep][0]) >= 0.30:
+            segments.append((wa[keep], fa[keep]))
+
+    conf_res: dict[str, dict[str, float]] = {}
+    max_conf = 0.0
+    for cname, comps in NATURAL_NIRSPEC_CONFOUNDERS_UM.items():
+        cres = _fit_miri_sideband_template(segments, comps)
+        raw_s = float(cres["ccf_sigma_abs"])
+        phys_s = max(0.0, abs(raw_s) if cname == "H2_0_0_S9_VIB" else raw_s)
+        cres["physical_confounder_sigma"] = float(phys_s)
+        conf_res[cname] = cres
+        if cres["covered"]:
+            max_conf = max(max_conf, phys_s)
+
+    mol_res: dict[str, dict[str, Any]] = {}
+    detected: list[str] = []
+    for mname, comps in NIRSPEC_MOL_TEMPLATES_UM.items():
+        mres = _fit_miri_sideband_template(segments, comps)
+        ccf_s = float(mres["ccf_sigma_abs"])
+        joint_vetoes: dict[str, Any] = {}
+        passes = bool(mres["covered"] and ccf_s >= min_sigma)
+
+        if mres["covered"]:
+            for cname, ccomps in NATURAL_NIRSPEC_CONFOUNDERS_UM.items():
+                is_em = cname == "H2_0_0_S9_VIB" and float(conf_res[cname]["ccf_sigma_abs"]) < 0.0
+                jres = _joint_miri_confounder_test(segments, comps, ccomps, conf_is_emission=is_em)
+                joint_vetoes[cname] = jres
+                if jres.get("overlaps"):
+                    zm = float(jres["ccf_mol_given_conf"])
+                    zc = max(0.0, float(jres["ccf_conf_given_mol"]))
+                    if not (zm >= min_sigma and zm > min_conf_ratio * zc):
+                        passes = False
+                else:
+                    min_dist_um = min(abs(float(mc["mu_um"]) - float(cc["mu_um"])) for mc in comps for cc in ccomps)
+                    if min_dist_um <= 0.35 and conf_res[cname]["covered"]:
+                        c_phys = float(conf_res[cname]["physical_confounder_sigma"])
+                        if not (ccf_s > min_conf_ratio * c_phys):
+                            passes = False
+
+        mres["joint_confounder_checks"] = joint_vetoes
+        mres["passes_ccf"] = passes
+        mol_res[mname] = mres
+        if passes:
+            detected.append(mname)
+
+    return {
+        "molecules": mol_res,
+        "confounders": conf_res,
+        "max_confounder_sigma": float(max_conf),
+        "detected_molecules": detected,
+        "any_detection": len(detected) > 0,
+    }

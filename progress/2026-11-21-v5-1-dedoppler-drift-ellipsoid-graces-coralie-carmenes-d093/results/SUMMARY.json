@@ -1,0 +1,215 @@
+{
+  "phase_id": "D093",
+  "detector": "TECHNOSIGNATURE_V5_1_DEDOPPLER_DRIFT_MULTIEVENT_ELLIPSOID_GRACES_CORALIE_CARMENES",
+  "stage2_calibration_refinements": {
+    "stage1_v5_1_detector_untouched": true,
+    "refinement_1_g8_v51b_standardized_patch_novelty": {
+      "scope": "Gate G8_V51 patch-novelty feature vector & Mahalanobis+kNN whitening in WS93/analyze.py",
+      "root_cause": "Stage-1 fit_patch_novelty_model_v51 / evaluate_gate_g8_v51 normalized each 17-px patch by its L2 norm prior to keeping top-8 background PCA components, suppressing isolated 10-30 sigma LSF Gaussians.",
+      "fix": "Feature-wise standardized Z-score + arcsinh(sub/2.5) + whitened 8-PC Mahalanobis/k=7-NN distance with explicit LSF morphology & cohort-rarity guards (_extract_g8_feat_v51b / _fit_g8_v51b / _eval_g8_v51b)."
+    },
+    "refinement_2_nirspec_v51b_joint_multicomp_ccf": {
+      "scope": "JWST NIRSpec G395H multi-component molecular continuum & covariance estimator in WS93/analyze.py",
+      "root_cause": "Stage-1 _fit_miri_sideband_template evaluated CO (4.67 um) and 13CO (4.78 um) independently per component so each absorption band contaminated the other's continuum sideband.",
+      "fix": "Union-excluded multi-component continuum mask + single joint continuum variance solve (_fit_nirspec_template_v51b / _joint_nirspec_confounder_v51b / _scan_nirspec_v51b)."
+    }
+  },
+  "instruments": [
+    "GEMINI_GRACES",
+    "ESO_CORALIE",
+    "CARMENES_VIS"
+  ],
+  "cohort": {
+    "total_stars": 15,
+    "control_stars": 5,
+    "science_stars": 10,
+    "brand_new_unique_stars": 15,
+    "panchromatic_bridge_stars": 0,
+    "brand_new_within_10pc": 7,
+    "total_exposures": 30,
+    "graces_exposures": 8,
+    "coralie_exposures": 10,
+    "carmenes_exposures": 12,
+    "total_integration_hours": 5.6636,
+    "orbital_campaigns": 8
+  },
+  "searched_spectral_elements": {
+    "by_instrument": {
+      "GEMINI_GRACES": {
+        "T": 1582509,
+        "P": 791261,
+        "T_DIFF": 593408,
+        "K_PLANET": 593067,
+        "COMB_CONFIGS": 535760,
+        "DRIFT_EVALS": 32800164
+      },
+      "ESO_CORALIE": {
+        "T": 1212310,
+        "P": 606219,
+        "T_DIFF": 242420,
+        "K_PLANET": 242386,
+        "COMB_CONFIGS": 2255140,
+        "DRIFT_EVALS": 24969205
+      },
+      "CARMENES_VIS": {
+        "T": 2622012,
+        "P": 1311006,
+        "T_DIFF": 655503,
+        "K_PLANET": 655317,
+        "COMB_CONFIGS": 1457232,
+        "DRIFT_EVALS": 53751246
+      }
+    },
+    "channel_t_1d_bins": 5416831,
+    "channel_p_coadd_bins": 2708486,
+    "channel_tdiff_bins": 1491331,
+    "channel_kplanet_bins": 1490770,
+    "drift_v51_shift_bin_evals": 111520615,
+    "comb_v41_searched_configs": 4248132
+  },
+  "synthetic_calibration_1591_trials": {
+    "total_trials": 1591,
+    "blind_drift_recovery": "60/60 (1.0000)",
+    "blind_drift_stationary_veto": "30/30 (1.0000)",
+    "blind_drift_transient_veto": "30/30 (1.0000)",
+    "g8_patch_isolated_laser_pass": "39/40 (0.9750)",
+    "g8_patch_shared_suppression": "40/40 (1.0000)",
+    "g8_patch_topo_suppression": "40/40 (1.0000)",
+    "rpca_isolated_laser_recovery": "56/60 (0.9333)",
+    "rpca_shared_leak_suppression": "60/60 (1.0000)",
+    "rpca_topo_repeat_suppression": "60/60 (1.0000)",
+    "agnostic_multiscale_recovery": "120/120 (1.0000)",
+    "nirspec_mol_ccf_recovery": "80/80 (1.0000)",
+    "nirspec_confounder_veto": "80/80 (1.0000)",
+    "channel_t_ge_8sigma": "150/162 (0.9259)",
+    "channel_p_ge_8sigma": "157/162 (0.9691)",
+    "keplerian_tdiff_ge_6p5sigma": "0/81 (0.0000)",
+    "keplerian_kplanet_ge_6p5sigma": "80/81 (0.9877)",
+    "g45_true_laser_pass": "36/36 (1.0000)",
+    "g5_cosmic_hotpx_rejection": "36/36 (1.0000)",
+    "g5_plateau_rejection": "36/36 (1.0000)",
+    "comb_v41_6tooth_ge_3p8sigma_recovery": "36/36 (1.0000)",
+    "comb_v4_forest_false_alarm": "54/54",
+    "comb_v41_forest_false_alarm": "0/54",
+    "comb_v41_topo_false_alarm": "0/54"
+  },
+  "false_alarm_cascade": {
+    "v2_legacy_false_alarms": 1008,
+    "v42_total_ledger_g1_candidates": 668,
+    "v42_after_g2": 644,
+    "v42_after_g3": 644,
+    "v42_after_g4": 194,
+    "v42_pre_g6_passed_g1_to_g5": 117,
+    "v42_qualified_before_g7": 83,
+    "v50_qualified_before_g8": 8,
+    "v51_g8_vetoed_from_v50": 4,
+    "v51_qualified_control": 2,
+    "v51_qualified_science": 2,
+    "drift_v51_evals": 111520615,
+    "drift_v51_candidates": 135,
+    "v51_agnostic_evals": 6093,
+    "v51_agnostic_survivors": 3,
+    "comb_v41_automated_candidates": 0,
+    "nirspec_ccf_cells_44_detections": 1
+  },
+  "retroactive_d088_northern_regression": {
+    "d088_total_g1_records": 4727,
+    "d088_v39_qualified_input": 20,
+    "d088_v50_g7_survivors": 13,
+    "d088_v51_g7_g8_survivors": 1,
+    "suppression_fraction_v39_to_v51": 0.95,
+    "top_d088_stars_before_after": {
+      "GJ625": {
+        "v39": 15,
+        "v50_g7": 10,
+        "v51_g7_g8": 0
+      },
+      "LALANDE21185": {
+        "v39": 3,
+        "v50_g7": 2,
+        "v51_g7_g8": 1
+      },
+      "HD114710": {
+        "v39": 1,
+        "v50_g7": 1,
+        "v51_g7_g8": 0
+      },
+      "HD157881": {
+        "v39": 1,
+        "v50_g7": 0,
+        "v51_g7_g8": 0
+      }
+    }
+  },
+  "nirspec_g395h_molecular_ccf_summary": {
+    "NO2": {
+      "n_covered_targets": 11,
+      "median_delta_min_5sigma": 0.04556,
+      "median_ppm_equiv_10pct_ref": 4.556,
+      "detections": 0
+    },
+    "N2O": {
+      "n_covered_targets": 11,
+      "median_delta_min_5sigma": 0.05758,
+      "median_ppm_equiv_10pct_ref": 5.758,
+      "detections": 0
+    },
+    "CH4_C2H6": {
+      "n_covered_targets": 11,
+      "median_delta_min_5sigma": 0.03315,
+      "median_ppm_equiv_10pct_ref": 3.314,
+      "detections": 1
+    },
+    "CO_13CO": {
+      "n_covered_targets": 11,
+      "median_delta_min_5sigma": 0.03719,
+      "median_ppm_equiv_10pct_ref": 3.719,
+      "detections": 0
+    }
+  },
+  "multievent_ellipsoid_d079_d093_summary": {
+    "stars_evaluated": 350,
+    "etz_qualified_stars": 10,
+    "ellipsoid_within_180d_stars": 33,
+    "d093_highlights": {
+      "HD111031_gw170817_dt_days": 5.311,
+      "ROSS64_sn1987a_dt_days": 170.555,
+      "ROSS64_etz_beta_deg": 0.1128,
+      "HD206301_etz_beta_deg": -0.20199
+    }
+  },
+  "upper_limits": {
+    "n_cells": 60,
+    "best_d093_star": "GJ3512",
+    "best_d093_instrument": "CARMENES_VIS",
+    "best_d093_band": "M1_5320",
+    "best_d093_10m_w": 267.574,
+    "best_d093_10m_kw": 0.267574,
+    "best_graces_star": "WASP52",
+    "best_graces_10m_kw": 205.361,
+    "best_coralie_star": "HD217107",
+    "best_coralie_10m_kw": 198.044,
+    "best_carmenes_star": "GJ3512",
+    "best_carmenes_10m_kw": 0.26757
+  },
+  "unified_350star_panchromatic_v5_1_synthesis": {
+    "phases": "D079-D093",
+    "spectrographs": 21,
+    "spectral_arms": 24,
+    "octave_span": 8.273,
+    "unique_stars_total": 350,
+    "science_stars_total": 268,
+    "control_stars_total": 82,
+    "planet_host_stars_total": 169,
+    "confirmed_exoplanets_total": 347,
+    "within_10pc_unique_stars": 153,
+    "within_10pc_median_limit_kw": 1.45576,
+    "panchromatic_bridge_stars_total": 37,
+    "panchromatic_bridge_cells_total": 631,
+    "total_exposures_d079_d093": 2163,
+    "total_integration_hours_d079_d093": 652.7147,
+    "total_calibration_trials_d079_d093": 32408,
+    "v2_false_alarms_eliminated_total": 302198,
+    "cumulative_orbital_campaigns": 117
+  }
+}

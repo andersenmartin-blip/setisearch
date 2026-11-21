@@ -1,0 +1,72 @@
+{
+  "schema": "D093_METHOD_LOCK_V1",
+  "phase_id": "D093",
+  "detector": "TECHNOSIGNATURE_V5_1_DEDOPPLER_DRIFT_MULTIEVENT_ELLIPSOID_GRACES_CORALIE_CARMENES",
+  "locked_utc": "2026-11-21T06:47:49Z",
+  "instruments": [
+    "GEMINI_GRACES",
+    "ESO_CORALIE",
+    "CARMENES_VIS"
+  ],
+  "retroactive_reused_bundles": {
+    "d088_northern_bundle": {
+      "archive": "SETI_D088_V3_9_NORTHERN_RADIO23_AND_ALLSKY_COMB_V4_1_RESULTS_2026-11-18.zip",
+      "archive_sha256": "c0210250b925df3bebb1710c2bf7333a64ed767ebdc1f38a496d6a9454f7d45d",
+      "n_exposures": 176
+    },
+    "d090_nirspec_bundle": {
+      "archive": "SETI_D090_V4_1_JWST_SPACE_THERMAL_IR_RESULTS_2026-11-19.zip",
+      "archive_sha256": "2940839e8613b0d388c9b922743ba8244852806411f28586696e59eb8d73841a",
+      "n_nirspec_g395h_exposures": 63
+    },
+    "d092_v50_bundle": {
+      "archive": "SETI_D092_V5_0_RPCA_RARITY_ELLIPSOID_PPO_MIRI_CCF_RESULTS_2026-11-20.zip",
+      "archive_sha256": "845f0186a6a793ece2b62f9a2e7caaca5181a9b5a12f8db39326376a58a1d8dd",
+      "n_exposures": 57
+    }
+  },
+  "locked_v51_parameters": {
+    "drift_v51_n_offsets": 41,
+    "drift_v51_min_abs_dv_kms": 5.0,
+    "drift_v51_max_abs_dv_kms": 250.0,
+    "drift_v51_epoch_min_z": 5.0,
+    "drift_v51_comb_min_z": 7.5,
+    "g8_patch_half_px": 8,
+    "g8_pca_dim": 8,
+    "g8_knn_k": 7,
+    "g8_min_novelty_z": 3.5,
+    "nirspec_edge_trim_um": 0.06,
+    "nirspec_ccf_min_sigma": 5.0,
+    "nirspec_ccf_min_confounder_ratio": 1.5,
+    "rpca_block_len": 2048,
+    "rpca_overlap": 128,
+    "rpca_loso_rank": 8,
+    "g7_min_z_rpca": 6.0,
+    "g7_min_rarity_score": 0.65,
+    "agnostic_scales_lsf": [
+      2.0,
+      4.0,
+      8.0,
+      14.0
+    ],
+    "agnostic_min_abs_z": 7.5,
+    "agnostic_min_rarity_score": 0.7,
+    "etz_max_abs_beta_deg": 0.264,
+    "ellipsoid_max_abs_dt_days": 180.0
+  },
+  "hard_caps": {
+    "max_raw_download_mib": 225.0,
+    "min_post_free_gib": 6.5,
+    "max_bounded_bundle_mib": 25.0,
+    "min_chronology_lag_s": 3.0
+  },
+  "locked_file_hashes": {
+    "v5_1_detector.py": "3cf86d603e18aeeef6ddb5065e1ec3abf3d356ae5bf16f63e3d6679c045a7e6d",
+    "build_cohort.py": "35602e14ef20764c527ac9ce5924c2dfbe000c14e21b04bf03891bab3b78f8d4",
+    "download_inputs.py": "5e0d62c22b15eb0685e54a6982ed22ca6c76f08a33e16eb73ff928621ab717bf",
+    "FROZEN_COHORT_D093.csv": "ea69839f4b8153bba1c6175f1e02913d45ff7e1b78f8725329fcde1d6317c81e",
+    "ORBITAL_CAMPAIGNS_AND_KINEMATICS.json": "8384184095710fd124c19d61f617817648610a959312dfdfa7b85165efe958e2",
+    "PRIOR_EXCLUSION_VERIFICATION.json": "74aa2711e3792fe6926af805ee13a97646ed201a3d5dbe8663a33cc6fa232b45",
+    "PRIOR_V5_0_PHASES_SNAPSHOT.json": "0ec8109fc73e20ceb3969cd3c2adc1be9337ff25468b584bd5e86cfefd83e4b6"
+  }
+}
