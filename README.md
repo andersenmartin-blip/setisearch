@@ -27,7 +27,7 @@
 
 | Forskningsspor | Data & omfang | Vigtigste gennemførte arbejde og fund | Status & indgang |
 | --- | --- | --- | --- |
-| **1A. Rum-Lyman til JWST Termisk-IR + ESO 3-Arm + All-Sky `V5.2` (`D079–D094`, `0,0905–28,00 µm`, `8,273` oktaver)** | `2.238` eksponeringer (`702,84 t`: `23` spektrografer / `29` arme på **`373` unikke stjerner**, inkl. `156` `< 10 pc`, `181` planetværter med `364` planeter og `87` kontroller) | Alle `D079–D093`-instrumenter forenet med **`D094 V5.2`** (`DRIFT_V52_MULTIEPOCH` `44` $N\ge 3$-kampagner -> `0 ETI`, `G8_V52` `947->0`, `JWST MIRI LRS` & `NIRSpec G395H` CCF `0` ETI, `0,14238 kW` `CWISEPJ1935`, `0,20533 kW` `WISE1049AB`, `424` stacks `COMB_V4_1`, `23/23` radio-echelle lukning) $\rightarrow$ **`0` ETI** (`303.145` `V2`-falskalarmer elimineret). | **`D094 V5.2` afsluttet (`373`-stjerners syntese + PDF)** · [Artikel (`PDF`)](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) · [Artikel (`MD`)](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md) · [`LaTeX`](paper/main.tex) · [`V3–V5.2`-indeks](docs/OPTICAL_V3_SURVEY_INDEX.md) · [`D094`-rapport](progress/2026-11-21-v5-2-multiepoch-drift-apogee2-criresjh-mirilrs-d094/RESULTS_REPORT.md) |
+| **1A. Rum-Lyman til Spitzer Termisk-IR + ESO 3-Arm + All-Sky `V5.3` (`D079–D095`, `0,0905–37,86356 µm`, `8,709` oktaver)** | `2.392` eksponeringer (`721,48 t`: `25` spektrografer / `33` arme på **`401` unikke stjerner**, inkl. `161` `< 10 pc`, `195` planetværter med `386` planeter og `93` kontroller) | Alle `D079–D094`-instrumenter forenet med **`D095 V5.3`** (`DRIFT_V53_CURVED_AND_PERIODIC` `26` $N\ge 4$-kampagner -> `0 ETI`, `GHOST` sky-IFU veto `109/232` + Stage-2 triage `4->0` ETI, `Spitzer IRS` `0/18` gas/Dyson + silikatbælter op til `75,8σ`, `5,79094 kW` `GD71`, `37,57452 kW` `GJ3801`, `947,72011 kW` `HD151288`, `441` stacks `COMB_V4_1`, `23/23` lukning) $\rightarrow$ **`0` ETI** (`312.447` `V2`-falskalarmer elimineret). | **`D095 V5.3` afsluttet (`401`-stjerners syntese + PDF)** · [Artikel (`PDF`)](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) · [Artikel (`MD`)](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md) · [`LaTeX`](paper/main.tex) · [`V3–V5.3`-indeks](docs/OPTICAL_V3_SURVEY_INDEX.md) · [`D095`-rapport](progress/2026-11-21-v5-3-curved-periodic-drift-ghost-spitzer-irs-apogee2-d095/RESULTS_REPORT.md) |
 | **1B. Optisk Echelle-SETI — `C001–D078` & `HD 43629` (`HARPS` & `FEROS`)** | `300 + 50` HARPS-eksponeringer + `5` FEROS-epoker + `30` WLC | Lukning af `90`-køen ([`C037`](work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md), [`D001`](work_seti_20261105_d001_delivery/README.md)) og `HD 43629` hvileramme-syntese (`0` kvalificerede lasere). | **Lukket rent (`D078`)** · [Historisk optisk indeks](docs/OPTICAL_HD43629_INDEX.md) |
 | **2. Smalbåndet Radio-SETI (`seti-repeater`)** | Parkes `64 m` UWL & GBT `100 m` arkivsekvenser (`M5`–`M43AI`, `23` exoplanet-værter i `1,4 GHz` planet-hvileramme) | Multi-epoke de-Doppler-søgning (`33,16 %` `95 %` grænse i `M35`); nu **100 % lukket med echelle (`23/23`)** i `D088–D094`. | **Forseglet & `100 %` lukket** · [Arkiveret log](docs/history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) · [`src/seti_repeater/`](src/seti_repeater/__init__.py) |
 | **3. Light-Sail & TESS-fotometri (`LS1`–`LS7E`)** | TESS pixeldata (`L 98-59` sektor 28–69) + radio-kandidater | Kvalifikation af lysglimt-detektion (`0` kandidater promoveret; `L 98-59` forenet med `NIRPS_HE` og `1,4 GHz` radio). | **Afsluttet & syntetiseret** · Grene: [`m43-support-qualification`](https://github.com/andersenmartin-blip/setisearch/tree/m43-support-qualification) |
@@ -37,16 +37,16 @@
 
 ## Navigation og reproduktion
 
-- **Videnskabeligt manuskript (`D079–D094 V5.2` `8,273`-oktav `373`-systems syntese):** [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) · [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md) · [`paper/main.tex`](paper/main.tex).
+- **Videnskabeligt manuskript (`D079–D095 V5.3` `8,709`-oktav `401`-systems syntese):** [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) · [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md) · [`paper/main.tex`](paper/main.tex).
 - **Dokumentation:** [`CONTINUE_SETI.md`](CONTINUE_SETI.md) · [`docs/OPTICAL_V3_SURVEY_INDEX.md`](docs/OPTICAL_V3_SURVEY_INDEX.md) · [`docs/OPTICAL_HD43629_INDEX.md`](docs/OPTICAL_HD43629_INDEX.md) · [`docs/PROJECT_MAP.md`](docs/PROJECT_MAP.md).
 - **Kørsel af automatiseret test-suite (`seti-repeater`):**
   ```bash
   python3 -m pip install -e .
   OMP_NUM_THREADS=8 OMP_DYNAMIC=FALSE python3 -m unittest discover -s tests -v
   ```
-- **Offline verifikation og clean-room genberegning gennem `D094` (kompagnonarkiver A–T):**
+- **Offline verifikation og clean-room genberegning gennem `D095` (kompagnonarkiver A–U):**
   ```bash
-  /usr/bin/python3 -S restore_d094_workspace.py --check-only
-  .venv/bin/python3 restore_d094_workspace.py --destination /tmp/d094_check --recompute
-  /usr/bin/python3 -S analysis_workspace/work_v5_2_20261121_d094_multiepoch_drift_apogee2_criresjh_mirilrs/audit.py
+  /usr/bin/python3 -S restore_d095_workspace.py --check-only
+  .venv/bin/python3 restore_d095_workspace.py --destination /tmp/d095_check --recompute
+  /usr/bin/python3 -S analysis_workspace/work_v5_3_20261121_d095_curved_periodic_drift_ghost_spitzer_irs_apogee2/audit.py
   ```
