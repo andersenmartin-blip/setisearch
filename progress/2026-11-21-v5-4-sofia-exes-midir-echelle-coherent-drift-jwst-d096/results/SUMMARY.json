@@ -1,0 +1,325 @@
+{
+  "phase_id": "D096",
+  "detector": "TECHNOSIGNATURE_V5_4_SOFIA_EXES_MIDIR_ECHELLE_COHERENT_DRIFT_AND_JWST_NIRISS",
+  "instruments": [
+    "SOFIA_EXES",
+    "CARMENES_VIS",
+    "SDSS_APOGEE2",
+    "JWST_NIRISS_SOSS",
+    "JWST_NIRSPEC_G140H"
+  ],
+  "stage2_pipeline_notes": {
+    "stage1_v5_4_detector_untouched": true,
+    "sofia_exes_berv_and_rows": "Parsed 3D (N_orders, 4 or 5, N_pix) SOFIA/EXES _CMB_ arrays, flipped descending wavenumber (cm^-1) to ascending wavelength (um), filled optional Row[4] weights=1.0 when N_rows=4, parsed DATE-OBS UTC ISO into MJD, and computed analytical BERV from Gaia/SIMBAD degrees (ignoring EXES header TELRA in hours).",
+    "jwst_x1d_vector_ravel_and_mad": "Flattened both 1D (SIMP0136) and 2D (1, N) (HD59533) EXTRACT1D table columns with .ravel(); preserved empirical relative MAD noise + 2MASS H / Gaia G Planck CGS radiometry.",
+    "carmenes_serval_rv_and_channel_p": "Applied per-exposure CARACAL SERVAL RV barycentric alignment for CARMENES_VIS multi-epoch/comb templates (resolving M-dwarf TiO RV offset on HNLIB and WOLF1069) and enforced full oh2/airglow/G3-G5/G6 Channel P gating (vetoing [Na I D2] 5891.8 A, [O I] 6364.7 A, and H2O 7187.8 A telluric residuals).",
+    "drift_v51_v52_v54_nan_safe_triage": "Preserved missing/masked NaN pixels during APOGEE2 median template subtraction fn_drift = 1.0 + (fn_raw - tpl_s) instead of unit-filling NaNs; applied V51_TOPO_AIRGLOW / V51_TELLURIC_TROUGH_ANTIPAIR vetting in BLIND_DRIFT_V51 (eliminating [O I] 5577/6300, [Na I D1/D2], OH 8345 and 6911/7187 A O2/H2O antipairs on LP73158/WOLF1069); and enforced DRIFT_V54 exact-RV topocentric CO2/OH cross-epoch recurrence vetting (2M17012756, 2M23032370) plus coherent epoch-subset support vetting (HNLIB, WOLF1069, 2M23025951, 2M23032370).",
+    "jwst_j1_j5_physical_triage": "Applied deterministic JWST Stage-2 physical vetoes J1 (negative continuum), J2 (SOSS inter-order cross-contamination r >= 0.90), J3 (NIRSpec NRS1-NRS2 detector gap edge), J4 (unflagged CR error spike err_rat >= 4.0), and J5 (fixed-slit undersampling wiggle f/p90 < 1.12 and med_err/med40 < 0.008)."
+  },
+  "stage2_triage_summary": {
+    "stage1_raw_ledger_survivors": 19,
+    "ledger_verified_eti": 0,
+    "stage1_raw_coherent_drift_survivors": 765,
+    "coherent_drift_verified_eti": 0,
+    "stage1_raw_comb_v41_cands": 0,
+    "comb_v41_verified_eti": 0,
+    "blind_drift_v51_raw_survivors": 17,
+    "blind_drift_v51_verified_eti": 0,
+    "multiepoch_drift_v52_raw_survivors": 17,
+    "multiepoch_drift_v52_verified_eti": 0,
+    "drift_v53_verified_eti": 0,
+    "orbital_k_planet_verified_eti": 0,
+    "stage1_raw_agnostic_rows": 117,
+    "stage2_verified_eti": 0
+  },
+  "cohort": {
+    "total_stars": 30,
+    "brand_new_unique_stars": 24,
+    "prior_stars_revisited": 6,
+    "newly_promoted_calibrated_bridges_d096": [
+      "ALFTAU",
+      "ARCTURUS",
+      "HD62509",
+      "SIRIUS",
+      "VHS1256B"
+    ],
+    "revisited_control_bridges_d096": [
+      "BD601753"
+    ],
+    "control_stars": 6,
+    "brand_new_within_10pc": 4,
+    "raw_input_files": 39,
+    "physical_exposures_d096": 131,
+    "sofia_exes_files": 19,
+    "carmenes_vis_exposures": 10,
+    "apogee2_visit_spectra": 96,
+    "jwst_soss_exposures": 2,
+    "jwst_g140h_exposures": 4,
+    "total_integration_hours": 30.1721,
+    "orbital_campaigns": 5
+  },
+  "searched_spectral_elements": {
+    "by_instrument": {
+      "SOFIA_EXES": {
+        "T": 326686
+      },
+      "CARMENES_VIS": {
+        "T": 1480000,
+        "P": 444000,
+        "K_PLANET": 296000,
+        "AGNOSTIC_EVALS": 1510,
+        "DRIFT_V51_EVALS": 18204000,
+        "DRIFT_V52_EVALS": 597,
+        "DRIFT_V53_EVALS": 14,
+        "COMB_CONFIGS": 728616,
+        "DRIFT_V54_TRAJS": 734,
+        "DRIFT_V54_PX_INT": 96774964
+      },
+      "SDSS_APOGEE2": {
+        "T": 1290706,
+        "P": 55595,
+        "AGNOSTIC_EVALS": 270,
+        "DRIFT_V51_EVALS": 2460000,
+        "DRIFT_V52_EVALS": 2894,
+        "DRIFT_V53_EVALS": 47229,
+        "K_PLANET": 41725,
+        "COMB_CONFIGS": 117552,
+        "DRIFT_V54_TRAJS": 12804,
+        "DRIFT_V54_PX_INT": 106977420
+      },
+      "JWST_NIRISS_SOSS": {
+        "T": 8659
+      },
+      "JWST_NIRSPEC_G140H": {
+        "T": 12551
+      }
+    },
+    "drift_v54_coherent_campaigns_total": 20,
+    "drift_v54_d096_campaigns": 6,
+    "drift_v54_d095_retroactive": 9,
+    "drift_v54_d094_retroactive": 5,
+    "drift_v54_trajectories_total": 13538,
+    "drift_v54_pixel_integrals_total": 203752384,
+    "comb_v41_searched_configs_d096": 846168,
+    "v2_false_alarms_eliminated_d096": 810
+  },
+  "synthetic_calibration_1851_trials": {
+    "total_trials": 1851,
+    "sofia_exes_laser_recovery": "59/60 (0.9833)",
+    "sofia_exes_atran_veto": "40/40 (1.0000)",
+    "sofia_exes_cr_veto": "40/40 (1.0000)",
+    "sofia_exes_natural_line_veto": "40/40 (1.0000)",
+    "coherent_ss_curved_recovery": "57/60 (0.9500)",
+    "coherent_ss_periodic_recovery": "54/60 (0.9000)",
+    "coherent_ss_stationary_veto": "40/40 (1.0000)",
+    "coherent_ss_transient_veto": "40/40 (1.0000)",
+    "coherent_ss_berv_sky_veto": "40/40 (1.0000)",
+    "jwst_soss_g140h_laser_recovery": "57/60 (0.9500)",
+    "jwst_soss_g140h_hotpx_veto": "30/30 (1.0000)",
+    "jwst_soss_g140h_broad_veto": "30/30 (1.0000)",
+    "g8_v54_isolated_pass": "38/40 (0.9500)",
+    "g8_v54_shared_suppression": "40/40 (1.0000)",
+    "g8_v54_topo_suppression": "40/40 (1.0000)",
+    "rpca_isolated_recovery": "59/60 (0.9833)",
+    "rpca_shared_suppression": "60/60 (1.0000)",
+    "rpca_topo_suppression": "60/60 (1.0000)",
+    "agnostic_multiscale_recovery": "120/120 (1.0000)",
+    "g45_true_lsf_pass": "36/36 (1.0000)",
+    "g5_cosmic_rejection": "36/36 (1.0000)",
+    "g5_plateau_rejection": "36/36 (1.0000)",
+    "channel_p_ge_8sigma": "537/540 (0.9944)",
+    "comb_v41_recovery": "54/54 (1.0000)",
+    "comb_v41_forest_fa": "0/54",
+    "comb_v41_topo_fa": "0/54",
+    "keplerian_kplanet_rec": "81/81 (1.0000)"
+  },
+  "sofia_exes_midir_summary": {
+    "n_stars": 17,
+    "n_files": 19,
+    "n_g1_raw": 149,
+    "n_g2_atran": 0,
+    "n_g45": 148,
+    "n_g3_atlas": 0,
+    "n_g6_topo": 1,
+    "n_qual": 0,
+    "cohort_topo_peaks_collected": 149,
+    "best_limit_10m_kw": {
+      "star": "SIRIUS",
+      "band_id": "EXES_7UM",
+      "p_beam_10m_kw": 202.381291
+    }
+  },
+  "jwst_soss_g140h_summary": {
+    "n_stars": 6,
+    "best_soss_10m_kw": {
+      "star": "SIMP0136",
+      "band_id": "SOSS_8500",
+      "p_beam_10m_kw": 0.039712
+    },
+    "best_g140h_10m_kw": {
+      "star": "VHS1256B",
+      "band_id": "G140H_10640_NDYAG",
+      "p_beam_10m_kw": 34.509826
+    }
+  },
+  "cascade_benchmark": [
+    {
+      "instrument": "CARMENES_VIS",
+      "band_group": "CARMENES_VIS",
+      "n_stars": 3,
+      "g1_lsf": 212,
+      "g2_airglow": 198,
+      "ghost_sky_vetoed": 0,
+      "g2_plus_sky_pass": 198,
+      "g3_chromo": 196,
+      "g45_native_psf": 2,
+      "g6_topo": 0,
+      "v50_g7_rpca": 0,
+      "v54_g8_final": 0,
+      "stage2_verified_eti": 0
+    },
+    {
+      "instrument": "SDSS_APOGEE2",
+      "band_group": "APOGEE2_H",
+      "n_stars": 4,
+      "g1_lsf": 184,
+      "g2_airglow": 116,
+      "ghost_sky_vetoed": 0,
+      "g2_plus_sky_pass": 116,
+      "g3_chromo": 116,
+      "g45_native_psf": 0,
+      "g6_topo": 0,
+      "v50_g7_rpca": 0,
+      "v54_g8_final": 0,
+      "stage2_verified_eti": 0
+    }
+  ],
+  "orbital_campaigns_134_138": [
+    {
+      "campaign_index": 135,
+      "star": "HNLIB",
+      "common_name": "HN Lib (GJ 555 / J14342-125)",
+      "planet_name": "HN Lib b",
+      "instrument": "CARMENES_VIS",
+      "n_epochs": 4,
+      "orb_per_days": 36.116,
+      "kp_kms": 42.817,
+      "orbital_dv_span_kms": 85.493,
+      "qualified_kplanet_cands": 0
+    },
+    {
+      "campaign_index": 134,
+      "star": "WOLF1069",
+      "common_name": "Wolf 1069 (J20260+585)",
+      "planet_name": "Wolf 1069 b",
+      "instrument": "CARMENES_VIS",
+      "n_epochs": 4,
+      "orb_per_days": 15.564,
+      "kp_kms": 46.96,
+      "orbital_dv_span_kms": 93.083,
+      "qualified_kplanet_cands": 0
+    },
+    {
+      "campaign_index": 138,
+      "star": "KEPLER1002",
+      "common_name": "Kepler-1002",
+      "planet_name": "Kepler-1002 b",
+      "instrument": "SDSS_APOGEE2",
+      "n_epochs": 28,
+      "orb_per_days": 4.336429331,
+      "kp_kms": 139.51,
+      "orbital_dv_span_kms": 275.79,
+      "qualified_kplanet_cands": 0
+    },
+    {
+      "campaign_index": 137,
+      "star": "KEPLER1313",
+      "common_name": "Kepler-1313",
+      "planet_name": "Kepler-1313 b",
+      "instrument": "SDSS_APOGEE2",
+      "n_epochs": 27,
+      "orb_per_days": 3.833091178,
+      "kp_kms": 132.315,
+      "orbital_dv_span_kms": 261.11,
+      "qualified_kplanet_cands": 0
+    },
+    {
+      "campaign_index": 136,
+      "star": "KEPLER381",
+      "common_name": "Kepler-381",
+      "planet_name": "Kepler-381 b",
+      "instrument": "SDSS_APOGEE2",
+      "n_epochs": 27,
+      "orb_per_days": 5.629021,
+      "kp_kms": 125.178,
+      "orbital_dv_span_kms": 243.461,
+      "qualified_kplanet_cands": 0
+    }
+  ],
+  "multievent_ellipsoid_d079_d096_summary": {
+    "stars_evaluated": 425,
+    "etz_qualified_stars": 15,
+    "ellipsoid_within_180d_stars": 36
+  },
+  "upper_limits": {
+    "n_cells": 69,
+    "best_d096_star": "SIMP0136",
+    "best_d096_instrument": "JWST_NIRISS_SOSS",
+    "best_d096_band": "SOSS_8500",
+    "best_d096_10m_w": 39.71164,
+    "best_d096_10m_kw": 0.039712,
+    "best_by_instrument": {
+      "SOFIA_EXES": {
+        "star": "SIRIUS",
+        "band_id": "EXES_7UM",
+        "p_beam_10m_kw": 202.381291
+      },
+      "CARMENES_VIS": {
+        "star": "LP73158",
+        "band_id": "M1_5320",
+        "p_beam_10m_kw": 0.114498
+      },
+      "SDSS_APOGEE2": {
+        "star": "KEPLER1313",
+        "band_id": "A1_15350",
+        "p_beam_10m_kw": 702.614612
+      },
+      "JWST_NIRISS_SOSS": {
+        "star": "SIMP0136",
+        "band_id": "SOSS_8500",
+        "p_beam_10m_kw": 0.039712
+      },
+      "JWST_NIRSPEC_G140H": {
+        "star": "VHS1256B",
+        "band_id": "G140H_10640_NDYAG",
+        "p_beam_10m_kw": 34.509826
+      }
+    }
+  },
+  "unified_425star_panchromatic_v5_4_synthesis": {
+    "phases": "D079-D096",
+    "spectrographs": 27,
+    "spectral_arms": 36,
+    "min_wave_um": 0.0905,
+    "max_wave_um": 37.86356,
+    "octave_span": 8.709,
+    "unique_stars_total": 425,
+    "science_stars_total": 327,
+    "control_stars_total": 98,
+    "planet_host_stars_total": 201,
+    "confirmed_exoplanets_total": 394,
+    "within_10pc_unique_stars": 165,
+    "within_10pc_median_limit_kw": 1.5222,
+    "panchromatic_bridge_stars_total": 52,
+    "revisited_control_multi_phase_stars": 1,
+    "multi_phase_targets_total": 53,
+    "panchromatic_bridge_cells_total": 719,
+    "total_exposures_d079_d096": 2523,
+    "total_integration_hours_d079_d096": 751.6534,
+    "total_calibration_trials_d079_d096": 37911,
+    "v2_false_alarms_eliminated_total": 313257,
+    "cumulative_orbital_campaigns": 138,
+    "cumulative_comb_stacks": 448,
+    "verified_eti_detections_total": 0
+  }
+}

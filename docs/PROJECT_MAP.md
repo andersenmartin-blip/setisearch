@@ -9,12 +9,12 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.3` Rum-Lyman til Spitzer Termisk-IR (`D095`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D096`-perspektiver efter afslutningen af `D079–D095` (`401` stjerner / `161` `< 10 pc` / `25` spektrografer [`33` arme] / `8,709` oktaver `0,0905–37,86356 µm` / `23/23` radio-echelle lukning). |
-| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D095`) | Færdigkompileret to-spaltet publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D095`) | Indeks over det prospektivt kalibrerede `V3.0–V5.3` + all-sky `COMB_V4_1`-survey (`401` unikke stjerner, `2.392` eksponeringer på `25` spektrografer / `33` arme over `0,0905–37,86356 µm`, `8,709` oktaver) + `V5.3` Krum/Periodisk Drift/`GHOST` sky-IFU/`Spitzer IRS` CCF & Dyson/Ellipsoid. |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.4` Rum-Lyman til Spitzer Termisk-IR (`D096`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D097`-perspektiver efter afslutningen af `D079–D096` (`425` stjerner / `165` `< 10 pc` / `27` spektrografer [`36` arme] / `8,709` oktaver `0,0905–37,86356 µm` / `23/23` radio-echelle lukning). |
+| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D096`) | Færdigkompileret to-spaltet `43`-siders publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`, inkl. `fig67–fig72`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D096`) | Indeks over det prospektivt kalibrerede `V3.0–V5.4` + all-sky `COMB_V4_1`-survey (`425` unikke stjerner, `2.523` eksponeringer på `27` spektrografer / `36` arme over `0,0905–37,86356 µm`, `8,709` oktaver) + `SOFIA/EXES` mid-IR echelon-echelle, NaN-sikker `DRIFT_V54` kohærent shift-stacking & `JWST NIRISS/SOSS + NIRSpec/G140H`. |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-21-v5-3-curved-periodic-drift-ghost-spitzer-irs-apogee2-d095/RESULTS_REPORT.md) | `V5.3` & Alle Pankromatiske Faser (`D075–D095`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md`) fra `D075` til `D095`. |
+| [`progress/`](../progress/2026-11-21-v5-4-sofia-exes-midir-echelle-coherent-drift-jwst-d096/RESULTS_REPORT.md) | `V5.4` & Alle Pankromatiske Faser (`D075–D096`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md` / [`D096_RESULTS_REPORT.md`](reports_d035_d077/D096_RESULTS_REPORT.md)) fra `D075` til `D096`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -29,9 +29,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–U (Rum-Lyman til Spitzer Termisk-IR, ESO 3-Arm, Gemini `GHOST`, `V5.3` Krum/Periodisk Drift / `Spitzer IRS` / `APOGEE-2`)
+## 3. Kompakte numeriske kompagnonarkiver A–V (Rum-Lyman til Spitzer Termisk-IR / `SOFIA EXES` / `JWST NIRISS+G140H`, `V5.4`)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D095` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d095_workspace.py --check-only` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D096` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d096_workspace.py --check-only` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -57,3 +57,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **S** | `SETI_D093_V5_1_DEDOPPLER_DRIFT_ELLIPSOID_GRACES_CORALIE_CARMENES_RESULTS_2026-11-21.zip` | `25.934.814` | `2588057cbd611686d50ced7f4432dce623b16609bc62de01d6460c91c504979a` |
 | **T** | `SETI_D094_V5_2_MULTIEPOCH_DRIFT_APOGEE2_CRIRESJH_MIRILRS_RESULTS_2026-11-21.zip` | `16.641.712` | `fea863077ae837b6741d5837990fd357158e00f6a5e3d9adde51f0c81e8ccefc` |
 | **U** | `SETI_D095_V5_3_CURVED_PERIODIC_DRIFT_GHOST_SPITZER_IRS_APOGEE2_RESULTS_2026-11-21.zip` | `16.898.458` | `24f5a73a4299d697a198e91e3e15b5b7ddce838f6d055cebe66ddd812520c21d` |
+| **V** | `SETI_D096_V5_4_SOFIA_EXES_MIDIR_ECHELLE_COHERENT_DRIFT_JWST_RESULTS_2026-11-21.zip` | `15.941.580` | `a134e4d5d0b6e0cb4e17763dc729203218cac9265c7db75db719135cb01c5158` |
