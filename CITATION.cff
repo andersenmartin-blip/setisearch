@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, methodology, or published search records, please cite it using this metadata."
 type: software
-title: "SETIsearch: Panchromatic (12.855-Octave, 0.0905-670.69 um) Space-Lyman to SOFIA/Herschel THz, ISO SWS, HST STIS E140H, JWST, Coherent Jerk-Drift, Frequency-Comb, Radio & Photometric Technosignature Pipeline"
+title: "SETIsearch: Panchromatic (13.919-Octave, 0.0905-1401.36 um) Space-Lyman to JCMT Millimeter, SOFIA EXES, IRTF SpeX, JWST, Coherent Keplerian Jerk-Drift, Frequency-Comb, Radio & Photometric Technosignature Pipeline"
 abstract: >-
   Prospectively locked, reproducible archival searches and pure-stdlib numerical audits
   for panchromatic space Lyman-limit/FUV/NUV (FUSE 0.0905-0.1187 um, HST/COS G130M
@@ -10,33 +10,37 @@ abstract: >-
   HARPS-N, ESPRESSO HR/UHR, Gemini GHOST BLUE+RED with simultaneous sky-IFU veto, Gemini
   GRACES, Euler CORALIE, OHP SOPHIE, OHP ELODIE, CFHT ESPaDOnS, MPG/ESO FEROS, VLT
   FLAMES/GIRAFFE HR), far-red (VLT UVES_RED, CARMENES_VIS with SERVAL RV alignment), 3-arm
-  simultaneous UVB+VIS+NIR (VLT X-shooter 0.2989-2.4790 um), near-infrared YJH (NIRPS_HE),
-  thermal J/H/K (VLT CRIRES+), SDSS APOGEE-2 H-band (up to N=28 visits), simultaneous YJHK
-  (CFHT SPIRou APERO 0.7.295), JWST space optical-to-thermal-IR (NIRISS SOSS, NIRSpec
-  G140H/G235H/G395H, MIRI LRS/MRS), continuous ISO SWS (2.36-45.39 um), airborne IR
-  (SOFIA EXES 5.62-26.13 um, R~86,000; SOFIA FORCAST 4-grism G063/G111/G227/G329),
-  Spitzer IRS SL+LL (5.20-37.86356 um), Herschel far-IR/THz (PACS 51-210 um, SPIRE FTS
-  194-670.69 um, HIFI 0.56-1.16 THz at R=2.2e6), and SOFIA GREAT super-THz heterodyne
-  (1.2-4.7 THz, up to R=1.94e7) laser, 30-campaign cubic-jerk/periodic coherent shift-stack
-  drift (DRIFT_V56 across 30 N>=4 campaigns / 38,226 trajectories / 2.299B pixel integrals),
-  greenhouse CCF, Dyson waste-heat vs. silicate-belt discrimination, and periodic
-  frequency-comb technosignatures (0.0905-670.69081 um, 12.855 unbroken octaves across
-  33 spectrographs / 51 arms; 473 unique stars and 2,700 archival exposures totaling
-  921.5744 h across V3.0-V5.6 + COMB_V4_1 with Keplerian planetary de-Doppler across
-  143 orbital campaigns, 41,973 synthetic calibration trials, 423,988 Legacy V2 false
+  simultaneous UVB+VIS+NIR (VLT X-shooter 0.2989-2.4790 um), near-infrared NIR/QCL (IRTF
+  SpeX 0.80-5.43 um), YJH (NIRPS_HE), thermal J/H/K (VLT CRIRES+), SDSS APOGEE-2 H-band
+  (up to N=28 visits), simultaneous YJHK (CFHT SPIRou APERO 0.7.295), JWST space
+  optical-to-thermal-IR (NIRISS SOSS, NIRSpec G140H/G235H/G395H, MIRI LRS/MRS),
+  continuous ISO SWS (2.36-45.39 um), airborne IR (SOFIA EXES 5.62-26.13 um, R~90,000;
+  SOFIA FORCAST 4-grism G063/G111/G227/G329), Spitzer IRS SL+LL (5.20-37.86356 um),
+  Herschel far-IR/THz (PACS 51-210 um, SPIRE FTS 194-670.69 um, HIFI 0.56-1.16 THz at
+  R=2.2e6), SOFIA GREAT super-THz heterodyne (1.2-4.7 THz, up to R=1.94e7), and JCMT
+  submm/mm heterodyne (HARP/RxA3/Uu 213.93-691 GHz, 433.6-1401.36089 um) laser,
+  36-campaign exact Keplerian + cubic-jerk coherent shift-stack drift (DRIFT_V57 across
+  36 N>=4 campaigns / 56,270 trajectories / 3,566,447,968 pixel integrals / 47,580
+  Keplerian polishes), greenhouse CCF, Dyson waste-heat vs. silicate-belt discrimination,
+  and periodic frequency-comb technosignatures (0.0905-1401.36089 um, 13.919 unbroken
+  octaves across 36 spectrographs / 57 arms; 516 unique stars and 2,797 archival exposures
+  totaling 942.7045 h across V3.0-V5.7 + COMB_V4_1 with Keplerian planetary de-Doppler
+  across 145 orbital campaigns, 44,124 synthetic calibration trials, 513,887 Legacy V2 false
   alarms eliminated, deterministic Stage-2 physical triage, and uniform all-sky COMB_V4_1
-  filtering across 458 stacks), unified with 1.4 GHz Parkes/GBT radio searches and TESS
-  photometry achieving 23/23 (100%) radio-echelle closure across a 473-system synthesis
+  filtering across 464 stacks), unified with 1.4 GHz Parkes/GBT radio searches and TESS
+  photometry achieving 23/23 (100%) radio-echelle closure across a 516-system synthesis
   (0 verified ETI detections; 0.0973 W HST_STIS Proxima Cen, 0.065460 kW HST_STIS_E140H
   Alpha Cen A, 0.039712 kW JWST_NIRISS_SOSS SIMP 0136, 0.455538 kW CARMENES_VIS GJ 1286,
-  2,781.39 kW ISO_SWS HD 219134, 70.703128 kW HERSCHEL_SPIRE_FTS AB Aur, 19,268,981 kW
-  SOFIA_GREAT HD 141569, 21,388,409 kW SOFIA_FORCAST HD 166191, 235,044.17 kW HERSCHEL_HIFI
-  R Dor, 66 calibrated panchromatic bridges across 780 cells [68 multi-phase targets]
-  alongside 173 <10 pc stars with 1.4558 kW median limit).
+  40.19 kW ESO_UVES GJ 422, 57.04 kW IRTF_SpeX DX Cnc, 33,883.11 kW SOFIA_EXES mu UMa,
+  70.703128 kW HERSCHEL_SPIRE_FTS AB Aur, 2,040,500 kW JCMT_HARP LkCa 15, 4,222,791 kW
+  JCMT_MM_230GHZ HD 163296, 19,268,981 kW SOFIA_GREAT HD 141569, 21,388,409 kW SOFIA_FORCAST
+  HD 166191, 235,044.17 kW HERSCHEL_HIFI R Dor, 71 calibrated panchromatic bridges across
+  827 cells [77 multi-phase targets] alongside 175 <10 pc stars with 1.4627 kW median
+  limit).
 authors:
   - family-names: "Andersen"
     given-names: "Martin"
-version: 0.21.0
+version: 0.22.0
 date-released: 2026-11-22
 repository-code: "https://github.com/andersenmartin-blip/setisearch"
 url: "https://github.com/andersenmartin-blip/setisearch"

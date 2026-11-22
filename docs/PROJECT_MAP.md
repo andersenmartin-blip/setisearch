@@ -9,12 +9,12 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.6` Rum-Lyman til Herschel/SOFIA THz (`D098`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D099`-perspektiver efter afslutningen af `D079–D098` (`473` stjerner / `173` `< 10 pc` / `33` spektrografer [`51` arme] / `12,855` oktaver `0,0905–670,69081 µm` / `23/23` radio-echelle lukning). |
-| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D098`) | Færdigkompileret to-spaltet `49`-siders publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`, inkl. `fig79–fig84`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D098`) | Indeks over det prospektivt kalibrerede `V3.0–V5.6` + all-sky `COMB_V4_1`-survey (`473` unikke stjerner, `2.700` eksponeringer på `33` spektrografer / `51` arme over `0,0905–670,69081 µm`, `12,855` oktaver) + `SOFIA GREAT/FORCAST`, `ISO SWS`, `DRIFT_V56` & `CARMENES_VIS`. |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.7` Rum-Lyman til JCMT millimeter (`D099`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D100`-perspektiver efter afslutningen af `D079–D099` (`516` stjerner / `175` `< 10 pc` / `36` spektrografer [`57` arme] / `13,919` oktaver `0,0905–1.401,36089 µm` / `23/23` radio-echelle lukning). |
+| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D099`) | Færdigkompileret to-spaltet `53`-siders publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`, inkl. `fig85–fig90`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D099`) | Indeks over det prospektivt kalibrerede `V3.0–V5.7` + all-sky `COMB_V4_1`-survey (`516` unikke stjerner, `2.797` eksponeringer på `36` spektrografer / `57` arme over `0,0905–1.401,36089 µm`, `13,919` oktaver) + `JCMT HARP/RxA3/Uu`, `SOFIA EXES`, `IRTF SpeX` & `DRIFT_V57_KEPLERIAN_JERK`. |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-22-v5-6-sofia-great-iso-sws-forcast-optical-jerk-d098/RESULTS_REPORT.md) | `V5.6` & Alle Pankromatiske Faser (`D075–D098`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `RESULTS_MANIFEST_SHA256.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md` / [`D098_RESULTS_REPORT.md`](reports_d035_d077/D098_RESULTS_REPORT.md)) fra `D075` til `D098`. |
+| [`progress/`](../progress/2026-11-22-v5-7-jcmt-mm-sofia-exes-irtf-spex-keplerian-drift-d099/RESULTS_REPORT.md) | `V5.7` & Alle Pankromatiske Faser (`D075–D099`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `RESULTS_MANIFEST_SHA256.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md` / [`D099_RESULTS_REPORT.md`](reports_d035_d077/D099_RESULTS_REPORT.md)) fra `D075` til `D099`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -29,9 +29,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–X (Rum-Lyman til Herschel/SOFIA THz / `ISO SWS` / `DRIFT_V56`, `V5.6`)
+## 3. Kompakte numeriske kompagnonarkiver A–Y (Rum-Lyman til JCMT Millimeter / SOFIA EXES / IRTF SpeX / `DRIFT_V57`, `V5.7`)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D098` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d098_workspace.py --destination /tmp/d098_verify` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D099` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d099_workspace.py --destination /tmp/d099_verify` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -60,3 +60,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **V** | `SETI_D096_V5_4_SOFIA_EXES_MIDIR_ECHELLE_COHERENT_DRIFT_JWST_RESULTS_2026-11-21.zip` | `15.941.580` | `a134e4d5d0b6e0cb4e17763dc729203218cac9265c7db75db719135cb01c5158` |
 | **W** | `SETI_D097_V5_5_HERSCHEL_THZ_FARIR_STIS_E140H_OPTICAL_JERK_RESULTS_2026-11-22.zip` | `11.687.103` | `aa296f9c72faefcacbd4f4fedb73c7c3f2b1377823fad3e308fd6a9844f6fed8` |
 | **X** | `SETI_D098_V5_6_SOFIA_GREAT_ISO_SWS_FORCAST_OPTICAL_JERK_RESULTS_2026-11-22.zip` | `22.898.406` | `f57f48355df2b92257f39d76e83f2d850ae6d9164ea10ef1539bede1ca8fb838` |
+| **Y** | `SETI_D099_V5_7_JCMT_MM_SOFIA_EXES_IRTF_SPEX_KEPLERIAN_DRIFT_RESULTS_2026-11-22.zip` | `15.546.915` | `77b187f3509a704978096c14b97f83a13d3eebb6b2fc9d53a8c3b296b362df0b` |
