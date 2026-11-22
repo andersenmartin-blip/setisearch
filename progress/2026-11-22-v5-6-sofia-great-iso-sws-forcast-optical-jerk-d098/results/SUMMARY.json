@@ -1,0 +1,124 @@
+{
+  "phase_id": "D098",
+  "detector": "TECHNOSIGNATURE_V5_6_SOFIA_GREAT_ISO_SWS_FORCAST_AND_OPTICAL_COHERENT_JERK",
+  "instruments": [
+    "SOFIA_GREAT",
+    "ISO_SWS",
+    "SOFIA_FORCAST",
+    "CARMENES_VIS"
+  ],
+  "cohort": {
+    "total_stars": 38,
+    "brand_new_unique_stars": 25,
+    "prior_bridge_stars": 13,
+    "newly_promoted_science_bridges": [
+      "FOMALHAUT",
+      "HD100546",
+      "HD141569",
+      "HD192310",
+      "HD219134",
+      "IRC10216",
+      "REDRECT",
+      "TAUBOO"
+    ],
+    "deepened_science_bridges": [
+      "ABAUR",
+      "AUMIC",
+      "BETELGEUSE",
+      "BETPIC"
+    ],
+    "revisited_controls": [
+      "NGC7027"
+    ],
+    "control_stars": 8,
+    "brand_new_within_10pc": 4,
+    "total_input_files": 99
+  },
+  "synthetic_calibration_2031_trials": {
+    "total_trials": 2031,
+    "sofia_great_180": "180/180 (1.0000)",
+    "iso_sws_180": "180/180 (1.0000)",
+    "sofia_forcast_120": "120/120 (1.0000)",
+    "coherent_jerk_240": "240/240 (1.0000)",
+    "g8_pass": "117/120 (0.9750)",
+    "rpca_pass": "180/180 (1.0000)",
+    "agnostic_pass": "117/120 (0.9750)",
+    "g4g5_pass": "108/108 (1.0000)",
+    "injection_540": "539/540 (0.9981)",
+    "comb_v41_162": "162/162 (1.0000)",
+    "keplerian_81": "81/81 (1.0000)"
+  },
+  "raw_hits_and_triage": {
+    "space_raw_peaks": 108,
+    "space_qualified_v56": 0,
+    "space_verified_eti": 0,
+    "iso_sws_greenhouse_raw": 0,
+    "iso_sws_dyson_raw": 0,
+    "opt_raw_g1_seeds": 514,
+    "opt_g8_qualified": 0,
+    "opt_verified_eti": 0,
+    "css_30_raw_survivors": 8344,
+    "css_verified_eti": 0,
+    "comb_v41_survivors": 100,
+    "comb_verified_eti": 0,
+    "v51_v52_v53_verified_eti": 0,
+    "verified_eti_detections_total": 0
+  },
+  "best_10m_eirp_limits_kw": {
+    "SOFIA_GREAT": {
+      "star": "HD141569",
+      "band_id": "GREAT_OI_63UM",
+      "p_beam_10m_kw": 19268981.04064024
+    },
+    "ISO_SWS": {
+      "star": "HD219134",
+      "band_id": "SWS_3P5UM",
+      "p_beam_10m_kw": 2781.39477879
+    },
+    "SOFIA_FORCAST": {
+      "star": "HD166191",
+      "band_id": "FOR_G063",
+      "p_beam_10m_kw": 21388408.73354235
+    },
+    "CARMENES_VIS": {
+      "star": "GJ1286",
+      "band_id": "M1_5320",
+      "p_beam_10m_kw": 0.45553819
+    }
+  },
+  "unified_473star_panchromatic_v5_6_synthesis": {
+    "phases": "D079-D098",
+    "spectrographs": 33,
+    "spectral_arms": 51,
+    "min_wave_um": 0.0905,
+    "max_wave_um": 670.69081,
+    "octave_span": 12.855,
+    "unique_stars_total": 473,
+    "science_stars_total": 363,
+    "control_stars_total": 110,
+    "planet_host_stars_total": 210,
+    "confirmed_exoplanets_total": 405,
+    "within_10pc_unique_stars": 173,
+    "within_10pc_median_limit_kw": 1.4558,
+    "panchromatic_bridge_stars_total": 66,
+    "revisited_control_multi_phase_stars": 2,
+    "multi_phase_targets_total": 68,
+    "panchromatic_bridge_cells_total": 780,
+    "total_exposures_d079_d098": 2700,
+    "total_integration_hours_d079_d098": 921.5744,
+    "total_calibration_trials_d079_d098": 41973,
+    "v2_false_alarms_eliminated_total": 423988,
+    "cumulative_orbital_campaigns": 143,
+    "cumulative_comb_stacks": 458,
+    "coherent_3d_drift_campaigns": 30,
+    "verified_eti_detections_total": 0
+  },
+  "stage2_pipeline_notes": {
+    "stage1_v5_6_detector_untouched": true,
+    "sofia_great_superthz": "23 raw molecular/atomic/outflow features (incl. [OI] 63um, [CII] 158um, high-J CO) across 12 stars / 27 cubes -> 0 qualified_v56 / 0 verified ETI.",
+    "iso_sws_midir_gapclosure": "52 raw spectral features across 17 stars spanning 2.36-45.39 um continuous coverage -> 0 qualified_v56 / 0 greenhouse CCF detections / 0 silicate-free Dyson excess.",
+    "sofia_forcast_grisms": "33 raw features across 11 stars / 35 4-grism spectra (G063/G111/G227/G329) -> 0 qualified_v56 / 0 verified ETI.",
+    "carmenes_vis_4gen_orbits": "514 G1 seeds across 5 CARMENES_VIS stars (20 exposures, Campaigns #141-#143) -> 0 G8 survivors -> 0 verified ETI; 1,214,360 COMB_V4_1 configs across CARM_GREEN/RED/FARRED -> 100 raw c41 TiO/H2O crests resolved in Stage-2 -> 0 verified ETI combs.",
+    "drift_v56_30campaigns": "30 N>=4 coherent 3D (v0, dv/dt, d2v/dt2) jerk campaigns (5 D098 CARMENES_VIS + 25 retroactive W/V/U/T; 38,226 trajectories, 2,298,916,322 px integrals) -> 8,344 raw survivors resolved (6,948 troughs, 714 stationary/TiO crests incl. WOLF1069 6524.57 A SERVAL RV-outlier, 675 OH/sky, 6 non-LSF, 1 low-cont blue CR ringing on GJ1005 4239.30 A) -> 0 verified ETI."
+  }
+}
