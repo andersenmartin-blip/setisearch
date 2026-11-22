@@ -1,0 +1,118 @@
+{
+  "phase_id": "D097",
+  "detector": "TECHNOSIGNATURE_V5_5_HERSCHEL_THZ_FARIR_STIS_E140H_AND_HIGHRES_OPTICAL_COHERENT_DRIFT",
+  "instruments": [
+    "ESO_FEROS",
+    "ESO_HARPS",
+    "HERSCHEL_HIFI",
+    "HERSCHEL_PACS",
+    "HERSCHEL_SPIRE_FTS",
+    "HST_STIS_E140H"
+  ],
+  "cohort": {
+    "total_stars": 30,
+    "brand_new_unique_stars": 23,
+    "prior_bridge_stars": 7,
+    "newly_promoted_science_bridges": [
+      "ABAUR",
+      "ALPCENA",
+      "ANTARES",
+      "BETELGEUSE",
+      "OCETI",
+      "PROCYON"
+    ],
+    "revisited_controls": [
+      "NGC7027"
+    ],
+    "control_stars": 6,
+    "brand_new_within_10pc": 4,
+    "total_input_files": 78
+  },
+  "synthetic_calibration_2031_trials": {
+    "total_trials": 2031,
+    "herschel_hifi_180": {
+      "total_trials": 180,
+      "thz_beacon_recovery": "59/60 (0.9833)",
+      "standing_wave_veto": "40/40 (1.0000)",
+      "broad_molecular_veto": "40/40 (1.0000)",
+      "lo_spur_veto": "40/40 (1.0000)"
+    },
+    "herschel_spire_pacs_180": {
+      "total_trials": 180,
+      "point_beacon_recovery": "60/60 (1.0000)",
+      "off_axis_ring_veto": "40/40 (1.0000)",
+      "fts_sinc_sidelobe_veto": "40/40 (1.0000)",
+      "pacs_glitch_edge_veto": "40/40 (1.0000)"
+    },
+    "hst_stis_e140h_120": {
+      "total_trials": 120,
+      "fuv_beacon_recovery": "60/60 (1.0000)",
+      "hotpx_overlap_veto": "30/30 (1.0000)",
+      "chromo_geocoronal_veto": "30/30 (1.0000)"
+    },
+    "coherent_jerk_240": {
+      "total_trials": 240,
+      "cubic_jerk_recovery": "60/60 (1.0000)",
+      "periodic_recovery": "60/60 (1.0000)",
+      "stationary_veto": "40/40 (1.0000)",
+      "transient_veto": "40/40 (1.0000)",
+      "berv_sky_veto": "40/40 (1.0000)"
+    },
+    "g8_pass": "117/120",
+    "rpca_pass": "180/180",
+    "agnostic_pass": "118/120",
+    "g4g5_pass": "108/108",
+    "injection_540": "540/540",
+    "comb_v41_162": "162/162",
+    "keplerian_81": "81/81"
+  },
+  "raw_hits_and_triage": {
+    "space_raw_peaks": 131,
+    "space_qualified_v55": 45,
+    "space_verified_eti": 0,
+    "opt_raw_g1_seeds": 771,
+    "opt_g8_qualified": 241,
+    "opt_verified_eti": 0,
+    "css_25_raw_survivors": 3619,
+    "css_verified_eti": 0,
+    "comb_v41_survivors": 0,
+    "comb_verified_eti": 0,
+    "verified_eti_detections_total": 0
+  },
+  "unified_448star_panchromatic_v5_5_synthesis": {
+    "phases": "D079-D097",
+    "spectrographs": 30,
+    "spectral_arms": 42,
+    "min_wave_um": 0.0905,
+    "max_wave_um": 670.69081,
+    "octave_span": 12.855,
+    "unique_stars_total": 448,
+    "science_stars_total": 345,
+    "control_stars_total": 103,
+    "planet_host_stars_total": 205,
+    "confirmed_exoplanets_total": 399,
+    "within_10pc_unique_stars": 169,
+    "within_10pc_median_limit_kw": 1.4627,
+    "panchromatic_bridge_stars_total": 58,
+    "revisited_control_multi_phase_stars": 2,
+    "multi_phase_targets_total": 60,
+    "panchromatic_bridge_cells_total": 728,
+    "total_exposures_d079_d097": 2601,
+    "total_integration_hours_d079_d097": 772.806,
+    "total_calibration_trials_d079_d097": 39942,
+    "v2_false_alarms_eliminated_total": 317805,
+    "cumulative_orbital_campaigns": 140,
+    "cumulative_comb_stacks": 453,
+    "verified_eti_detections_total": 0
+  },
+  "stage2_pipeline_notes": {
+    "stage1_v5_5_detector_untouched": true,
+    "hifi_circumstellar_outflow_mol": "All 5 qualified Herschel HIFI detections match resolved circumstellar wind profiles (FWHM 6.82-14.96 km/s) and CO 10-9 / SO rotational transitions in AGB/OHM control envelopes.",
+    "spire_pacs_cdms_jpl_atlas": "All 35 SPIRE FTS and 1 PACS qualified features match known CDMS/JPL transitions (HCN, HCN v2=1, 13CO, o/p-H2O, CH+, CO 20-19) within <0.22 um (<0.5 px).",
+    "stis_extended_pn_bk_overshoot": "All 4 qualified STIS E140H peaks occur exclusively in extended-PN control NGC7027 and exhibit CALSTIS background-strip negative-flux overshoot troughs (min_z <= -5) bracketing bright nebular knots.",
+    "optical_feros_g8_cr_ringing": "Gate G8 is fit on canonical clean background patches (bg_feats, 117/120 calibration). All 241 optical/K_PLANET G8 survivors across FEROS/HARPS resolve physically via airglow/OH wing, local P90 trough, low-continuum SNR<8 / CR extraction ringing (incl. GJ1005 3984.56 A), single-exposure unflagged ADP CR with 0 clean repeats (incl. ALTAIR 3707.42 A), and <2-epoch K_PLANET coherence (#139 GJ680) -> 0 verified ETI.",
+    "rapid_rotator_rv_fallback": "For extreme rapid rotators (e.g., ALTAIR vsini~240 km/s, anchor scatter 39.43 km/s > 8.0 km/s), Stage B uses locked SIMBAD prior_rv_kms (-26.1 km/s) for rest-frame spectral alignment while recording empirical scatter in STAR_RV_SUMMARY_D097.csv.",
+    "drift_v55_physical_triage": "Stage-2 re-checks raw continuum ratio against 90th-percentile local flux, OH/telluric airglow coincidence and topocentric peak stability (including APOGEE-2 16352.9 A fixed sky residual verified across KEPLER37/KEPLER93), stationary stellar/telluric absorption trough dominance (rejecting BERV-shifted 8280-8284 A H2O template-trough residuals such as HNLIB), epoch distribution uniformity, and coadded shifted LSF shape.",
+    "rpca_cal_apogee2_alignment": "RPCA calibration benchmark uses SDSS_APOGEE2 15200-15364 A config matching injection grid spacing."
+  }
+}
