@@ -9,12 +9,12 @@ Dette dokument forklarer opbygningen af repositoriet på tværs af dets fire his
 | Sti / mønster | Spor | Rolle og status |
 | --- | --- | --- |
 | [`README.md`](../README.md) | Alle | Kortfattet hovedindgang, aktuel status på tværs af alle spor og reproduktionsvejledning. |
-| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V5.9` Rum-Lyman til ALMA Band 1 `8,56 mm` (`D101`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D102+`-perspektiver efter afslutningen af `D079–D101` (`613` analyserede systemer / `180` `< 10 pc` / `41` spektrografer [`67` arme] / `13,919` ubrudte oktaver til `1.401,36 µm` + ALMA B5/B4/B3-lukning & Band-1 til `8.556,42 µm` [`16,529` oktaver totalt] / `23/23` radio-echelle lukning). |
-| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D101`) | Færdigkompileret to-spaltet `60`-siders publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`, inkl. `fig97–fig102`). |
-| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D101`) | Indeks over det prospektivt kalibrerede `V3.0–V5.9` + `COMB_V4_1`/`COMB_DRIFT_V59`-survey (`613` unikke systemer, `2.977` eksponeringer på `41` spektrografer / `67` arme over `0,0905–8.556,41831 µm`, `13,919` ubrudte / `16,529` total-oktaver) + `ALMA Band 1/3/4/5`, `ESO ESPRESSO/HARPS` & `COMB_DRIFT_V59`. |
+| [`CONTINUE_SETI.md`](../CONTINUE_SETI.md) | `V6.0` *Chandra* X-Ray til *ALMA* Band 1 `8,56 mm` (`D102`) | Autoritativ teknisk overdragelse, faglige guardrails og videre `D103+`-perspektiver efter afslutningen af `D079–D102` (`656` analyserede systemer / `183` `< 10 pc` / `45` spektrografer [`73` arme] / `26,086` oktaver = `9,186` ubrudte højenergi-oktaver + `13,935` [`14,693` B4-lav] Lyman-mm + Band 1 til `8.556,42 µm` / `23/23` radio-echelle lukning). |
+| [`paper/`](../paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) | All-Sky & Rum Pankromatisk + Multi-Messenger (`D079–D102`) | Færdigkompileret to-spaltet `63`-siders publikations-PDF (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`), Markdown-manuskript (`ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.md`), LaTeX-kilde (`main.tex`) og publikationsfigurer (`paper/figures/`, inkl. `fig103–fig108`). |
+| [`docs/OPTICAL_V3_SURVEY_INDEX.md`](OPTICAL_V3_SURVEY_INDEX.md) | All-Sky & Rum Pankromatisk (`D079–D102`) | Indeks over det prospektivt kalibrerede `V3.0–V6.0` + `COMB_V4_1`/`DRIFT_V60`/`COMB_DRIFT_V60`-survey (`656` unikke systemer, `3.084` eksponeringer på `45` spektrografer / `73` arme over `0,00012–8.556,41831 µm`, `26,086` totale oktaver) + *Chandra*, *EUVE*, `ALMA Band 3–8`, `ESO ESPRESSO/HARPS` & `DRIFT_V60`+`COMB_DRIFT_V60`. |
 | [`docs/OPTICAL_HD43629_INDEX.md`](OPTICAL_HD43629_INDEX.md) | Optisk (`D001`–`D078`) | Samlet indeks over `D001`/`D002` og alle danske delrapporter gennem den afsluttede `HD 43629`-syntese (`D078`). |
 | [`docs/history/`](history/README_LOG_ARCHIVE_THROUGH_2026-11-14.md) | Historisk arkiv | Ubeskåret arkiv af tidligere omvendt-kronologisk `README.md`, `CONTINUE_SETI.md` samt gren-oprydningskvittering. |
-| [`progress/`](../progress/2026-11-23-v5-9-alma-mm-band1-gap-closure-drifting-comb-d101/RESULTS_REPORT.md) | `V5.9` & Alle Pankromatiske Faser (`D075–D101`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `RESULTS_MANIFEST_SHA256.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md` / [`D101_RESULTS_REPORT.md`](reports_d035_d077/D101_RESULTS_REPORT.md)) fra `D075` til `D101`. |
+| [`progress/`](../progress/2026-11-23-v6-0-xray-euv-poisson-chandra-euve-alma-unbroken-mm-d102/RESULTS_REPORT.md) | `V6.0` & Alle Pankromatiske Faser (`D075–D102`) | Maskinlæsbare offentlige leverancer (`METHOD_LOCK.json`, `IMPLEMENTATION_LOCK.json`, `RESULTS_MANIFEST_SHA256.json`, `SUMMARY.json`, `SOURCES.json`, `VISUAL_REVIEW.json`, CSV-tabeller og `RESULTS_REPORT.md` / [`D102_RESULTS_REPORT.md`](reports_d035_d077/D102_RESULTS_REPORT.md)) fra `D075` til `D102`. |
 | [`work_seti_20261105_d001_delivery/`](../work_seti_20261105_d001_delivery/README.md) | Optisk (`HARPS`) | Konsolideret audit af de 300 oprindelige HARPS-eksponeringer (20 stjerner) + udvælgelse af 54 friske eksponeringer (`D001`). |
 | `work_harps_20261101_*` .. [`work_harps_20261105_c037_context/`](../work_harps_20261105_c037_context/ORIGINAL_QUEUE_REPORT.md) | Optisk (`HARPS`) | Forseglede kontekst- og BERV/topocentriske analyser (`C001`–`C037`) for den lukkede `90`-rækkers kø (`6.320` filer). |
 | `work_rubin_20261102/` | Optisk fotometri | Lukket Rubin/Fink-feasibility-forstudie (`STOPPED_LIMITED_FEASIBILITY_MINIMUM50_UNMET`). |
@@ -29,9 +29,9 @@ Under oprydningen den 14. november 2026 blev **16 fuldt indmergede midlertidige 
 
 ---
 
-## 3. Kompakte numeriske kompagnonarkiver A–Z, AA (Rum-Lyman til ALMA Band 1 `8,56 mm`, ESO `ESPRESSO/HARPS` & `COMB_DRIFT_V59`, `V5.9`)
+## 3. Kompakte numeriske kompagnonarkiver A–Z, AA–AB (*Chandra* X-Ray til *ALMA* Band 1 `8,56 mm`, *EUVE*, `ALMA_V60`, & `DRIFT_V60`/`COMB_DRIFT_V60`, `V6.0`)
 
-Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D101` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d101_workspace.py --destination /tmp/d101_verify` og `--recompute`):
+Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`–`D102` opbevares i kompakte, SHA-256-låste kompagnonarkiver (verificeres med `restore_d102_workspace.py --destination /tmp/d102_verify` og `--recompute`):
 
 | Kode | Arkiv | Størrelse (bytes) | SHA-256 |
 | :---: | --- | ---: | --- |
@@ -63,3 +63,4 @@ Større mellemliggende arrays, `bounded_inputs`-bundter og figurfiler for `D069`
 | **Y** | `SETI_D099_V5_7_JCMT_MM_SOFIA_EXES_IRTF_SPEX_KEPLERIAN_DRIFT_RESULTS_2026-11-22.zip` | `15.546.915` | `77b187f3509a704978096c14b97f83a13d3eebb6b2fc9d53a8c3b296b362df0b` |
 | **Z** | `SETI_D100_V5_8_JCMT_3MM_SOFIA_FIFILS_IUE_ECCENTRIC_KEPLERIAN_RESULTS_2026-11-22.zip` | `13.186.766` | `f8900c1aee6db352b6317c1dd6bf308d286bab2c0c0b367e8863383438446bd2` |
 | **AA** | `SETI_D101_V5_9_ALMA_MM_BAND1_GAP_CLOSURE_DRIFTING_COMB_RESULTS_2026-11-23.zip` | `18.094.897` | `848a2ade7fdb46ed4e4f067e729ccf796a5181501f6e0ed18f573ff871fa8b20` |
+| **AB** | `SETI_D102_V6_0_XRAY_EUV_POISSON_CHANDRA_EUVE_ALMA_UNBROKEN_MM_RESULTS_2026-11-23.zip` | `22.236.761` | `684d6828063cf17b8adcd666932633c07196e8764038dbbdd3a48bdd5433ca2c` |
