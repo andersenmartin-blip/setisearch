@@ -1,0 +1,412 @@
+{
+  "phase_id": "D103",
+  "detector": "TECHNOSIGNATURE_V6_1_HARD_XRAY_NUSTAR_XMM_RGS_ALMA_B9B10_AND_700STAR_SYNTHESIS",
+  "locked_utc": "2026-11-23T18:33:23.189575+00:00",
+  "instruments": [
+    "ALMA_B10_0P3MM",
+    "ALMA_B9_0P4MM",
+    "ESO_ESPRESSO",
+    "ESO_HARPS",
+    "NUSTAR_FPMA_FPMB",
+    "XMM_RGS"
+  ],
+  "cohort": {
+    "locked_targets_d103": 70,
+    "locked_observations_d103": 104,
+    "locked_physical_files_d103": 204,
+    "analyzed_valid_observations_d103": 103,
+    "stage2_quality_excluded_observations": 1,
+    "stage2_quality_exclusions": [
+      {
+        "dp_id": "XMM_0502360101_P0502360101R1S004SRSPEC1004.FTZ",
+        "instrument": "XMM_RGS",
+        "star": "ALTAIR",
+        "reason": "ESA_PPS_RGS2_QUALITY_FLAGGED_ZERO_GOOD_CHANNELS"
+      }
+    ],
+    "failed_observations_d103": 0,
+    "unique_targets_analyzed_d103": 69,
+    "brand_new_analyzed_d103": 53,
+    "prior_bridges_d103": 16,
+    "science_stars_d103": 37,
+    "control_stars_d103": 32,
+    "brand_new_within_10pc_d103": 5,
+    "observations_d103": 103,
+    "integration_hours_d103": 1236.2302,
+    "raw_input_bytes": 1562880374,
+    "raw_input_mib": 1490.4789,
+    "bounded_bundle_bytes": 15603592,
+    "bounded_bundle_sha256": "3246933c707dd7780049f575ffe4514c82d28aa7563e7d72904437bd879f590f",
+    "prior_excluded_coords": 729,
+    "prior_excluded_dp_ids": 3368,
+    "dp_id_overlap_count": 0
+  },
+  "synthetic_calibration_3111_trials": {
+    "n_suites": 15,
+    "total_trials": 3111,
+    "total_passed": 3094,
+    "suites": {
+      "CALIBRATION_V61_NUSTAR_POISSON_240": {
+        "passed": 240,
+        "total": 240,
+        "breakdown": {
+          "clean_beacon_60": "60/60 (1.0000)",
+          "single_fpm_veto_45": "45/45 (1.0000)",
+          "atlas_veto_45": "45/45 (1.0000)",
+          "continuum_null_45": "45/45 (1.0000)",
+          "broad_or_1bin_veto_45": "45/45 (1.0000)"
+        }
+      },
+      "CALIBRATION_V61_XMM_RGS_180": {
+        "passed": 177,
+        "total": 180,
+        "breakdown": {
+          "clean_beacon_60": "59/60 (0.9833)",
+          "single_cam_or_gap_40": "40/40 (1.0000)",
+          "coronal_atlas_40": "40/40 (1.0000)",
+          "broad_or_1bin_40": "38/40 (0.9500)"
+        }
+      },
+      "CALIBRATION_V60_CHANDRA_POISSON_240": {
+        "passed": 238,
+        "total": 240,
+        "breakdown": {
+          "clean_xray_beacon_60": "58/60 (0.9667)",
+          "single_order_hotpix_veto_45": "45/45 (1.0000)",
+          "coronal_atlas_veto_45": "45/45 (1.0000)",
+          "poisson_null_veto_45": "45/45 (1.0000)",
+          "broad_wind_veto_45": "45/45 (1.0000)"
+        }
+      },
+      "CALIBRATION_V60_EUVE_180": {
+        "passed": 180,
+        "total": 180,
+        "breakdown": {
+          "clean_euv_beacon_60": "60/60 (1.0000)",
+          "geocoronal_veto_40": "40/40 (1.0000)",
+          "coronal_atlas_veto_40": "40/40 (1.0000)",
+          "spike_seam_veto_40": "40/40 (1.0000)"
+        }
+      },
+      "CALIBRATION_V59_ALMA_INTERFEROMETRIC_240": {
+        "passed": 239,
+        "total": 240,
+        "breakdown": {
+          "clean_alma_beacon_60": "60/60 (1.0000)",
+          "extended_disk_veto_45": "45/45 (1.0000)",
+          "offsource_birdie_veto_45": "45/45 (1.0000)",
+          "mm_molecular_atlas_veto_45": "45/45 (1.0000)",
+          "single_chan_gibbs_sw_veto_45": "44/45 (0.9778)"
+        }
+      },
+      "CALIBRATION_V59_DRIFTING_COMB_240": {
+        "passed": 236,
+        "total": 240,
+        "breakdown": {
+          "kepler_drifting_comb_60": "58/60 (0.9667)",
+          "linear_accel_drifting_comb_60": "59/60 (0.9833)",
+          "static_v41_baseline_on_120_drifting": "11/120 (0.0917)",
+          "stationary_comb_veto_40": "39/40 (0.9750)",
+          "transient_comb_veto_40": "40/40 (1.0000)",
+          "berv_noise_comb_veto_40": "40/40 (1.0000)"
+        }
+      },
+      "CALIBRATION_V58_ECCENTRIC_KEPLERIAN_360": {
+        "passed": 359,
+        "total": 360,
+        "breakdown": {
+          "high_ecc_kepler_v58": "59/60 (0.9833)",
+          "high_ecc_v57_circular_baseline": "55/60 (0.9167)",
+          "high_ecc_v56_taylor_baseline": "34/60 (0.5667)",
+          "circular_kepler_60": "60/60 (1.0000)",
+          "cubic_jerk_60": "60/60 (1.0000)",
+          "short_periodic_60": "60/60 (1.0000)",
+          "stationary_veto_40": "40/40 (1.0000)",
+          "transient_veto_40": "40/40 (1.0000)",
+          "berv_sky_veto_40": "40/40 (1.0000)"
+        }
+      },
+      "CALIBRATION_V58_G6_COINCIDENCE_120": {
+        "passed": 120,
+        "total": 120
+      },
+      "INJECTION_RECOVERY_540": {
+        "passed": 540,
+        "total": 540
+      },
+      "COMB_V4_1_CALIBRATION_162": {
+        "passed": 161,
+        "total": 162
+      },
+      "DETECTOR_V58_G4G5_CALIBRATION_108": {
+        "passed": 108,
+        "total": 108
+      },
+      "KEPLERIAN_TRACK_CALIBRATION_81": {
+        "passed": 81,
+        "total": 81
+      },
+      "CALIBRATION_V58_RPCA_RARITY_180": {
+        "passed": 180,
+        "total": 180
+      },
+      "CALIBRATION_V58_AGNOSTIC_120": {
+        "passed": 118,
+        "total": 120
+      },
+      "CALIBRATION_G8_V58_120": {
+        "passed": 117,
+        "total": 120
+      }
+    }
+  },
+  "spectral_continuity_v61": {
+    "schema": "D103_SPECTRAL_COVERAGE_AUDIT",
+    "high_energy_xray_euv_intervals_um": [
+      [
+        1.57e-05,
+        0.06998
+      ]
+    ],
+    "high_energy_unbroken_um": [
+      1.57e-05,
+      0.06998
+    ],
+    "high_energy_unbroken_octaves": 12.122,
+    "ism_hydrogen_photoionization_edge_um": [
+      0.06998,
+      0.0905
+    ],
+    "optical_to_mm_merged_strict_intervals_um": [
+      [
+        0.0905,
+        1417.76119
+      ],
+      [
+        1421.457,
+        1834.609
+      ],
+      [
+        1843.76604,
+        1886.37022
+      ],
+      [
+        1886.8,
+        2397.28632
+      ],
+      [
+        2588.621,
+        3301.26675
+      ],
+      [
+        3414.95994,
+        3564.74524
+      ],
+      [
+        6806.884,
+        8556.41831
+      ]
+    ],
+    "optical_to_mm_strict_gaps": [
+      {
+        "from_um": 1417.76119,
+        "to_um": 1421.457,
+        "from_ghz": 211.4548,
+        "to_ghz": 210.905,
+        "width_octaves": 0.00376
+      },
+      {
+        "from_um": 1834.609,
+        "to_um": 1843.76604,
+        "from_ghz": 163.4095,
+        "to_ghz": 162.5979,
+        "width_octaves": 0.00718
+      },
+      {
+        "from_um": 1886.37022,
+        "to_um": 1886.8,
+        "from_ghz": 158.9256,
+        "to_ghz": 158.8894,
+        "width_octaves": 0.00033
+      },
+      {
+        "from_um": 2397.28632,
+        "to_um": 2588.621,
+        "from_ghz": 125.0549,
+        "to_ghz": 115.8116,
+        "width_octaves": 0.11078
+      },
+      {
+        "from_um": 3301.26675,
+        "to_um": 3414.95994,
+        "from_ghz": 90.8113,
+        "to_ghz": 87.788,
+        "width_octaves": 0.04885
+      },
+      {
+        "from_um": 3564.74524,
+        "to_um": 6806.884,
+        "from_ghz": 84.0993,
+        "to_ghz": 44.0425,
+        "width_octaves": 0.9332
+      }
+    ],
+    "lyman_to_mm_strict_zero_gap_max_um": 1417.76119,
+    "lyman_to_mm_strict_zero_gap_octaves": 13.935,
+    "lyman_to_mm_b4_low_edge_um": 2397.28632,
+    "lyman_to_mm_b4_low_octaves": 14.693,
+    "alma_bands_complete": [
+      "B1",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B9",
+      "B10"
+    ],
+    "global_min_wave_um": 1.57e-05,
+    "global_max_wave_um": 8556.41831,
+    "total_octave_span": 29.022
+  },
+  "alma_interferometric_coverage_d103": {
+    "total_cubes": 20,
+    "unique_targets": 19,
+    "bands": {
+      "ALMA_B10_0P3MM": {
+        "n_cubes": 10,
+        "freq_ghz_range": [
+          800.2106,
+          893.3625
+        ],
+        "wave_um_range": [
+          335.578,
+          374.642
+        ]
+      },
+      "ALMA_B9_0P4MM": {
+        "n_cubes": 10,
+        "freq_ghz_range": [
+          613.2062,
+          713.1487
+        ],
+        "wave_um_range": [
+          420.379,
+          488.893
+        ]
+      }
+    }
+  },
+  "raw_hits_and_triage": {
+    "nustar_raw_candidates": 62,
+    "nustar_qualified_pre_stage2": 0,
+    "nustar_verified_eti": 0,
+    "xmm_rgs_raw_candidates": 350,
+    "xmm_rgs_qualified_pre_stage2": 15,
+    "xmm_rgs_verified_eti": 0,
+    "alma_b9b10_raw_candidates": 0,
+    "alma_b9b10_qualified_pre_stage2": 0,
+    "alma_b9b10_verified_eti": 0,
+    "eso_4gen_g1_seeds": 26,
+    "eso_4gen_g8_pass": 0,
+    "orbital_campaigns_163_168_verified_eti": 0,
+    "drift_v61_60campaigns_trajectories": 80348,
+    "drift_v61_60campaigns_pixel_integrals": 8662517142,
+    "drift_v61_60campaigns_raw_survivors": 17689,
+    "drift_v61_60campaigns_verified_eti": 0,
+    "comb_drift_v61_60campaigns_trajectories": 9858,
+    "comb_drift_v61_60campaigns_raw_candidates": 3659,
+    "comb_drift_v61_60campaigns_qualified_pre_stage2": 197,
+    "comb_drift_v61_60campaigns_verified_eti": 0,
+    "comb_v4_1_configs_evaluated": 7964216,
+    "comb_v4_1_candidates": 4744,
+    "comb_verified_eti": 0,
+    "v2_false_alarms_eliminated_d103": 46004,
+    "c12_radiometric_max_rel_err": 0.0,
+    "verified_eti_detections_total": 0
+  },
+  "best_10m_eirp_limits_kw": {
+    "ALMA_B10_0P3MM": {
+      "star": "AS209",
+      "band_id": "ALMA_B10_345UM_869GHZ",
+      "p_beam_10m_kw": 149882.93844111,
+      "wave_bary_a": 3401862.888094
+    },
+    "ALMA_B9_0P4MM": {
+      "star": "DMTAU",
+      "band_id": "ALMA_B9_455UM_659GHZ",
+      "p_beam_10m_kw": 138160.07982569,
+      "wave_bary_a": 4467945.848936
+    },
+    "ESO_ESPRESSO": {
+      "star": "L480_69",
+      "band_id": "ESPRESSO_BLU_4200",
+      "p_beam_10m_kw": 0.06270593,
+      "wave_bary_a": 4200.0
+    },
+    "ESO_HARPS": {
+      "star": "GJ867A",
+      "band_id": "H1_4100",
+      "p_beam_10m_kw": 0.16380171,
+      "wave_bary_a": 4100.0
+    },
+    "NUSTAR_FPMA_FPMB": {
+      "star": "AUMIC",
+      "band_id": "NUSTAR_HARD_30KEV",
+      "p_beam_10m_kw": 1.88431e-07,
+      "wave_bary_a": 0.41328
+    },
+    "XMM_RGS": {
+      "star": "PROXIMACEN",
+      "band_id": "RGS_SHORT_8A",
+      "p_beam_10m_kw": 3.6165e-07,
+      "wave_bary_a": 8.0
+    }
+  },
+  "unified_709star_panchromatic_v6_1_synthesis": {
+    "phases": "D079-D103",
+    "companion_archives_total": 29,
+    "spectrographs": 49,
+    "spectral_arms": 79,
+    "min_wave_um": 1.57e-05,
+    "high_energy_unbroken_um": [
+      1.57e-05,
+      0.06998
+    ],
+    "high_energy_unbroken_octaves": 12.122,
+    "lyman_to_mm_strict_zero_gap_max_um": 1417.76119,
+    "lyman_to_mm_strict_zero_gap_octaves": 13.935,
+    "lyman_to_mm_b4_low_max_um": 2397.28632,
+    "lyman_to_mm_b4_low_octaves": 14.693,
+    "max_wave_um": 8556.41831,
+    "total_octave_span": 29.022,
+    "unique_stars_total": 709,
+    "science_stars_total": 519,
+    "control_stars_total": 190,
+    "planet_host_stars_total": 238,
+    "confirmed_exoplanets_total": 458,
+    "within_10pc_unique_stars": 188,
+    "within_10pc_median_limit_kw": 1.0483,
+    "panchromatic_bridge_stars_total": 87,
+    "revisited_control_multi_phase_stars": 16,
+    "multi_phase_targets_total": 103,
+    "panchromatic_bridge_cells_total": 1016,
+    "panchromatic_bridge_filename": "PANCHROMATIC_BRIDGE_87STARS_V61.csv",
+    "total_exposures_d079_d103": 3187,
+    "total_integration_hours_d079_d103": 4723.4709,
+    "total_calibration_trials_d079_d103": 54528,
+    "v2_false_alarms_eliminated_total": 894016,
+    "cumulative_orbital_campaigns": 168,
+    "cumulative_comb_stacks": 501,
+    "coherent_eccentric_keplerian_campaigns": 60,
+    "coherent_drifting_comb_campaigns": 60,
+    "verified_eti_detections_total": 0
+  },
+  "stage2_pipeline_notes": [
+    "Analyzed 103/104 D103 observations (1 Stage-2 quality exclusion: ALTAIR XMM_0502360101 off-axis RGS2 QUALITY=1 / 0 good channels) packed into bounded bundle (15603592 B, sha256=3246933c707dd778).",
+    "NuSTAR FPMA+FPMB (0.0000157-0.0004133 um) + XMM-Newton RGS (0.00050-0.00380 um) + Chandra + EUVE yield 12.122 strictly unbroken high-energy octaves (0.0000157-0.06998 um).",
+    "ALMA Band 9 (602-720 GHz) + Band 10 (787-950 GHz) complete all 9 ALMA receiver bands (B1, B3-B10) across 29.022 total octaves (0.0000157-8556.41831 um).",
+    "C12 radiometric closure verified across 265 D103 + 1016 bridge rows (max_rel_err=0.0000000000)."
+  ]
+}
