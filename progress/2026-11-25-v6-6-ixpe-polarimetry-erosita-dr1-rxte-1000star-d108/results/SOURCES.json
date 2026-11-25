@@ -1,0 +1,1904 @@
+{
+  "schema": "D108_SOURCES_PROVENANCE",
+  "phase_id": "D108",
+  "detector": "TECHNOSIGNATURE_V6_6_IXPE_POLARIMETRY_EROSITA_DR1_RXTE_HEXTE_PCA_1000STAR_SYNTHESIS",
+  "total_observations": 198,
+  "analyzed_observations": 198,
+  "total_physical_files": 385,
+  "chronology": {
+    "locked_utc": "2026-11-25T11:13:29.994080+00:00",
+    "first_download_utc": "2026-11-25T11:14:01.641117+00:00",
+    "chronology_lag_seconds": 31.647
+  },
+  "archives_queried": [
+    "NASA HEASARC IXPE Level-2 Event Lists + CALDB ARF/MRF/RMF (2-8 keV Stokes I, Q, U)",
+    "SRG/eROSITA-DE DR1 All-Sky Survey SourceProducts (erodat.mpe.mpg.de + HamStar v1.1)",
+    "NASA HEASARC RXTE Standard Products (HEXTE Cluster A/B 15-250 keV + PCA Std2 2-60 keV)",
+    "ESO Science Archive Phase-3 (TAP ObsCore NIRPS/ESPRESSO/HARPS Orbits #193-#198 + UVES <10 pc)",
+    "NASA Exoplanet Archive pscomppars, Gaia DR3, NASA NED & CDS Sesame"
+  ],
+  "retroactive_companion_archives": [
+    {
+      "phase": "D107",
+      "name": "SETI_D107_V6_5_ICECUBE_NEUTRINO_SWIFT_BAT_XRT_900STAR_RESULTS_2026-11-25.zip",
+      "sha256": "125c4db22ff7d8fcdaabe50b929df44f9a6a3f5384738fe77c5ce4e28c201272",
+      "bundle_member": "work_v6_5_20261125_d107_icecube_neutrino_swift_bat_xrt_900star/bounded_inputs/d107_bounded_bundle.json.gz",
+      "bundle_sha256": "aad0b054982277375b6e1676e1edfdf3994f6e41a4f97964928a5e4aa6cc021a"
+    },
+    {
+      "phase": "D106",
+      "name": "SETI_D106_V6_4_VHE_TEV_GAMMA_HESS_MAGIC_VERITAS_HAWC_60OCTAVE_RESULTS_2026-11-24.zip",
+      "sha256": "5a5a04924333472d1775f5d6fd843e4712e1d39da824f2a8c6555741a09e0553",
+      "bundle_member": "work_v6_4_20261124_d106_vhe_tev_gamma_hess_magic_veritas_hawc_60octave/bounded_inputs/d106_bounded_bundle.json.gz",
+      "bundle_sha256": "053e8cdaad3313043d4ce62dfceba1693d0bfee00dd83114b3c1c30986eb2427"
+    },
+    {
+      "phase": "D105",
+      "name": "SETI_D105_V6_3_MEV_GEV_GAMMA_OSSE_COMPTEL_FERMI_LAT_800STAR_RESULTS_2026-11-24.zip",
+      "sha256": "74ee4b760a0b585ba6b6d7a2e0edbfe623258aa170a507fe577189247749778a",
+      "bundle_member": "work_v6_3_20261124_d105_mev_gev_gamma_osse_comptel_fermi_lat_800star/bounded_inputs/d105_bounded_bundle.json.gz",
+      "bundle_sha256": "1f17bef5850d7cf545dc42a19ae93093d40218f2fcbd03c4905326acdce3d994"
+    },
+    {
+      "phase": "D104",
+      "name": "SETI_D104_V6_2_SOFT_GAMMA_SUZAKU_GSO_XRISM_NICER_200STAR_10PC_RESULTS_2026-11-24.zip",
+      "sha256": "08169d98eb4313ea15610b8c4367f85a717cacdc10263ebd0a21e2a503cfad06",
+      "bundle_member": "work_v6_2_20261124_d104_soft_gamma_suzaku_gso_xrism_nicer_200star_10pc/bounded_inputs/d104_bounded_bundle.json.gz",
+      "bundle_sha256": "508aa73dc61896fc1d0fec5208de9c9006a498e480a01ae7ea95115c91023c16"
+    },
+    {
+      "phase": "D103",
+      "name": "SETI_D103_V6_1_HARD_XRAY_NUSTAR_XMM_RGS_ALMA_B9B10_700STAR_RESULTS_2026-11-23.zip",
+      "sha256": "d0155c0b3c98625c0e8f9cff5f55ccb89d7477e6ada6b3fd18a0ba8cc6615de4",
+      "bundle_member": "work_v6_1_20261123_d103_hard_xray_nustar_xmm_rgs_alma_b9b10_700star/bounded_inputs/d103_bounded_bundle.json.gz",
+      "bundle_sha256": "3246933c707dd7780049f575ffe4514c82d28aa7563e7d72904437bd879f590f"
+    },
+    {
+      "phase": "D102",
+      "name": "SETI_D102_V6_0_XRAY_EUV_POISSON_CHANDRA_EUVE_ALMA_UNBROKEN_MM_RESULTS_2026-11-23.zip",
+      "sha256": "684d6828063cf17b8adcd666932633c07196e8764038dbbdd3a48bdd5433ca2c",
+      "bundle_member": "work_v6_0_20261123_d102_xray_euv_poisson_chandra_euve_alma_unbroken_mm/bounded_inputs/d102_bounded_bundle.json.gz",
+      "bundle_sha256": "b1979cde20276543ed30d9ca99098374050530b5934490c44c8b765dffc6d8bf"
+    },
+    {
+      "phase": "D101",
+      "name": "SETI_D101_V5_9_ALMA_MM_BAND1_GAP_CLOSURE_DRIFTING_COMB_RESULTS_2026-11-23.zip",
+      "sha256": "848a2ade7fdb46ed4e4f067e729ccf796a5181501f6e0ed18f573ff871fa8b20",
+      "bundle_member": "work_v5_9_20261123_d101_alma_mm_band1_gap_closure_drifting_comb/bounded_inputs/d101_bounded_bundle.json.gz",
+      "bundle_sha256": "f3735b57ef170c3162fad61a825fad086c768e1a6662d48d3a4637c5eea51ec4"
+    },
+    {
+      "phase": "D100",
+      "name": "SETI_D100_V5_8_JCMT_3MM_SOFIA_FIFILS_IUE_ECCENTRIC_KEPLERIAN_RESULTS_2026-11-22.zip",
+      "sha256": "f8900c1aee6db352b6317c1dd6bf308d286bab2c0c0b367e8863383438446bd2",
+      "bundle_member": "work_v5_8_20261122_d100_jcmt_3mm_sofia_fifils_iue_eccentric_keplerian/bounded_inputs/d100_bounded_bundle.json.gz",
+      "bundle_sha256": "4923b95a95da48ce036e1adbfa0402f0023afa23db32e874c3079083077b036d"
+    },
+    {
+      "phase": "D099",
+      "name": "SETI_D099_V5_7_JCMT_MM_SOFIA_EXES_IRTF_SPEX_KEPLERIAN_DRIFT_RESULTS_2026-11-22.zip",
+      "sha256": "77b187f3509a704978096c14b97f83a13d3eebb6b2fc9d53a8c3b296b362df0b",
+      "bundle_member": "work_v5_7_20261122_d099_jcmt_mm_sofia_exes_irtf_spex_keplerian_drift/bounded_inputs/d099_bounded_bundle.json.gz",
+      "bundle_sha256": "abbc808357061ae63a084b2e11b4f61771845d85117f4e712fd4316a8b87c8b4"
+    },
+    {
+      "phase": "D098",
+      "name": "SETI_D098_V5_6_SOFIA_GREAT_ISO_SWS_FORCAST_OPTICAL_JERK_RESULTS_2026-11-22.zip",
+      "sha256": "f57f48355df2b92257f39d76e83f2d850ae6d9164ea10ef1539bede1ca8fb838",
+      "bundle_member": "work_v5_6_20261122_d098_sofia_great_iso_sws_forcast_optical_jerk/bounded_inputs/d098_bounded_bundle.json.gz",
+      "bundle_sha256": "468c3416778f37f335e990147dc3fecd41ae3281f64b6bbf9873dbe9b3396938"
+    },
+    {
+      "phase": "D097",
+      "name": "SETI_D097_V5_5_HERSCHEL_THZ_FARIR_STIS_E140H_OPTICAL_JERK_RESULTS_2026-11-22.zip",
+      "sha256": "aa296f9c72faefcacbd4f4fedb73c7c3f2b1377823fad3e308fd6a9844f6fed8",
+      "bundle_member": "work_v5_5_20261122_d097_herschel_thz_farir_stis_e140h_optical_jerk/bounded_inputs/d097_bounded_bundle.json.gz",
+      "bundle_sha256": "05b9d096a76082f9b2bca30ab73a01329a20c1b40c651ce2a76bf0647626f41a"
+    },
+    {
+      "phase": "D096",
+      "name": "SETI_D096_V5_4_SOFIA_EXES_MIDIR_ECHELLE_COHERENT_DRIFT_JWST_RESULTS_2026-11-21.zip",
+      "sha256": "a134e4d5d0b6e0cb4e17763dc729203218cac9265c7db75db719135cb01c5158",
+      "bundle_member": "work_v5_4_20261121_d096_sofia_exes_midir_echelle_coherent_drift_jwst/bounded_inputs/d096_bounded_bundle.json.gz",
+      "bundle_sha256": "319f4cd7b6fe1bcc24f5bb74fc6a432019c0ed30a55d04f075b1c78fc9057e91"
+    },
+    {
+      "phase": "D095",
+      "name": "SETI_D095_V5_3_CURVED_PERIODIC_DRIFT_GHOST_SPITZER_IRS_APOGEE2_RESULTS_2026-11-21.zip",
+      "sha256": "24f5a73a4299d697a198e91e3e15b5b7ddce838f6d055cebe66ddd812520c21d",
+      "bundle_member": "bounded_inputs/d095_bounded_bundle.json.gz",
+      "bundle_sha256": "db0ab9adc9f3067909af2cefafb9e0b56095d87107a9510a6cce0a9406ca59b8"
+    },
+    {
+      "phase": "D094",
+      "name": "SETI_D094_V5_2_MULTIEPOCH_DRIFT_APOGEE2_CRIRESJH_MIRILRS_RESULTS_2026-11-21.zip",
+      "sha256": "fea863077ae837b6741d5837990fd357158e00f6a5e3d9adde51f0c81e8ccefc",
+      "bundle_member": "bounded_inputs/d094_bounded_bundle.json.gz",
+      "bundle_sha256": "d6601113eec302bfb393874ffb48d32aa90d073f4bae7b6b37e256ad0cb89c42"
+    }
+  ],
+  "exposures": [
+    {
+      "dp_id": "EROSITA_DR1_em01_144054_020_ML00002_009_c010_11LMI",
+      "instrument": "EROSITA_DR1",
+      "star": "11LMI",
+      "role": "SCIENCE",
+      "raw_bytes": 1704488,
+      "raw_sha256": "1d2772f40ba8eb33bc5a582ebb4355f8793db2e8e38e50d0010de9b5f9763240",
+      "f1_rel": "EROSITA_DR1/11LMI/em01_144054_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_118126_020_ML00001_010_c010_212PUPA",
+      "instrument": "EROSITA_DR1",
+      "star": "212PUPA",
+      "role": "SCIENCE",
+      "raw_bytes": 1759404,
+      "raw_sha256": "e86a5af1f520925900cfc2b9a3184c9b76bb914a69459701cd3a2cb79e44b16d",
+      "f1_rel": "EROSITA_DR1/212PUPA/em01_118126_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_080156_020_ML00002_012_c010_ABDOR",
+      "instrument": "EROSITA_DR1",
+      "star": "ABDOR",
+      "role": "SCIENCE",
+      "raw_bytes": 7545424,
+      "raw_sha256": "26ac688b957bb1bd566fa7a4a6844d3a94e77886379f052fa785abe773674eba",
+      "f1_rel": "EROSITA_DR1/ABDOR/em01_080156_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_155069_020_ML00001_011_c010_ADLEO",
+      "instrument": "EROSITA_DR1",
+      "star": "ADLEO",
+      "role": "SCIENCE",
+      "raw_bytes": 1817232,
+      "raw_sha256": "12fcf00d1e20bf553d82db358ec7b3f0a1c1a75c497a1ae8d9c42a9519c7d66b",
+      "f1_rel": "EROSITA_DR1/ADLEO/em01_155069_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_081102_020_ML00001_002_c010_AFLEP",
+      "instrument": "EROSITA_DR1",
+      "star": "AFLEP",
+      "role": "SCIENCE",
+      "raw_bytes": 1864372,
+      "raw_sha256": "ee5ca455d8801f751818dc301343b46e41db22d1b04ed4c736c4257a686af203",
+      "f1_rel": "EROSITA_DR1/AFLEP/em01_081102_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_122168_020_ML00006_002_c010_ALFCHA",
+      "instrument": "EROSITA_DR1",
+      "star": "ALFCHA",
+      "role": "SCIENCE",
+      "raw_bytes": 1970828,
+      "raw_sha256": "96ec4812e729fbb8842a8ab33744b5b182d1579c4e4054062a4b0b9b6c17e0ab",
+      "f1_rel": "EROSITA_DR1/ALFCHA/em01_122168_000_SourceProducts_00006_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_183114_020_ML00002_003_c010_ALFCRV",
+      "instrument": "EROSITA_DR1",
+      "star": "ALFCRV",
+      "role": "SCIENCE",
+      "raw_bytes": 1744180,
+      "raw_sha256": "2e00ef96ae11a6a48ab1c03b5c64dd2cfaf71d7376d9aef2ec2ba7852dc646ca",
+      "f1_rel": "EROSITA_DR1/ALFCRV/em01_183114_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_050120_020_ML00001_002_c010_ALFFORB",
+      "instrument": "EROSITA_DR1",
+      "star": "ALFFORB",
+      "role": "SCIENCE",
+      "raw_bytes": 1985156,
+      "raw_sha256": "a86863eac4b8a97544e137b3bc02edb9b46f2f5c580ec050f2a758bf36d4d932",
+      "f1_rel": "EROSITA_DR1/ALFFORB/em01_050120_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_248117_020_ML00002_002_c010_ANTARES",
+      "instrument": "EROSITA_DR1",
+      "star": "ANTARES",
+      "role": "SCIENCE",
+      "raw_bytes": 1851924,
+      "raw_sha256": "37fe76465cde1ec46935e5cb811b861136d98570aa69b12ec3b0d07409e10e5e",
+      "f1_rel": "EROSITA_DR1/ANTARES/em01_248117_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_116093_020_ML00001_002_c010_BD022198",
+      "instrument": "EROSITA_DR1",
+      "star": "BD022198",
+      "role": "SCIENCE",
+      "raw_bytes": 1702944,
+      "raw_sha256": "421d68f355f903a69bf6fb2ea1b789fbc1b5d9d05ab91e6a46e1dcb30b749b41",
+      "f1_rel": "EROSITA_DR1/BD022198/em01_116093_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_078111_020_ML00001_002_c010_BD211074C",
+      "instrument": "EROSITA_DR1",
+      "star": "BD211074C",
+      "role": "SCIENCE",
+      "raw_bytes": 1904008,
+      "raw_sha256": "85125707ab38cf015284272dba1ecd2cb7d9eae7a48ef26bddef5eff576e5e37",
+      "f1_rel": "EROSITA_DR1/BD211074C/em01_078111_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_123069_020_ML00001_002_c010_BD211764B",
+      "instrument": "EROSITA_DR1",
+      "star": "BD211764B",
+      "role": "SCIENCE",
+      "raw_bytes": 1710308,
+      "raw_sha256": "af364e063757d170f903e053006b116bf0bc1692fa39ec6be8e28f3428297aeb",
+      "f1_rel": "EROSITA_DR1/BD211764B/em01_123069_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_095108_020_ML00001_002_c010_BETACMA",
+      "instrument": "EROSITA_DR1",
+      "star": "BETACMA",
+      "role": "SCIENCE",
+      "raw_bytes": 1772132,
+      "raw_sha256": "48013f8501d5b0a9f39ce6d356746843140aa8f3ce501f3cf349f4c1f6569d4c",
+      "f1_rel": "EROSITA_DR1/BETACMA/em01_095108_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_191150_020_ML00002_002_c010_BETACRU",
+      "instrument": "EROSITA_DR1",
+      "star": "BETACRU",
+      "role": "SCIENCE",
+      "raw_bytes": 2017768,
+      "raw_sha256": "060202ba2dfbe606eaab824bb91df69b3169bc4983c629fa11f2f741aa4148e3",
+      "f1_rel": "EROSITA_DR1/BETACRU/em01_191150_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_089084_020_ML00001_002_c010_BETELGEUSE",
+      "instrument": "EROSITA_DR1",
+      "star": "BETELGEUSE",
+      "role": "SCIENCE",
+      "raw_bytes": 1836896,
+      "raw_sha256": "a21d0ac149cb12a9be2207ca537b33c8ce9d1cdf8dd03edc436e0380a67fa045",
+      "f1_rel": "EROSITA_DR1/BETELGEUSE/em01_089084_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_237153_020_ML00002_002_c010_BETTRA",
+      "instrument": "EROSITA_DR1",
+      "star": "BETTRA",
+      "role": "SCIENCE",
+      "raw_bytes": 1769824,
+      "raw_sha256": "37e08909f32e3d64ae16653f4efc1303600bd7899bc98f9868eb3e7c9e13e54e",
+      "f1_rel": "EROSITA_DR1/BETTRA/em01_237153_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_048117_020_ML00001_002_c010_CD281030",
+      "instrument": "EROSITA_DR1",
+      "star": "CD281030",
+      "role": "SCIENCE",
+      "raw_bytes": 1881800,
+      "raw_sha256": "4530090953edffa5af08827562d8e432c39f2424118b2fa04e778fa2b4eafe12",
+      "f1_rel": "EROSITA_DR1/CD281030/em01_048117_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_072117_020_ML00002_002_c010_CD281745B",
+      "instrument": "EROSITA_DR1",
+      "star": "CD281745B",
+      "role": "SCIENCE",
+      "raw_bytes": 1835020,
+      "raw_sha256": "5ca7978114388a2cae3baa91215ab59efc6ad454e448080b47114942ca95db86",
+      "f1_rel": "EROSITA_DR1/CD281745B/em01_072117_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_111120_020_ML00002_002_c010_CD294446",
+      "instrument": "EROSITA_DR1",
+      "star": "CD294446",
+      "role": "SCIENCE",
+      "raw_bytes": 1829836,
+      "raw_sha256": "961d8afa2bd272ce91e5dff54aed683f5cd581c1130b98993aad5d00a502666f",
+      "f1_rel": "EROSITA_DR1/CD294446/em01_111120_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_078126_020_ML00001_002_c010_CD352213",
+      "instrument": "EROSITA_DR1",
+      "star": "CD352213",
+      "role": "SCIENCE",
+      "raw_bytes": 1897856,
+      "raw_sha256": "a6291d0a4422dc4b362d92683bd6bf390514f69195302206b46be864c5598290",
+      "f1_rel": "EROSITA_DR1/CD352213/em01_078126_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_256129_020_ML00001_002_c010_CD3811343A",
+      "instrument": "EROSITA_DR1",
+      "star": "CD3811343A",
+      "role": "SCIENCE",
+      "raw_bytes": 1886748,
+      "raw_sha256": "406f2cff8ce570cad86595577a8d849a57d97369362777ba091f82f4cb1b7275",
+      "f1_rel": "EROSITA_DR1/CD3811343A/em01_256129_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_226135_020_ML00001_002_c010_CD439546",
+      "instrument": "EROSITA_DR1",
+      "star": "CD439546",
+      "role": "SCIENCE",
+      "raw_bytes": 1785724,
+      "raw_sha256": "a29d3f041680e1e1a25de7cf8a256056d168aed6066c9585809083f426b33823",
+      "f1_rel": "EROSITA_DR1/CD439546/em01_226135_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_151135_020_ML00001_002_c010_CD455627",
+      "instrument": "EROSITA_DR1",
+      "star": "CD455627",
+      "role": "SCIENCE",
+      "raw_bytes": 1814296,
+      "raw_sha256": "3050467e6f792aeacdde25b2af645e7116fba5ec297488dc8b977994b150f7af",
+      "f1_rel": "EROSITA_DR1/CD455627/em01_151135_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_330141_020_ML00001_009_c010_CD5113128",
+      "instrument": "EROSITA_DR1",
+      "star": "CD5113128",
+      "role": "SCIENCE",
+      "raw_bytes": 1798664,
+      "raw_sha256": "6c05d85e66c8f624cb46018600ea115cae3f8297b1eebe4de4ffc48c6ded6e80",
+      "f1_rel": "EROSITA_DR1/CD5113128/em01_330141_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_071147_020_ML00001_002_c010_CD561032B",
+      "instrument": "EROSITA_DR1",
+      "star": "CD561032B",
+      "role": "SCIENCE",
+      "raw_bytes": 2586324,
+      "raw_sha256": "1ee50f7fb7d2152b9285ca3339101b38c82ceb88eb400cb02f1afc3b3091a18e",
+      "f1_rel": "EROSITA_DR1/CD561032B/em01_071147_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_329162_020_ML00001_002_c010_CD721700",
+      "instrument": "EROSITA_DR1",
+      "star": "CD721700",
+      "role": "SCIENCE",
+      "raw_bytes": 1845308,
+      "raw_sha256": "9c60578fd75dd3a82df596caba63e8cdf0568b8bcc27ae6bdc837c06bd905592",
+      "f1_rel": "EROSITA_DR1/CD721700/em01_329162_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_030141_020_ML00002_004_c010_CHIERI",
+      "instrument": "EROSITA_DR1",
+      "star": "CHIERI",
+      "role": "SCIENCE",
+      "raw_bytes": 1838304,
+      "raw_sha256": "80c351163efd37813f2781d1138c4410a03126c7a3e4a0efac4846dd648f7971",
+      "f1_rel": "EROSITA_DR1/CHIERI/em01_030141_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_062099_020_ML00001_002_c010_EIERI",
+      "instrument": "EROSITA_DR1",
+      "star": "EIERI",
+      "role": "SCIENCE",
+      "raw_bytes": 2030204,
+      "raw_sha256": "81e015a438e51721ced1110c3957501d6e58aefd7918dd6e125a02fc7aa93aab",
+      "f1_rel": "EROSITA_DR1/EIERI/em01_062099_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_105120_020_ML00001_002_c010_EPSCMA",
+      "instrument": "EROSITA_DR1",
+      "star": "EPSCMA",
+      "role": "SCIENCE",
+      "raw_bytes": 1820872,
+      "raw_sha256": "aa7c62a565bfcf36ba6401c3d77e6538a31b92a3927b8e084054fa35405d3803",
+      "f1_rel": "EROSITA_DR1/EPSCMA/em01_105120_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_053099_020_ML00001_002_c010_EPSERI",
+      "instrument": "EROSITA_DR1",
+      "star": "EPSERI",
+      "role": "SCIENCE",
+      "raw_bytes": 1902416,
+      "raw_sha256": "e63edc72f1d57d493f2ee02360f1a5927081ee75ef6bbe0f5ef82ee08317fbf9",
+      "f1_rel": "EROSITA_DR1/EPSERI/em01_053099_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_199072_020_ML00001_002_c010_ERO_1454011341",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_1454011341",
+      "role": "SCIENCE",
+      "raw_bytes": 1783852,
+      "raw_sha256": "8e1fee847f241f78b3fd5b29112d2daa801431a65475439f0f24b4ab71895032",
+      "f1_rel": "EROSITA_DR1/ERO_1454011341/em01_199072_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_234144_020_ML00002_002_c010_ERO_588547141175",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_588547141175",
+      "role": "SCIENCE",
+      "raw_bytes": 1770720,
+      "raw_sha256": "92855ed26edb0a89f10c14e0770e45d36fda159a831c8a127fa389bab04e590d",
+      "f1_rel": "EROSITA_DR1/ERO_588547141175/em01_234144_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_213126_020_ML00001_002_c010_ERO_7293022151",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_7293022151",
+      "role": "SCIENCE",
+      "raw_bytes": 1875168,
+      "raw_sha256": "abd642abbcfbf84f98c77b2cdfe55b3268789d02887291a14ab093d2a95d876b",
+      "f1_rel": "EROSITA_DR1/ERO_7293022151/em01_213126_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_142129_020_ML00001_002_c010_ERO_7696026201",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_7696026201",
+      "role": "SCIENCE",
+      "raw_bytes": 1754904,
+      "raw_sha256": "5240e525370fa8bca5ed4a9a801bb735191749077c49a60ac7d9b7d002c3d6fd",
+      "f1_rel": "EROSITA_DR1/ERO_7696026201/em01_142129_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_161129_020_ML00002_002_c010_ERO_7710013673",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_7710013673",
+      "role": "SCIENCE",
+      "raw_bytes": 1792768,
+      "raw_sha256": "71d50b078b9d6c988c1247d40e8ca318f35bd631e99f5cff9715a16fd088f512",
+      "f1_rel": "EROSITA_DR1/ERO_7710013673/em01_161129_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_111138_020_ML00002_009_c010_ERO_8123015341",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_8123015341",
+      "role": "SCIENCE",
+      "raw_bytes": 1783084,
+      "raw_sha256": "2832ef0cefde84a4e4da7678f6fe2c4b44b8e0abc99b8b8555d2a492c783a210",
+      "f1_rel": "EROSITA_DR1/ERO_8123015341/em01_111138_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_040147_020_ML00002_003_c010_ERO_8490012011",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_8490012011",
+      "role": "SCIENCE",
+      "raw_bytes": 1953212,
+      "raw_sha256": "7d9f078f107fb976f76a326d066b25d9d945201242a23a3f444aa43eaef2fadc",
+      "f1_rel": "EROSITA_DR1/ERO_8490012011/em01_040147_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_017156_020_ML00069_014_c010_ERO_8855002381",
+      "instrument": "EROSITA_DR1",
+      "star": "ERO_8855002381",
+      "role": "SCIENCE",
+      "raw_bytes": 1713316,
+      "raw_sha256": "c2d037d60d9a2a118081226106a3e4b17b91bab3d0d16d063c737f45425ac3e6",
+      "f1_rel": "EROSITA_DR1/ERO_8855002381/em01_017156_000_SourceProducts_00069_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_183156_020_ML00008_002_c010_ETACRU",
+      "instrument": "EROSITA_DR1",
+      "star": "ETACRU",
+      "role": "SCIENCE",
+      "raw_bytes": 1881080,
+      "raw_sha256": "00be9f1a3b1b2c573183086ab6da20eadb12cfe8ec72db04228f243fa5d55567",
+      "f1_rel": "EROSITA_DR1/ETACRU/em01_183156_000_SourceProducts_00008_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_088105_020_ML00001_002_c010_ETALEP",
+      "instrument": "EROSITA_DR1",
+      "star": "ETALEP",
+      "role": "SCIENCE",
+      "raw_bytes": 1733760,
+      "raw_sha256": "f071cb6827a34f4f1e419450bbc42bdf9a6283d3f79e46046f5d98b14c32c5ee",
+      "f1_rel": "EROSITA_DR1/ETALEP/em01_088105_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_094150_020_ML00003_009_c010_EUVEJ0625600",
+      "instrument": "EROSITA_DR1",
+      "star": "EUVEJ0625600",
+      "role": "SCIENCE",
+      "raw_bytes": 2171780,
+      "raw_sha256": "807b86a403e61359b2885ceedae60ac9d8dc6953532f9ffc3e743670eb243b72",
+      "f1_rel": "EROSITA_DR1/EUVEJ0625600/em01_094150_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_194120_020_ML00001_002_c010_EXHYA",
+      "instrument": "EROSITA_DR1",
+      "star": "EXHYA",
+      "role": "CONTROL",
+      "raw_bytes": 2066272,
+      "raw_sha256": "ba87c064b334d99751b67105bb7b271750c780f6708eacc98a053077b42d54b1",
+      "f1_rel": "EROSITA_DR1/EXHYA/em01_194120_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_072102_020_ML00003_002_c010_FBS0444113A",
+      "instrument": "EROSITA_DR1",
+      "star": "FBS0444113A",
+      "role": "SCIENCE",
+      "raw_bytes": 1741164,
+      "raw_sha256": "143a87af21d27d6b64c3ed42c184f92057cc04495151ed34966bda837860397e",
+      "f1_rel": "EROSITA_DR1/FBS0444113A/em01_072102_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_218090_020_ML00002_002_c010_G12444",
+      "instrument": "EROSITA_DR1",
+      "star": "G12444",
+      "role": "SCIENCE",
+      "raw_bytes": 1877732,
+      "raw_sha256": "3570616d2ea8cf3259f12fcd51538809ba95e40cf719ac6a26a22e82564b07c4",
+      "f1_rel": "EROSITA_DR1/G12444/em01_218090_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_145102_020_ML00003_002_c010_G16171",
+      "instrument": "EROSITA_DR1",
+      "star": "G16171",
+      "role": "SCIENCE",
+      "raw_bytes": 1710672,
+      "raw_sha256": "ac702d54cc3666ca8b598e782cf597df7128f21e41d14803d1f4c4d134e1bd9c",
+      "f1_rel": "EROSITA_DR1/G16171/em01_145102_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_056093_020_ML00002_002_c010_G8021",
+      "instrument": "EROSITA_DR1",
+      "star": "G8021",
+      "role": "SCIENCE",
+      "raw_bytes": 1774068,
+      "raw_sha256": "55bc1dba29a9af324450c589cd3a00c24b7bcde4db40b9398df98889b4f50da5",
+      "f1_rel": "EROSITA_DR1/G8021/em01_056093_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_191090_020_ML00001_002_c010_GAMVIR",
+      "instrument": "EROSITA_DR1",
+      "star": "GAMVIR",
+      "role": "SCIENCE",
+      "raw_bytes": 1852504,
+      "raw_sha256": "fb4f6577c70dae8c225a0e4a3e64d1c61c16163513a022d7625ae6ba838379b2",
+      "f1_rel": "EROSITA_DR1/GAMVIR/em01_191090_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_116087_020_ML00001_002_c010_GJ285",
+      "instrument": "EROSITA_DR1",
+      "star": "GJ285",
+      "role": "SCIENCE",
+      "raw_bytes": 1767464,
+      "raw_sha256": "658a32ea17cb094c9430d499ad22884b785b86d466ea8e36aea62ef5d1c81895",
+      "f1_rel": "EROSITA_DR1/GJ285/em01_116087_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_198081_020_ML00001_003_c010_GJ504",
+      "instrument": "EROSITA_DR1",
+      "star": "GJ504",
+      "role": "SCIENCE",
+      "raw_bytes": 1832912,
+      "raw_sha256": "a87766e0362779dec7d26540063aaf180f6f471dd9dce311d7035114aa79e02b",
+      "f1_rel": "EROSITA_DR1/GJ504/em01_198081_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_234135_020_ML00001_002_c010_GLUP",
+      "instrument": "EROSITA_DR1",
+      "star": "GLUP",
+      "role": "SCIENCE",
+      "raw_bytes": 1820696,
+      "raw_sha256": "fe685fb395cebad662dfea18f9171ddafd742258a0eb21b51a25551a20f70e2b",
+      "f1_rel": "EROSITA_DR1/GLUP/em01_234135_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_177156_020_ML00001_002_c010_GTMUS",
+      "instrument": "EROSITA_DR1",
+      "star": "GTMUS",
+      "role": "SCIENCE",
+      "raw_bytes": 2442352,
+      "raw_sha256": "12b2388c312a645006ebcf53cfb1be6f043372e43af8a23228abc5313a181993",
+      "f1_rel": "EROSITA_DR1/GTMUS/em01_177156_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_056090_020_ML00001_002_c010_HD22468",
+      "instrument": "EROSITA_DR1",
+      "star": "HD22468",
+      "role": "SCIENCE",
+      "raw_bytes": 2235964,
+      "raw_sha256": "ebcd115d92099dd4dcd7c1870738f71223409cb76be7f8e4c517b364beed4165",
+      "f1_rel": "EROSITA_DR1/HD22468/em01_056090_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_062090_020_ML00001_002_c010_HD25457",
+      "instrument": "EROSITA_DR1",
+      "star": "HD25457",
+      "role": "SCIENCE",
+      "raw_bytes": 1804592,
+      "raw_sha256": "d41f72f9e383e906bec9674e5a2698150d6ab99b2dc2eac760cf6244fd553570",
+      "f1_rel": "EROSITA_DR1/HD25457/em01_062090_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_074084_020_ML00001_002_c010_HD30652",
+      "instrument": "EROSITA_DR1",
+      "star": "HD30652",
+      "role": "CONTROL",
+      "raw_bytes": 1823412,
+      "raw_sha256": "5fb784d48fc4518f63f3f8d9d14fafb70edc48cae16399e223d3a95b1da461f5",
+      "f1_rel": "EROSITA_DR1/HD30652/em01_074084_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_080072_020_ML00001_002_c010_HD35296",
+      "instrument": "EROSITA_DR1",
+      "star": "HD35296",
+      "role": "SCIENCE",
+      "raw_bytes": 1788556,
+      "raw_sha256": "a2a229ab777787b8aad9bbf3d3debb45abee22dbe3496d166185090ca5dcb116",
+      "f1_rel": "EROSITA_DR1/HD35296/em01_080072_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_081129_020_ML00007_002_c010_HD35650",
+      "instrument": "EROSITA_DR1",
+      "star": "HD35650",
+      "role": "SCIENCE",
+      "raw_bytes": 1832988,
+      "raw_sha256": "2948b1aa4347872ed1823dd671e33222dab7b1b2f25f17868b574d4bc7501b6e",
+      "f1_rel": "EROSITA_DR1/HD35650/em01_081129_000_SourceProducts_00007_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_088069_020_ML00001_002_c010_HD39587",
+      "instrument": "EROSITA_DR1",
+      "star": "HD39587",
+      "role": "CONTROL",
+      "raw_bytes": 1787584,
+      "raw_sha256": "a91a72d4646c4f5074acff176d71a5d3e8b07541986bc4a25ef0754a0392af4f",
+      "f1_rel": "EROSITA_DR1/HD39587/em01_088069_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_011138_020_ML00004_002_c010_HD4391",
+      "instrument": "EROSITA_DR1",
+      "star": "HD4391",
+      "role": "SCIENCE",
+      "raw_bytes": 1725432,
+      "raw_sha256": "91f4a5ca73bb16c0902d71cb839987b88a22d4b7746ce9560fb993d67bd2417c",
+      "f1_rel": "EROSITA_DR1/HD4391/em01_011138_000_SourceProducts_00004_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_095072_020_ML00001_002_c010_HD45088",
+      "instrument": "EROSITA_DR1",
+      "star": "HD45088",
+      "role": "SCIENCE",
+      "raw_bytes": 1760212,
+      "raw_sha256": "4041b5f71bd2240421a5d94102279c4703bf02f65687a5708b1e2394548c403e",
+      "f1_rel": "EROSITA_DR1/HD45088/em01_095072_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_131129_020_ML00003_010_c010_HD74576",
+      "instrument": "EROSITA_DR1",
+      "star": "HD74576",
+      "role": "SCIENCE",
+      "raw_bytes": 1773696,
+      "raw_sha256": "e9f94c82b1a9977316238d7a1fb75f26b152b6f0942c9cec51fa10af37b5a0da",
+      "f1_rel": "EROSITA_DR1/HD74576/em01_131129_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_140087_020_ML00002_011_c010_HD79555",
+      "instrument": "EROSITA_DR1",
+      "star": "HD79555",
+      "role": "SCIENCE",
+      "raw_bytes": 1700372,
+      "raw_sha256": "d3d26ef7d1d4ac9f41a847c23c011519ee8777cde69869e029e4d8cb27967a99",
+      "f1_rel": "EROSITA_DR1/HD79555/em01_140087_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_142063_020_ML00001_012_c010_HD82443",
+      "instrument": "EROSITA_DR1",
+      "star": "HD82443",
+      "role": "SCIENCE",
+      "raw_bytes": 1740052,
+      "raw_sha256": "c20f8fb5148324eed8f1518c4576dd310356a7d71854c036a4f7b10bb605f9e1",
+      "f1_rel": "EROSITA_DR1/HD82443/em01_142063_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_170111_020_ML00001_003_c010_HD98712B",
+      "instrument": "EROSITA_DR1",
+      "star": "HD98712B",
+      "role": "SCIENCE",
+      "raw_bytes": 1775312,
+      "raw_sha256": "dbf6caa27ef0e79924e7253af150384456d09f636c1ad4ff87b5609628627828",
+      "f1_rel": "EROSITA_DR1/HD98712B/em01_170111_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_154165_020_ML00001_002_c010_ICAR",
+      "instrument": "EROSITA_DR1",
+      "star": "ICAR",
+      "role": "SCIENCE",
+      "raw_bytes": 1964824,
+      "raw_sha256": "1394505ef062cdeb4452ac1056bb8e347e91df4a4b05948523044cd650b31e14",
+      "f1_rel": "EROSITA_DR1/ICAR/em01_154165_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_206123_020_ML00003_002_c010_ICEN",
+      "instrument": "EROSITA_DR1",
+      "star": "ICEN",
+      "role": "SCIENCE",
+      "raw_bytes": 1899204,
+      "raw_sha256": "24c8bb3916bfc31d5802b8c6fe83565c688bd344f7304d1804162952f7b91781",
+      "f1_rel": "EROSITA_DR1/ICEN/em01_206123_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_093078_020_ML00001_002_c010_KORI",
+      "instrument": "EROSITA_DR1",
+      "star": "KORI",
+      "role": "SCIENCE",
+      "raw_bytes": 1712400,
+      "raw_sha256": "c0a6d6bd5004bd9102f948c03066f4fef352299d46e274a6595eae4c35108fc6",
+      "f1_rel": "EROSITA_DR1/KORI/em01_093078_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_102078_020_ML00001_002_c010_KSIGEM",
+      "instrument": "EROSITA_DR1",
+      "star": "KSIGEM",
+      "role": "SCIENCE",
+      "raw_bytes": 1720616,
+      "raw_sha256": "64d19c73c50b98cd4e210b13683c850b6bae9e47b1660ea0aecd285fd37f911f",
+      "f1_rel": "EROSITA_DR1/KSIGEM/em01_102078_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_200144_020_ML00005_002_c010_L257129",
+      "instrument": "EROSITA_DR1",
+      "star": "L257129",
+      "role": "SCIENCE",
+      "raw_bytes": 1823268,
+      "raw_sha256": "b90d1d1fa1d8bcc0367af2af05246144b4ab1d8a8a2c78bb7c89c7ac866d9f22",
+      "f1_rel": "EROSITA_DR1/L257129/em01_200144_000_SourceProducts_00005_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_340177_020_ML00003_002_c010_L277",
+      "instrument": "EROSITA_DR1",
+      "star": "L277",
+      "role": "SCIENCE",
+      "raw_bytes": 1762316,
+      "raw_sha256": "61106ffde4bd21c754ff6bab2ec042a0de271e1740defdc118718a31ced4ce29",
+      "f1_rel": "EROSITA_DR1/L277/em01_340177_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_006135_020_ML00002_002_c010_L29028",
+      "instrument": "EROSITA_DR1",
+      "star": "L29028",
+      "role": "SCIENCE",
+      "raw_bytes": 1729332,
+      "raw_sha256": "a39cad46a15e58432c49f2ecb2bdffab5d094b0abcaa3a8012f67a3da4c484a8",
+      "f1_rel": "EROSITA_DR1/L29028/em01_006135_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_122168_020_ML00001_002_c010_L3426",
+      "instrument": "EROSITA_DR1",
+      "star": "L3426",
+      "role": "SCIENCE",
+      "raw_bytes": 2175332,
+      "raw_sha256": "3930420497080e0f67f45ad54bc53a46ca40e69e7350c37d766259e13a518a09",
+      "f1_rel": "EROSITA_DR1/L3426/em01_122168_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_212132_020_ML00010_002_c010_L40334",
+      "instrument": "EROSITA_DR1",
+      "star": "L40334",
+      "role": "SCIENCE",
+      "raw_bytes": 1766140,
+      "raw_sha256": "901f0c05d9fddb80c2e2385074af01a959d93c403d5da387af877481d2564403",
+      "f1_rel": "EROSITA_DR1/L40334/em01_212132_000_SourceProducts_00010_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_282129_020_ML00004_002_c010_L48943",
+      "instrument": "EROSITA_DR1",
+      "star": "L48943",
+      "role": "SCIENCE",
+      "raw_bytes": 1717584,
+      "raw_sha256": "6419350caa407e83d9e4eccf45a2b53a814d2b9683af70b298a120f8e56c2a6c",
+      "f1_rel": "EROSITA_DR1/L48943/em01_282129_000_SourceProducts_00004_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_202117_020_ML00002_002_c010_L61735",
+      "instrument": "EROSITA_DR1",
+      "star": "L61735",
+      "role": "SCIENCE",
+      "raw_bytes": 1754008,
+      "raw_sha256": "5696c78921a15df48bfb0c6d0d8603fccc0e26f7ddd6df4c62e65f8c1d500a34",
+      "f1_rel": "EROSITA_DR1/L61735/em01_202117_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_209114_020_ML00001_002_c010_L69174",
+      "instrument": "EROSITA_DR1",
+      "star": "L69174",
+      "role": "SCIENCE",
+      "raw_bytes": 1780832,
+      "raw_sha256": "805c00ce702a8090442d77db9346057c41e096bd75b8bbafbb8bcea46160cb3e",
+      "f1_rel": "EROSITA_DR1/L69174/em01_209114_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_071096_020_ML00087_002_c010_LP655_48",
+      "instrument": "EROSITA_DR1",
+      "star": "LP655_48",
+      "role": "SCIENCE",
+      "raw_bytes": 1683336,
+      "raw_sha256": "a8eddc01304f161526e758c3a97896c0a72bf617875bfe078b315e653788b8f1",
+      "f1_rel": "EROSITA_DR1/LP655_48/em01_071096_000_SourceProducts_00087_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_171099_020_ML00003_002_c010_LP73399",
+      "instrument": "EROSITA_DR1",
+      "star": "LP73399",
+      "role": "SCIENCE",
+      "raw_bytes": 1701592,
+      "raw_sha256": "44d86d017729b22f532a5ba8c226a8cb927c5a520266e2c98568cdf7a1020cad",
+      "f1_rel": "EROSITA_DR1/LP73399/em01_171099_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_074108_020_ML00002_002_c010_LP77625",
+      "instrument": "EROSITA_DR1",
+      "star": "LP77625",
+      "role": "SCIENCE",
+      "raw_bytes": 1802708,
+      "raw_sha256": "128f83113cad842910a212759231b3699a2cf404b1b3c90fc8995bd4208d1a85",
+      "f1_rel": "EROSITA_DR1/LP77625/em01_074108_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_070114_020_ML00001_002_c010_LP83432",
+      "instrument": "EROSITA_DR1",
+      "star": "LP83432",
+      "role": "SCIENCE",
+      "raw_bytes": 1816856,
+      "raw_sha256": "6da29544f5b4b1b323cb689949f08561d0595d49265a9ad2274a398db7d37f35",
+      "f1_rel": "EROSITA_DR1/LP83432/em01_070114_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_221096_020_ML00001_002_c010_MUVIR",
+      "instrument": "EROSITA_DR1",
+      "star": "MUVIR",
+      "role": "SCIENCE",
+      "raw_bytes": 1843404,
+      "raw_sha256": "08ff927e76d4f338d870a9d6706a38ed08443787a7f1a15c7553ff184f3dc20c",
+      "f1_rel": "EROSITA_DR1/MUVIR/em01_221096_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_112075_020_ML00002_002_c010_PMJ073491445",
+      "instrument": "EROSITA_DR1",
+      "star": "PMJ073491445",
+      "role": "SCIENCE",
+      "raw_bytes": 1710160,
+      "raw_sha256": "eaf6e85742226e3215b3400951bcdfeeb7c7fdb0de2bf30355bc4d5d2c1f8b99",
+      "f1_rel": "EROSITA_DR1/PMJ073491445/em01_112075_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_119093_020_ML00001_002_c010_PMJ074980317A",
+      "instrument": "EROSITA_DR1",
+      "star": "PMJ074980317A",
+      "role": "SCIENCE",
+      "raw_bytes": 1726396,
+      "raw_sha256": "52aef68124958c5903beedfeb18a36e83898129cd6be4a8a3014dcdb3f0bfba8",
+      "f1_rel": "EROSITA_DR1/PMJ074980317A/em01_119093_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_140087_020_ML00001_011_c010_PMJ091610153",
+      "instrument": "EROSITA_DR1",
+      "star": "PMJ091610153",
+      "role": "SCIENCE",
+      "raw_bytes": 1735100,
+      "raw_sha256": "caffd84810f82bb96fad90436d53b913ce7d1aac8268664e5a451c6d428d3521",
+      "f1_rel": "EROSITA_DR1/PMJ091610153/em01_140087_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_118075_020_ML00001_002_c010_PQGEM",
+      "instrument": "EROSITA_DR1",
+      "star": "PQGEM",
+      "role": "CONTROL",
+      "raw_bytes": 1789020,
+      "raw_sha256": "f188b938f7f95bd3b6f28c321a10f3ac89f9e1c21170794fcf5c8570958c69c3",
+      "f1_rel": "EROSITA_DR1/PQGEM/em01_118075_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_151078_020_ML00001_009_c010_REGULUS",
+      "instrument": "EROSITA_DR1",
+      "star": "REGULUS",
+      "role": "SCIENCE",
+      "raw_bytes": 1767740,
+      "raw_sha256": "516774369e79d34a947ec56ddbfddccc69268c161de88b3c63250ddd5cc83f76",
+      "f1_rel": "EROSITA_DR1/REGULUS/em01_151078_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_111057_020_ML00001_002_c010_RHOGEM",
+      "instrument": "EROSITA_DR1",
+      "star": "RHOGEM",
+      "role": "SCIENCE",
+      "raw_bytes": 1709796,
+      "raw_sha256": "913d25a7b4bf188a37a3cb024a5c15420b302dccef28e66b7c31e4ca2248778a",
+      "f1_rel": "EROSITA_DR1/RHOGEM/em01_111057_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_122114_020_ML00001_009_c010_RHOPUP",
+      "instrument": "EROSITA_DR1",
+      "star": "RHOPUP",
+      "role": "SCIENCE",
+      "raw_bytes": 1720772,
+      "raw_sha256": "c263ca6d1382cc07f107ac128fee8811a011e2a043d0f6f4f51db4c91dd1eb9a",
+      "f1_rel": "EROSITA_DR1/RHOPUP/em01_122114_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_083081_020_ML00002_002_c010_ROSS42",
+      "instrument": "EROSITA_DR1",
+      "star": "ROSS42",
+      "role": "SCIENCE",
+      "raw_bytes": 1751148,
+      "raw_sha256": "20ca82aa5be07ce0caa49c7ce0d14e524a9f3f024a68027b1368e16f54aea556",
+      "f1_rel": "EROSITA_DR1/ROSS42/em01_083081_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_115054_020_ML00002_002_c010_ROSS989",
+      "instrument": "EROSITA_DR1",
+      "star": "ROSS989",
+      "role": "SCIENCE",
+      "raw_bytes": 1712000,
+      "raw_sha256": "58be0dce499779b2a2051145d6c81a91a8db7bf52f1240bfa73c77fb34dc9dd9",
+      "f1_rel": "EROSITA_DR1/ROSS989/em01_115054_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_110096_020_ML00001_002_c010_RXJ071310511",
+      "instrument": "EROSITA_DR1",
+      "star": "RXJ071310511",
+      "role": "SCIENCE",
+      "raw_bytes": 1735344,
+      "raw_sha256": "7b475b893d265fb76c651cfe3fc2729d91df7f7b857689c3d2049d177ba1f7f8",
+      "f1_rel": "EROSITA_DR1/RXJ071310511/em01_110096_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_085132_020_ML00002_002_c010_SCRJ05334257",
+      "instrument": "EROSITA_DR1",
+      "star": "SCRJ05334257",
+      "role": "SCIENCE",
+      "raw_bytes": 1840468,
+      "raw_sha256": "6e4ec7fa8c92ed6a2a60afe84ae697cc8e9632eddf46b824cb7a17e7b5cdda2f",
+      "f1_rel": "EROSITA_DR1/SCRJ05334257/em01_085132_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_096168_020_ML00012_002_c010_SCRJ06307643A",
+      "instrument": "EROSITA_DR1",
+      "star": "SCRJ06307643A",
+      "role": "SCIENCE",
+      "raw_bytes": 1889204,
+      "raw_sha256": "1d3b1afea3cf8b3bff83be58eac13e0bdf40afa9e4749200d4b66a74ad970b7a",
+      "f1_rel": "EROSITA_DR1/SCRJ06307643A/em01_096168_000_SourceProducts_00012_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_115060_020_ML00001_002_c010_SIGMAGEM",
+      "instrument": "EROSITA_DR1",
+      "star": "SIGMAGEM",
+      "role": "SCIENCE",
+      "raw_bytes": 1925036,
+      "raw_sha256": "db1e41865821d69190649423e439c75956cf26f45e2e32db3055b98c9a6c8914",
+      "f1_rel": "EROSITA_DR1/SIGMAGEM/em01_115060_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_042108_020_ML00001_002_c010_TAU01ERI",
+      "instrument": "EROSITA_DR1",
+      "star": "TAU01ERI",
+      "role": "SCIENCE",
+      "raw_bytes": 1828352,
+      "raw_sha256": "94a3426730175cf688c3226eeba42b1a8ee0a628fadfb945dbde9a5fa1be4dbd",
+      "f1_rel": "EROSITA_DR1/TAU01ERI/em01_042108_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_143093_020_ML00001_011_c010_TAU01HYA",
+      "instrument": "EROSITA_DR1",
+      "star": "TAU01HYA",
+      "role": "SCIENCE",
+      "raw_bytes": 1707868,
+      "raw_sha256": "8e4df3f5bd041c4fbefa76b0a9d14c8af5245ef9e23e67d89de0e070508964bf",
+      "f1_rel": "EROSITA_DR1/TAU01HYA/em01_143093_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_064135_020_ML00002_002_c010_UPMJ04094435",
+      "instrument": "EROSITA_DR1",
+      "star": "UPMJ04094435",
+      "role": "SCIENCE",
+      "raw_bytes": 1923372,
+      "raw_sha256": "6e5dd66f8d20b4b71ba221208d8d9e4d13ec40d83194adb387b1f450f9db5dcf",
+      "f1_rel": "EROSITA_DR1/UPMJ04094435/em01_064135_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_039135_020_ML00001_003_c010_VCCERI",
+      "instrument": "EROSITA_DR1",
+      "star": "VCCERI",
+      "role": "SCIENCE",
+      "raw_bytes": 1982112,
+      "raw_sha256": "f8c77959e98ad4fad746321d42afc1a7eda6b9b653a5d21b626918a348ba2579",
+      "f1_rel": "EROSITA_DR1/VCCERI/em01_039135_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_127072_020_ML00001_011_c010_VCUCNC",
+      "instrument": "EROSITA_DR1",
+      "star": "VCUCNC",
+      "role": "SCIENCE",
+      "raw_bytes": 1721512,
+      "raw_sha256": "458b330b24b8ec1d65932da47e58e902047d3d64e7420b33e5f5c82d24d4e2a7",
+      "f1_rel": "EROSITA_DR1/VCUCNC/em01_127072_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_168057_020_ML00003_002_c010_VCWUMA",
+      "instrument": "EROSITA_DR1",
+      "star": "VCWUMA",
+      "role": "SCIENCE",
+      "raw_bytes": 1725656,
+      "raw_sha256": "98dbf6435406141cee4224c586d5b0b5f4a47ca49c903d621d988b5c8fd74d98",
+      "f1_rel": "EROSITA_DR1/VCWUMA/em01_168057_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_136132_020_ML00001_002_c010_VELAX1",
+      "instrument": "EROSITA_DR1",
+      "star": "VELAX1",
+      "role": "CONTROL",
+      "raw_bytes": 2147464,
+      "raw_sha256": "0e316bbc4a2579a55d84b2376f41dcc803e54e6c37923f73a4142423cc0a6902",
+      "f1_rel": "EROSITA_DR1/VELAX1/em01_136132_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_142102_020_ML00001_009_c010_VLQHYA",
+      "instrument": "EROSITA_DR1",
+      "star": "VLQHYA",
+      "role": "SCIENCE",
+      "raw_bytes": 1813604,
+      "raw_sha256": "2bc09315b7f5bf97eaab584f142298293f497213106224bfc7853bb865af4d70",
+      "f1_rel": "EROSITA_DR1/VLQHYA/em01_142102_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_161084_020_ML00001_002_c010_VRYSEX",
+      "instrument": "EROSITA_DR1",
+      "star": "VRYSEX",
+      "role": "SCIENCE",
+      "raw_bytes": 1757248,
+      "raw_sha256": "779fd9fcdb1cf022ce545a37bdb002885ba2aba7d1c7e5e2ba4f4516ecf9042a",
+      "f1_rel": "EROSITA_DR1/VRYSEX/em01_161084_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_091075_020_ML00001_002_c010_VV1386ORI",
+      "instrument": "EROSITA_DR1",
+      "star": "VV1386ORI",
+      "role": "SCIENCE",
+      "raw_bytes": 1700060,
+      "raw_sha256": "f44a25a606ce50487a10b02e4ff297b31ab05bfc55ce9dc303b1128bc9ab089c",
+      "f1_rel": "EROSITA_DR1/VV1386ORI/em01_091075_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_084078_020_ML00003_002_c010_VV2689ORI",
+      "instrument": "EROSITA_DR1",
+      "star": "VV2689ORI",
+      "role": "SCIENCE",
+      "raw_bytes": 1726488,
+      "raw_sha256": "3209cc6372f06f5ef033fa932421215cd97e6f5dd9337622f3144516bb7552d7",
+      "f1_rel": "EROSITA_DR1/VV2689ORI/em01_084078_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_083087_020_ML00001_002_c010_VV371ORI",
+      "instrument": "EROSITA_DR1",
+      "star": "VV371ORI",
+      "role": "SCIENCE",
+      "raw_bytes": 1772568,
+      "raw_sha256": "0e8781479bb3cbb2e5d7f5b5f33bc8d3a6be8fecf47e797141d02a0b61b76c30",
+      "f1_rel": "EROSITA_DR1/VV371ORI/em01_083087_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_172132_020_ML00003_002_c010_VV857CEN",
+      "instrument": "EROSITA_DR1",
+      "star": "VV857CEN",
+      "role": "SCIENCE",
+      "raw_bytes": 1810208,
+      "raw_sha256": "bdae58b50ce3046dc47f3e15c1a82f3b87e26e39c8f5719c236adc00d7af9f4e",
+      "f1_rel": "EROSITA_DR1/VV857CEN/em01_172132_000_SourceProducts_00003_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_115057_020_ML00001_002_c010_VYYGEM",
+      "instrument": "EROSITA_DR1",
+      "star": "VYYGEM",
+      "role": "SCIENCE",
+      "raw_bytes": 1784516,
+      "raw_sha256": "320ee357c3ffdea5155ad3f0198b087167fb2a05f993afa9c612e09657cb959f",
+      "f1_rel": "EROSITA_DR1/VYYGEM/em01_115057_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_086093_020_ML00001_002_c010_ZETAORI",
+      "instrument": "EROSITA_DR1",
+      "star": "ZETAORI",
+      "role": "SCIENCE",
+      "raw_bytes": 1813252,
+      "raw_sha256": "06fd9592a65cc4d3336b46b0f483f995d91ec6e4146b295887591b96582541bb",
+      "f1_rel": "EROSITA_DR1/ZETAORI/em01_086093_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_119129_020_ML00001_009_c010_ZETAPUP",
+      "instrument": "EROSITA_DR1",
+      "star": "ZETAPUP",
+      "role": "SCIENCE",
+      "raw_bytes": 1919056,
+      "raw_sha256": "31e733231b00f06588acdf659adc827f5071a36fbd8472878833a17b4318336f",
+      "f1_rel": "EROSITA_DR1/ZETAPUP/em01_119129_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_077147_020_ML00001_002_c010_ZETDOR",
+      "instrument": "EROSITA_DR1",
+      "star": "ZETDOR",
+      "role": "SCIENCE",
+      "raw_bytes": 2900100,
+      "raw_sha256": "3a78c6731781cb8a32539bfdba4f7dd4c37942c02e5e11b72447727f0fed06f3",
+      "f1_rel": "EROSITA_DR1/ZETDOR/em01_077147_000_SourceProducts_00001_c010.tar.xz"
+    },
+    {
+      "dp_id": "EROSITA_DR1_em01_247159_020_ML00002_002_c010_ZETTRA",
+      "instrument": "EROSITA_DR1",
+      "star": "ZETTRA",
+      "role": "SCIENCE",
+      "raw_bytes": 1863456,
+      "raw_sha256": "b8e8717bbdd179847a666a960eaf30a1f153bafd045bbdd65f7d866000b008c7",
+      "f1_rel": "EROSITA_DR1/ZETTRA/em01_247159_000_SourceProducts_00002_c010.tar.xz"
+    },
+    {
+      "dp_id": "ADP.2021-04-20T09:09:16.363",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI198",
+      "role": "SCIENCE",
+      "raw_bytes": 55108800,
+      "raw_sha256": "55e1d2bf594d9417b89a3a658eac9e470fbb0e2a4a9a792af0a160fe7e508d3e",
+      "f1_rel": "ESO_ESPRESSO/TOI198/ADP.2021-04-20T09:09:16.363.fits"
+    },
+    {
+      "dp_id": "ADP.2021-04-27T13:55:06.477",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI198",
+      "role": "SCIENCE",
+      "raw_bytes": 55108800,
+      "raw_sha256": "3ada59f6cd3d44e85e79bae34d1b6c4de40d84d671bc8c9d8be9dc0bd1c5397c",
+      "f1_rel": "ESO_ESPRESSO/TOI198/ADP.2021-04-27T13:55:06.477.fits"
+    },
+    {
+      "dp_id": "ADP.2021-09-16T15:10:01.138",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI198",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "1bf13449fb33ee7246f192eab7680b6fb845f14feca5751cec5788a65dc23480",
+      "f1_rel": "ESO_ESPRESSO/TOI198/ADP.2021-09-16T15:10:01.138.fits"
+    },
+    {
+      "dp_id": "ADP.2021-11-04T16:31:50.383",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI198",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "2d789bf34de0c55d07fa61d0532c5cc9237b63eae402a1b0f3a830167fa89d39",
+      "f1_rel": "ESO_ESPRESSO/TOI198/ADP.2021-11-04T16:31:50.383.fits"
+    },
+    {
+      "dp_id": "ADP.2022-01-12T11:51:28.359",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI198",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "ff335262615b9fb882ad48f6d4f96535e981c6304992f583d9058ece8d127ffa",
+      "f1_rel": "ESO_ESPRESSO/TOI198/ADP.2022-01-12T11:51:28.359.fits"
+    },
+    {
+      "dp_id": "ADP.2021-11-04T16:31:50.458",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI244",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "1ad797f90161a9948e64dc5ef119c0b03963c64c780fab14f0c04686243ce3bc",
+      "f1_rel": "ESO_ESPRESSO/TOI244/ADP.2021-11-04T16:31:50.458.fits"
+    },
+    {
+      "dp_id": "ADP.2022-01-12T11:47:04.103",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI244",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "08801ec2f72ffe3debac85367e642890ad70f7706deb67b304f316958e8fb723",
+      "f1_rel": "ESO_ESPRESSO/TOI244/ADP.2022-01-12T11:47:04.103.fits"
+    },
+    {
+      "dp_id": "ADP.2022-09-06T09:35:33.469",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI244",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "c176c7221a8bb6acda61c5adab48ef203076225f340e8ea911e46bd0076f0934",
+      "f1_rel": "ESO_ESPRESSO/TOI244/ADP.2022-09-06T09:35:33.469.fits"
+    },
+    {
+      "dp_id": "ADP.2022-10-11T10:20:05.991",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI244",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "82e615086c10f1d6f49886fd778a0f0de3aee992798147d10a06e4518aebc89d",
+      "f1_rel": "ESO_ESPRESSO/TOI244/ADP.2022-10-11T10:20:05.991.fits"
+    },
+    {
+      "dp_id": "ADP.2022-11-04T11:34:08.486",
+      "instrument": "ESO_ESPRESSO",
+      "star": "TOI244",
+      "role": "SCIENCE",
+      "raw_bytes": 55111680,
+      "raw_sha256": "5a7ffbaa648e4bc2f45f2eda5ffd8e1c30ffce7b3a0911802a5b0b49b3da2632",
+      "f1_rel": "ESO_ESPRESSO/TOI244/ADP.2022-11-04T11:34:08.486.fits"
+    },
+    {
+      "dp_id": "ADP.2014-09-16T11:07:36.737",
+      "instrument": "ESO_HARPS",
+      "star": "7CMA",
+      "role": "SCIENCE",
+      "raw_bytes": 5261760,
+      "raw_sha256": "e5f8280164d719085b0298e1cd497949fa136e9f06e1b17d51193cbcb4481f7a",
+      "f1_rel": "ESO_HARPS/7CMA/ADP.2014-09-16T11:07:36.737.fits"
+    },
+    {
+      "dp_id": "ADP.2014-09-18T12:12:01.540",
+      "instrument": "ESO_HARPS",
+      "star": "7CMA",
+      "role": "SCIENCE",
+      "raw_bytes": 5261760,
+      "raw_sha256": "004b5a18ef21785b6b415ec4bb62ac2095148e0ee34af656b9d8ca2e1af05145",
+      "f1_rel": "ESO_HARPS/7CMA/ADP.2014-09-18T12:12:01.540.fits"
+    },
+    {
+      "dp_id": "ADP.2014-10-06T10:04:53.973",
+      "instrument": "ESO_HARPS",
+      "star": "7CMA",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "1c1948d6e4cd622b501f462f913702da229f65737006e0029e188068a412a2fd",
+      "f1_rel": "ESO_HARPS/7CMA/ADP.2014-10-06T10:04:53.973.fits"
+    },
+    {
+      "dp_id": "ADP.2018-03-20T01:04:05.389",
+      "instrument": "ESO_HARPS",
+      "star": "7CMA",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "5d1a6f3297ac1e2c449d586884f1056f2ebf03097cff9fb12336af5f7476209d",
+      "f1_rel": "ESO_HARPS/7CMA/ADP.2018-03-20T01:04:05.389.fits"
+    },
+    {
+      "dp_id": "ADP.2018-09-25T01:25:57.163",
+      "instrument": "ESO_HARPS",
+      "star": "7CMA",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "a5591f6860786a8b1a7424c4d0c8c0867c8c573246912139d69599379d4e4b39",
+      "f1_rel": "ESO_HARPS/7CMA/ADP.2018-09-25T01:25:57.163.fits"
+    },
+    {
+      "dp_id": "ADP.2014-09-18T12:09:39.237",
+      "instrument": "ESO_HARPS",
+      "star": "GJ3293",
+      "role": "SCIENCE",
+      "raw_bytes": 5261760,
+      "raw_sha256": "2b454a723fd676989cb4b8977a2d993a42554e6a2c0d2551d3d06bc66a48b94b",
+      "f1_rel": "ESO_HARPS/GJ3293/ADP.2014-09-18T12:09:39.237.fits"
+    },
+    {
+      "dp_id": "ADP.2014-09-24T09:44:03.007",
+      "instrument": "ESO_HARPS",
+      "star": "GJ3293",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "134c4d313f5b10b6b8514aaeefcba2f38b1c99bc7e3e6ba34234c90c76f8c67a",
+      "f1_rel": "ESO_HARPS/GJ3293/ADP.2014-09-24T09:44:03.007.fits"
+    },
+    {
+      "dp_id": "ADP.2014-09-26T16:51:03.803",
+      "instrument": "ESO_HARPS",
+      "star": "GJ3293",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "226364badd147af05e9790f323d030bb187b9f29d92a5ecf975b407070af1777",
+      "f1_rel": "ESO_HARPS/GJ3293/ADP.2014-09-26T16:51:03.803.fits"
+    },
+    {
+      "dp_id": "ADP.2014-10-21T17:00:46.277",
+      "instrument": "ESO_HARPS",
+      "star": "GJ3293",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "c9680c3b7ae436ad395dc8af964f465c68a41850e3069886de8df71a1314070e",
+      "f1_rel": "ESO_HARPS/GJ3293/ADP.2014-10-21T17:00:46.277.fits"
+    },
+    {
+      "dp_id": "ADP.2015-04-15T08:03:54.037",
+      "instrument": "ESO_HARPS",
+      "star": "GJ3293",
+      "role": "SCIENCE",
+      "raw_bytes": 5264640,
+      "raw_sha256": "b7b82d8b096a38ae2a4c7628d456b9b610e2d8d2f0b85a69cfc679c95554b5ac",
+      "f1_rel": "ESO_HARPS/GJ3293/ADP.2015-04-15T08:03:54.037.fits"
+    },
+    {
+      "dp_id": "ADP.2025-02-21T16:30:20.791",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ1252",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "986e9020e624c5c4d12e6e27f2bc0f1989f5b395de73a6333f567babef994a9d",
+      "f1_rel": "ESO_NIRPS/GJ1252/ADP.2025-02-21T16:30:20.791.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-11T12:47:13.917",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ1252",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "8fc4fda05fdf3beef28a8a9d514d9306ca0dcbea3018649475014a467efb7372",
+      "f1_rel": "ESO_NIRPS/GJ1252/ADP.2025-04-11T12:47:13.917.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-11T17:00:43.073",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ1252",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "38fef0205dc0ce74191a36f5aeaef5fb1dafb46b45c091d216ddb519f10c6d15",
+      "f1_rel": "ESO_NIRPS/GJ1252/ADP.2025-04-11T17:00:43.073.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-14T09:49:40.252",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ1252",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "35c253857784c5e5aa94c9eb857831b0c82f8f56f5e715104294e6bedd7e5016",
+      "f1_rel": "ESO_NIRPS/GJ1252/ADP.2025-04-14T09:49:40.252.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-14T12:33:03.188",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ1252",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "e7fa23b95fbf40e4dfaf899dab932758bd032c0ae3e31b07d1517f3596746d02",
+      "f1_rel": "ESO_NIRPS/GJ1252/ADP.2025-04-14T12:33:03.188.fits"
+    },
+    {
+      "dp_id": "ADP.2025-02-24T10:32:14.028",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ317",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "d1aa6962a0cce95076ccaee7e07bd50932e6de2a0ad48bc9b44dcd03f888ae18",
+      "f1_rel": "ESO_NIRPS/GJ317/ADP.2025-02-24T10:32:14.028.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-10T14:40:32.348",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ317",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "703fdd97b4aa78da1646b9d9292abce03bf89018767748085ff3719626695fb8",
+      "f1_rel": "ESO_NIRPS/GJ317/ADP.2025-04-10T14:40:32.348.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-10T15:19:32.050",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ317",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "7495efa16a28fc6d26438840bcf50a526fedf49f2012de307fa164d77171cfdb",
+      "f1_rel": "ESO_NIRPS/GJ317/ADP.2025-04-10T15:19:32.050.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-15T15:04:01.269",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ317",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "d906257eb558c87af60880bca1641081b64f26446dff85c82d8831a5501ad3f4",
+      "f1_rel": "ESO_NIRPS/GJ317/ADP.2025-04-15T15:04:01.269.fits"
+    },
+    {
+      "dp_id": "ADP.2025-04-16T09:42:11.502",
+      "instrument": "ESO_NIRPS",
+      "star": "GJ317",
+      "role": "SCIENCE",
+      "raw_bytes": 47111040,
+      "raw_sha256": "23ac8ace7a2af8e08854949f614b67d868596b542327ca07cb894fa22e7c6ecb",
+      "f1_rel": "ESO_NIRPS/GJ317/ADP.2025-04-16T09:42:11.502.fits"
+    },
+    {
+      "dp_id": "ADP.2020-06-29T05:49:53.508",
+      "instrument": "ESO_UVES",
+      "star": "LP655_48",
+      "role": "SCIENCE",
+      "raw_bytes": 6742080,
+      "raw_sha256": "39a0a5c6a54e427651c2225fc461d3fc30a07bc7f6cea871dc34411ee90ad2a9",
+      "f1_rel": "ESO_UVES/LP655_48/ADP.2020-06-29T05:49:53.508.fits"
+    },
+    {
+      "dp_id": "ADP.2020-06-29T06:46:17.128",
+      "instrument": "ESO_UVES",
+      "star": "LP655_48",
+      "role": "SCIENCE",
+      "raw_bytes": 11810880,
+      "raw_sha256": "b6f5fc686e111e51a9b58fee458b50fbcf08892e5f8b3ebcf0cf92061e932c66",
+      "f1_rel": "ESO_UVES/LP655_48/ADP.2020-06-29T06:46:17.128.fits"
+    },
+    {
+      "dp_id": "ADP.2020-06-10T19:20:22.146",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 3456000,
+      "raw_sha256": "8b9f12a45d3bd59ead7d992d1777c6eee06db9c565e11d850e440336a19ea7c2",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-06-10T19:20:22.146.fits"
+    },
+    {
+      "dp_id": "ADP.2020-06-10T19:20:22.174",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 4916160,
+      "raw_sha256": "6032add8b82c11332ad60a2f8669ada75fb0ddb2211631ed56c6c21b437f2b56",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-06-10T19:20:22.174.fits"
+    },
+    {
+      "dp_id": "ADP.2020-09-02T14:42:00.821",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 1160640,
+      "raw_sha256": "0fa6e9be788cc230c583b280cc334253f1973df904445cdbebc5a141bfe7ce74",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-09-02T14:42:00.821.fits"
+    },
+    {
+      "dp_id": "ADP.2020-09-02T14:42:00.908",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 1647360,
+      "raw_sha256": "53af43a4ef5f6f090444550926e439d288480e5df98fd01bfd508dcc2c74b4bf",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-09-02T14:42:00.908.fits"
+    },
+    {
+      "dp_id": "ADP.2020-09-02T14:46:24.959",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 1160640,
+      "raw_sha256": "9189c5183eefcd57d6a38877c5fa4c4e05fdd7f91bc3aacf72fccca943a46128",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-09-02T14:46:24.959.fits"
+    },
+    {
+      "dp_id": "ADP.2020-09-02T14:46:25.004",
+      "instrument": "ESO_UVES",
+      "star": "WD0435_088",
+      "role": "CONTROL",
+      "raw_bytes": 1653120,
+      "raw_sha256": "06435d07d279228578006f713f9e53d3d74f7b85a98cb9fdb50b2eeb4beb109a",
+      "f1_rel": "ESO_UVES/WD0435_088/ADP.2020-09-02T14:46:25.004.fits"
+    },
+    {
+      "dp_id": "IXPE_GPD_01005901_3C273",
+      "instrument": "IXPE_GPD",
+      "star": "3C273",
+      "role": "CONTROL",
+      "raw_bytes": 8842700,
+      "raw_sha256": "43ebe57e1a53ae392f4718ed715a52f5be0c2200fce01a924c399d594d423ec9",
+      "f1_rel": "IXPE_GPD/01005901/ixpe01005901_det1_evt2_v04.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01005701_3C279",
+      "instrument": "IXPE_GPD",
+      "star": "3C279",
+      "role": "CONTROL",
+      "raw_bytes": 21159640,
+      "raw_sha256": "d69b7812f70fa2ea67e2f47852126c0402974d52ad41180a080a459574d4dee0",
+      "f1_rel": "IXPE_GPD/01005701/ixpe01005701_det1_evt2_v04.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01002701_4U1626",
+      "instrument": "IXPE_GPD",
+      "star": "4U1626",
+      "role": "CONTROL",
+      "raw_bytes": 26043450,
+      "raw_sha256": "73fd282c255f4192d61808d08eda87087b3027c12b32c3d6ff4f4bf7390ac9d7",
+      "f1_rel": "IXPE_GPD/01002701/ixpe01002701_det1_evt2_v05.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_02009701_BLLAC",
+      "instrument": "IXPE_GPD",
+      "star": "BLLAC",
+      "role": "CONTROL",
+      "raw_bytes": 32630406,
+      "raw_sha256": "c52ddc9ef477e7c2ce4038a3e8259a5c1689ae0e924a34c82cd0ef0800380516",
+      "f1_rel": "IXPE_GPD/02009701/ixpe02009701_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01004301_CENA",
+      "instrument": "IXPE_GPD",
+      "star": "CENA",
+      "role": "CONTROL",
+      "raw_bytes": 9970770,
+      "raw_sha256": "1aa96985ac18b0a43dc905027e029992fd1b2cfccc7d4c8e37e218adcc911bc3",
+      "f1_rel": "IXPE_GPD/01004301/ixpe01004301_det1_evt2_v10.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_04003999_EXHYA",
+      "instrument": "IXPE_GPD",
+      "star": "EXHYA",
+      "role": "CONTROL",
+      "raw_bytes": 22919175,
+      "raw_sha256": "998c3db338fffc67fdb90c69209a24f48892a940050b94da046ed7e9de702a93",
+      "f1_rel": "IXPE_GPD/04003999/ixpe04003999_det1_evt2_v02.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01003601_IC4329A",
+      "instrument": "IXPE_GPD",
+      "star": "IC4329A",
+      "role": "CONTROL",
+      "raw_bytes": 39153725,
+      "raw_sha256": "05c2c46299fa0c5b688f3a260710a346eb5a723803111366c04154092aa359cd",
+      "f1_rel": "IXPE_GPD/01003601/ixpe01003601_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_05003499_LSI61303",
+      "instrument": "IXPE_GPD",
+      "star": "LSI61303",
+      "role": "CONTROL",
+      "raw_bytes": 31573075,
+      "raw_sha256": "937e9ed3901347e40937fedfc709d7d647e1bdc97423da8b3d2c157464d065b8",
+      "f1_rel": "IXPE_GPD/05003499/ixpe05003499_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01003701_MRK421",
+      "instrument": "IXPE_GPD",
+      "star": "MRK421",
+      "role": "CONTROL",
+      "raw_bytes": 16875478,
+      "raw_sha256": "079ad18fc0d748d1a727fb4615b041bcc3a8c1e41e86bdaee25e84e8fd54573f",
+      "f1_rel": "IXPE_GPD/01003701/ixpe01003701_det1_evt2_v02.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_05004799_MRK501",
+      "instrument": "IXPE_GPD",
+      "star": "MRK501",
+      "role": "CONTROL",
+      "raw_bytes": 34062062,
+      "raw_sha256": "c5cbe762b4ed519e55daac7ff672b9ea5d739d0459d3d2dfbe051dc0fc9c9a86",
+      "f1_rel": "IXPE_GPD/05004799/ixpe05004799_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_02008001_NGC1068",
+      "instrument": "IXPE_GPD",
+      "star": "NGC1068",
+      "role": "CONTROL",
+      "raw_bytes": 71214238,
+      "raw_sha256": "0f83768d2771321358f247fb857b717f3c933d59cab0845ff20fb1fe9a23f325",
+      "f1_rel": "IXPE_GPD/02008001/ixpe02008001_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_03006899_NGC4151",
+      "instrument": "IXPE_GPD",
+      "star": "NGC4151",
+      "role": "CONTROL",
+      "raw_bytes": 52202411,
+      "raw_sha256": "694465818a9b92852775925229880c46fa85b1ce8d0e7be385d31f46c4c58dcb",
+      "f1_rel": "IXPE_GPD/03006899/ixpe03006899_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_03007199_NGC4945",
+      "instrument": "IXPE_GPD",
+      "star": "NGC4945",
+      "role": "CONTROL",
+      "raw_bytes": 44153647,
+      "raw_sha256": "e2d89b922c73108ceed1bcd98bd6c8c80aa69fa0f2a3fd6f3a0c6778a56fd52c",
+      "f1_rel": "IXPE_GPD/03007199/ixpe03007199_det1_evt2_v02.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_02005601_PKS2155",
+      "instrument": "IXPE_GPD",
+      "star": "PKS2155",
+      "role": "CONTROL",
+      "raw_bytes": 37081093,
+      "raw_sha256": "ed31039d35934e9e33fbc720394bd540b816dc9e5268172557c23aed8417daf3",
+      "f1_rel": "IXPE_GPD/02005601/ixpe02005601_det1_evt2_v01.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_03005599_PSRJ1023",
+      "instrument": "IXPE_GPD",
+      "star": "PSRJ1023",
+      "role": "CONTROL",
+      "raw_bytes": 41670064,
+      "raw_sha256": "77bd91047cf5eb4a482440e15ecac1d9f7d325e34fb552bafad2bd0f716dfbe6",
+      "f1_rel": "IXPE_GPD/03005599/ixpe03005599_det1_evt2_v02.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_02007001_SMCX1",
+      "instrument": "IXPE_GPD",
+      "star": "SMCX1",
+      "role": "CONTROL",
+      "raw_bytes": 24025832,
+      "raw_sha256": "1f88780dd30e6918baa67d3409c81e4cc0d7aa1ac3b300116cf294b69a65f9b8",
+      "f1_rel": "IXPE_GPD/02007001/ixpe02007001_det1_evt2_v02.fits.gz"
+    },
+    {
+      "dp_id": "IXPE_GPD_01002501_VELAX1",
+      "instrument": "IXPE_GPD",
+      "star": "VELAX1",
+      "role": "CONTROL",
+      "raw_bytes": 37247545,
+      "raw_sha256": "a46789e46571a903cf74cea856dd835f15e8707040fed3fb63b9abd2d9856052",
+      "f1_rel": "IXPE_GPD/01002501/ixpe01002501_det1_evt2_v03.fits.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_20009-01-01-00_ABDOR",
+      "instrument": "RXTE_HEXTE",
+      "star": "ABDOR",
+      "role": "SCIENCE",
+      "raw_bytes": 366662,
+      "raw_sha256": "69e939879f7b5b2a19547b9889391cb9a27fa04537532b14cd72b308697c11f5",
+      "f1_rel": "RXTE/20009-01-01-00/xh20009010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_10006-01-01-00_ARLAC",
+      "instrument": "RXTE_HEXTE",
+      "star": "ARLAC",
+      "role": "SCIENCE",
+      "raw_bytes": 363080,
+      "raw_sha256": "999b4915f79a97d4658a653378e377a58fe17aa30046df4dd0b94878bde3d242",
+      "f1_rel": "RXTE/10006-01-01-00/xh10006010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_10008-01-01-00_AUMIC",
+      "instrument": "RXTE_HEXTE",
+      "star": "AUMIC",
+      "role": "SCIENCE",
+      "raw_bytes": 361054,
+      "raw_sha256": "3c5de6fe04c68f3f5b4b808f1101c97941b8609cc992cd4a4a0b1116c74b7030",
+      "f1_rel": "RXTE/10008-01-01-00/xh10008010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_40099-01-01-00_CYGX1",
+      "instrument": "RXTE_HEXTE",
+      "star": "CYGX1",
+      "role": "CONTROL",
+      "raw_bytes": 361745,
+      "raw_sha256": "022f0222d3697508c9fba0d2a247372fe7638d7d9816791a1619e49964b32886",
+      "f1_rel": "RXTE/40099-01-01-00/xh40099010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_60003-01-01-00_ETACAR",
+      "instrument": "RXTE_HEXTE",
+      "star": "ETACAR",
+      "role": "CONTROL",
+      "raw_bytes": 359678,
+      "raw_sha256": "6c5a4d3ad0325521c032f5dbfdf3a86703c79a58194cd52c0ce69b8b5bbc4284",
+      "f1_rel": "RXTE/60003-01-01-00/xh60003010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_30016-01-01-00_EXHYA",
+      "instrument": "RXTE_HEXTE",
+      "star": "EXHYA",
+      "role": "CONTROL",
+      "raw_bytes": 361403,
+      "raw_sha256": "e56ff2616e225783729803b2b06433b7c7ea57879f97698d9ef95fb12f7769e9",
+      "f1_rel": "RXTE/30016-01-01-00/xh30016010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_20022-01-01-00_FOAQR",
+      "instrument": "RXTE_HEXTE",
+      "star": "FOAQR",
+      "role": "CONTROL",
+      "raw_bytes": 363633,
+      "raw_sha256": "e1ed5f4ba11d1c6086ed7659d034bb199d41d69dc7775032ff0463596fbdcd13",
+      "f1_rel": "RXTE/20022-01-01-00/xh20022010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_50001-01-01-00_HD019356",
+      "instrument": "RXTE_HEXTE",
+      "star": "HD019356",
+      "role": "CONTROL",
+      "raw_bytes": 364099,
+      "raw_sha256": "b339288e25599db27ffbb07a923d7513c300b3f451835d6a9f437fc59da40557",
+      "f1_rel": "RXTE/50001-01-01-00/xh50001010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_30003-01-01-00_HD22468",
+      "instrument": "RXTE_HEXTE",
+      "star": "HD22468",
+      "role": "SCIENCE",
+      "raw_bytes": 359486,
+      "raw_sha256": "7a66387a84d247368e0317054cb928d6ee87567edb9ffa6cd9ff0e0c3689d154",
+      "f1_rel": "RXTE/30003-01-01-00/xh30003010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_10001-02-01-00_HD34029",
+      "instrument": "RXTE_HEXTE",
+      "star": "HD34029",
+      "role": "SCIENCE",
+      "raw_bytes": 363761,
+      "raw_sha256": "080f5777eda985626f2fed22940e2523d0f35566c3a7fa32dd8c7ca92a222170",
+      "f1_rel": "RXTE/10001-02-01-00/xh10001020100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_60017-03-01-00_HERX1",
+      "instrument": "RXTE_HEXTE",
+      "star": "HERX1",
+      "role": "CONTROL",
+      "raw_bytes": 361313,
+      "raw_sha256": "871526b56a8d5b0973a3c86954de18cc1663d93a9c9cbc270a5e843d3ce47f71",
+      "f1_rel": "RXTE/60017-03-01-00/xh60017030100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_30004-01-01-00_IIPEG",
+      "instrument": "RXTE_HEXTE",
+      "star": "IIPEG",
+      "role": "SCIENCE",
+      "raw_bytes": 362160,
+      "raw_sha256": "d5798632d309b8413f9037aa0eb4214c98229bba3f6e3ea3cc8c67bb4b564543",
+      "f1_rel": "RXTE/30004-01-01-00/xh30004010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_80172-01-01-00_MRK421",
+      "instrument": "RXTE_HEXTE",
+      "star": "MRK421",
+      "role": "CONTROL",
+      "raw_bytes": 363564,
+      "raw_sha256": "cd7f10f19d8bbd3b1b7a69f32f4242ab08bb151de4742136c20c96a04636e750",
+      "f1_rel": "RXTE/80172-01-01-00/xh80172010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_90007-01-01-00_SSCYG",
+      "instrument": "RXTE_HEXTE",
+      "star": "SSCYG",
+      "role": "CONTROL",
+      "raw_bytes": 360246,
+      "raw_sha256": "6c11a853de5ec5f4f6034c83df4cd38290ce1ae197a9d224163cfc7a559e1147",
+      "f1_rel": "RXTE/90007-01-01-00/xh90007010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_80007-01-01-00_TVCOL",
+      "instrument": "RXTE_HEXTE",
+      "star": "TVCOL",
+      "role": "CONTROL",
+      "raw_bytes": 361542,
+      "raw_sha256": "4c3f8af27810a5aefaf026f7ea7fd021bb897ac97b313e30bce2a84a9ac57e37",
+      "f1_rel": "RXTE/80007-01-01-00/xh80007010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_HEXTE_50007-01-01-00_V2400OPH",
+      "instrument": "RXTE_HEXTE",
+      "star": "V2400OPH",
+      "role": "CONTROL",
+      "raw_bytes": 361110,
+      "raw_sha256": "a60c519bf2ccbfe48033488b189073f0c7910a67ad276738f314993833e1dd0d",
+      "f1_rel": "RXTE/50007-01-01-00/xh50007010100_s0.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_20009-01-01-00_ABDOR",
+      "instrument": "RXTE_PCA",
+      "star": "ABDOR",
+      "role": "SCIENCE",
+      "raw_bytes": 54618,
+      "raw_sha256": "c2c6986d9233da57eb82f4d35d0aac0ec07d94cea7b1f47e5cecf05754811d9b",
+      "f1_rel": "RXTE/20009-01-01-00/xp20009010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_10006-01-01-00_ARLAC",
+      "instrument": "RXTE_PCA",
+      "star": "ARLAC",
+      "role": "SCIENCE",
+      "raw_bytes": 55239,
+      "raw_sha256": "9a51ad5d37d487bab36858e5c8926f6d52cc314633310b5543e8e58991ac64ad",
+      "f1_rel": "RXTE/10006-01-01-00/xp10006010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_10008-01-01-00_AUMIC",
+      "instrument": "RXTE_PCA",
+      "star": "AUMIC",
+      "role": "SCIENCE",
+      "raw_bytes": 55255,
+      "raw_sha256": "dff3262d38580a2f49dae2bb0d26bb935c6c02948da459b156e50c7a92373d91",
+      "f1_rel": "RXTE/10008-01-01-00/xp10008010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_40099-01-01-00_CYGX1",
+      "instrument": "RXTE_PCA",
+      "star": "CYGX1",
+      "role": "CONTROL",
+      "raw_bytes": 55753,
+      "raw_sha256": "abc106455a587623ce76e1d178dbb4c87d4096852edbe1bbe74ca6d5ee81782b",
+      "f1_rel": "RXTE/40099-01-01-00/xp40099010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_60003-01-01-00_ETACAR",
+      "instrument": "RXTE_PCA",
+      "star": "ETACAR",
+      "role": "CONTROL",
+      "raw_bytes": 50204,
+      "raw_sha256": "f458bbd7f5f8b30650cee7b4f252003b5ce7ca7b1e696604a15fd354bf6f2b26",
+      "f1_rel": "RXTE/60003-01-01-00/xp60003010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_30016-01-01-00_EXHYA",
+      "instrument": "RXTE_PCA",
+      "star": "EXHYA",
+      "role": "CONTROL",
+      "raw_bytes": 55607,
+      "raw_sha256": "9a0ed21c54e24679c61a901a15739cbc4899cf8d1aaf194369f3401157c12ce2",
+      "f1_rel": "RXTE/30016-01-01-00/xp30016010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_20022-01-01-00_FOAQR",
+      "instrument": "RXTE_PCA",
+      "star": "FOAQR",
+      "role": "CONTROL",
+      "raw_bytes": 53667,
+      "raw_sha256": "c6ab5f28908b38c8493b49c7bfefef6b95ce3b710c16f43bba612d27fec2c3b0",
+      "f1_rel": "RXTE/20022-01-01-00/xp20022010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_50001-01-01-00_HD019356",
+      "instrument": "RXTE_PCA",
+      "star": "HD019356",
+      "role": "CONTROL",
+      "raw_bytes": 50093,
+      "raw_sha256": "3d24e02a94e98e454b5867a1e050546e363da3386f74ac8277f3277cf05486ba",
+      "f1_rel": "RXTE/50001-01-01-00/xp50001010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_30003-01-01-00_HD22468",
+      "instrument": "RXTE_PCA",
+      "star": "HD22468",
+      "role": "SCIENCE",
+      "raw_bytes": 55360,
+      "raw_sha256": "25577827b81ca4c798e5a367c4f4dd947cea186d5cf7e7007cca96c032f99391",
+      "f1_rel": "RXTE/30003-01-01-00/xp30003010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_10001-02-01-00_HD34029",
+      "instrument": "RXTE_PCA",
+      "star": "HD34029",
+      "role": "SCIENCE",
+      "raw_bytes": 62850,
+      "raw_sha256": "87b09b07bc0bed18514958770115bbe89305fdf8f0cda19df326eee2de144f50",
+      "f1_rel": "RXTE/10001-02-01-00/xp10001020100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_60017-03-01-00_HERX1",
+      "instrument": "RXTE_PCA",
+      "star": "HERX1",
+      "role": "CONTROL",
+      "raw_bytes": 49895,
+      "raw_sha256": "9a10b8fdecaed77a0dfe15e918cc0883927fc852519e4ef7e20040fbe5468e42",
+      "f1_rel": "RXTE/60017-03-01-00/xp60017030100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_30004-01-01-00_IIPEG",
+      "instrument": "RXTE_PCA",
+      "star": "IIPEG",
+      "role": "SCIENCE",
+      "raw_bytes": 55742,
+      "raw_sha256": "92e4ddc14a21da66b5fcf9d31a4cf1f1b1da0237d1e68c997f50d750391cd4bc",
+      "f1_rel": "RXTE/30004-01-01-00/xp30004010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_80172-01-01-00_MRK421",
+      "instrument": "RXTE_PCA",
+      "star": "MRK421",
+      "role": "CONTROL",
+      "raw_bytes": 50149,
+      "raw_sha256": "10001aa6077f21e45e601798bdb38f4e019664879e65c27e9e24b152c98b11f8",
+      "f1_rel": "RXTE/80172-01-01-00/xp80172010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_90007-01-01-00_SSCYG",
+      "instrument": "RXTE_PCA",
+      "star": "SSCYG",
+      "role": "CONTROL",
+      "raw_bytes": 50799,
+      "raw_sha256": "9b37e60dfa7252c04cb89cbf0bb4258821baa58134a2425b24200381914811dd",
+      "f1_rel": "RXTE/90007-01-01-00/xp90007010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_80007-01-01-00_TVCOL",
+      "instrument": "RXTE_PCA",
+      "star": "TVCOL",
+      "role": "CONTROL",
+      "raw_bytes": 49933,
+      "raw_sha256": "476802ff08756d5edbc27d25008b5fdca2c4a3cbbb110af8fe43203474a6d9c4",
+      "f1_rel": "RXTE/80007-01-01-00/xp80007010100_s2.pha.gz"
+    },
+    {
+      "dp_id": "RXTE_PCA_50007-01-01-00_V2400OPH",
+      "instrument": "RXTE_PCA",
+      "star": "V2400OPH",
+      "role": "CONTROL",
+      "raw_bytes": 49888,
+      "raw_sha256": "016ab410cd2e72001c8f5095981d364f0b13f2c52d06885755a05f962b435b39",
+      "f1_rel": "RXTE/50007-01-01-00/xp50007010100_s2.pha.gz"
+    }
+  ]
+}
