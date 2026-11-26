@@ -13,6 +13,7 @@
 3. **Supplerende Teknisk Monografi (`105` sider, urørt siden `D112`):** [`paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf`](paper/ANDERSEN_2026_PANCHROMATIC_ECHELLE_SETI_SURVEY.pdf) (`70.184.768 B`, SHA-256 `f7368a7901f99abdcb8328f643dece57da3ba5053eb90c247ebb0abea090d334`) · [`paper/main.tex`](paper/main.tex).
 4. **Seneste observationsfase (`D112` — *INTEGRAL* 511 keV, *1LHAASO* 1.000 PeV & *ALMA* Band 2 SV):** [`docs/D112_RESULTS_REPORT.md`](docs/D112_RESULTS_REPORT.md), [`restore_d112_workspace.py`](restore_d112_workspace.py) (`38/38` Companion Archives `A–AL`, `689.427.242 B = 657,49 MiB`, senest `AL`: SHA-256 `c7badae9d007ca9346c77bbf7eaa7d9ca27d27f4e36046b48b9a025ca66ec4c1`).
 5. **Spor 5 Publikationsrapport:** [`docs/SPOR5_PUBLICATION_PACKAGE_REPORT.md`](docs/SPOR5_PUBLICATION_PACKAGE_REPORT.md).
+6. **Vera C. Rubin Observatory V2 (`Spor R1 + R2`, 26. nov 2026):** **`300`** DDF Gaia-stjerner (`85` LONO `/sources` + `254` LONO `/fp` stjerner; `0` overlap mod `work_rubin_20261102`) & **`538`** sydlige SETI-katalogstjerner (`1` ledsagerkilde @ `9,59"` ved `GJ 27.1`) $\rightarrow$ **`0` ETI**, `12/12 PASSED` — [`docs/RUBIN_V2_R1_R2_RESULTS_REPORT.md`](docs/RUBIN_V2_R1_R2_RESULTS_REPORT.md).
 
 ---
 
