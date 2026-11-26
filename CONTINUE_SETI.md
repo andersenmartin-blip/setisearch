@@ -14,6 +14,7 @@
 4. **Seneste observationsfase (`D112` — *INTEGRAL* 511 keV, *1LHAASO* 1.000 PeV & *ALMA* Band 2 SV):** [`docs/D112_RESULTS_REPORT.md`](docs/D112_RESULTS_REPORT.md), [`restore_d112_workspace.py`](restore_d112_workspace.py) (`38/38` Companion Archives `A–AL`, `689.427.242 B = 657,49 MiB`, senest `AL`: SHA-256 `c7badae9d007ca9346c77bbf7eaa7d9ca27d27f4e36046b48b9a025ca66ec4c1`).
 5. **Spor 5 Publikationsrapport:** [`docs/SPOR5_PUBLICATION_PACKAGE_REPORT.md`](docs/SPOR5_PUBLICATION_PACKAGE_REPORT.md).
 6. **Vera C. Rubin Observatory V2 (`Spor R1 + R2`, 26. nov 2026):** **`300`** DDF Gaia-stjerner (`85` LONO `/sources` + `254` LONO `/fp` stjerner; `0` overlap mod `work_rubin_20261102`) & **`538`** sydlige SETI-katalogstjerner (`1` ledsagerkilde @ `9,59"` ved `GJ 27.1`) $\rightarrow$ **`0` ETI**, `12/12 PASSED` — [`docs/RUBIN_V2_R1_R2_RESULTS_REPORT.md`](docs/RUBIN_V2_R1_R2_RESULTS_REPORT.md).
+7. **Spor N1 — Dyson-sfærer (*Hephaistos II* `A–G` + Blind `260` DDF) & VASCO (`1.197` Gaia + `372` PS1 $\rightarrow$ `DR10`, 26. nov 2026):** `6/7` *Hephaistos* (`B–G`) opklaret (`127,1σ` `VLASS` AGN på `G`), `3/3` blinde N1B-triggere = baggrundsgalakser (**Jeffreys $f_{95} = 0{,}7427\,\%$** for $\gamma \ge 0{,}05$), **`0` forsvundne stjerner** (**Jeffreys $f_{95} = 0{,}1603\,\%$**) $\rightarrow$ **`0` ETI**, `12/12 PASSED` — [`docs/N1_DYSON_HEPHAISTOS_VASCO_RESULTS_REPORT.md`](docs/N1_DYSON_HEPHAISTOS_VASCO_RESULTS_REPORT.md).
 
 ---
 
