@@ -1,0 +1,129 @@
+Title: 72-Spectrograph / 104-Spectral-Arm Panchromatic & Multi-Messenger Instrument Atlas (D079-D112)
+Authors: Andersen, M. (2026)
+Table: table3_spectrograph_atlas_72inst_104arms.mrt (104 data rows)
+================================================================================
+Byte-by-byte Description of file: table3_spectrograph_atlas_72inst_104arms.mrt
+--------------------------------------------------------------------------------
+ Bytes   Format  Units          Label                    Explanations
+--------------------------------------------------------------------------------
+   1-  3 I3      ---            arm_index                Spectral arm sequence index (1-104)
+   5- 24 A20     ---            instrument_id            Canonical facility/instrument identifier
+  26- 53 A28     ---            facility                 Observatory / space mission / array
+  55- 74 A20     ---            arm_id                   Specific grating, receiver band, or detector arm
+  76- 91 A16     ---            regime                   Spectral or multi-messenger regime
+  93-103 E11.4   um             wave_min_um              Minimum rest/obs wavelength in micrometers
+ 105-115 E11.4   um             wave_max_um              Maximum rest/obs wavelength in micrometers
+ 117-127 E11.4   eV             e_min_ev                 Minimum photon or neutrino energy in eV
+ 129-139 E11.4   eV             e_max_ev                 Maximum photon or neutrino energy in eV
+ 141-155 A15     ---            res_power                Nominal resolving power R = lambda/dlambda
+ 157-161 A5      ---            first_phase              Survey phase where arm first entered
+ 163-175 A13     ---            scale_regime             Physical coupling scale (BEAMED_10M/HE_ISOTROPIC/NU)
+     177 I1      ---            is_primary_spec          1 if primary unit in cumulative tally
+--------------------------------------------------------------------------------
+Notes: Missing or regime-decoupled values (e.g., EM fields on IceCube-only
+  targets or neutrino fields on EM-only targets) are denoted by '---'.
+--------------------------------------------------------------------------------
+  1 ESO_HARPS            La Silla 3.6m ESO            HARPS_OPT            OPTICAL           3.7800e-01  6.9100e-01  1.7940e+00  3.2800e+00 115000          D079  BEAMED_10M    1
+  2 ESO_ESPRESSO         VLT Paranal 4x8.2m           ESPRESSO_HR          OPTICAL           3.7800e-01  7.8900e-01  1.5710e+00  3.2800e+00 140000          D080  BEAMED_10M    1
+  3 ESO_NIRPS            La Silla 3.6m ESO            NIRPS_HE_YJH         NIR               9.6600e-01  1.9230e+00  6.4500e-01  1.2830e+00 70000           D082  BEAMED_10M    1
+  4 ESO_CRIRES_PLUS      VLT UT3 8.2m (incl. Leg.)    CRIRES_PLUS_K        NIR_K             1.9500e+00  2.4800e+00  5.0000e-01  6.3600e-01 86000-100000    D083  BEAMED_10M    1
+  5 TNG_HARPS_N          TNG 3.58m La Palma           HARPS_N_OPT          OPTICAL           3.8300e-01  6.9300e-01  1.7890e+00  3.2370e+00 115000          D084  BEAMED_10M    1
+  6 CAHA_CARMENES        CAHA 3.5m Calar Alto         CARMENES_VIS         OPT_FARRED        5.2000e-01  9.6000e-01  1.2910e+00  2.3840e+00 94600           D084  BEAMED_10M    1
+  7 CFHT_SPIROU          CFHT 3.6m Mauna Kea          SPIROU_YJHK          NIR               9.5500e-01  2.5150e+00  4.9300e-01  1.2980e+00 70000           D085  BEAMED_10M    1
+  8 ESO_UVES             VLT UT2 8.2m                 UVES_NUV             NUV               3.0500e-01  3.8700e-01  3.2040e+00  4.0650e+00 41000-71000     D086  BEAMED_10M    1
+  9 ESO_UVES             VLT UT2 8.2m                 UVES_RED             OPT_FARRED        4.8000e-01  1.0430e+00  1.1890e+00  2.5830e+00 42000-107200    D087  BEAMED_10M    0
+ 10 HST_STIS             Hubble Space Telescope       STIS_E140M           FUV               1.1450e-01  1.7100e-01  7.2510e+00  1.0828e+01 45800           D087  BEAMED_10M    1
+ 11 OHP_SOPHIE           OHP 1.93m                    SOPHIE_HR            OPTICAL           3.8700e-01  6.9400e-01  1.7870e+00  3.2040e+00 75000           D088  BEAMED_10M    1
+ 12 OHP_ELODIE           OHP 1.93m                    ELODIE_OPT           OPTICAL           3.8900e-01  6.8100e-01  1.8210e+00  3.1870e+00 42000           D088  BEAMED_10M    1
+ 13 CFHT_ESPADONS        CFHT 3.6m Mauna Kea          ESPADONS_OPT         OPT_FARRED        3.7000e-01  1.0480e+00  1.1830e+00  3.3510e+00 65000-80000     D088  BEAMED_10M    1
+ 14 NASA_FUSE            FUSE Space Mission           FUSE_FUV_LWRS        LYMAN_FUV         9.0500e-02  1.1870e-01  1.0445e+01  1.3700e+01 20000           D089  BEAMED_10M    1
+ 15 HST_COS              Hubble Space Telescope       COS_G130M            FUV               1.1250e-01  1.4500e-01  8.5510e+00  1.1021e+01 18000           D089  BEAMED_10M    1
+ 16 HST_STIS             Hubble Space Telescope       STIS_E230M_NUV       NUV               1.6050e-01  3.1500e-01  3.9360e+00  7.7250e+00 30000-114000    D089  BEAMED_10M    0
+ 17 JWST_NIRSPEC         JWST L2 6.5m                 NIRSPEC_G235H        NIR               1.6550e+00  3.1700e+00  3.9100e-01  7.4900e-01 2700            D090  BEAMED_10M    1
+ 18 JWST_MIRI            JWST L2 6.5m                 MIRI_MRS             MID_IR            4.9000e+00  2.8000e+01  4.4300e-02  2.5300e-01 1500-3500       D090  BEAMED_10M    1
+ 19 ESO_XSHOOTER         VLT UT3 8.2m                 XSHOOTER_3ARM        UVB_VIS_NIR       2.9890e-01  2.4790e+00  5.0000e-01  4.1480e+00 9860-18340      D091  BEAMED_10M    1
+ 20 ESO_FEROS            MPG/ESO 2.2m La Silla        FEROS_OPT            OPTICAL           3.5280e-01  9.2100e-01  1.3460e+00  3.5140e+00 48000           D091  BEAMED_10M    1
+ 21 ESO_GIRAFFE          VLT UT2 8.2m                 GIRAFFE_HR           OPTICAL           3.7000e-01  9.0000e-01  1.3780e+00  3.3510e+00 18000-29000     D091  BEAMED_10M    1
+ 22 GEMINI_GRACES        Gemini-N 8.1m / CFHT         GRACES_OPT           OPTICAL           4.0000e-01  1.0480e+00  1.1830e+00  3.1000e+00 67500           D093  BEAMED_10M    1
+ 23 ESO_CORALIE          Swiss 1.2m Euler La Silla    CORALIE_OPT          OPTICAL           3.8600e-01  6.9000e-01  1.7970e+00  3.2120e+00 60000           D093  BEAMED_10M    1
+ 24 ESO_ESPRESSO         VLT Paranal 4x8.2m           ESPRESSO_UHR         OPTICAL           3.7800e-01  7.8900e-01  1.5710e+00  3.2800e+00 190000          D087  BEAMED_10M    0
+ 25 SDSS_APOGEE2         APO 2.5m / LCO 2.5m          APOGEE2_H            NIR_H             1.5140e+00  1.6960e+00  7.3100e-01  8.1900e-01 22500           D094  BEAMED_10M    1
+ 26 JWST_MIRI_LRS        JWST L2 6.5m                 MIRI_LRS             MID_IR            5.0000e+00  1.2000e+01  1.0300e-01  2.4800e-01 100             D094  BEAMED_10M    1
+ 27 ESO_CRIRES           VLT UT1 8.2m                 CRIRES_Y_BAND        NIR_Y             9.5000e-01  1.1200e+00  1.1070e+00  1.3050e+00 86000           D092  BEAMED_10M    0
+ 28 ESO_CRIRES           VLT UT1 8.2m                 CRIRES_JH_BAND       NIR_JH            1.1200e+00  1.8000e+00  6.8900e-01  1.1070e+00 86000           D094  BEAMED_10M    0
+ 29 JWST_NIRSPEC         JWST L2 6.5m                 NIRSPEC_G395H        THERMAL_IR        2.8700e+00  5.2700e+00  2.3500e-01  4.3200e-01 2700            D090  BEAMED_10M    0
+ 30 GEMINI_GHOST         Gemini-South 8.1m            GHOST_BLUE           OPTICAL           3.4800e-01  5.4400e-01  2.2790e+00  3.5630e+00 56000           D095  BEAMED_10M    1
+ 31 GEMINI_GHOST         Gemini-South 8.1m            GHOST_RED            OPT_FARRED        5.2000e-01  1.0610e+00  1.1690e+00  2.3840e+00 56000           D095  BEAMED_10M    0
+ 32 SPITZER_IRS          Spitzer Space Telescope      IRS_SHORT_LOW        MID_IR            5.2000e+00  1.4500e+01  8.5500e-02  2.3800e-01 60-128          D095  BEAMED_10M    1
+ 33 SPITZER_IRS          Spitzer Space Telescope      IRS_LONG_LOW         MID_IR            1.4000e+01  3.7864e+01  3.2700e-02  8.8600e-02 57-126          D095  BEAMED_10M    0
+ 34 SOFIA_EXES           SOFIA 2.7m Airborne          EXES_MIDIR           MID_IR            5.6200e+00  2.6130e+01  4.7400e-02  2.2100e-01 86000           D096  BEAMED_10M    1
+ 35 JWST_NIRISS          JWST L2 6.5m                 NIRISS_SOSS          OPT_NIR           6.8000e-01  2.8300e+00  4.3800e-01  1.8230e+00 700             D096  BEAMED_10M    1
+ 36 JWST_NIRSPEC         JWST L2 6.5m                 NIRSPEC_G140H        NIR               9.7000e-01  1.8900e+00  6.5600e-01  1.2780e+00 2700            D096  BEAMED_10M    0
+ 37 HERSCHEL_HIFI        ESA Herschel 3.5m            HIFI_HETERO          THZ_SUBMM         1.5740e+02  6.2500e+02  1.9800e-03  7.8800e-03 2200000         D097  BEAMED_10M    1
+ 38 HERSCHEL_SPIRE       ESA Herschel 3.5m            SPIRE_FTS_SSW        FAR_IR            1.9400e+02  3.1800e+02  3.9000e-03  6.3900e-03 1000            D097  BEAMED_10M    1
+ 39 HERSCHEL_SPIRE       ESA Herschel 3.5m            SPIRE_FTS_SLW        FAR_IR            2.9400e+02  6.7069e+02  1.8500e-03  4.2200e-03 1000            D097  BEAMED_10M    0
+ 40 HERSCHEL_PACS        ESA Herschel 3.5m            PACS_BLUE            FAR_IR            5.1000e+01  1.0500e+02  1.1800e-02  2.4300e-02 1500-3000       D097  BEAMED_10M    1
+ 41 HERSCHEL_PACS        ESA Herschel 3.5m            PACS_RED             FAR_IR            1.0200e+02  2.1000e+02  5.9000e-03  1.2150e-02 1500            D097  BEAMED_10M    0
+ 42 HST_STIS             Hubble Space Telescope       STIS_E140H           FUV_UHR           1.1450e-01  1.7100e-01  7.2510e+00  1.0828e+01 114000          D097  BEAMED_10M    0
+ 43 SOFIA_GREAT          SOFIA 2.7m Airborne          GREAT_LFA_1P9        SUPER_THZ         1.5700e+02  1.5850e+02  7.8200e-03  7.9000e-03 19400000        D098  BEAMED_10M    1
+ 44 SOFIA_GREAT          SOFIA 2.7m Airborne          GREAT_4G_2P5         SUPER_THZ         1.1000e+02  1.2000e+02  1.0300e-02  1.1300e-02 15000000        D098  BEAMED_10M    0
+ 45 SOFIA_GREAT          SOFIA 2.7m Airborne          GREAT_HFA_4P7        SUPER_THZ         6.3000e+01  6.3500e+01  1.9500e-02  1.9700e-02 15000000        D098  BEAMED_10M    0
+ 46 ISO_SWS              ESA ISO 0.6m Space           SWS_SW_2_12UM        MID_IR            2.3600e+00  1.2000e+01  1.0300e-01  5.2500e-01 1500            D098  BEAMED_10M    1
+ 47 ISO_SWS              ESA ISO 0.6m Space           SWS_LW_12_45UM       MID_FAR_IR        1.2000e+01  4.5390e+01  2.7300e-02  1.0300e-01 1500            D098  BEAMED_10M    0
+ 48 SOFIA_FORCAST        SOFIA 2.7m Airborne          FORCAST_G063         MID_IR            4.9000e+00  8.0000e+00  1.5500e-01  2.5300e-01 180             D098  BEAMED_10M    1
+ 49 SOFIA_FORCAST        SOFIA 2.7m Airborne          FORCAST_G111         MID_IR            8.4000e+00  1.3700e+01  9.0500e-02  1.4800e-01 260             D098  BEAMED_10M    0
+ 50 SOFIA_FORCAST        SOFIA 2.7m Airborne          FORCAST_G227         MID_IR            1.7600e+01  2.7700e+01  4.4800e-02  7.0400e-02 140             D098  BEAMED_10M    0
+ 51 SOFIA_FORCAST        SOFIA 2.7m Airborne          FORCAST_G329         FAR_IR            2.8700e+01  3.7100e+01  3.3400e-02  4.3200e-02 120             D098  BEAMED_10M    0
+ 52 JCMT_HARP            JCMT 15m Mauna Kea           JCMT_HARP_345        SUBMM_HET         8.0400e+02  9.2000e+02  1.3500e-03  1.5400e-03 5000000         D099  BEAMED_10M    1
+ 53 JCMT_RXA3_UU         JCMT 15m Mauna Kea           JCMT_MM_230GHZ       MM_HET            1.1000e+03  1.4014e+03  8.8500e-04  1.1300e-03 5000000         D099  BEAMED_10M    1
+ 54 JCMT_RXA3_UU         JCMT 15m Mauna Kea           JCMT_UU_CO21         MM_HET            1.2900e+03  1.4014e+03  8.8500e-04  9.6100e-04 5000000         D099  BEAMED_10M    0
+ 55 IRTF_SPEX            NASA IRTF 3.2m Mauna Kea     SPEX_SXD             NIR               8.0000e-01  2.4000e+00  5.1700e-01  1.5500e+00 2000            D099  BEAMED_10M    1
+ 56 IRTF_SPEX            NASA IRTF 3.2m Mauna Kea     SPEX_LXD_S           THERMAL_IR        1.9800e+00  4.2000e+00  2.9500e-01  6.2600e-01 2500            D099  BEAMED_10M    0
+ 57 IRTF_SPEX            NASA IRTF 3.2m Mauna Kea     SPEX_LXD_L           THERMAL_IR        2.3000e+00  5.4300e+00  2.2800e-01  5.3900e-01 2500            D099  BEAMED_10M    0
+ 58 JCMT_ALAIHI          JCMT 15m Mauna Kea           ALAIHI_3MM           MM_HET            3.4370e+03  3.8561e+03  3.2200e-04  3.6100e-04 160000          D100  BEAMED_10M    1
+ 59 SOFIA_FIFILS         SOFIA 2.7m Airborne          FIFILS_BLUE          FAR_IR            5.1590e+01  1.2000e+02  1.0300e-02  2.4000e-02 600-2000        D100  BEAMED_10M    1
+ 60 SOFIA_FIFILS         SOFIA 2.7m Airborne          FIFILS_RED           FAR_IR            1.1500e+02  1.8644e+02  6.6500e-03  1.0800e-02 1000-2000       D100  BEAMED_10M    0
+ 61 IUE_SWP_HI           IUE Space Observatory        IUE_SWP_HI           FUV               1.1500e-01  1.9800e-01  6.2620e+00  1.0781e+01 10000-13000     D100  BEAMED_10M    1
+ 62 IUE_LWP_HI           IUE Space Observatory        IUE_LWP_HI           NUV               1.8500e-01  3.3500e-01  3.7010e+00  6.7020e+00 10000-13000     D100  BEAMED_10M    0
+ 63 ALMA_B1              ALMA Chajnantor 12m/7m       ALMA_B1_7MM          ALMA_MM           6.0000e+03  8.5564e+03  1.4500e-04  2.0700e-04 10000-2800000   D101  BEAMED_10M    1
+ 64 ALMA_B3              ALMA Chajnantor 12m/7m       ALMA_B3_3MM          ALMA_MM           2.5840e+03  3.5650e+03  3.4800e-04  4.8000e-04 10000-2800000   D101  BEAMED_10M    1
+ 65 ALMA_B4              ALMA Chajnantor 12m/7m       ALMA_B4_2MM_HIGH     ALMA_MM           1.8390e+03  2.1500e+03  5.7700e-04  6.7400e-04 10000-2800000   D101  BEAMED_10M    0
+ 66 ALMA_B4              ALMA Chajnantor 12m/7m       ALMA_B4_2MM_LOW      ALMA_MM           2.1500e+03  2.3973e+03  5.1700e-04  5.7700e-04 10000-2800000   D101  BEAMED_10M    0
+ 67 ALMA_B5              ALMA Chajnantor 12m/7m       ALMA_B5_2MM          ALMA_MM           1.4200e+03  1.8400e+03  6.7400e-04  8.7300e-04 10000-2800000   D101  BEAMED_10M    0
+ 68 CHANDRA_HETG         NASA Chandra X-ray Obs.      CHANDRA_HETG         HE_XRAY           1.2000e-04  3.1000e-03  4.0000e+02  1.0300e+04 1000            D102  HE_ISOTROPIC  1
+ 69 CHANDRA_LETG         NASA Chandra X-ray Obs.      CHANDRA_LETG         HE_XRAY           2.0000e-04  1.7500e-02  7.0800e+01  6.2000e+03 1000            D102  HE_ISOTROPIC  1
+ 70 EUVE_DS_S            NASA EUVE Explorer           EUVE_DS_S_EUV        HE_EUV            7.0050e-03  6.9980e-02  1.7700e+01  1.7700e+02 200-400         D102  HE_ISOTROPIC  1
+ 71 ALMA_B6              ALMA Chajnantor 12m/7m       ALMA_B6_1MM          ALMA_MM           1.0900e+03  1.4200e+03  8.7300e-04  1.1370e-03 10000-2800000   D102  BEAMED_10M    1
+ 72 ALMA_B7              ALMA Chajnantor 12m/7m       ALMA_B7_0P9MM        ALMA_MM           8.0400e+02  1.0900e+03  1.1370e-03  1.5420e-03 10000-2800000   D102  BEAMED_10M    0
+ 73 ALMA_B8              ALMA Chajnantor 12m/7m       ALMA_B8_0P7MM        ALMA_MM           5.9700e+02  7.7900e+02  1.5920e-03  2.0770e-03 10000-2800000   D102  BEAMED_10M    0
+ 74 NUSTAR_FPMA_B        NASA NuSTAR Mission          NUSTAR_FPMA          HE_HARD_X         1.5690e-05  4.1300e-04  3.0000e+03  7.9000e+04 15-75           D103  HE_ISOTROPIC  1
+ 75 NUSTAR_FPMA_B        NASA NuSTAR Mission          NUSTAR_FPMB          HE_HARD_X         1.5690e-05  4.1300e-04  3.0000e+03  7.9000e+04 15-75           D103  HE_ISOTROPIC  1
+ 76 XMM_RGS              ESA XMM-Newton               XMM_RGS1             HE_XRAY           5.0000e-04  3.8000e-03  3.2600e+02  2.4800e+03 200-800         D103  HE_ISOTROPIC  1
+ 77 XMM_RGS              ESA XMM-Newton               XMM_RGS2             HE_XRAY           5.0000e-04  3.8000e-03  3.2600e+02  2.4800e+03 200-800         D103  HE_ISOTROPIC  1
+ 78 ALMA_B9              ALMA Chajnantor 12m/7m       ALMA_B9_0P4MM        ALMA_MM           4.1600e+02  4.9800e+02  2.4900e-03  2.9800e-03 10000-2800000   D103  BEAMED_10M    0
+ 79 ALMA_B10             ALMA Chajnantor 12m/7m       ALMA_B10_0P3MM       ALMA_MM           3.3558e+02  3.8100e+02  3.2540e-03  3.6950e-03 10000-2800000   D103  BEAMED_10M    0
+ 80 SUZAKU_HXD_GSO       JAXA/NASA Suzaku             SUZAKU_HXD_GSO       HE_SOFT_GAMMA     2.0660e-06  2.4800e-05  5.0000e+04  6.0000e+05 10-20           D104  HE_ISOTROPIC  1
+ 81 XRISM_RESOLVE        JAXA/NASA XRISM              XRISM_RESOLVE        HE_XRAY           1.0300e-04  7.2900e-04  1.7000e+03  1.2000e+04 1300            D104  HE_ISOTROPIC  1
+ 82 NICER_XTI            NASA NICER ISS               NICER_XTI            HE_XRAY           1.2400e-04  3.5420e-03  3.5000e+02  1.0000e+04 10-70           D104  HE_ISOTROPIC  1
+ 83 CGRO_OSSE            NASA Compton GRO             CGRO_OSSE            HE_GAMMA_MEV      1.3640e-07  2.4800e-05  5.0000e+04  9.0900e+06 12-25           D105  HE_ISOTROPIC  1
+ 84 CGRO_COMPTEL         NASA Compton GRO             CGRO_COMPTEL         HE_GAMMA_MEV      4.1330e-08  1.6530e-06  7.5000e+05  3.0000e+07 12-20           D105  HE_ISOTROPIC  1
+ 85 FERMI_LAT            NASA Fermi LAT Pass-8        FERMI_LAT_GEV        HE_GAMMA_GEV      4.1330e-12  4.1330e-08  3.0000e+07  3.0000e+11 10-15           D105  HE_ISOTROPIC  1
+ 86 HESS_TEV             H.E.S.S. Namibia IACT        HESS_DR1_TEV         HE_VHE_TEV        1.1810e-14  8.2660e-12  1.5000e+11  1.0500e+14 6-10            D106  HE_ISOTROPIC  1
+ 87 MAGIC_TEV            MAGIC La Palma IACT          MAGIC_AODR_TEV       HE_VHE_TEV        2.2540e-14  3.1000e-11  4.0000e+10  5.5000e+13 6-10            D106  HE_ISOTROPIC  1
+ 88 VERITAS_TEV          VERITAS Arizona IACT         VERITAS_DL3_TEV      HE_VHE_TEV        6.8880e-14  1.2400e-11  1.0000e+11  1.8000e+13 6-10            D106  HE_ISOTROPIC  1
+ 89 HAWC_TEV             HAWC Mexico WCD              HAWC_PASS4_PEV       HE_VHE_PEV        4.1330e-15  8.2660e-13  1.5000e+12  3.0000e+14 3-5             D106  HE_ISOTROPIC  1
+ 90 ICECUBE_10YR         IceCube South Pole Neutrino  ICECUBE_IC40_IC86    NU_MU_TEV_PEV            ---         ---  1.0000e+11  1.0000e+16 2-5             D107  NU_ISOTROPIC  1
+ 91 SWIFT_BAT            NASA Neil Gehrels Swift      SWIFT_BAT_157M       HE_HARD_X         6.3580e-06  8.8560e-05  1.4000e+04  1.9500e+05 10-20           D107  HE_ISOTROPIC  1
+ 92 SWIFT_XRT            NASA Neil Gehrels Swift      SWIFT_XRT_PC_WT      HE_XRAY           1.2400e-04  4.1330e-03  3.0000e+02  1.0000e+04 10-50           D107  HE_ISOTROPIC  1
+ 93 IXPE_GPD             NASA/ASI IXPE Polarimeter    IXPE_GPD_IQU         HE_XRAY_POL       1.5500e-04  6.2000e-04  2.0000e+03  8.0000e+03 4-8             D108  HE_ISOTROPIC  1
+ 94 EROSITA_DR1          SRG/eROSITA-DE DR1           EROSITA_DR1_SOFT     HE_XRAY           1.5500e-04  6.2000e-03  2.0000e+02  8.0000e+03 20-50           D108  HE_ISOTROPIC  1
+ 95 RXTE_PCA             NASA RXTE Mission            RXTE_PCA_XRAY        HE_XRAY           2.0660e-05  6.2000e-04  2.0000e+03  6.0000e+04 6               D108  HE_ISOTROPIC  1
+ 96 RXTE_HEXTE           NASA RXTE Mission            RXTE_HEXTE_HX        HE_HARD_X         4.9590e-06  8.2660e-05  1.5000e+04  2.5000e+05 6-10            D108  HE_ISOTROPIC  1
+ 97 TBL_NARVAL           TBL 2m Pic du Midi           NARVAL_POL_IQUV      OPT_POLARIMETRY   3.7000e-01  1.0500e+00  1.1810e+00  3.3510e+00 65000           D110  BEAMED_10M    1
+ 98 JWST_NIRSPEC         JWST L2 6.5m                 NIRSPEC_G395M        THERMAL_IR        2.8700e+00  5.2700e+00  2.3500e-01  4.3200e-01 1000            D111  BEAMED_10M    0
+ 99 INTEGRAL_IBIS_ISGRI  ESA INTEGRAL Coded Mask      ISGRI_HX_GAMMA       HE_GAMMA_511KEV   1.2770e-06  9.5370e-05  1.3000e+04  9.7088e+05 12-15           D112  HE_ISOTROPIC  1
+100 INTEGRAL_JEMX        ESA INTEGRAL JEM-X           JEMX1_JEMX2          HE_XRAY           3.5420e-05  4.1300e-04  3.0000e+03  3.5000e+04 8-12            D112  HE_ISOTROPIC  1
+101 INTEGRAL_SPI         ESA INTEGRAL Ge Spectr.      SPI_GE_511KEV        HE_GAMMA_511KEV   2.2960e-06  6.1990e-05  2.0000e+04  5.4000e+05 250             D112  HE_ISOTROPIC  1
+102 LHAASO_WCDA          LHAASO Daocheng WCD          1LHAASO_WCDA         HE_VHE_TEV        4.9590e-14  1.2400e-12  1.0000e+12  2.5000e+13 3-5             D112  HE_ISOTROPIC  1
+103 LHAASO_KM2A          LHAASO Daocheng KM2A         1LHAASO_KM2A_PEV     HE_PEV_1PEV       1.2400e-15  4.9590e-14  2.5000e+13  1.0000e+15 4-7             D112  HE_ISOTROPIC  1
+104 ALMA_B2              ALMA Chajnantor 12m SV       ALMA_B2_3MM          ALMA_MM           2.6269e+03  3.4678e+03  3.5800e-04  4.7200e-04 50000-1500000   D112  BEAMED_10M    0

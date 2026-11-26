@@ -1,0 +1,30 @@
+Title: Cosmic Haystack / CWTFM Survey Benchmark Comparison (D112 vs. Literature)
+Authors: Andersen, M. (2026)
+Table: table5b_cwtfm_benchmark.mrt (7 data rows)
+================================================================================
+Byte-by-byte Description of file: table5b_cwtfm_benchmark.mrt
+--------------------------------------------------------------------------------
+ Bytes   Format  Units          Label                    Explanations
+--------------------------------------------------------------------------------
+   1- 32 A32     ---            survey_or_cohort         Survey or benchmark cohort identifier
+  34- 63 A30     ---            reference                Bibliographic reference
+      65 I1      ---            is_this_work             1 if this work else literature comparison
+  67-112 A46     ---            regime_and_band          Wavelength/energy span description
+ 114-118 I5      ---            n_stars                  Number of stars/targets surveyed
+ 120-126 F7.3    oct            spectral_octaves         Spectral octave span covered
+ 128-135 F8.4    ---            nu_rel_cwtfm             Relative frequency span factor for CWTFM
+ 137-150 A14     kW             median_p10m_kw           Median 10m beamed power limit
+ 152-162 E11.4   W              median_eirp_w            Median isotropic equivalent EIRP (Watts)
+ 164-174 E11.4   ---            cwtfm_eirp_score         Continuous Waveform Transmitter Figure of Merit
+ 176-185 A10     %              f95_uniform_pct          95% steady occurrence rate limit (%)
+--------------------------------------------------------------------------------
+Notes: Missing or regime-decoupled values (e.g., EM fields on IceCube-only
+  targets or neutrino fields on EM-only targets) are denoted by '---'.
+--------------------------------------------------------------------------------
+FULL_PANCHROMATIC_62P6_OCT_V70   This Work (D112 V7.0)          --- 1.000 PeV LHAASO - 35 GHz ALMA (62.582 oct)     1083  62.582  44.7014 26.90333        1.4380e+19  2.9703e+14 0.5048    
+HE_UNBROKEN_INTEGRAL_LHAASO_V70  This Work (D112 V7.0)          --- INTEGRAL 511 keV + 1LHAASO PeV (45.682 HE oct)   352  45.682  32.6300 N/A_HE_ISO      4.0167e+21  3.4971e+17 0.8484    
+ALMA_BAND2_SV_ARP220_V70         This Work (D112 V7.0)          --- ALMA Band 2 SV (86.45-114.12 GHz, 10/10 Bands)     1   0.401   0.2860 3.9216e+17      3.4983e+28  1.2232e+29 UL_1TARGET
+ALL_SCIENCE_EM                   This Work (D112 V7.0)          --- Panchromatic Beamed UV-mm (EM Sci)               600  14.693   1.9998 26.90333        1.4380e+19  1.1984e+16 0.5048    
+SOLAR_10PC_SCIENCE               This Work (D112 V7.0)          --- Opt/IR/mm Beamed (<10 pc Sci)                    179  14.693   1.9998 0.67782         1.3706e+18  3.8289e+15 1.6753    
+LIT_TELLIS_MARCY_2017            Tellis & Marcy (2017, AJ 153,  --- Optical Keck HIRES (364-789 nm)                 5600   1.116   0.7372 1.00000         3.0000e+16  3.6334e+02 0.0535    
+LIT_PRICE_2020_BL                Price et al. (2020, AJ 159, 86 --- Radio GBT/Parkes L+S Band                       1327   1.400   1.0000 N/A_RADIO       2.0000e+12  7.5358e-02 0.2253    
