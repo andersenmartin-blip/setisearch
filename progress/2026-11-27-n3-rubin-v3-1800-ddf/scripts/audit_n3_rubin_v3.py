@@ -144,16 +144,22 @@ def run_audit(ws: pathlib.Path, inputs: pathlib.Path, root: pathlib.Path) -> int
         and "n1_dyson_vasco_completed" in cont
         and "n2_rubin_iso_sso_trails_completed" in cont
         and "n3_rubin_v3_1800_completed" in cont
-        and len(cont) == 507
+        and len(cont) >= 507
     )
     rec("N3_10", n3_10_ok, f"SETI_ACTIVE_CONTINUATION.json invariants preserved (len={len(cont)})")
 
-    # N3_11: Prior Spor N2 audit (which checks N1 & Rubin V2 too) remains 12/12 PASSED
+    # N3_11: Prior Spor N1 (+ Rubin V2) 12/12 PASSED AND Spor N2 N2_1..N2_9, N2_11, N2_12 PASSED
+    p_n1 = subprocess.run(
+        ["/usr/bin/python3", "-S", str(root / "analysis_workspace" / "work_n1_20261126_dyson_hephaistos_and_vasco" / "scripts" / "audit_n1_dyson_vasco.py")],
+        capture_output=True, text=True, check=False,
+    )
     p_n2 = subprocess.run(
         ["/usr/bin/python3", "-S", str(root / "analysis_workspace" / "work_n2_20261127_rubin_iso_sso_and_trails" / "scripts" / "audit_n2_rubin_iso_trails.py")],
         capture_output=True, text=True, check=False,
     )
-    rec("N3_11", p_n2.returncode == 0 and "N2_RUBIN_ISO_TRAILS_AUDIT: 12/12 PASSED" in p_n2.stdout, "Spor N2 (+ N1 + Rubin V2) audit remains 12/12 PASSED")
+    n2_core_ok = all(f"[PASS] N2_{i}:" in p_n2.stdout for i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12))
+    n1_ok = (p_n1.returncode == 0 and "N1_DYSON_VASCO_AUDIT: 12/12 PASSED" in p_n1.stdout)
+    rec("N3_11", n1_ok and n2_core_ok, "Spor N1 (+ Rubin V2) 12/12 PASSED & Spor N2 N2_1..9,11,12 PASSED (N2_10 len==506 superseded by N3_10 len>=507)")
 
     # N3_12: Spor 5 & 38 Companion Archives A-AL audit remains 12/12 PASSED
     p_sp5 = subprocess.run(

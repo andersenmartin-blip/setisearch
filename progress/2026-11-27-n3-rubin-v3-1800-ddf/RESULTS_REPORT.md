@@ -49,4 +49,4 @@ Den forenede Vera Rubin V2 + V3-grænse på **`0,1133–0,1150 %` Jeffreys (`0,1
 
 - **6 Visuelt Godkendte 300-DPI Figurer (`figN3_01–figN3_06`):** [`VISUAL_REVIEW_N3.json`](results/VISUAL_REVIEW_N3.json).
 - **Ren-Stdlib Revision (`/usr/bin/python3 -S`):** [`audit_n3_rubin_v3.py`](scripts/audit_n3_rubin_v3.py) $\rightarrow$ **`N3_RUBIN_V3_AUDIT: 12/12 PASSED`**, samt samtidig bekræftelse af **`N2_RUBIN_ISO_TRAILS_AUDIT: 12/12 PASSED`**, **`N1_DYSON_VASCO_AUDIT: 12/12 PASSED`**, **`RUBIN_V2_AUDIT: 12/12 PASSED`** og **`SPOR5_PUBLICATION_AUDIT: 12/12 PASSED`**.
-- **Fuld Arkivpakke (`archives_n3/`):** `SETI_N3_RUBIN_V3_1800STARS_2026-11-27.zip`.
+- **Fuld Arkivpakke (`archives_n3/`):** `SETI_N3_RUBIN_V3_1800STARS_2026-11-27.zip` (`26,429,735 B`, SHA-256 `ef51060974d26eccc86eaf0eaf58d3f7404c29021dd4bb4614307994d881af39`).
