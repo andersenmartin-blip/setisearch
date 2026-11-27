@@ -1,0 +1,16 @@
+{
+  "spor": "SPOR_N8_GALACTIC_CENTER_BEACON_AND_PULSAR_SURVEY",
+  "locked_utc": "2026-11-27T19:07:48.702545+00:00",
+  "domain": "Strictly Milky Way ATNF Pulsars (excl. LMC/SMC) + Galactic Bulge Fermi-LAT 4FGL-DR3 (|l|<=10, |b|<=5) + NVSS & Chandra CSC2 GC Core",
+  "gates": {
+    "N8_PSR_SPINUP_ANOMALY": "P1 < -1e-17",
+    "N8_PSR_DEATHLINE_VIOLATION": "radio detected AND log10(Bsurf / P0^2) < 10.6",
+    "N8_PSR_ULTRA_LONG_OR_HARMONIC": "P0 >= 15.0s OR |P0-round|<1e-6 OR |P0-pi|<1e-5",
+    "N8_FERMI_UNASSOC_HARD_CURVED": "unassoc AND Sig >= 10 AND PLGam < 1.85 AND max_curv >= 5.0",
+    "N8_FERMI_UNASSOC_EXTREME_VAR": "unassoc AND Sig >= 10 AND VarInd >= 100.0"
+  },
+  "injection_trials": 1200,
+  "sha256": {
+    "scripts/n8_galactic_center_analyzer.py": "3bc4e2d794ce3e6a36499fcadff9cc2515f7ef479a3e4d4105bdb08c937b2d6b"
+  }
+}
