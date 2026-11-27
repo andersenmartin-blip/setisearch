@@ -1,0 +1,82 @@
+{
+  "campaign": "SPOR_N10_BL_RADIO_BLINDSPOT_ABACAD",
+  "locked_utc": "2026-11-27T21:06:42.412235+00:00",
+  "targets_milky_way_under_5pc": [
+    "GJ411",
+    "GJ65A",
+    "GJ54.1",
+    "GJ273",
+    "GJ687",
+    "GJ1002"
+  ],
+  "cadence_pattern": "ABACAD_6_SCAN",
+  "frequency_band_mhz": [
+    1080.0,
+    1920.0
+  ],
+  "gbt_notch_masked_mhz": [
+    1195.0,
+    1345.0
+  ],
+  "detectors": {
+    "M1_BROAD_CURVED": {
+      "widths": [
+        1,
+        4,
+        16,
+        64
+      ],
+      "linear_shifts": [
+        -12,
+        12
+      ],
+      "quad_curvatures": [
+        -6,
+        6
+      ],
+      "thresh_all3": 10.0,
+      "thresh_2of3": 14.0,
+      "off_veto": 5.0
+    },
+    "M2_SHORT_BURST": {
+      "taus": [
+        2,
+        8,
+        25
+      ],
+      "widths": [
+        1,
+        4,
+        16
+      ],
+      "thresh_2of3": 12.0,
+      "off_veto": 6.0
+    },
+    "M3_FHSS_AC2D": {
+      "tile_chans": 512,
+      "ac2d_on2_min": 14.0,
+      "ac2d_off_max": 11.0,
+      "ratio_min": 2.0
+    },
+    "M4_KURTOSIS_ENTROPY": {
+      "kurt_on_min_z": 8.0,
+      "kurt_off_max_z": 4.0,
+      "zlib_on_max_z": -6.0,
+      "zlib_off_min_z": -3.0
+    }
+  },
+  "injection_benchmark": {
+    "trials_total": 1200,
+    "per_class": 300,
+    "classes": [
+      "PLASMA_BROADENED",
+      "CURVED_DRIFT",
+      "SHORT_BURST",
+      "FHSS_HOPPING"
+    ]
+  },
+  "analyzer_sha256": "ca65404e9a315c2ca6d50452741c73499a29fc2d05508598a0f359321ae60a10",
+  "external_contacts": 0,
+  "pre_acquisition_locked_utc": "2026-11-27T20:21:50.202659+00:00",
+  "lock_note": "Calibrated M3 AC2D noise ceiling (Gaussian ~6.0-8.5 -> thresh 14.0/off_max 11.0/ratio 2.0) + quiet tile pool filter before Stage 2 output creation."
+}
