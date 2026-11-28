@@ -1,0 +1,54 @@
+{
+  "campaign": "SPOR_N11B_HARPS_SINGLE_EPOCH_TRANSIENT_LASER",
+  "locked_utc": "2026-11-28T07:31:29.415476+00:00",
+  "targets_milky_way_under_11pc": [
+    "PROXIMACEN",
+    "BARNARDSSTAR",
+    "ROSS128",
+    "GJ1061",
+    "YZCET",
+    "GJ273",
+    "GJ667C",
+    "L9859"
+  ],
+  "epochs_per_star": 20,
+  "wavelength_band_a": [
+    4800.0,
+    6900.0
+  ],
+  "dlam_a": 0.01,
+  "ccd_gap_mask_a": [
+    5299.5,
+    5343.5
+  ],
+  "spectral_resolution_r": 115000.0,
+  "detectors": {
+    "T1_TRANSIENT_LASER": {
+      "loeo_epochs": 19,
+      "z_mf_min": 10.0,
+      "n_epochs_gt5_max": 3,
+      "n_pix_gt3_min": 3,
+      "fwhm_ratio_range": [
+        0.8,
+        1.5
+      ],
+      "r_gauss_core_min": 0.88,
+      "min_neg_ratio_min": -0.45
+    }
+  },
+  "injection_benchmark": {
+    "trials_total": 1200,
+    "per_class": 400,
+    "classes": [
+      "TRANSIENT_PSF_LASER",
+      "COSMIC_RAY_1_2PX",
+      "BROAD_STELLAR_FLARE"
+    ]
+  },
+  "analyzer_sha256": "7d132703f61ec2220dee1a0704c34d0b9f0cbdec3798498302251940072352e5",
+  "external_contacts": 0,
+  "bugfix_relock_utc": "2026-11-28T07:34:09.670267+00:00",
+  "nan_boundary_bugfix_note": "Prevented NaN propagation from masked CCD gap/edges into sig_loc and med_sigma without changing any scientific threshold.",
+  "relocked_utc": "2026-11-28T07:40:08.084813+00:00",
+  "optical_band_and_comparator_lock_note": "Restricted to photon-rich 4800-6900 A optical M-dwarf sweet spot (0.80-1.50 FWHM PSF lower bound vs oblique CRs) and fixed classical median stack comparator against clean template."
+}
