@@ -1,0 +1,84 @@
+{
+  "campaign": "SPOR_N12_SCALED_32STAR_HARPS_TRANSIENT_LASER_AND_COMB",
+  "locked_utc": "2026-11-28T08:44:04.864721+00:00",
+  "targets_milky_way_under_9_5pc": [
+    "EPSERI",
+    "HD217987",
+    "TAUCET",
+    "HD209100",
+    "GJ191",
+    "WOLF1061",
+    "GJ9066",
+    "GJ674",
+    "GJ876",
+    "GJ832",
+    "GJ682",
+    "GJ3323",
+    "HD42581",
+    "GJ752A",
+    "HD20794",
+    "GJ581",
+    "LTT1445A",
+    "GJ393",
+    "GJ514",
+    "HD115617",
+    "GJ849",
+    "HD192310",
+    "GJ433",
+    "GJ367"
+  ],
+  "epochs_per_star": 20,
+  "wavelength_band_a": [
+    4800.0,
+    6900.0
+  ],
+  "dlam_a": 0.01,
+  "ccd_gap_mask_a": [
+    5299.5,
+    5343.5
+  ],
+  "spectral_resolution_r": 115000.0,
+  "detectors": {
+    "T1_TRANSIENT_LASER": {
+      "loeo_epochs": 19,
+      "z_mf_min": 10.0,
+      "n_epochs_gt5_max": 3,
+      "n_pix_gt3_min": 3,
+      "fwhm_ratio_range": [
+        0.8,
+        1.5
+      ],
+      "r_gauss_core_min": 0.88,
+      "min_neg_ratio_min": -0.45
+    },
+    "T2_OPTICAL_COMB": {
+      "subthreshold_z_mf_range": [
+        6.0,
+        10.0
+      ],
+      "min_sep_a": 25.0,
+      "n_epochs_gt4_max": 2,
+      "n_pix_gt2_min": 3,
+      "n_clean_teeth_min": 5,
+      "fwhm_ratio_range": [
+        0.65,
+        1.75
+      ],
+      "r_gauss_core_min": 0.8,
+      "min_neg_ratio_min": -0.75
+    }
+  },
+  "injection_benchmark": {
+    "trials_total": 1200,
+    "classes": {
+      "TRANSIENT_PSF_LASER": 400,
+      "SUBTHRESHOLD_OPTICAL_COMB": 400,
+      "COSMIC_RAY_1_2PX": 200,
+      "BROAD_STELLAR_FLARE": 200
+    }
+  },
+  "analyzer_sha256": "c7722e9725247296858b0f07870d24b27e73fa944ed04d443abcb6f874c7213c",
+  "external_contacts": 0,
+  "relocked_utc": "2026-11-28T08:56:33.985399+00:00",
+  "t2_subthreshold_gate_note": "Calibrated low-SNR T2 gate (Z>=6.0, 0.65-1.75 FWHM, r>=0.80, min_neg>-0.75, n_pix_gt2>=3, 8-tooth 7-9 sigma benchmark) to match 2.2-3.3 sigma pixel SNR."
+}
