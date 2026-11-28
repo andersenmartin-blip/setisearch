@@ -1,0 +1,119 @@
+{
+  "campaign": "SPOR_N13_SCALED_33STAR_WATERHOLE_PLASMA_DECHIRP_COMB",
+  "locked_utc": "2026-11-28T10:31:14.652411+00:00",
+  "targets_under_9_1pc_non_n11a": [
+    "GJ699",
+    "GJ406",
+    "GJ244",
+    "GJ905",
+    "GJ447",
+    "GJ820B",
+    "GJ725",
+    "GJ1111",
+    "GJ860A",
+    "GJ628",
+    "GJ473AB",
+    "GJ83.1",
+    "GJ380",
+    "GJ412A",
+    "HIP19849",
+    "GJ873",
+    "GJ702A",
+    "GJ768",
+    "HIP103039",
+    "HIP72659",
+    "HIP64924",
+    "HIP32984",
+    "HIP109388",
+    "HIP17378"
+  ],
+  "cadences": 24,
+  "scans_per_cadence": 6,
+  "target_waterhole_mhz": 1425.0,
+  "chunk_size_channels": 1048576,
+  "block_chans": 16384,
+  "n_blocks": 64,
+  "detectors": {
+    "G1_GAJJAR_PLASMA_BROADENED": {
+      "widths_bins": [
+        1,
+        4,
+        16,
+        64,
+        128
+      ],
+      "curvs_bins": [
+        -12,
+        0,
+        12
+      ],
+      "thresh_all3": 10.0,
+      "thresh_2of3": 14.0,
+      "off_veto": 5.0
+    },
+    "G2_PARABOLIC_DECHIRP": {
+      "width_bins": 3,
+      "shifts_bins": [
+        -27,
+        -24,
+        -21,
+        -18,
+        -15,
+        -12,
+        -9,
+        -6,
+        -3,
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27
+      ],
+      "curvs_bins": [
+        -48,
+        -42,
+        -36,
+        -30,
+        -24,
+        24,
+        30,
+        36,
+        42,
+        48
+      ],
+      "thresh_all3": 10.0,
+      "thresh_2of3": 14.0,
+      "matched_off_veto": 5.5
+    },
+    "G3_FINE_SPECTRAL_COMB_V2": {
+      "boxcar_smooth_bins": 3,
+      "window_chans": 4096,
+      "stride_chans": 2048,
+      "lags_bins": [
+        30,
+        1000
+      ],
+      "comb_on2_min": 14.0,
+      "comb_off_max": 10.0,
+      "comb_ratio_min": 2.0
+    }
+  },
+  "injection_benchmark": {
+    "trials_total": 1400,
+    "signal_trials": 1200,
+    "null_fpr_trials": 200,
+    "classes": {
+      "GAJJAR_PLASMA_10_350HZ": 400,
+      "FINE_CURVED_ORBITAL": 400,
+      "FINE_HARMONIC_COMB": 400,
+      "NULL_NOISE_FPR": 200
+    }
+  },
+  "analyzer_sha256": "03638ed34550b8afb6ce6cd52da6e82482af21a4a8ae4c32bca4ac96c463e3e1",
+  "external_contacts": 0
+}
