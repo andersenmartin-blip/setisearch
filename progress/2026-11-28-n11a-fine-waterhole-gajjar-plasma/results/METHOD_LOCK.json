@@ -1,0 +1,80 @@
+{
+  "campaign": "SPOR_N11A_FINE_WATERHOLE_GAJJAR_PLASMA",
+  "locked_utc": "2026-11-28T06:58:12.123450+00:00",
+  "targets_milky_way_under_6pc": [
+    "GJ411",
+    "GJ65A",
+    "GJ866",
+    "GJ54.1",
+    "GJ273",
+    "GJ687",
+    "GJ1245AC",
+    "GJ1002",
+    "HIP1242"
+  ],
+  "waterhole_band_mhz": [
+    1422.363,
+    1425.293
+  ],
+  "freq_resolution_hz": 2.7939677,
+  "detectors": {
+    "G1_GAJJAR_PLASMA_BROADENED": {
+      "widths": [
+        1,
+        4,
+        16,
+        64,
+        128
+      ],
+      "d1_range": [
+        -48,
+        48
+      ],
+      "d2_range": [
+        -12,
+        12
+      ],
+      "thresh_all3": 10.0,
+      "thresh_2of3": 14.0,
+      "off_veto": 5.0
+    },
+    "G2_FINE_CURVED_DRIFT": {
+      "widths": [
+        1,
+        4
+      ],
+      "d2_curvs": [
+        -48,
+        -36,
+        -24,
+        24,
+        36,
+        48
+      ],
+      "thresh_all3": 10.0,
+      "thresh_2of3": 14.0,
+      "off_veto": 5.0
+    },
+    "G3_FINE_SPECTRAL_COMB": {
+      "block_chans": 16384,
+      "lag_range_bins": [
+        20,
+        4000
+      ],
+      "on2_min": 14.0,
+      "off_max": 10.0,
+      "ratio_min": 2.0
+    }
+  },
+  "injection_benchmark": {
+    "trials_total": 1200,
+    "per_class": 400,
+    "classes": [
+      "GAJJAR_PLASMA_10_350HZ",
+      "FINE_CURVED_ORBITAL",
+      "FINE_HARMONIC_COMB"
+    ]
+  },
+  "analyzer_sha256": "a460ca9a6553082aabac2cd96a26a20d33f5f755f2e07a7c24ac3582a74ab5e7",
+  "external_contacts": 0
+}
